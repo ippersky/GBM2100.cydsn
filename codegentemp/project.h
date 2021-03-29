@@ -35,10 +35,6 @@
 #include "cy_syslib.h"
 #include "cy_syspm.h"
 #include "cy_systick.h"
-#include "cy_tcpwm.h"
-#include "cy_tcpwm_counter.h"
-#include "cy_tcpwm_pwm.h"
-#include "cy_tcpwm_quaddec.h"
 #include "cy_trigmux.h"
 #include "cy_wdt.h"
 #include "cy_device.h"
@@ -106,12 +102,8 @@
 #include "cyfitter_gpio.h"
 #include "cyfitter_sysint.h"
 #include "cydisabledsheets.h"
-#include "CY_EINK_SPIM.h"
-#include "EINK_Clock.h"
-#include "CY_EINK_Timer.h"
-#include "Status_SW2.h"
-#include "Clock_2.h"
-#include "CY_EINK_SPIM_SCBCLK.h"
+#include "I2C.h"
+#include "I2C_SCBCLK.h"
 
 /*[]*/
 

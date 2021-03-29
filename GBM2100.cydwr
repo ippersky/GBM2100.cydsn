@@ -11,7 +11,7 @@
       <Data key="eb5fffbd-d43b-40a7-a28c-4ba09dd25f0f" value="EINK_Clock" />
     </Group>
     <Group key="Pin">
-      <Data key="3bebfee8-790b-4297-b73a-27818bdce71c" value="PWM_OUT" />
+      <Data key="3bebfee8-790b-4297-b73a-27818bdce71c" value="SDA" />
       <Data key="3c4d3e18-34dd-4016-a84e-c17ca6d6ec67" value="LED_Orange" />
       <Data key="4cca878b-77b5-471d-8aeb-ad6925202455" value="CY_EINK_DispBusy" />
       <Data key="5b19853d-a396-454b-bceb-ccfcfb57ce95" value="CY_EINK_Ssel" />
@@ -25,6 +25,7 @@
       <Data key="94d28ee0-9d93-4376-b8d6-09b8d2c1a3d1/dbc12ae1-a607-4701-99cc-6261716a9147" value="CapSense_CintB" />
       <Data key="122d9389-0083-4701-afa6-d5a418aa7bf2" value="SW2" />
       <Data key="0479a41f-7847-4e96-b9d9-0145177051b1" value="CY_EINK_Border" />
+      <Data key="5009f39b-1740-4502-80ea-63fc5667b5f1" value="SCL" />
       <Data key="0113321b-4a37-46f6-8407-2f8646c68756" value="ADC_IN" />
       <Data key="a168f3f7-9ffe-4429-841e-44d553d0e936" value="CY_EINK_Discharge" />
       <Data key="a61270bc-07ec-447d-ac9e-34cfe85c30e9" value="GreenLED" />
@@ -694,7 +695,7 @@
   <Group key="Pin2">
     <Group key="3bebfee8-790b-4297-b73a-27818bdce71c">
       <Group key="0">
-        <Data key="Port Format" value="6,2" />
+        <Data key="Port Format" value="12,0" />
       </Group>
     </Group>
     <Group key="3c4d3e18-34dd-4016-a84e-c17ca6d6ec67">
@@ -777,6 +778,11 @@
         <Data key="Port Format" value="5,6" />
       </Group>
     </Group>
+    <Group key="5009f39b-1740-4502-80ea-63fc5667b5f1">
+      <Group key="0">
+        <Data key="Port Format" value="12,1" />
+      </Group>
+    </Group>
     <Group key="0113321b-4a37-46f6-8407-2f8646c68756">
       <Group key="0">
         <Data key="Port Format" value="10,6" />
@@ -827,6 +833,8 @@
         <Data key="Port Format" value="5,0" />
       </Group>
     </Group>
+    <Group key="UnAssigned Pins" />
+    <Group key="Unlocked Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />

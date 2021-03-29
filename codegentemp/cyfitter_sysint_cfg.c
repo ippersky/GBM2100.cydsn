@@ -20,10 +20,10 @@
 /* ARM CM4 */
 #if (((__CORTEX_M == 4) && (CY_CORE_ID == 0)))
 
-    /* CY_EINK_SPIM_SCB_IRQ */
-    const cy_stc_sysint_t CY_EINK_SPIM_SCB_IRQ_cfg = {
-        .intrSrc = (IRQn_Type)CY_EINK_SPIM_SCB_IRQ__INTC_NUMBER,
-        .intrPriority = CY_EINK_SPIM_SCB_IRQ__INTC_CORTEXM4_PRIORITY
+    /* I2C_SCB_IRQ */
+    const cy_stc_sysint_t I2C_SCB_IRQ_cfg = {
+        .intrSrc = (IRQn_Type)I2C_SCB_IRQ__INTC_NUMBER,
+        .intrPriority = I2C_SCB_IRQ__INTC_CORTEXM4_PRIORITY
     };
 
 #endif /* ((__CORTEX_M == 4) && (CY_CORE_ID == 0)) */
