@@ -9,8 +9,9 @@
  *
  * ========================================
 */
-#include <MAX30102.h>
-#include <cy_scb_i2c.h>
+#include "MAX30102.h"
+#include "project.h"
+
 /*
 master sendstart
 masterwritebyte
@@ -18,26 +19,35 @@ mastersendrestart
 masterreadbyte
 masterstop
 */
-void ReadRegistre (){
+void ReadRegistre (uint8_t* data, uint8_t adresse){
     cy_en_scb_i2c_status_t status;
-    cy_en_scb_i2c_command_t commande;
+    
     status = I2C_MasterSendStart(ADRESSE_I2C,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);
     if(status==CY_SCB_I2C_SUCCESS){
+    I2C_MasterWriteByte(adresse,I2C_TIMEOUT);
+    }
+    status = I2C_MasterSendReStart(adresse,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);  
+    if(status==CY_SCB_I2C_SUCCESS){
         do{
-        status=I2C_MasterReadByte(CY_SCB_I2C_ACK,
+        status=I2C_MasterReadByte(CY_SCB_I2C_ACK,data,I2C_TIMEOUT);
         }
-        while(status != CY_SCB_I2C_MASTER_MANUAL_BUS_ERR)
+        while(status != CY_SCB_I2C_MASTER_MANUAL_NAK);
     }
         
 }
-// I2C_TIMEOUT ou CY_SCB_I2C_MASTER_MANUAL_TIMEOUT
-void WriteRegistre(uint8_t Data){ //buffer ? pointeur?
+
+void WriteRegistre(uint8_t data, uint8_t adresse){ 
     
     cy_en_scb_i2c_status_t status;
-        status = I2C_MasterSendStart(ADRESSE_I2C,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
+    
+    status = I2C_MasterSendStart(ADRESSE_I2C,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
+    if(status==CY_SCB_I2C_SUCCESS){
+        I2C_MasterWriteByte(adresse,I2C_TIMEOUT);
+    }
+    status = I2C_MasterSendReStart(adresse,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
     if(status == CY_SCB_I2C_SUCCESS){
         do{
-        status=I2C_MasterWriteByte(Data,I2C_TIMEOUT);
+        status=I2C_MasterWriteByte(data,I2C_TIMEOUT);
         }
         while (status != CY_SCB_I2C_MASTER_MANUAL_NAK);
     }
