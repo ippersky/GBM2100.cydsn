@@ -1,4 +1,4 @@
-C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\Projet final\GBM2100\GBM2100.cydsn\TopDesign\TopDesign.cysch
+C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SCB_SPI_PDL_v2_0\SCB_SPI_PDL_v2_0.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SCB_SPI_PDL_v2_0\SCB_SPI_PDL_v2_0.cystate
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SCB_SPI_PDL_v2_0\SCB_SPI_PDL_v2_0.pdf
@@ -114,4 +114,4 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrim
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\Custom\custom.cs
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\Custom\cybitfieldcontrol.resx
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\Custom\Resource.resx
-C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\Projet final\GBM2100\GBM2100.cydsn\GBM2100.cydwr
+C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\GBM2100.cydwr
