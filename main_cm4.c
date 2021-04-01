@@ -263,7 +263,12 @@ int main(void)
     GUI_Clear();
     
     
-    /* Task initialisation */
+    /* Initialisation de CapSense */
+    
+    CapSense_Start();
+    CapSense_ScanAllWidgets();
+    
+    /* Initialisation des tasks */
     
     xTaskCreate(Task_AffichageGraphique, "Task A", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
     
@@ -291,7 +296,7 @@ int main(void)
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
     */
-    
+    while(CapSense_IsBusy()); // ?? du CapSense Example
     for(;;)
     {
         

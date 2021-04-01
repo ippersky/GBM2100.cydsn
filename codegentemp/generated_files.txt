@@ -22,7 +22,31 @@
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\Status_SW2.c" value="SOURCE_C;CortexM0p,CortexM4;;;;Status_SW2" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\Status_SW2.h" value="HEADER;;;;;Status_SW2" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\Clock_2.h" value="HEADER;;;;;Clock_2" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Control.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Processing.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Structure.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Tuner.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Filter.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Sensing.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Control.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Filter.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Processing.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Sensing.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Structure.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Tuner.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Configuration.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_INT.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_SensingCSD_LL.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_SensingCSD_LL.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_SensingCSX_LL.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_SensingCSX_LL.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_RegisterMap.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Centroid_LL.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Centroid_LL.h" value="HEADER;;;;;CapSense" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_SmartSense_LL.h" value="HEADER;;;;;CapSense" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CY_EINK_SPIM_SCBCLK.h" value="HEADER;;;;;CY_EINK_SPIM_SCBCLK" />
+  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_ModClk.h" value="HEADER;;;;;CapSense_ModClk" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\project.h" value="OTHER;;;;;" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\cycodeshareimport.ld" value="OTHER;;;;;" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\cycodeshareexport.ld" value="OTHER;;;;;" />
