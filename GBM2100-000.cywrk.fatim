@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\Shared Files">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -87,44 +87,17 @@
 <v>GBM2100-000\GBM2100\Shared Files\LCDConf.h</v>
 <v>GBM2100-000\GBM2100\Shared Files\system_psoc6.h</v>
 <v>GBM2100-000\GBM2100\Generated_Source</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\scb</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\I2C</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\I2C_SCBCLK</v>
+<v>GBM2100-000\CE218044.pdf</v>
+<v>GBM2100-000\CE220818.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM GCC Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_fonts.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_library.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_library.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_psoc_interface.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_psoc_interface.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_configuration.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_hardware_driver.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_hardware_driver.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\debug.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\MAX30102.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\params.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Images</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Images\Cypress Logo Full Color_PNG_1bpp.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\main_cm4.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\MAX30102.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
-<v>GBM2100-000\GBM2100\Shared Files</v>
-<v>GBM2100-000\GBM2100\Generated_Source</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -133,12 +106,7 @@
 <v>GBM2100-000\GBM2100\TopDesign</v>
 <v>GBM2100-000\GBM2100\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>GBM2100-000</v>
-<v>GBM2100-000\GBM2100</v>
-<v>GBM2100-000\GBM2100\TopDesign</v>
-<v>GBM2100-000\GBM2100\TopDesign\TopDesign.cysch</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -233,43 +201,7 @@
 <v>GBM2100-000\GBM2100\GBM2100.rpt</v>
 <v>GBM2100-000\GBM2100\GBM2100_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>GBM2100-000</v>
-<v>GBM2100-000\GBM2100</v>
-<v>GBM2100-000\GBM2100\CortexM0p</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_flash.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_gpio.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_drv.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_pipe.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_sema.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_lvd.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_profile.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_prot.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_common.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_ezi2c.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_i2c.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_spi.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_uart.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysanalog.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysclk.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_sysint.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syslib_gcc.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_syspm.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_systick.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_trigmux.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_wdt.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_sysint_cfg.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\GUI_X.lst</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -288,17 +220,7 @@
 <v>GBM2100-000\GBM2100\GPIO_PDL_v1_0\GPIO_PDL_v1_0.pdf</v>
 <v>GBM2100-000\GBM2100\SCB_I2C_PDL_v2_0.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>GBM2100-000</v>
-<v>GBM2100-000\GBM2100</v>
-<v>GBM2100-000\GBM2100\PSoC 6 Architecture TRM</v>
-<v>GBM2100-000\GBM2100\PSoC 63 Family Datasheet</v>
-<v>GBM2100-000\GBM2100\Peripheral Driver Library</v>
-<v>GBM2100-000\GBM2100\System Reference Guides</v>
-<v>GBM2100-000\GBM2100\GPIO_PDL_v1_0</v>
-<v>GBM2100-000\GBM2100\GPIO_PDL_v1_0\GPIO_PDL_v1_0.pdf</v>
-<v>GBM2100-000\GBM2100\SCB_I2C_PDL_v2_0.pdf</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -311,6 +233,7 @@
 <name v=".\MAX30102.h" />
 <name v=".\MAX30102.c" />
 <name v=".\main_cm4.c" />
+<name v=".\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_i2c.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -318,7 +241,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1490, 495" SelectedTabbedMdiWindow="be201493-8b5f-4bc3-a612-ac8393f120de"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="45068785-0f1f-40a2-81ad-4631b648d04a" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="80f2476f-64e7-4858-92b8-89396033a007" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\MAX30102.h" Guid="94cf1c32-d5ab-4d3e-b603-c5884644a2c3" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\MAX30102.c" Guid="be201493-8b5f-4bc3-a612-ac8393f120de" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\main_cm4.c" Guid="032e7378-c691-46a5-90d4-70f1535548b1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="720, 486" SelectedTabbedMdiWindow="be201493-8b5f-4bc3-a612-ac8393f120de"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="45068785-0f1f-40a2-81ad-4631b648d04a" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="80f2476f-64e7-4858-92b8-89396033a007" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\MAX30102.h" Guid="94cf1c32-d5ab-4d3e-b603-c5884644a2c3" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\MAX30102.c" Guid="be201493-8b5f-4bc3-a612-ac8393f120de" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\main_cm4.c" Guid="032e7378-c691-46a5-90d4-70f1535548b1" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_i2c.c" Guid="7bbb8949-0daa-4517-85d8-a88ca2aa1397" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -21,8 +21,8 @@
 #include "cyfitter_sysint.h"
 
 /* I2C_SCB */
-#define I2C_SCB__HW SCB6
-#define I2C_SCB__IDX 6
+#define I2C_SCB__HW SCB3
+#define I2C_SCB__IDX 3
 #define I2C_SCB__SS0_POSITION 0u
 #define I2C_SCB__SS1_POSITION 1u
 #define I2C_SCB__SS2_POSITION 2u

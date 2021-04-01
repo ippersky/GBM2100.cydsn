@@ -9,6 +9,7 @@
 
 #include "project.h"
 
+
 // Adresse fixe du capteur MAX30102
 #define ADRESSE_I2C 0x57;
 #define ADRESSE_I2C_WR 0x57;
@@ -36,6 +37,7 @@
 #define REG_DIE_TEMP_CONFIG 0x21;
 #define REG_REVISION_ID 0xFE;
 #define REG_PART_ID 0xFF;
+#define I2C_TIMEOUT (100UL);
 
 
 

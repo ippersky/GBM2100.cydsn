@@ -210,7 +210,7 @@ static void ClockInit(void)
 	Cy_SysLib_SetWaitStates(false, 100);
 
 	/* Configure peripheral clock dividers */
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB6_CLOCK, CY_SYSCLK_DIV_8_BIT, 0u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB3_CLOCK, CY_SYSCLK_DIV_8_BIT, 0u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 0u, 12u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 0u);
 }
@@ -281,11 +281,11 @@ void Cy_SystemInit(void)
 	/* Clock */
 	ClockInit();
 	{
-		/* SCB6_CTRL Starting address: CYDEV_SCB6_CTRL */
-		CY_SET_REG32((void *)(CYREG_SCB6_CTRL), 0x0000000Fu);
+		/* SCB3_CTRL Starting address: CYDEV_SCB3_CTRL */
+		CY_SET_REG32((void *)(CYREG_SCB3_CTRL), 0x0000000Fu);
 
-		/* SCB6_TX Starting address: CYDEV_SCB6_TX_CTRL */
-		CY_SET_REG32((void *)(CYREG_SCB6_TX_CTRL), 0x00010107u);
+		/* SCB3_TX Starting address: CYDEV_SCB3_TX_CTRL */
+		CY_SET_REG32((void *)(CYREG_SCB3_TX_CTRL), 0x00010107u);
 
 	}
 
@@ -293,34 +293,17 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port6_cfg =
 	    {
-	        .out        = 0x00000000u,
-	        .intrMask   = 0x00000000u,
-	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0xBA000000u,
-	        .cfgIn      = 0x00000000u,
-	        .cfgOut     = 0x00000000u,
-	        .cfgSIO     = 0x00000000u,
-	        .sel0Active = 0x00000000u,
-	        .sel1Active = 0x1D1D0000u,
-	    };
-	    (void)Cy_GPIO_Port_Init(GPIO_PRT6, &port6_cfg);
-	}
-
-	/* Port12 configuration */
-	{
-	    const cy_stc_gpio_prt_config_t port12_cfg =
-	    {
 	        .out        = 0x00000003u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x000000CCu,
+	        .cfg        = 0xBA0000CCu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
 	        .sel0Active = 0x00001313u,
-	        .sel1Active = 0x00000000u,
+	        .sel1Active = 0x1D1D0000u,
 	    };
-	    (void)Cy_GPIO_Port_Init(GPIO_PRT12, &port12_cfg);
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT6, &port6_cfg);
 	}
 
 
