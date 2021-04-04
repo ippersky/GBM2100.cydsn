@@ -126,6 +126,8 @@
 #include "CapSense_SmartSense_LL.h"
 #include "CY_EINK_SPIM_SCBCLK.h"
 #include "CapSense_ModClk.h"
+#include "display_task.h"
+#include "touch_task.h"
 
 /*[]*/
 

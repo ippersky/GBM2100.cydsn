@@ -274,28 +274,6 @@ int main(void)
     
     vTaskStartScheduler();
     
-    /*
-    
-    //Draw a rectangle
-    GUI_DrawRect(1,1,263,175);
-    
-    //Draw a line
-    GUI_SetPenSize(4);
-    GUI_DrawLine(20,65,243,65);
-    
-    GUI_SetColor(GUI_BLACK);
-    GUI_SetBkColor(GUI_WHITE);
-    
-   //Write a title and subtile	
-    GUI_SetFont(GUI_FONT_32B_1);
-    GUI_SetTextAlign(GUI_TA_CENTER);
-    GUI_DispStringAt("GBM2100", 132, 30);
-    GUI_SetFont(GUI_FONT_16_1);
-    GUI_DispStringAt("Laboratoire 3", 132, 70);
-    
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
-    */
     while(CapSense_IsBusy()); // ?? du CapSense Example
     for(;;)
     {
