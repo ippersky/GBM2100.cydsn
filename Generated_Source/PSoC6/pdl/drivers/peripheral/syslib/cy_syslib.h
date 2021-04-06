@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_syslib.h
-* \version 2.10
+* \version 2.0.1
 *
 * Provides an API declaration of the SysLib driver.
 *
@@ -13,14 +13,10 @@
 *******************************************************************************/
 
 /**
-* \addtogroup group_syslib
+* \defgroup group_syslib System Library (SysLib)
 * \{
 * The system libraries provide APIs that can be called in the user application
 * to handle the timing, logical checking or register.
-*
-* The functions and other declarations used in this driver are in cy_syslib.h. 
-* You can include cy_pdl.h (ModusToolbox only) to get access to all functions 
-* and declarations in the PDL. 
 *
 * The SysLib driver contains a set of different system functions. These functions
 * can be called in the application routine. Major features of the system library:
@@ -111,18 +107,6 @@
 *     <th>Description of Deviation(s)</th>
 *   </tr>
 *   <tr>
-*     <td>1.2</td>
-*     <td>R</td>
-*     <td>No reliance shall be placed on undefined or unspecified behaviour.</td>
-*     <td>This specific behavior is explicitly covered in rule 20.1.</td>
-*   </tr>
-*   <tr>
-*     <td>2.1</td>
-*     <td>R</td>
-*     <td>This function contains a mixture of in-line assembler statements and C statements.</td>
-*     <td>This si required by design of the Cy_SysLib_Halt function.</td>
-*   </tr>
-*   <tr>
 *     <td>18.4</td>
 *     <td>R</td>
 *     <td>Unions shall not be used.</td>
@@ -135,38 +119,11 @@
 *     <td>The # and ## operators should not be used.</td>
 *     <td>The ## preprocessor operator is used in macros to form the field mask.</td>
 *   </tr>
-*   <tr>
-*     <td>20.1</td>
-*     <td>R</td>
-*     <td>Reserved identifiers, macros and functions in the standard library, shall not be 
-*         defined, redefined or undefined.</td>
-*     <td>The driver defines the macros with leading underscores 
-*         (_CLR_SET_FLD/_BOOL2FLD/_FLD2BOOL) and therefore generates this MISRA violation.</td>
-*   </tr>
 * </table>
 *
 * \section group_syslib_changelog Changelog
 * <table class="doxtable">
 *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
-*   <tr>
-*     <td rowspan="4">2.10</td>
-*     <td>Flattened the organization of the driver source code into the single source directory and the single include directory.</td>
-*     <td>Driver library directory-structure simplification.</td>
-*   </tr>
-*   <tr>
-*     <td>Added the following macros: \ref CY_REG32_CLR_SET, \ref _CLR_SET_FLD16U, \ref CY_REG16_CLR_SET, \ref _CLR_SET_FLD8U, \ref CY_REG8_CLR_SET</td>
-*     <td>Register access simplification.</td>
-*   </tr>
-*   <tr>
-*     <td>Removed the Cy_SysLib_GetNumHfclkResetCause API function.</td>
-*     <td>This feature is not supported by SRSS_ver1.</td>
-*   </tr>
-*   <tr>
-*     <td>Added register access layer. Use register access macros instead
-*         of direct register access using dereferenced pointers.</td>
-*     <td>Makes register access device-independent, so that the PDL does 
-*         not need to be recompiled for each supported part number.</td>
-*   </tr>
 *   <tr>
 *     <td>2.0.1</td>
 *     <td>Minor documentation edits</td>
@@ -209,12 +166,11 @@
 *
 */
 
-#if !defined(CY_SYSLIB_H)
-#define CY_SYSLIB_H
+#if !defined(_CY_SYSLIB_H_)
+#define _CY_SYSLIB_H_
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "cy_device.h"
 #include "cy_device_headers.h"
 
 #if defined(__cplusplus)
@@ -421,7 +377,7 @@ typedef enum
 #define CY_SYSLIB_DRV_VERSION_MAJOR    2
 
 /** The driver minor version */
-#define CY_SYSLIB_DRV_VERSION_MINOR    10
+#define CY_SYSLIB_DRV_VERSION_MINOR    0
 
 
 /*******************************************************************************
@@ -465,14 +421,8 @@ typedef enum
     /* Specifies the minimum alignment (in bytes) for variables of the specified type. */
     #define CY_ALIGN(align)     __ALIGNED(align)
 #elif defined (__GNUC__)
-    #if defined (__clang__)
-        #define CY_NOINIT           __attribute__ ((section("__DATA, __noinit")))
-        #define CY_SECTION(name)    __attribute__ ((section("__DATA, "name)))
-    #else
-        #define CY_NOINIT           __attribute__ ((section(".noinit")))
-        #define CY_SECTION(name)    __attribute__ ((section(name)))
-    #endif
-    
+    #define CY_NOINIT           __attribute__ ((section(".noinit")))
+    #define CY_SECTION(name)    __attribute__ ((section(name)))
     #define CY_UNUSED           __attribute__ ((unused))
     #define CY_NOINLINE         __attribute__ ((noinline))
     #define CY_ALIGN(align)     __ALIGNED(align)
@@ -615,9 +565,9 @@ typedef double   float64_t; /**< Specific-length typedef for the basic numerical
 * \return The read value.
 *
 *******************************************************************************/
-#define CY_GET_REG24(addr)          (((uint32_t) (*((const volatile uint8_t *)(addr)))) | \
-                                    (((uint32_t) (*((const volatile uint8_t *)(addr) + 1))) << 8U) | \
-                                    (((uint32_t) (*((const volatile uint8_t *)(addr) + 2))) << 16U))                                    
+#define CY_GET_REG24(addr)          (uint32_t) ((*((const volatile uint8_t *)(addr))) | \
+                                    (uint32_t) ((*((const volatile uint8_t *)(addr) + 1)) << 8U) | \
+                                    (uint32_t) ((*((const volatile uint8_t *)(addr) + 2)) << 16U))
 
 
 /*******************************************************************************
@@ -754,68 +704,6 @@ typedef double   float64_t; /**< Specific-length typedef for the basic numerical
 
 
 /*******************************************************************************
-* Macro Name: CY_REG32_CLR_SET
-****************************************************************************//**
-*
-*  Uses _CLR_SET_FLD32U macro for providing get-clear-modify-write 
-*  operations with a name field and value and writes a resulting value 
-*  to the 32-bit register.
-*
-*******************************************************************************/
-#define CY_REG32_CLR_SET(reg, field, value) ((reg) = _CLR_SET_FLD32U((reg), field, (value)))
-
-
-/*******************************************************************************
-* Macro Name: _CLR_SET_FLD16U
-****************************************************************************//**
-*
-*  The macro for setting a 16-bit register with a name field and value for providing
-*  get-clear-modify-write operations.
-*  Returns a resulting value to be assigned to the 16-bit register.
-*
-*******************************************************************************/
-#define _CLR_SET_FLD16U(reg, field, value) ((uint16_t)(((reg) & ((uint16_t)(~(field ## _Msk)))) |   \
-                                                       ((uint16_t)_VAL2FLD(field, value))))
-                                                       
-                                                       
-/*******************************************************************************
-* Macro Name: CY_REG16_CLR_SET
-****************************************************************************//**
-*
-*  Uses _CLR_SET_FLD16U macro for providing get-clear-modify-write 
-*  operations with a name field and value and writes a resulting value 
-*  to the 16-bit register.
-*
-*******************************************************************************/
-#define CY_REG16_CLR_SET(reg, field, value) ((reg) = _CLR_SET_FLD16U((reg), field, (value)))
-
-
-/*******************************************************************************
-* Macro Name: _CLR_SET_FLD8U
-****************************************************************************//**
-*
-*  The macro for setting a 8-bit register with a name field and value for providing
-*  get-clear-modify-write operations.
-*  Returns a resulting value to be assigned to the 8-bit register.
-*
-*******************************************************************************/
-#define _CLR_SET_FLD8U(reg, field, value) ((uint8_t)(((reg) & ((uint8_t)(~(field ## _Msk)))) |  \
-                                                     ((uint8_t)_VAL2FLD(field, value))))
-                                                     
-                                                     
-/*******************************************************************************
-* Macro Name: CY_REG8_CLR_SET
-****************************************************************************//**
-*
-*  Uses _CLR_SET_FLD8U macro for providing get-clear-modify-write 
-*  operations with a name field and value and writes a resulting value 
-*  to the 8-bit register.
-*
-*******************************************************************************/
-#define CY_REG8_CLR_SET(reg, field, value) ((reg) = _CLR_SET_FLD8U((reg), field, (value)))
-
-
-/*******************************************************************************
 * Macro Name: _BOOL2FLD
 ****************************************************************************//**
 *
@@ -866,6 +754,14 @@ typedef double   float64_t; /**< Specific-length typedef for the basic numerical
 #define CY_SYSLIB_RESET_SWWDT3          (0x0100U)
 /** The reset has occurred on a wakeup from Hibernate power mode. */
 #define CY_SYSLIB_RESET_HIB_WAKEUP      (0x40000UL)
+#if (SRSS_WCOCSV_PRESENT != 0U)
+    /** The clock supervision logic requested a reset due to the loss of a watch-crystal clock. */
+    #define CY_SYSLIB_RESET_CSV_WCO_LOSS    (0x0008U)
+    /** The clock supervision logic requested a reset due to the loss of a high-frequency clock. */
+    #define CY_SYSLIB_RESET_HFCLK_LOSS      (0x10000UL)
+    /** The clock supervision logic requested a reset due to the frequency error of a high-frequency clock. */
+    #define CY_SYSLIB_RESET_HFCLK_ERR       (0x20000UL)
+#endif /* (SRSS_WCOCSV_PRESENT != 0U) */
 
 /** \} group_syslib_macros_reset_cause */
 
@@ -916,6 +812,9 @@ __NO_RETURN void Cy_SysLib_Halt(uint32_t reason);
 void Cy_SysLib_ClearFlashCacheAndBuffer(void);
 cy_en_syslib_status_t Cy_SysLib_ResetBackupDomain(void);
 uint32_t Cy_SysLib_GetResetReason(void);
+#if (SRSS_WCOCSV_PRESENT != 0U) || defined(CY_DOXYGEN)
+    uint32_t Cy_SysLib_GetNumHfclkResetCause(void);
+#endif /* (SRSS_WCOCSV_PRESENT != 0U) || defined(CY_DOXYGEN) */
 void Cy_SysLib_ClearResetReason(void);
 uint64_t Cy_SysLib_GetUniqueId(void);
 #if (CY_CPU_CORTEX_M0P)
@@ -977,7 +876,7 @@ void Cy_SysLib_ExitCriticalSection(uint32_t savedIntrStatus);
 *******************************************************************************/
 __STATIC_INLINE uint8_t Cy_SysLib_GetDeviceRevision(void)
 {
-    return ((SFLASH_SI_REVISION_ID == 0UL) ? CY_SYSLIB_DEVICE_REV_0A : SFLASH_SI_REVISION_ID);
+    return ((SFLASH->SI_REVISION_ID == 0UL) ? CY_SYSLIB_DEVICE_REV_0A : SFLASH->SI_REVISION_ID);
 }
 
 
@@ -992,7 +891,7 @@ __STATIC_INLINE uint8_t Cy_SysLib_GetDeviceRevision(void)
 *******************************************************************************/
 __STATIC_INLINE uint16_t Cy_SysLib_GetDevice(void)
 {
-    return ((SFLASH_FAMILY_ID == 0UL) ? CY_SYSLIB_DEVICE_PSOC6ABLE2 : SFLASH_FAMILY_ID);
+    return ((SFLASH->FAMILY_ID == 0UL) ? CY_SYSLIB_DEVICE_PSOC6ABLE2 : SFLASH->FAMILY_ID);
 }
 
 
@@ -1084,7 +983,7 @@ typedef void (* cyisraddress)(void);
 }
 #endif /* defined(__cplusplus) */
 
-#endif /* CY_SYSLIB_H */
+#endif /* _CY_SYSLIB_H_ */
 
 /** \} group_syslib */
 

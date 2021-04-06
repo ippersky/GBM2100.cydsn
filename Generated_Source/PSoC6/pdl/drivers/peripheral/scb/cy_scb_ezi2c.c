@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_scb_ezi2c.c
-* \version 2.20
+* \version 2.10
 *
 * Provides EZI2C API implementation of the SCB driver.
 *
@@ -13,8 +13,6 @@
 *******************************************************************************/
 
 #include "cy_scb_ezi2c.h"
-
-#ifdef CY_IP_MXSCB
 
 #if defined(__cplusplus)
 extern "C" {
@@ -68,6 +66,16 @@ cy_en_scb_ezi2c_status_t Cy_SCB_EZI2C_Init(CySCB_Type *base, cy_stc_scb_ezi2c_co
         return CY_SCB_EZI2C_BAD_PARAM;
     }
 
+    if (!SCB_IS_I2C_SLAVE_CAPABLE(base))
+    {
+        return CY_SCB_EZI2C_BAD_PARAM;
+    }
+
+    if ((config->enableWakeFromSleep) && (!SCB_IS_I2C_DS_CAPABLE(base)))
+    {
+        return CY_SCB_EZI2C_BAD_PARAM;
+    }
+
     CY_ASSERT_L2(CY_SCB_IS_I2C_ADDR_VALID(config->slaveAddress1));
     CY_ASSERT_L2(CY_SCB_IS_I2C_ADDR_VALID(config->slaveAddress2));
     CY_ASSERT_L2(config->slaveAddress1 != config->slaveAddress2);
@@ -75,15 +83,15 @@ cy_en_scb_ezi2c_status_t Cy_SCB_EZI2C_Init(CySCB_Type *base, cy_stc_scb_ezi2c_co
     CY_ASSERT_L3(CY_SCB_EZI2C_IS_SUB_ADDR_SIZE_VALID(config->subAddressSize));
 
     /* Configure the EZI2C interface */
-    SCB_CTRL(base) = _BOOL2FLD(SCB_CTRL_ADDR_ACCEPT, (config->numberOfAddresses == CY_SCB_EZI2C_TWO_ADDRESSES)) |
+    base->CTRL = _BOOL2FLD(SCB_CTRL_ADDR_ACCEPT, (config->numberOfAddresses == CY_SCB_EZI2C_TWO_ADDRESSES)) |
                  _BOOL2FLD(SCB_CTRL_EC_AM_MODE, config->enableWakeFromSleep) |
                  SCB_CTRL_BYTE_MODE_Msk;
 
-    SCB_I2C_CTRL(base) = CY_SCB_EZI2C_I2C_CTRL;
+    base->I2C_CTRL = CY_SCB_EZI2C_I2C_CTRL;
 
     /* Configure the RX direction */
-    SCB_RX_CTRL(base)      = CY_SCB_EZI2C_RX_CTRL;
-    SCB_RX_FIFO_CTRL(base) = 0UL;
+    base->RX_CTRL      = CY_SCB_EZI2C_RX_CTRL;
+    base->RX_FIFO_CTRL = 0UL;
 
     /* Set the default address and mask */
     if (config->numberOfAddresses == CY_SCB_EZI2C_ONE_ADDRESS)
@@ -98,16 +106,16 @@ cy_en_scb_ezi2c_status_t Cy_SCB_EZI2C_Init(CySCB_Type *base, cy_stc_scb_ezi2c_co
     }
 
     /* Configure the TX direction */
-    SCB_TX_CTRL(base)      = CY_SCB_EZI2C_TX_CTRL;
-    SCB_TX_FIFO_CTRL(base) = CY_SCB_EZI2C_HALF_FIFO_SIZE;
+    base->TX_CTRL      = CY_SCB_EZI2C_TX_CTRL;
+    base->TX_FIFO_CTRL = CY_SCB_EZI2C_HALF_FIFO_SIZE(base);
 
     /* Configure the interrupt sources */
-    SCB_INTR_SPI_EC_MASK(base) = 0UL;
-    SCB_INTR_I2C_EC_MASK(base) = 0UL;
-    SCB_INTR_RX_MASK(base)     = 0UL;
-    SCB_INTR_TX_MASK(base)     = 0UL;
-    SCB_INTR_M_MASK(base)      = 0UL;
-    SCB_INTR_S_MASK(base)      = CY_SCB_EZI2C_SLAVE_INTR;
+    base->INTR_SPI_EC_MASK = 0UL;
+    base->INTR_I2C_EC_MASK = 0UL;
+    base->INTR_RX_MASK     = 0UL;
+    base->INTR_TX_MASK     = 0UL;
+    base->INTR_M_MASK      = 0UL;
+    base->INTR_S_MASK      = CY_SCB_EZI2C_SLAVE_INTR;
 
     /* Initialize the context */
     context->status = 0UL;
@@ -143,22 +151,22 @@ cy_en_scb_ezi2c_status_t Cy_SCB_EZI2C_Init(CySCB_Type *base, cy_stc_scb_ezi2c_co
 void Cy_SCB_EZI2C_DeInit(CySCB_Type *base)
 {
     /* Return the block registers into the default state */
-    SCB_CTRL(base)     = CY_SCB_CTRL_DEF_VAL;
-    SCB_I2C_CTRL(base) = CY_SCB_I2C_CTRL_DEF_VAL;
+    base->CTRL     = CY_SCB_CTRL_DEF_VAL;
+    base->I2C_CTRL = CY_SCB_I2C_CTRL_DEF_VAL;
 
-    SCB_RX_CTRL(base)      = CY_SCB_RX_CTRL_DEF_VAL;
-    SCB_RX_FIFO_CTRL(base) = 0UL;
-    SCB_RX_MATCH(base)     = 0UL;
+    base->RX_CTRL      = CY_SCB_RX_CTRL_DEF_VAL;
+    base->RX_FIFO_CTRL = 0UL;
+    base->RX_MATCH     = 0UL;
 
-    SCB_TX_CTRL(base)      = CY_SCB_TX_CTRL_DEF_VAL;
-    SCB_TX_FIFO_CTRL(base) = 0UL;
+    base->TX_CTRL      = CY_SCB_TX_CTRL_DEF_VAL;
+    base->TX_FIFO_CTRL = 0UL;
 
-    SCB_INTR_SPI_EC_MASK(base) = 0UL;
-    SCB_INTR_I2C_EC_MASK(base) = 0UL;
-    SCB_INTR_RX_MASK(base)     = 0UL;
-    SCB_INTR_TX_MASK(base)     = 0UL;
-    SCB_INTR_M_MASK(base)      = 0UL;
-    SCB_INTR_S_MASK(base)      = 0UL;
+    base->INTR_SPI_EC_MASK = 0UL;
+    base->INTR_I2C_EC_MASK = 0UL;
+    base->INTR_RX_MASK     = 0UL;
+    base->INTR_TX_MASK     = 0UL;
+    base->INTR_M_MASK      = 0UL;
+    base->INTR_S_MASK      = 0UL;
 }
 
 
@@ -189,7 +197,7 @@ void Cy_SCB_EZI2C_DeInit(CySCB_Type *base)
 *******************************************************************************/
 void Cy_SCB_EZI2C_Disable(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
 {
-    SCB_CTRL(base) &= (uint32_t) ~SCB_CTRL_ENABLED_Msk;
+    base->CTRL &= (uint32_t) ~SCB_CTRL_ENABLED_Msk;
 
     /* Set the state to default and clear the statuses */
     context->status = 0UL;
@@ -206,26 +214,23 @@ void Cy_SCB_EZI2C_Disable(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
 * the EZI2C slave is actively communicating.
 * The following behavior of the EZI2C depends on whether the SCB block is
 * wakeup-capable:
-* * <b>Wakeup-capable</b>: on the incoming EZI2C slave address, the slave
+* * The SCB <b>wakeup-capable</b>: on the incoming EZI2C slave address, the slave
 *   receives the address and stretches the clock until the device is woken from
 *   Deep Sleep mode. If the slave address occurs before the device enters
 *   Deep Sleep mode, the device will not enter Deep Sleep mode.
-* * <b>Not wakeup-capable</b>: the EZI2C is disabled. It is enabled 
+* * The SCB is <b>not wakeup-capable</b>: the EZI2C is disabled. It is enabled 
 *   when the device fails to enter Deep Sleep mode or it is woken from Deep Sleep
 *   mode. While the EZI2C is disabled, it stops driving the outputs and
 *   ignores the input lines. The slave NACKs all incoming addresses.
 *
-* This function must be called during execution of \ref Cy_SysPm_CpuEnterDeepSleep.
+* This function must be called during execution of \ref Cy_SysPm_DeepSleep.
 * To do this, register this function as a callback before calling
-* \ref Cy_SysPm_CpuEnterDeepSleep : specify \ref CY_SYSPM_DEEPSLEEP as the callback
+* \ref Cy_SysPm_DeepSleep : specify \ref CY_SYSPM_DEEPSLEEP as the callback
 * type and call \ref Cy_SysPm_RegisterCallback.
 *
 * \param callbackParams
 * The pointer to the callback parameters structure.
 * \ref cy_stc_syspm_callback_params_t.
-*
-* \param mode
-* Callback mode, see \ref cy_en_syspm_callback_mode_t
 *
 * \return
 * \ref cy_en_syspm_status_t
@@ -239,14 +244,14 @@ void Cy_SCB_EZI2C_Disable(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
 * \ref CY_SYSPM_AFTER_TRANSITION mode processing.
 *
 *******************************************************************************/
-cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams, cy_en_syspm_callback_mode_t mode)
+cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams)
 {
     CySCB_Type *locBase = (CySCB_Type *) callbackParams->base;
     cy_stc_scb_ezi2c_context_t *locContext = (cy_stc_scb_ezi2c_context_t *) callbackParams->context;
 
     cy_en_syspm_status_t retStatus = CY_SYSPM_FAIL;
 
-    switch (mode)
+    switch (callbackParams->mode)
     {
         case CY_SYSPM_CHECK_READY:
         {
@@ -259,7 +264,7 @@ cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params
             */
             if (CY_SCB_EZI2C_STATE_IDLE == locContext->state)
             {
-                if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+                if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
                 {
                     /* The SCB is wakeup-capable: do not restore the address
                     * match interrupt source. The next transaction intended
@@ -297,7 +302,7 @@ cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params
             * Active mode configuration.
             */
 
-            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
             {
                 /* The SCB is wakeup-capable: restore the slave interrupt
                 * sources.
@@ -323,7 +328,7 @@ cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params
             * does nothing and the device remains in Active mode.
             */
 
-            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
             {
                 /* The SCB is wakeup-capable: enable the I2C wakeup interrupt
                 * source. If any transaction was paused the the EZI2C interrupt
@@ -334,7 +339,7 @@ cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params
                 Cy_SCB_SetI2CInterruptMask(locBase, CY_SCB_I2C_INTR_WAKEUP);
 
                 /* Disable SCB clock */
-                SCB_I2C_CFG(locBase) &= (uint32_t) ~CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
+                locBase->I2C_CFG &= (uint32_t) ~CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
                             
                 /* IMPORTANT (replace line above for the CY8CKIT-062 rev-08): 
                 * for proper entering Deep Sleep mode the I2C clock must be disabled. 
@@ -349,10 +354,10 @@ cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params
 
         case CY_SYSPM_AFTER_TRANSITION:
         {
-            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
             {
                 /* Enable SCB clock */
-                SCB_I2C_CFG(locBase) |= CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
+                locBase->I2C_CFG |= CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
                 
                 /* IMPORTANT (replace line above for the CY8CKIT-062 rev-08): 
                 * for proper exiting Deep Sleep mode, the I2C clock must be enabled. 
@@ -396,30 +401,27 @@ cy_en_syspm_status_t Cy_SCB_EZI2C_DeepSleepCallback(cy_stc_syspm_callback_params
 * is disabled, it stops driving the output and ignores the inputs.
 * The slave NACKs all incoming addresses.
 *
-* This function must be called during execution of \ref Cy_SysPm_SystemEnterHibernate.
+* This function must be called during execution of \ref Cy_SysPm_Hibernate.
 * To do this, register this function as a callback before calling
-* \ref Cy_SysPm_SystemEnterHibernate : specify \ref CY_SYSPM_HIBERNATE as the callback
+* \ref Cy_SysPm_Hibernate : specify \ref CY_SYSPM_HIBERNATE as the callback
 * type and call \ref Cy_SysPm_RegisterCallback.
 *
 * \param callbackParams
 * The pointer to the callback parameters structure
 * \ref cy_stc_syspm_callback_params_t.
 *
-* \param mode
-* Callback mode, see \ref cy_en_syspm_callback_mode_t
-*
 * \return
 * \ref cy_en_syspm_status_t
 *
 *******************************************************************************/
-cy_en_syspm_status_t Cy_SCB_EZI2C_HibernateCallback(cy_stc_syspm_callback_params_t *callbackParams, cy_en_syspm_callback_mode_t mode)
+cy_en_syspm_status_t Cy_SCB_EZI2C_HibernateCallback(cy_stc_syspm_callback_params_t *callbackParams)
 {
     CySCB_Type *locBase = (CySCB_Type *) callbackParams->base;
     cy_stc_scb_ezi2c_context_t *locContext = (cy_stc_scb_ezi2c_context_t *) callbackParams->context;
 
     cy_en_syspm_status_t retStatus = CY_SYSPM_FAIL;
 
-    switch (mode)
+    switch (callbackParams->mode)
     {
         case CY_SYSPM_CHECK_READY:
         {
@@ -540,7 +542,7 @@ void Cy_SCB_EZI2C_SetAddress1(CySCB_Type *base, uint8_t addr, cy_stc_scb_ezi2c_c
 
     context->address1 = addr;
 
-    CY_REG32_CLR_SET(SCB_RX_MATCH(base), SCB_RX_MATCH_ADDR, ((uint32_t)((uint32_t) addr << 1UL)));
+    base->RX_MATCH = _CLR_SET_FLD32U(base->RX_MATCH, SCB_RX_MATCH_ADDR, ((uint32_t)((uint32_t) addr << 1UL)));
 
     UpdateAddressMask(base, context);
 }
@@ -915,14 +917,14 @@ static void HandleAddress(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
     Cy_SCB_ClearTxFifo(base);
 
     /* Set the command to an ACK or NACK address */
-    SCB_I2C_S_CMD(base) = cmd;
+    base->I2C_S_CMD = cmd;
 
     if (cmd == SCB_I2C_S_CMD_S_ACK_Msk)
     {
         context->status |= CY_SCB_EZI2C_STATUS_BUSY;
 
         /* Prepare for a transaction */
-        if (_FLD2BOOL(SCB_I2C_STATUS_S_READ, SCB_I2C_STATUS(base)))
+        if (_FLD2BOOL(SCB_I2C_STATUS_S_READ,base->I2C_STATUS))
         {
             /* The master reads data from the slave */
             context->state = CY_SCB_EZI2C_STATE_TX_DATA;
@@ -972,7 +974,7 @@ static void HandleAddress(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
 static void UpdateRxFifoLevel(CySCB_Type *base, uint32_t bufSize)
 {
     uint32_t level;
-    uint32_t fifoSize = CY_SCB_EZI2C_FIFO_SIZE;
+    uint32_t fifoSize = CY_SCB_EZI2C_FIFO_SIZE(base);
 
     if (bufSize > fifoSize)
     {
@@ -985,7 +987,7 @@ static void UpdateRxFifoLevel(CySCB_Type *base, uint32_t bufSize)
         /* Prepare to end the transaction: after the FIFO becomes full, NACK the next byte.
         * The NACKed byte is dropped by the hardware.
         */
-        SCB_I2C_CTRL(base) |= SCB_I2C_CTRL_S_NOT_READY_DATA_NACK_Msk;
+        base->I2C_CTRL |= SCB_I2C_CTRL_S_NOT_READY_DATA_NACK_Msk;
 
         level = ((bufSize == 0UL) ? (0UL) : (bufSize - 1UL));
         Cy_SCB_SetRxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
@@ -1029,7 +1031,7 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *cont
                 if (context->state == CY_SCB_EZI2C_STATE_RX_OFFSET_MSB)
                 {
                     /* ACK base address MSB */
-                    SCB_I2C_S_CMD(base) = SCB_I2C_S_CMD_S_ACK_Msk;
+                    base->I2C_S_CMD = SCB_I2C_S_CMD_S_ACK_Msk;
 
                     /* Temporary store base address MSB */
                     context->idx = (uint32_t) (baseAddr << 8UL);
@@ -1076,7 +1078,7 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *cont
                 }
 
                 /* Set the command to an ACK or NACK address */
-                SCB_I2C_S_CMD(base) = cmd;
+                base->I2C_S_CMD = cmd;
 
                 if (cmd == SCB_I2C_S_CMD_S_ACK_Msk)
                 {
@@ -1095,7 +1097,7 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *cont
                     }
 
                     /* Choice receive scheme  */
-                    if ((0U != context->address2) || (context->bufSize < CY_SCB_EZI2C_FIFO_SIZE))
+                    if ((0U != context->address2) || (context->bufSize < CY_SCB_EZI2C_FIFO_SIZE(base)))
                     {
                         /* Handle each byte separately */
                         context->state = CY_SCB_EZI2C_STATE_RX_DATA0;
@@ -1103,7 +1105,7 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *cont
                     else
                     {
                         /* Use the RX FIFO and the auto-ACK/NACK features */
-                        SCB_I2C_CTRL(base) |= SCB_I2C_CTRL_S_READY_DATA_ACK_Msk;
+                        base->I2C_CTRL |= SCB_I2C_CTRL_S_READY_DATA_ACK_Msk;
                         UpdateRxFifoLevel(base, context->bufSize);
 
                         context->state = CY_SCB_EZI2C_STATE_RX_DATA1;
@@ -1121,7 +1123,7 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *cont
             if (context->bufSize > 0UL)
             {
                 /* Continue the transfer: send an ACK */
-                SCB_I2C_S_CMD(base) = SCB_I2C_S_CMD_S_ACK_Msk;
+                base->I2C_S_CMD = SCB_I2C_S_CMD_S_ACK_Msk;
 
                 /* Store the byte in the buffer */
                 context->curBuf[0UL] = (uint8_t) byte;
@@ -1134,7 +1136,7 @@ static void HandleDataReceive(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *cont
             else
             {
                 /* Finish the transfer: send a NACK. Drop the received byte */
-                SCB_I2C_S_CMD(base) = SCB_I2C_S_CMD_S_NACK_Msk;
+                base->I2C_S_CMD = SCB_I2C_S_CMD_S_NACK_Msk;
                 Cy_SCB_SetRxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
             }
         }
@@ -1193,7 +1195,7 @@ static void HandleDataTransmit(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *con
     if (0UL == context->bufSize)
     {
         /* Write the default bytes into the TX FIFO */
-        (void) Cy_SCB_WriteDefaultArray(base, CY_SCB_EZI2C_DEFAULT_TX, CY_SCB_EZI2C_FIFO_SIZE);
+        (void) Cy_SCB_WriteDefaultArray(base, CY_SCB_EZI2C_DEFAULT_TX, CY_SCB_EZI2C_FIFO_SIZE(base));
     }
 }
 
@@ -1233,8 +1235,8 @@ static void HandleStop(CySCB_Type *base, cy_stc_scb_ezi2c_context_t *context)
     {
         Cy_SCB_SetRxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
 
-        SCB_I2C_CTRL(base) &= (uint32_t) ~(SCB_I2C_CTRL_S_READY_DATA_ACK_Msk |
-                                           SCB_I2C_CTRL_S_NOT_READY_DATA_NACK_Msk);
+        base->I2C_CTRL &= (uint32_t) ~(SCB_I2C_CTRL_S_READY_DATA_ACK_Msk |
+                                       SCB_I2C_CTRL_S_NOT_READY_DATA_NACK_Msk);
     }
 
     /* Update the statuses */
@@ -1289,7 +1291,7 @@ static void UpdateAddressMask(CySCB_Type *base, cy_stc_scb_ezi2c_context_t const
     }
 
     /* Update the hardware address match */
-    CY_REG32_CLR_SET(SCB_RX_MATCH(base), SCB_RX_MATCH_MASK, ((uint32_t) addrMask << 1UL));
+    base->RX_MATCH = _CLR_SET_FLD32U(base->RX_MATCH, SCB_RX_MATCH_MASK, ((uint32_t) addrMask << 1UL));
 }
 
 
@@ -1297,7 +1299,6 @@ static void UpdateAddressMask(CySCB_Type *base, cy_stc_scb_ezi2c_context_t const
 }
 #endif
 
-#endif /* CY_IP_MXSCB */
 
 /* [] END OF FILE */
 

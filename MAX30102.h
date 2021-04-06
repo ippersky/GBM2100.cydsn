@@ -26,7 +26,7 @@
 #define REG_FIFO_RD 0x06
 #define REG_FIFO_DATA 0x07
 #define REG_FIFO_CONFIG 0x08
-#define REG_MODE_COFIG 0x09
+#define REG_MODE_CONFIG 0x09
 #define REG_SPO2_CONFIG 0x0A
 #define REG_LED_AMP_1 0x0C
 #define REG_LED_AMP_2 0x0D
@@ -40,7 +40,9 @@
 #define I2C_TIMEOUT (100UL)
 
 
-
+void ReadRegistre(uint8_t* data, uint8_t adresse);
+void WriteRegistre(uint8_t data, uint8_t adresse);
+void MAX30102_config();
 
 
 /* [] END OF FILE */

@@ -59,6 +59,13 @@ int main(void)
     
     __enable_irq(); /* Enable global interrupts. */
     
+    /*Variables*/
+    uint32_t red_LED_buffer [1000];
+    uint32_t ir_LED_buffer [1000];
+    
+    /*Start-up code*/
+    I2C_Start();
+    UART_1_Start();
    
     
     for(;;)
