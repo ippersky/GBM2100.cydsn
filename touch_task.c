@@ -31,7 +31,7 @@ void capSense_task(void * arg)      // void ou void * arg ??
 {
     for(;;)
     {
-        if(!CapSense_IsBusy){       ////// du CapSense test 1
+        if(!CapSense_IsBusy()){       ////// du CapSense test 1
             CapSense_ProcessAllWidgets();
        
 

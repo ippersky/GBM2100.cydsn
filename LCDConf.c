@@ -46,6 +46,7 @@ Purpose     : Display configuration file for GUIDRV_Bitplains to be
 */
 
 #include <stddef.h>
+#include "syslib/cy_syslib.h"
 
 #include "GUI.h"
 
@@ -60,11 +61,11 @@ Purpose     : Display configuration file for GUIDRV_Bitplains to be
 //
 // Physical display size
 //
-#define XSIZE_PHYS 320
-#define YSIZE_PHYS 240
+#define XSIZE_PHYS 264
+#define YSIZE_PHYS 176
 
 //
-// Color conversion
+// Initial color conversion API
 //
 #define COLOR_CONVERSION GUICC_1
 
@@ -90,7 +91,7 @@ Purpose     : Display configuration file for GUIDRV_Bitplains to be
 //
 // Number of bytes per line
 //
-#define BYTES_PER_LINE ((XSIZE_PHYS + 7) / 8)
+#define BYTES_PER_LINE ((XSIZE_PHYS + 7) >> 3)
 
 /*********************************************************************
 *
@@ -128,10 +129,19 @@ static struct {
 *   
 */
 void LCD_X_Config(void) {
+	
+	GUI_DEVICE * pDevice;
+	CONFIG_BITPLAINS Config;
+	
+	Config.Mirror = 1;
+	
+	
   //
   // Set display driver and color conversion for 1st layer
   //
-  GUI_DEVICE_CreateAndLink(GUIDRV_BITPLAINS, COLOR_CONVERSION, 0, 0);
+  pDevice = GUI_DEVICE_CreateAndLink(GUIDRV_BITPLAINS, COLOR_CONVERSION, 0, 0);
+  GUIDRV_BitPlains_Config(pDevice, &Config);
+
   //
   // Display driver configuration
   //
@@ -154,42 +164,59 @@ void LCD_X_Config(void) {
 *
 * Purpose:
 *   This function is called by the display driver for several purposes.
-*   To support the according task, the routine needs to be adapted to
-*   the display controller. Note that the commands marked
-*   "optional" are not cogently required and should only be adapted if 
+*   To support the according task the routine needs to be adapted to
+*   the display controller. Please note that the commands marked with
+*   'optional' are not cogently required and should only be adapted if 
 *   the display controller supports these features.
 *
 * Parameter:
-*   LayerIndex - Zero based layer index
-*   Cmd        - Command to be executed
-*   pData      - Pointer to a data structure.
-* 
+*   LayerIndex - Index of layer to be configured
+*   Cmd        - Please refer to the details in the switch statement below
+*   pData      - Pointer to a LCD_X_DATA structure
+*
 * Return Value:
 *   < -1 - Error
-*     -1 - The command is not handled.
-*      0 - OK.
+*     -1 - Command not handled
+*      0 - Ok
 */
-int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
+int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * p) {
   int r;
-  
   GUI_USE_PARA(LayerIndex);
-  GUI_USE_PARA(pData);
-  
+  GUI_USE_PARA(p);
+
   switch (Cmd) {
   case LCD_X_INITCONTROLLER: {
-    //
+	//
     // Called during the initialization process in order to set up the
     // display controller and put it into operation. If the display
-    // controller is not initialized by any external routine, this needs
+    // controller is not initialized by any external routine this needs
     // to be adapted by the customer...
     //
-    // ...
     return 0;
   }
   default:
     r = -1;
   }
   return r;
+}
+
+/*********************************************************************
+*
+*       LCD_GetDisplayBuffer
+*
+* Purpose:
+*   This function returns the pointer to EmWin's dispay buffer
+
+* Parameter:
+*   None
+*
+* Return Value:
+*   U8* - Pointer to the EmWin's display buffer
+*/
+U8* LCD_GetDisplayBuffer(void)
+{
+  /* Copy the Bitplains display buffer to user memory */
+  return _aPlain_0;
 }
 
 /*************************** End of file ****************************/
