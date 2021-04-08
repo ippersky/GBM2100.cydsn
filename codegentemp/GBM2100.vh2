@@ -2,7 +2,7 @@
 --	Conversion of GBM2100.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Apr 05 15:59:25 2021
+--	Wed Apr 07 17:44:25 2021
 --
 
 USE cypress.cypress.all;
@@ -40,10 +40,10 @@ SIGNAL \I2C:Net_223\ : bit;
 SIGNAL \I2C:Net_847\ : bit;
 SIGNAL one : bit;
 SIGNAL zero : bit;
-SIGNAL tmpFB_0__SDA_net_0 : bit;
-TERMINAL tmpSIOVREF__SDA_net_0 : bit;
-SIGNAL tmpFB_0__SCL_net_0 : bit;
-TERMINAL tmpSIOVREF__SCL_net_0 : bit;
+SIGNAL \I2C:tmpFB_0__scl_net_0\ : bit;
+TERMINAL \I2C:tmpSIOVREF__scl_net_0\ : bit;
+SIGNAL \I2C:tmpFB_0__sda_net_0\ : bit;
+TERMINAL \I2C:tmpSIOVREF__sda_net_0\ : bit;
 SIGNAL \UART_1:Net_847\ : bit;
 SIGNAL \UART_1:clock_wire\ : bit;
 SIGNAL \UART_1:Net_22\ : bit;
@@ -123,11 +123,11 @@ zero <=  ('0') ;
 		is_digital=>'0')
 	PORT MAP(clock_out=>\I2C:clock_wire\,
 		dig_domain_out=>open);
-SDA:cy_mxs40_gpio_v1_0
+\I2C:scl\:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
 		sio_grp_cnt=>0,
-		id=>"3bebfee8-790b-4297-b73a-27818bdce71c",
+		id=>"3f689d1f-616a-46b3-9763-7adafcd15dbb/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641",
 		drive_mode=>"4",
 		ibuf_enabled=>"1",
 		init_dr_st=>"1",
@@ -150,16 +150,16 @@ SDA:cy_mxs40_gpio_v1_0
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(tmpFB_0__SDA_net_0),
+		fb=>(\I2C:tmpFB_0__scl_net_0\),
 		analog=>(open),
 		io=>Net_500,
 		annotation=>(open),
-		siovref=>(tmpSIOVREF__SDA_net_0));
-SCL:cy_mxs40_gpio_v1_0
+		siovref=>(\I2C:tmpSIOVREF__scl_net_0\));
+\I2C:sda\:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
 		sio_grp_cnt=>0,
-		id=>"5009f39b-1740-4502-80ea-63fc5667b5f1",
+		id=>"3f689d1f-616a-46b3-9763-7adafcd15dbb/2aab8a93-e7dd-4bd4-8210-42652cd079c5",
 		drive_mode=>"4",
 		ibuf_enabled=>"1",
 		init_dr_st=>"1",
@@ -182,11 +182,11 @@ SCL:cy_mxs40_gpio_v1_0
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(tmpFB_0__SCL_net_0),
+		fb=>(\I2C:tmpFB_0__sda_net_0\),
 		analog=>(open),
 		io=>Net_501,
 		annotation=>(open),
-		siovref=>(tmpSIOVREF__SCL_net_0));
+		siovref=>(\I2C:tmpSIOVREF__sda_net_0\));
 \UART_1:SCBCLK\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"cbb320e2-1ecb-4113-a3c2-a8f67aa49d3c/b68e5b9d-7828-482d-a282-930f990e3b3e",

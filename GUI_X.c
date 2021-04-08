@@ -42,8 +42,8 @@ Purpose     : Config / System dependent externals for GUI
 ---------------------------END-OF-HEADER------------------------------
 */
 
-#include "cy_syslib.h"   
-#include "cy_systick.h"
+#include "syslib/cy_syslib.h"   
+#include "systick/cy_systick.h"
 
 #include "GUI.h"
 

@@ -40,9 +40,11 @@
 #define I2C_TIMEOUT (100UL)
 
 
-void ReadRegistre(uint8_t* data, uint8_t adresse);
-void WriteRegistre(uint8_t data, uint8_t adresse);
+uint8_t readRegistre(uint8_t adresse);
+void writeRegistre(uint8_t data, uint8_t adresse);
 void MAX30102_config();
-
+void readFIFO (uint32_t *red_LED, uint32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples);
+void changeLED1(short ledAmp1);
+void changeLED2(short ledAmp2);
 
 /* [] END OF FILE */

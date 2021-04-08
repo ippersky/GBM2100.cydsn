@@ -37,27 +37,24 @@
       <Folder BuildType="STRICT" Path="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
         <Files Root="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
           <File BuildType="BUILD" Toolchain="">params.h</File>
+          <File BuildType="BUILD" Toolchain="">cy_ipc_config.h</File>
+          <File BuildType="BUILD" Toolchain="">cy_ble_config.h</File>
+          <File BuildType="BUILD" Toolchain="">GUIConf.h</File>
+          <File BuildType="BUILD" Toolchain="">LCDConf.h</File>
+          <File BuildType="BUILD" Toolchain="">system_psoc63.h</File>
           <File BuildType="BUILD" Toolchain="">main_cm0p.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">armgcc\startup\startup_psoc63_cm0plus.S</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">iar\startup\startup_psoc63_cm0plus.s</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">mdk\startup\startup_psoc63_cm0plus.s</File>
           <File BuildType="BUILD" Toolchain="">system_psoc63_cm0plus.c</File>
+          <File BuildType="BUILD" Toolchain="">cy_ipc_config.c</File>
+          <File BuildType="BUILD" Toolchain="">GUIConf.c</File>
+          <File BuildType="BUILD" Toolchain="">GUI_X.c</File>
+          <File BuildType="BUILD" Toolchain="">LCDConf.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">cy8c6xx7_cm0plus.ld</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">cy8c6xx7_cm0plus.icf</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">cy8c6xx7_cm0plus.scat</File>
-          <File BuildType="BUILD" Toolchain="">GUIConf.c</File>
-          <File BuildType="BUILD" Toolchain="">GUIConf.h</File>
-          <File BuildType="BUILD" Toolchain="">GUI_X.c</File>
-          <File BuildType="BUILD" Toolchain="">LCDConf.h</File>
-          <File BuildType="BUILD" Toolchain="">LCDConf.c</File>
-          <File BuildType="BUILD" Toolchain="">cy_ipc_config.c</File>
-          <File BuildType="BUILD" Toolchain="">cy_ipc_config.h</File>
-          <File BuildType="BUILD" Toolchain="">cy_ble_config.h</File>
-          <File BuildType="BUILD" Toolchain="">system_psoc63.h</File>
         </Files>
-      </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
-        <Files Root="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn" />
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
         <Files Root="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn" />

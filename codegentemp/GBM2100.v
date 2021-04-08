@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/05/2021 at 15:59
+// 04/07/2021 at 17:44
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -145,7 +145,7 @@
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
 `endif
 
-// SCB_I2C_PDL_v2_0(AcceptAddress=false, AcceptGeneralCall=false, ClkDesFrequency=7820, ClkMinusTolerance=5, ClkPlusTolerance=127.877237851662, ClockFromTerm=false, DataRate=400, DeepSleepCapable=false, EnableManualSclControl=false, EnableRxFifo=false, EnableSclAccess=false, EnableTxFifo=false, EnableWakeup=false, HighPhaseDutyCycle=10, I2cMode=0, IsEnableRxFifoVisible=true, IsMasterEnabled=true, IsSlaveVisible=false, LowPhaseDutyCycle=10, Mode=2, ShowTerminals=true, SlaveAddress=8, SlaveAddressMask=254, SymbolShape=0, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=SCB_I2C_PDL_v2_0, CY_CONFIG_TITLE=I2C, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=I2C, CY_INSTANCE_SHORT_NAME=I2C, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=scb, CY_PDL_DRIVER_REQ_VERSION=2.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=I2C, )
+// SCB_I2C_PDL_v2_0(AcceptAddress=false, AcceptGeneralCall=false, ClkDesFrequency=7820, ClkMinusTolerance=5, ClkPlusTolerance=127.877237851662, ClockFromTerm=false, DataRate=400, DeepSleepCapable=false, EnableManualSclControl=false, EnableRxFifo=false, EnableSclAccess=false, EnableTxFifo=false, EnableWakeup=false, HighPhaseDutyCycle=10, I2cMode=0, IsEnableRxFifoVisible=true, IsMasterEnabled=true, IsSlaveVisible=false, LowPhaseDutyCycle=10, Mode=2, ShowTerminals=false, SlaveAddress=8, SlaveAddressMask=254, SymbolShape=0, CY_API_CALLBACK_HEADER_INCLUDE=, CY_COMMENT=, CY_COMPONENT_NAME=SCB_I2C_PDL_v2_0, CY_CONFIG_TITLE=I2C, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=I2C, CY_INSTANCE_SHORT_NAME=I2C, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=scb, CY_PDL_DRIVER_REQ_VERSION=2.0.0, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=I2C, )
 module SCB_I2C_PDL_v2_0_0 (
     clock,
     scl_b,
@@ -249,6 +249,76 @@ module SCB_I2C_PDL_v2_0_0 (
 		  .is_digital(0))
 		SCBCLK
 		 (.clock_out(Net_847));
+
+
+	wire [0:0] tmpFB_0__scl_net;
+	electrical [0:0] tmpSIOVREF__scl_net;
+
+	cy_mxs40_gpio_v1_0
+		#(.id("3f689d1f-616a-46b3-9763-7adafcd15dbb/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641"),
+		  .width(1),
+		  .sio_grp_cnt(0),
+		  .drive_mode("4"),
+		  .ibuf_enabled("1"),
+		  .init_dr_st("1"),
+		  .input_sync("0"),
+		  .intr_mode("0"),
+		  .io_voltage(""),
+		  .output_conn("0"),
+		  .oe_conn("0"),
+		  .output_sync("0"),
+		  .oe_sync("0"),
+		  .drive_strength("0"),
+		  .max_frequency("100"),
+		  .i2c_mode("0"),
+		  .output_current_cap("8"),
+		  .pin_aliases(""),
+		  .pin_mode("B"),
+		  .slew_rate("0"),
+		  .vtrip("0"),
+		  .use_annotation("0"),
+		  .hotswap_needed("0"))
+		scl
+		 (.oe({1'b1}),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__scl_net[0:0]}),
+		  .io({scl_b}),
+		  .siovref(tmpSIOVREF__scl_net));
+
+
+	wire [0:0] tmpFB_0__sda_net;
+	electrical [0:0] tmpSIOVREF__sda_net;
+
+	cy_mxs40_gpio_v1_0
+		#(.id("3f689d1f-616a-46b3-9763-7adafcd15dbb/2aab8a93-e7dd-4bd4-8210-42652cd079c5"),
+		  .width(1),
+		  .sio_grp_cnt(0),
+		  .drive_mode("4"),
+		  .ibuf_enabled("1"),
+		  .init_dr_st("1"),
+		  .input_sync("0"),
+		  .intr_mode("0"),
+		  .io_voltage(""),
+		  .output_conn("0"),
+		  .oe_conn("0"),
+		  .output_sync("0"),
+		  .oe_sync("0"),
+		  .drive_strength("0"),
+		  .max_frequency("100"),
+		  .i2c_mode("0"),
+		  .output_current_cap("8"),
+		  .pin_aliases(""),
+		  .pin_mode("B"),
+		  .slew_rate("0"),
+		  .vtrip("0"),
+		  .use_annotation("0"),
+		  .hotswap_needed("0"))
+		sda
+		 (.oe({1'b1}),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__sda_net[0:0]}),
+		  .io({sda_b}),
+		  .siovref(tmpSIOVREF__sda_net));
 
 
 
@@ -462,86 +532,16 @@ module top ;
           wire  Net_525;
           wire  Net_522;
           wire  Net_526;
-          wire  Net_502;
-          wire  Net_499;
           wire  Net_501;
+          wire  Net_502;
           wire  Net_500;
+          wire  Net_499;
 
     SCB_I2C_PDL_v2_0_0 I2C (
         .clock(1'b0),
         .scl_b(Net_500),
         .scl_trig(Net_502),
         .sda_b(Net_501));
-
-	wire [0:0] tmpFB_0__SDA_net;
-	electrical [0:0] tmpSIOVREF__SDA_net;
-
-	cy_mxs40_gpio_v1_0
-		#(.id("3bebfee8-790b-4297-b73a-27818bdce71c"),
-		  .width(1),
-		  .sio_grp_cnt(0),
-		  .drive_mode("4"),
-		  .ibuf_enabled("1"),
-		  .init_dr_st("1"),
-		  .input_sync("0"),
-		  .intr_mode("0"),
-		  .io_voltage(""),
-		  .output_conn("0"),
-		  .oe_conn("0"),
-		  .output_sync("0"),
-		  .oe_sync("0"),
-		  .drive_strength("0"),
-		  .max_frequency("100"),
-		  .i2c_mode("0"),
-		  .output_current_cap("8"),
-		  .pin_aliases(""),
-		  .pin_mode("B"),
-		  .slew_rate("0"),
-		  .vtrip("0"),
-		  .use_annotation("0"),
-		  .hotswap_needed("0"))
-		SDA
-		 (.oe({1'b1}),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__SDA_net[0:0]}),
-		  .io({Net_500}),
-		  .siovref(tmpSIOVREF__SDA_net));
-
-
-	wire [0:0] tmpFB_0__SCL_net;
-	electrical [0:0] tmpSIOVREF__SCL_net;
-
-	cy_mxs40_gpio_v1_0
-		#(.id("5009f39b-1740-4502-80ea-63fc5667b5f1"),
-		  .width(1),
-		  .sio_grp_cnt(0),
-		  .drive_mode("4"),
-		  .ibuf_enabled("1"),
-		  .init_dr_st("1"),
-		  .input_sync("0"),
-		  .intr_mode("0"),
-		  .io_voltage(""),
-		  .output_conn("0"),
-		  .oe_conn("0"),
-		  .output_sync("0"),
-		  .oe_sync("0"),
-		  .drive_strength("0"),
-		  .max_frequency("100"),
-		  .i2c_mode("0"),
-		  .output_current_cap("8"),
-		  .pin_aliases(""),
-		  .pin_mode("B"),
-		  .slew_rate("0"),
-		  .vtrip("0"),
-		  .use_annotation("0"),
-		  .hotswap_needed("0"))
-		SCL
-		 (.oe({1'b1}),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__SCL_net[0:0]}),
-		  .io({Net_501}),
-		  .siovref(tmpSIOVREF__SCL_net));
-
 
     SCB_UART_PDL_v2_0_1 UART_1 (
         .clock(1'b0),

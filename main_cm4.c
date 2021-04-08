@@ -58,18 +58,46 @@ int main(void)
 {
     
     __enable_irq(); /* Enable global interrupts. */
+    /*Définitions*/
+    #define BUFFER_LENGTH 2000
     
     /*Variables*/
-    uint32_t red_LED_buffer [1000];
-    uint32_t ir_LED_buffer [1000];
+    uint32_t red_LED_buffer [2000]; //pour 10 secondes d'acquisition
+    uint32_t ir_LED_buffer [2000];
+    uint16_t nSamples=4;
+    
     
     /*Start-up code*/
     I2C_Start();
     UART_1_Start();
    
+    /*Configure I2C*/
+    MAX30102_config();
+    
+    
+    
     
     for(;;)
     {
+        uint16_t bufferIndex=0;
+        uint16_t halfbufferIndex=0;
+        
+        for (bufferIndex=0; bufferIndex<BUFFER_LENGTH ; bufferIndex++)
+        {
+            readFIFO(red_LED_buffer, ir_LED_buffer,REG_FIFO_DATA, 4);
+            
+            char red_LED_data [50];
+            char ir_LED_data [50];
+            itoa (red_LED_buffer[bufferIndex], red_LED_data, 2);
+            itoa (ir_LED_buffer[bufferIndex], ir_LED_data, 2);
+            UART_1_PutString(red_LED_data);
+            UART_1_PutString(ir_LED_data);
+
+            if (bufferIndex == BUFFER_LENGTH-1){//vérifier
+                bufferIndex=0;
+            }
+            
+        }
         
     }
 }

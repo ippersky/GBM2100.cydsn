@@ -1,5 +1,243 @@
---------------- Build Started: 04/05/2021 15:37:40 Project: GBM2100, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\fatim\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\GBM2100.cyprj" -d CY8C6347BZI-BLD53 -s "C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\Generated_Source\PSoC6" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Error: fit.M0051: The given PDL path '' is invalid. Unable to find required PDSC file.
-Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
---------------- Build Failed: 04/05/2021 15:37:42 ---------------
+--------------- Build Started: 04/07/2021 17:27:04 Project: GBM2100, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/ip/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/psoc63/include/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/drivers/BitPlains/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/nosnts/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -Wa,-alh=.\CortexM0p\ARM_GCC_541\Debug/GUI_X.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c GUI_X.c -o .\CortexM0p\ARM_GCC_541\Debug\GUI_X.o
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\CortexM0p\ARM_GCC_541\Debug\GBM2100_link.elf" Generated_Source\PSoC6\pdl\middleware\emWin\libs\libemWin_nosnts_gcc.a .\CortexM0p\ARM_GCC_541\Debug\startup_psoc63_cm0plus.o .\CortexM0p\ARM_GCC_541\Debug\main_cm0p.o .\CortexM0p\ARM_GCC_541\Debug\system_psoc63_cm0plus.o .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o .\CortexM0p\ARM_GCC_541\Debug\LCDConf.o .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_config.o .\CortexM0p\ARM_GCC_541\Debug\GUI_X.o .\CortexM0p\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o .\CortexM0p\ARM_GCC_541\Debug\cy_efuse.o .\CortexM0p\ARM_GCC_541\Debug\cy_flash.o .\CortexM0p\ARM_GCC_541\Debug\cy_gpio.o .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_drv.o .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_sema.o .\CortexM0p\ARM_GCC_541\Debug\cy_ipc_pipe.o .\CortexM0p\ARM_GCC_541\Debug\cy_lvd.o .\CortexM0p\ARM_GCC_541\Debug\cy_profile.o .\CortexM0p\ARM_GCC_541\Debug\cy_prot.o .\CortexM0p\ARM_GCC_541\Debug\cy_scb_common.o .\CortexM0p\ARM_GCC_541\Debug\cy_scb_i2c.o .\CortexM0p\ARM_GCC_541\Debug\cy_scb_ezi2c.o .\CortexM0p\ARM_GCC_541\Debug\cy_scb_spi.o .\CortexM0p\ARM_GCC_541\Debug\cy_scb_uart.o .\CortexM0p\ARM_GCC_541\Debug\cy_sysanalog.o .\CortexM0p\ARM_GCC_541\Debug\cy_sysclk.o .\CortexM0p\ARM_GCC_541\Debug\cy_sysint.o .\CortexM0p\ARM_GCC_541\Debug\cy_syslib.o .\CortexM0p\ARM_GCC_541\Debug\cy_syslib_gcc.o .\CortexM0p\ARM_GCC_541\Debug\cy_syspm.o .\CortexM0p\ARM_GCC_541\Debug\cy_systick.o .\CortexM0p\ARM_GCC_541\Debug\cy_trigmux.o .\CortexM0p\ARM_GCC_541\Debug\cy_wdt.o .\CortexM0p\ARM_GCC_541\Debug\cy_ble_clk.o .\CortexM0p\ARM_GCC_541\Debug\I2C.o .\CortexM0p\ARM_GCC_541\Debug\UART_1.o -mcpu=cortex-m0plus -mthumb -L Generated_Source\PSoC6 -Wl,-Map,.\CortexM0p\ARM_GCC_541\Debug/GBM2100.map -T cy8c6xx7_cm0plus.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+"C:\Program Files (x86)\Cypress\PDL\3.0.4\tools\win\elf\cymcuelftool.exe" --sign "C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\CortexM0p\ARM_GCC_541\Debug\GBM2100_link.elf" --output "C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\CortexM0p\ARM_GCC_541\Debug\GBM2100.elf" --hex "C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\CortexM0p\ARM_GCC_541\Debug\GBM2100.hex"
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\Config -I.\GUI\Core -I.\GUI\DisplayDriver "-I.\eInk Library" -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/ip/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/psoc63/include/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/drivers/BitPlains/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/nosnts/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/startup_psoc63_cm4.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c armgcc\startup\startup_psoc63_cm4.S -o .\CortexM4\ARM_GCC_541\Debug\startup_psoc63_cm4.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\Config -I.\GUI\Core -I.\GUI\DisplayDriver "-I.\eInk Library" -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/ip/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/psoc63/include/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/drivers/BitPlains/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/nosnts/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/main_cm4.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c main_cm4.c -o .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+main_cm4.c: In function 'main':
+main_cm4.c:83:18: warning: unused variable 'halfbufferIndex' [-Wunused-variable]
+         uint16_t halfbufferIndex=0;
+                  ^
+main_cm4.c:67:14: warning: unused variable 'nSamples' [-Wunused-variable]
+     uint16_t nSamples=4;
+              ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\Config -I.\GUI\Core -I.\GUI\DisplayDriver "-I.\eInk Library" -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/ip/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/psoc63/include/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/drivers/BitPlains/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/nosnts/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/MAX30102.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c MAX30102.c -o .\CortexM4\ARM_GCC_541\Debug\MAX30102.o
+MAX30102.c: In function 'readFIFO':
+MAX30102.c:90:21: warning: unused variable 'i2c_data' [-Wunused-variable]
+             uint8_t i2c_data = { 0 }; // comme Ã§a?
+                     ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\Config -I.\GUI\Core -I.\GUI\DisplayDriver "-I.\eInk Library" -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/ip/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/psoc63/include/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/drivers/BitPlains/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/nosnts/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/system_psoc63_cm4.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c system_psoc63_cm4.c -o .\CortexM4\ARM_GCC_541\Debug\system_psoc63_cm4.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -mthumb -I.\Config -I.\GUI\Core -I.\GUI\DisplayDriver "-I.\eInk Library" -I. -IGenerated_Source\PSoC6 -IGenerated_Source\PSoC6\pdl\cmsis/include/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/ip/ -IGenerated_Source\PSoC6\pdl\devices/psoc6/psoc63/include/ -IGenerated_Source\PSoC6\pdl\drivers/peripheral/ -IGenerated_Source\PSoC6\pdl\middleware/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/drivers/BitPlains/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/ -IGenerated_Source\PSoC6\pdl\middleware/emWin/code/include/nosnts/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/include/ -IGenerated_Source\PSoC6\pdl\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/ -Wa,-alh=.\CortexM4\ARM_GCC_541\Debug/pervasive_eink_hardware_driver.lst -g -D DEBUG -D CY_CORE_ID=0 -D CY_PSOC_CREATOR_USED=1 -D CY8C6347BZI_BLD53 -Wall -ffunction-sections -ffat-lto-objects -Og -c "eInk Library\pervasive_eink_hardware_driver.c" -o .\CortexM4\ARM_GCC_541\Debug\pervasive_eink_hardware_driver.o
+In file included from eInk Library\pervasive_eink_hardware_driver.h:42:0,
+                 from eInk Library\pervasive_eink_hardware_driver.c:39:
+eInk Library\pervasive_eink_hardware_driver.c: In function 'Pv_EINK_SendData':
+eInk Library\cy_eink_psoc_interface.h:75:46: error: 'CY_EINK_Ssel_PORT' undeclared (first use in this function)
+ #define CY_EINK_CsLow          Cy_GPIO_Write(CY_EINK_Ssel_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:124:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:75:46: note: each undeclared identifier is reported only once for each function it appears in
+ #define CY_EINK_CsLow          Cy_GPIO_Write(CY_EINK_Ssel_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:124:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:76:32: error: 'CY_EINK_Ssel_NUM' undeclared (first use in this function)
+                                CY_EINK_Ssel_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:124:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\pervasive_eink_hardware_driver.c: In function 'Pv_EINK_ReadByte':
+eInk Library\cy_eink_psoc_interface.h:75:46: error: 'CY_EINK_Ssel_PORT' undeclared (first use in this function)
+ #define CY_EINK_CsLow          Cy_GPIO_Write(CY_EINK_Ssel_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:200:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:76:32: error: 'CY_EINK_Ssel_NUM' undeclared (first use in this function)
+                                CY_EINK_Ssel_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:200:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\pervasive_eink_hardware_driver.c: In function 'Pv_EINK_Init':
+eInk Library\cy_eink_psoc_interface.h:111:46: error: 'CY_EINK_DispIoEn_PORT' undeclared (first use in this function)
+ #define CY_EINK_EnableIO       Cy_GPIO_Write(CY_EINK_DispIoEn_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:242:5: note: in expansion of macro 'CY_EINK_EnableIO'
+     CY_EINK_EnableIO;
+     ^
+eInk Library\cy_eink_psoc_interface.h:112:32: error: 'CY_EINK_DispIoEn_NUM' undeclared (first use in this function)
+                                CY_EINK_DispIoEn_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:242:5: note: in expansion of macro 'CY_EINK_EnableIO'
+     CY_EINK_EnableIO;
+     ^
+eInk Library\cy_eink_psoc_interface.h:107:46: error: 'CY_EINK_Border_PORT' undeclared (first use in this function)
+ #define CY_EINK_BorderLow      Cy_GPIO_Write(CY_EINK_Border_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:244:5: note: in expansion of macro 'CY_EINK_BorderLow'
+     CY_EINK_BorderLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:108:32: error: 'CY_EINK_Border_NUM' undeclared (first use in this function)
+                                CY_EINK_Border_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:244:5: note: in expansion of macro 'CY_EINK_BorderLow'
+     CY_EINK_BorderLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:99:46: error: 'CY_EINK_DispEn_PORT' undeclared (first use in this function)
+ #define CY_EINK_TurnOffVcc     Cy_GPIO_Write(CY_EINK_DispEn_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:246:5: note: in expansion of macro 'CY_EINK_TurnOffVcc'
+     CY_EINK_TurnOffVcc;
+     ^
+eInk Library\cy_eink_psoc_interface.h:100:32: error: 'CY_EINK_DispEn_NUM' undeclared (first use in this function)
+                                CY_EINK_DispEn_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:246:5: note: in expansion of macro 'CY_EINK_TurnOffVcc'
+     CY_EINK_TurnOffVcc;
+     ^
+eInk Library\cy_eink_psoc_interface.h:75:46: error: 'CY_EINK_Ssel_PORT' undeclared (first use in this function)
+ #define CY_EINK_CsLow          Cy_GPIO_Write(CY_EINK_Ssel_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:251:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:76:32: error: 'CY_EINK_Ssel_NUM' undeclared (first use in this function)
+                                CY_EINK_Ssel_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:251:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:83:46: error: 'CY_EINK_DispRst_PORT' undeclared (first use in this function)
+ #define CY_EINK_RstLow         Cy_GPIO_Write(CY_EINK_DispRst_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:252:5: note: in expansion of macro 'CY_EINK_RstLow'
+     CY_EINK_RstLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:84:32: error: 'CY_EINK_DispRst_NUM' undeclared (first use in this function)
+                                CY_EINK_DispRst_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:252:5: note: in expansion of macro 'CY_EINK_RstLow'
+     CY_EINK_RstLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:91:46: error: 'CY_EINK_Discharge_PORT' undeclared (first use in this function)
+ #define CY_EINK_DischargeLow   Cy_GPIO_Write(CY_EINK_Discharge_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:253:5: note: in expansion of macro 'CY_EINK_DischargeLow'
+     CY_EINK_DischargeLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:92:32: error: 'CY_EINK_Discharge_NUM' undeclared (first use in this function)
+                                CY_EINK_Discharge_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:253:5: note: in expansion of macro 'CY_EINK_DischargeLow'
+     CY_EINK_DischargeLow;
+     ^
+eInk Library\pervasive_eink_hardware_driver.c: In function 'Pv_EINK_HardwarePowerOn':
+eInk Library\cy_eink_psoc_interface.h:95:46: error: 'CY_EINK_DispEn_PORT' undeclared (first use in this function)
+ #define CY_EINK_TurnOnVcc      Cy_GPIO_Write(CY_EINK_DispEn_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:952:5: note: in expansion of macro 'CY_EINK_TurnOnVcc'
+     CY_EINK_TurnOnVcc;
+     ^
+eInk Library\cy_eink_psoc_interface.h:96:32: error: 'CY_EINK_DispEn_NUM' undeclared (first use in this function)
+                                CY_EINK_DispEn_NUM, CY_EINK_PIN_HIGH)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:952:5: note: in expansion of macro 'CY_EINK_TurnOnVcc'
+     CY_EINK_TurnOnVcc;
+     ^
+eInk Library\cy_eink_psoc_interface.h:71:46: error: 'CY_EINK_Ssel_PORT' undeclared (first use in this function)
+ #define CY_EINK_CsHigh         Cy_GPIO_Write(CY_EINK_Ssel_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:958:5: note: in expansion of macro 'CY_EINK_CsHigh'
+     CY_EINK_CsHigh;
+     ^
+eInk Library\cy_eink_psoc_interface.h:72:32: error: 'CY_EINK_Ssel_NUM' undeclared (first use in this function)
+                                CY_EINK_Ssel_NUM, CY_EINK_PIN_HIGH)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:958:5: note: in expansion of macro 'CY_EINK_CsHigh'
+     CY_EINK_CsHigh;
+     ^
+eInk Library\cy_eink_psoc_interface.h:103:46: error: 'CY_EINK_Border_PORT' undeclared (first use in this function)
+ #define CY_EINK_BorderHigh     Cy_GPIO_Write(CY_EINK_Border_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:959:5: note: in expansion of macro 'CY_EINK_BorderHigh'
+     CY_EINK_BorderHigh;
+     ^
+eInk Library\cy_eink_psoc_interface.h:104:32: error: 'CY_EINK_Border_NUM' undeclared (first use in this function)
+                                CY_EINK_Border_NUM, CY_EINK_PIN_HIGH)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:959:5: note: in expansion of macro 'CY_EINK_BorderHigh'
+     CY_EINK_BorderHigh;
+     ^
+eInk Library\cy_eink_psoc_interface.h:79:46: error: 'CY_EINK_DispRst_PORT' undeclared (first use in this function)
+ #define CY_EINK_RstHigh        Cy_GPIO_Write(CY_EINK_DispRst_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:962:5: note: in expansion of macro 'CY_EINK_RstHigh'
+     CY_EINK_RstHigh;
+     ^
+eInk Library\cy_eink_psoc_interface.h:80:32: error: 'CY_EINK_DispRst_NUM' undeclared (first use in this function)
+                                CY_EINK_DispRst_NUM, CY_EINK_PIN_HIGH)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:962:5: note: in expansion of macro 'CY_EINK_RstHigh'
+     CY_EINK_RstHigh;
+     ^
+eInk Library\pervasive_eink_hardware_driver.c: In function 'Pv_EINK_HardwarePowerOff':
+eInk Library\cy_eink_psoc_interface.h:107:46: error: 'CY_EINK_Border_PORT' undeclared (first use in this function)
+ #define CY_EINK_BorderLow      Cy_GPIO_Write(CY_EINK_Border_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:998:5: note: in expansion of macro 'CY_EINK_BorderLow'
+     CY_EINK_BorderLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:108:32: error: 'CY_EINK_Border_NUM' undeclared (first use in this function)
+                                CY_EINK_Border_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:998:5: note: in expansion of macro 'CY_EINK_BorderLow'
+     CY_EINK_BorderLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:99:46: error: 'CY_EINK_DispEn_PORT' undeclared (first use in this function)
+ #define CY_EINK_TurnOffVcc     Cy_GPIO_Write(CY_EINK_DispEn_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:1038:5: note: in expansion of macro 'CY_EINK_TurnOffVcc'
+     CY_EINK_TurnOffVcc;
+     ^
+eInk Library\cy_eink_psoc_interface.h:100:32: error: 'CY_EINK_DispEn_NUM' undeclared (first use in this function)
+                                CY_EINK_DispEn_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:1038:5: note: in expansion of macro 'CY_EINK_TurnOffVcc'
+     CY_EINK_TurnOffVcc;
+     ^
+eInk Library\cy_eink_psoc_interface.h:75:46: error: 'CY_EINK_Ssel_PORT' undeclared (first use in this function)
+ #define CY_EINK_CsLow          Cy_GPIO_Write(CY_EINK_Ssel_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:1043:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:76:32: error: 'CY_EINK_Ssel_NUM' undeclared (first use in this function)
+                                CY_EINK_Ssel_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:1043:5: note: in expansion of macro 'CY_EINK_CsLow'
+     CY_EINK_CsLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:83:46: error: 'CY_EINK_DispRst_PORT' undeclared (first use in this function)
+ #define CY_EINK_RstLow         Cy_GPIO_Write(CY_EINK_DispRst_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:1044:5: note: in expansion of macro 'CY_EINK_RstLow'
+     CY_EINK_RstLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:84:32: error: 'CY_EINK_DispRst_NUM' undeclared (first use in this function)
+                                CY_EINK_DispRst_NUM, CY_EINK_PIN_LOW)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:1044:5: note: in expansion of macro 'CY_EINK_RstLow'
+     CY_EINK_RstLow;
+     ^
+eInk Library\cy_eink_psoc_interface.h:87:46: error: 'CY_EINK_Discharge_PORT' undeclared (first use in this function)
+ #define CY_EINK_DischargeHigh  Cy_GPIO_Write(CY_EINK_Discharge_PORT,\
+                                              ^
+eInk Library\pervasive_eink_hardware_driver.c:1045:5: note: in expansion of macro 'CY_EINK_DischargeHigh'
+     CY_EINK_DischargeHigh;
+     ^
+eInk Library\cy_eink_psoc_interface.h:88:32: error: 'CY_EINK_Discharge_NUM' undeclared (first use in this function)
+                                CY_EINK_Discharge_NUM, CY_EINK_PIN_HIGH)
+                                ^
+eInk Library\pervasive_eink_hardware_driver.c:1045:5: note: in expansion of macro 'CY_EINK_DischargeHigh'
+     CY_EINK_DischargeHigh;
+     ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Build Failed: 04/07/2021 17:27:08 ---------------

@@ -36,40 +36,29 @@
     <Folders>
       <Folder BuildType="STRICT" Path="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
         <Files Root="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
+          <File BuildType="BUILD" Toolchain="">cy_ipc_config.h</File>
+          <File BuildType="BUILD" Toolchain="">cy_ble_config.h</File>
+          <File BuildType="BUILD" Toolchain="">GUIConf.h</File>
+          <File BuildType="BUILD" Toolchain="">LCDConf.h</File>
+          <File BuildType="BUILD" Toolchain="">system_psoc63.h</File>
+          <File BuildType="BUILD" Toolchain="">cy_ipc_config.c</File>
+          <File BuildType="BUILD" Toolchain="">GUIConf.c</File>
+          <File BuildType="BUILD" Toolchain="">GUI_X.c</File>
+          <File BuildType="BUILD" Toolchain="">LCDConf.c</File>
           <File BuildType="BUILD" Toolchain="">debug.h</File>
           <File BuildType="BUILD" Toolchain="">params.h</File>
           <File BuildType="BUILD" Toolchain="">FreeRTOSConfig.h</File>
           <File BuildType="BUILD" Toolchain="">MAX30102.h</File>
+          <File BuildType="BUILD" Toolchain="">BMI160.h</File>
           <File BuildType="BUILD" Toolchain="">main_cm4.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">armgcc\startup\startup_psoc63_cm4.S</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">iar\startup\startup_psoc63_cm4.s</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">mdk\startup\startup_psoc63_cm4.s</File>
           <File BuildType="BUILD" Toolchain="">MAX30102.c</File>
           <File BuildType="BUILD" Toolchain="">system_psoc63_cm4.c</File>
-          <File BuildType="BUILD" Toolchain="">..\cy_eink_fonts.h</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">cy8c6xx7_cm4_dual.ld</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">cy8c6xx7_cm4_dual.icf</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">cy8c6xx7_cm4_dual.scat</File>
-          <File BuildType="BUILD" Toolchain="">GUIConf.c</File>
-          <File BuildType="BUILD" Toolchain="">GUIConf.h</File>
-          <File BuildType="BUILD" Toolchain="">GUI_X.c</File>
-          <File BuildType="BUILD" Toolchain="">LCDConf.h</File>
-          <File BuildType="BUILD" Toolchain="">LCDConf.c</File>
-          <File BuildType="BUILD" Toolchain="">cy_ipc_config.c</File>
-          <File BuildType="BUILD" Toolchain="">cy_ipc_config.h</File>
-          <File BuildType="BUILD" Toolchain="">cy_ble_config.h</File>
-          <File BuildType="BUILD" Toolchain="">system_psoc63.h</File>
-        </Files>
-      </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
-        <Files Root="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
-          <File BuildType="BUILD" Toolchain="">eInk Library\cy_eink_psoc_interface.h</File>
-          <File BuildType="BUILD" Toolchain="">eInk Library\pervasive_eink_configuration.h</File>
-          <File BuildType="BUILD" Toolchain="">eInk Library\pervasive_eink_hardware_driver.c</File>
-          <File BuildType="BUILD" Toolchain="">eInk Library\pervasive_eink_hardware_driver.h</File>
-          <File BuildType="BUILD" Toolchain="">eInk Library\cy_eink_library.h</File>
-          <File BuildType="BUILD" Toolchain="">eInk Library\cy_eink_library.c</File>
-          <File BuildType="BUILD" Toolchain="">eInk Library\cy_eink_psoc_interface.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn">
