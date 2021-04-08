@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_systick.h
-* \version 1.10
+* \version 1.0.1
 *
 * Provides the API declarations of the SysTick driver.
 *
@@ -12,16 +12,13 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#ifndef CY_SYSTICK_H
-#define CY_SYSTICK_H
+#ifndef _CY_SYSTICK_H_
+#define _CY_SYSTICK_H_
 
 /**
-* \addtogroup group_arm_system_timer
+* \defgroup group_arm_system_timer ARM System Timer (SysTick)
 * \{
 * Provides vendor-specific SysTick API.
-*
-* The functions and other declarations used in this driver are in cy_systick.h. 
-* You can include cy_pdl.h (ModusToolbox only) to get access to all functions and declarations in the PDL. 
 *
 * The SysTick timer is part of the CPU. The timer is a down counter with a 24-bit reload/tick value that is clocked by
 * the FastClk/SlowClk. The timer has the capability to generate an interrupt when the set number of ticks expires and
@@ -71,19 +68,6 @@
 * <table class="doxtable">
 * <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
 * <tr>
-*   <td rowspan="2">1.10</td>
-*     <td>Flattened the organization of the driver source code into the single 
-*         source directory and the single include directory.
-*     </td>
-*     <td>Driver library directory-structure simplification.</td>
-* </tr>
-*   <tr>
-*     <td>Added register access layer. Use register access macros instead
-*         of direct register access using dereferenced pointers.</td>
-*     <td>Makes register access device-independent, so that the PDL does 
-*         not need to be recompiled for each supported part number.</td>
-*   </tr>
-* <tr>
 * <td>1.0.1</td>
 * <td>Fixed a warning issued when the compilation of C++ source code was
 *     enabled.</td> 
@@ -102,8 +86,7 @@
 */
 
 #include <stdint.h>
-#include "cy_syslib.h"
-#include "cy_device.h"
+#include "syslib/cy_syslib.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -163,7 +146,7 @@ __STATIC_INLINE void Cy_SysTick_Clear(void);
 #define SYSTICK_DRV_VERSION_MAJOR       1
 
 /** Driver minor version */
-#define SYSTICK_DRV_VERSION_MINOR       10
+#define SYSTICK_DRV_VERSION_MINOR       0
 
 /** Number of the callbacks assigned to the SysTick interrupt */
 #define CY_SYS_SYST_NUM_OF_CALLBACKS         (5u)
@@ -192,7 +175,7 @@ __STATIC_INLINE void Cy_SysTick_Clear(void);
 *******************************************************************************/
 __STATIC_INLINE void Cy_SysTick_EnableInterrupt(void)
 {
-    SYSTICK_CTRL = SYSTICK_CTRL | SysTick_CTRL_TICKINT_Msk;
+    SysTick->CTRL = SysTick->CTRL | SysTick_CTRL_TICKINT_Msk;
 }
 
 
@@ -207,7 +190,7 @@ __STATIC_INLINE void Cy_SysTick_EnableInterrupt(void)
 *******************************************************************************/
 __STATIC_INLINE void Cy_SysTick_DisableInterrupt(void)
 {
-    SYSTICK_CTRL = SYSTICK_CTRL & ~SysTick_CTRL_TICKINT_Msk;
+    SysTick->CTRL = SysTick->CTRL & ~SysTick_CTRL_TICKINT_Msk;
 }
 
 
@@ -224,7 +207,7 @@ __STATIC_INLINE void Cy_SysTick_DisableInterrupt(void)
 *******************************************************************************/
 __STATIC_INLINE void Cy_SysTick_SetReload(uint32_t value)
 {
-    SYSTICK_LOAD = (value & SysTick_LOAD_RELOAD_Msk);
+    SysTick->LOAD = (value & SysTick_LOAD_RELOAD_Msk);
 }
 
 
@@ -239,7 +222,7 @@ __STATIC_INLINE void Cy_SysTick_SetReload(uint32_t value)
 *******************************************************************************/
 __STATIC_INLINE uint32_t Cy_SysTick_GetReload(void)
 {
-    return (SYSTICK_LOAD);
+    return (SysTick->LOAD);
 }
 
 
@@ -254,7 +237,7 @@ __STATIC_INLINE uint32_t Cy_SysTick_GetReload(void)
 *******************************************************************************/
 __STATIC_INLINE uint32_t Cy_SysTick_GetValue(void)
 {
-    return (SYSTICK_VAL);
+    return (SysTick->VAL);
 }
 
 /*******************************************************************************
@@ -266,7 +249,7 @@ __STATIC_INLINE uint32_t Cy_SysTick_GetValue(void)
 *******************************************************************************/
 __STATIC_INLINE void Cy_SysTick_Clear(void)
 {
-    SYSTICK_VAL = 0u;
+    SysTick->VAL = 0u;
 }
 
 
@@ -285,7 +268,7 @@ __STATIC_INLINE void Cy_SysTick_Clear(void)
 *******************************************************************************/
 __STATIC_INLINE uint32_t Cy_SysTick_GetCountFlag(void)
 {
-    return (SYSTICK_CTRL & SysTick_CTRL_COUNTFLAG_Msk);
+    return (SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk);
 }
 
 
@@ -295,7 +278,7 @@ __STATIC_INLINE uint32_t Cy_SysTick_GetCountFlag(void)
 }
 #endif
 
-#endif /* CY_SYSTICK_H */
+#endif /* _CY_SYSTICK_H_ */
 
 /** \} group_systick */
 

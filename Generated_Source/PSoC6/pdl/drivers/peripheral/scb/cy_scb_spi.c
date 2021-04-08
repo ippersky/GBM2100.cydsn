@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_scb_spi.c
-* \version 2.20
+* \version 2.10
 *
 * Provides SPI API implementation of the SCB driver.
 *
@@ -13,8 +13,6 @@
 *******************************************************************************/
 
 #include "cy_scb_spi.h"
-
-#ifdef CY_IP_MXSCB
 
 #if defined(__cplusplus)
 extern "C" {
@@ -42,8 +40,8 @@ static void DiscardArrayNoCheck(CySCB_Type const *base, uint32_t size);
 * by the user. The structure is used during the SPI operation for internal
 * configuration and data retention. The user must not modify anything
 * in this structure.
-* If only SPI \ref group_scb_spi_ll will be used pass NULL as pointer to 
-* context.
+* If only SPI functions that do not require context will be used to pass NULL
+* as pointer to context.
 *
 * \return
 * \ref cy_en_scb_spi_status_t
@@ -56,6 +54,21 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Init(CySCB_Type *base, cy_stc_scb_spi_config_t
 {
     /* Input parameters verification */
     if ((NULL == base) || (NULL == config))
+    {
+        return CY_SCB_SPI_BAD_PARAM;
+    }
+
+    if ((config->spiMode == CY_SCB_SPI_SLAVE) && (!SCB_IS_SPI_SLAVE_CAPABLE(base)))
+    {
+        return CY_SCB_SPI_BAD_PARAM;
+    }
+
+    if ((config->spiMode == CY_SCB_SPI_MASTER) && (!SCB_IS_SPI_MASTER_CAPABLE(base)))
+    {
+        return CY_SCB_SPI_BAD_PARAM;
+    }
+
+    if ((config->enableWakeFromSleep) && (!SCB_IS_SPI_DS_CAPABLE(base)))
     {
         return CY_SCB_SPI_BAD_PARAM;
     }
@@ -79,7 +92,7 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Init(CySCB_Type *base, cy_stc_scb_spi_config_t
     bool byteMode = (config->rxDataWidth <= CY_SCB_BYTE_WIDTH) && (config->txDataWidth <= CY_SCB_BYTE_WIDTH);
 
     /* Configure an SPI interface */
-    SCB_CTRL(base) = _BOOL2FLD(SCB_CTRL_BYTE_MODE, byteMode)                     |
+    base->CTRL = _BOOL2FLD(SCB_CTRL_BYTE_MODE, byteMode)                     |
                  _BOOL2FLD(SCB_CTRL_EC_AM_MODE, config->enableWakeFromSleep) |
                  _VAL2FLD(SCB_CTRL_OVS, (config->oversample - 1UL))          |
                  _VAL2FLD(SCB_CTRL_MODE, CY_SCB_CTRL_MODE_SPI);
@@ -88,7 +101,7 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Init(CySCB_Type *base, cy_stc_scb_spi_config_t
     CY_ASSERT_L2(CY_SCB_IS_TRIGGER_LEVEL_VALID(base, config->rxFifoTriggerLevel));
     CY_ASSERT_L2(CY_SCB_IS_TRIGGER_LEVEL_VALID(base, config->txFifoTriggerLevel));
 
-    SCB_SPI_CTRL(base) = _BOOL2FLD(SCB_SPI_CTRL_SSEL_CONTINUOUS, (!config->enableTransferSeperation)) |
+    base->SPI_CTRL = _BOOL2FLD(SCB_SPI_CTRL_SSEL_CONTINUOUS, (!config->enableTransferSeperation)) |
                      _BOOL2FLD(SCB_SPI_CTRL_SELECT_PRECEDE,  (CY_SCB_SPI_TI_PRECEDES == config->subMode)) |
                      _BOOL2FLD(SCB_SPI_CTRL_LATE_MISO_SAMPLE, config->enableMisoLateSample)       |
                      _BOOL2FLD(SCB_SPI_CTRL_SCLK_CONTINUOUS,  config->enableFreeRunSclk)          |
@@ -98,24 +111,24 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Init(CySCB_Type *base, cy_stc_scb_spi_config_t
                      _VAL2FLD(SCB_SPI_CTRL_MODE,  (uint32_t) config->subMode);
 
     /* Configure the RX direction */
-    SCB_RX_CTRL(base) = _BOOL2FLD(SCB_RX_CTRL_MSB_FIRST, config->enableMsbFirst) |
+    base->RX_CTRL = _BOOL2FLD(SCB_RX_CTRL_MSB_FIRST, config->enableMsbFirst) |
                     _BOOL2FLD(SCB_RX_CTRL_MEDIAN, config->enableInputFilter) |
                     _VAL2FLD(SCB_RX_CTRL_DATA_WIDTH, (config->rxDataWidth - 1UL));
 
-    SCB_RX_FIFO_CTRL(base) = _VAL2FLD(SCB_RX_FIFO_CTRL_TRIGGER_LEVEL, config->rxFifoTriggerLevel);
+    base->RX_FIFO_CTRL = _VAL2FLD(SCB_RX_FIFO_CTRL_TRIGGER_LEVEL, config->rxFifoTriggerLevel);
 
     /* Configure the TX direction */
-    SCB_TX_CTRL(base) = _BOOL2FLD(SCB_TX_CTRL_MSB_FIRST, config->enableMsbFirst) |
+    base->TX_CTRL = _BOOL2FLD(SCB_TX_CTRL_MSB_FIRST, config->enableMsbFirst) |
                     _VAL2FLD(SCB_TX_CTRL_DATA_WIDTH, (config->txDataWidth - 1UL));
 
-    SCB_TX_FIFO_CTRL(base) = _VAL2FLD(SCB_TX_FIFO_CTRL_TRIGGER_LEVEL, config->txFifoTriggerLevel);
+    base->TX_FIFO_CTRL = _VAL2FLD(SCB_TX_FIFO_CTRL_TRIGGER_LEVEL, config->txFifoTriggerLevel);
 
     /* Set up interrupt sources */
-    SCB_INTR_RX_MASK(base) = (config->rxFifoIntEnableMask & CY_SCB_SPI_RX_INTR_MASK);
-    SCB_INTR_TX_MASK(base) = (config->txFifoIntEnableMask & CY_SCB_SPI_TX_INTR_MASK);
-    SCB_INTR_M(base)       = (config->masterSlaveIntEnableMask & CY_SCB_SPI_MASTER_DONE);
-    SCB_INTR_S(base)       = (config->masterSlaveIntEnableMask & CY_SCB_SPI_SLAVE_ERR);
-    SCB_INTR_SPI_EC_MASK(base) = 0UL;
+    base->INTR_RX_MASK = (config->rxFifoIntEnableMask & CY_SCB_SPI_RX_INTR_MASK);
+    base->INTR_TX_MASK = (config->txFifoIntEnableMask & CY_SCB_SPI_TX_INTR_MASK);
+    base->INTR_M       = (config->masterSlaveIntEnableMask & CY_SCB_SPI_MASTER_DONE);
+    base->INTR_S       = (config->masterSlaveIntEnableMask & CY_SCB_SPI_SLAVE_ERR);
+    base->INTR_SPI_EC_MASK = 0UL;
 
     /* Initialize the context */
     if (NULL != context)
@@ -155,24 +168,24 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Init(CySCB_Type *base, cy_stc_scb_spi_config_t
 void Cy_SCB_SPI_DeInit(CySCB_Type *base)
 {
     /* SPI interface */
-    SCB_CTRL(base)         = CY_SCB_CTRL_DEF_VAL;
-    SCB_SPI_CTRL(base)     = CY_SCB_SPI_CTRL_DEF_VAL;
+    base->CTRL         = CY_SCB_CTRL_DEF_VAL;
+    base->SPI_CTRL     = CY_SCB_SPI_CTRL_DEF_VAL;
 
     /* RX direction */
-    SCB_RX_CTRL(base)      = CY_SCB_RX_CTRL_DEF_VAL;
-    SCB_RX_FIFO_CTRL(base) = 0UL;
+    base->RX_CTRL      = CY_SCB_RX_CTRL_DEF_VAL;
+    base->RX_FIFO_CTRL = 0UL;
 
     /* TX direction */
-    SCB_TX_CTRL(base)      = CY_SCB_TX_CTRL_DEF_VAL;
-    SCB_TX_FIFO_CTRL(base) = 0UL;
+    base->TX_CTRL      = CY_SCB_TX_CTRL_DEF_VAL;
+    base->TX_FIFO_CTRL = 0UL;
 
     /* Disable all interrupt sources */
-    SCB_INTR_SPI_EC_MASK(base) = 0UL;
-    SCB_INTR_I2C_EC_MASK(base) = 0UL;
-    SCB_INTR_RX_MASK(base)     = 0UL;
-    SCB_INTR_TX_MASK(base)     = 0UL;
-    SCB_INTR_M_MASK(base)      = 0UL;
-    SCB_INTR_S_MASK(base)      = 0UL;
+    base->INTR_SPI_EC_MASK = 0UL;
+    base->INTR_I2C_EC_MASK = 0UL;
+    base->INTR_RX_MASK     = 0UL;
+    base->INTR_TX_MASK     = 0UL;
+    base->INTR_M_MASK      = 0UL;
+    base->INTR_S_MASK      = 0UL;
 }
 
 
@@ -184,8 +197,7 @@ void Cy_SCB_SPI_DeInit(CySCB_Type *base)
 * TX and RX interrupt sources.
 * Note that after the block is disabled, the TX and RX FIFOs and
 * hardware statuses are cleared. Also, the hardware stops driving the output
-* and ignores the input. Refer to section \ref group_scb_spi_lp for more 
-* information about SPI pins when SCB disabled.
+* and ignores the input.
 *
 * \param base
 * The pointer to the SPI SCB instance.
@@ -202,12 +214,13 @@ void Cy_SCB_SPI_DeInit(CySCB_Type *base)
 * Calling this function when the SPI is busy (master preforms data transfer or
 * slave communicates with the master) may cause transfer corruption because the
 * hardware stops driving the outputs and ignores the inputs.
-* Ensure that the SPI is not busy before calling this function.
+* Ensure that the SPI is not busy before calling this
+* function.
 *
 *******************************************************************************/
 void Cy_SCB_SPI_Disable(CySCB_Type *base, cy_stc_scb_spi_context_t *context)
 {
-    SCB_CTRL(base) &= (uint32_t) ~SCB_CTRL_ENABLED_Msk;
+    base->CTRL &= (uint32_t) ~SCB_CTRL_ENABLED_Msk;
 
     if (NULL != context)
     {
@@ -221,7 +234,7 @@ void Cy_SCB_SPI_Disable(CySCB_Type *base, cy_stc_scb_spi_context_t *context)
     * RX overflow and TX underflow are kept enabled after the 1st call of
     * Cy_SCB_SPI_Transfer().
     */
-    if (!_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, SCB_SPI_CTRL(base)))
+    if (!_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, base->SPI_CTRL))
     {
         Cy_SCB_SetRxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
         Cy_SCB_SetTxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
@@ -239,39 +252,35 @@ void Cy_SCB_SPI_Disable(CySCB_Type *base, cy_stc_scb_spi_context_t *context)
 * in the TX or RX FIFOs.
 * The following behavior of the SPI SCB depends on whether the SCB block is
 * wakeup-capable or not:
-* * <b>Wakeup-capable</b>: any transfer intended to the slave wakes up 
-*   the device from Deep Sleep mode. The slave responds with 0xFF to the  
-*   transfer and incoming data is ignored. 
+* * The SCB is <b>wakeup-capable</b>: any transfer intended to the slave wakes up 
+*   the device from Deep Sleep mode. The slave responds with 0xFF to the transfer 
+*   and incoming data is ignored.   
 *   If the transfer occurs before the device enters Deep Sleep mode, the device
 *   will not enter Deep Sleep mode and incoming data is stored in the RX FIFO.
 *   The SCB clock is disabled before entering Deep Sleep and enabled after the 
-*   device exits Deep Sleep mode. The SCB clock disabling may lead to 
-*   corrupted data in the RX FIFO. Clear the RX FIFO after this callback is 
-*   executed.
-*   Note that for proper SPI operation after Deep Sleep the source of 
-*   hf_clk[0] must be stable, this includes the FLL/PLL. The SysClk callback 
-*   ensures that hf_clk[0] gets stable and it must be called before 
-*   \ref Cy_SCB_SPI_DeepSleepCallback. 
+*   device exits Deep Sleep mode. The SCB clock must be enabled after exiting 
+*   Deep Sleep mode and after the source of hf_clk[0] gets stable, this includes 
+*   the FLL/PLL. The SysClk callback ensures that hf_clk[0] gets stable and 
+*   it must be called before Cy_SCB_SPI_DeepSleepCallback. The SCB clock 
+*   disabling may lead to corrupted data in the RX FIFO. Clear the RX FIFO 
+*   after this callback is executed. If the transfer occurs before the device 
+*   enters Deep Sleep mode, the device will not enter Deep Sleep mode and 
+*   incoming data will be stored in the RX FIFO. \n
 *   Only the SPI slave can be configured to be a wakeup source from Deep Sleep
 *   mode.
-* * <b>Not wakeup-capable</b>: the SPI is disabled. It is enabled when 
+* * The SCB is not <b>wakeup-capable</b>: the SPI is disabled. It is enabled when 
 *   the device fails to enter Deep Sleep mode or it is awakened from Deep Sleep 
-*   mode. While the SPI is disabled, it stops driving the outputs and ignores 
-*   the inputs. Any incoming data is ignored.
-*   Refer to section \ref group_scb_spi_lp for more information about SPI pins 
-*   when SCB disabled.
+*   mode. While the SPI is disabled, it stops driving the outputs and ignores the
+*   inputs. Any incoming data is ignored.
 *
-* This function must be called during execution of \ref Cy_SysPm_CpuEnterDeepSleep.
+* This function must be called during execution of \ref Cy_SysPm_DeepSleep.
 * To do it, register this function as a callback before calling
-* \ref Cy_SysPm_CpuEnterDeepSleep : specify \ref CY_SYSPM_DEEPSLEEP as the callback
+* \ref Cy_SysPm_DeepSleep : specify \ref CY_SYSPM_DEEPSLEEP as the callback
 * type and call \ref Cy_SysPm_RegisterCallback.
 *
 * \param callbackParams
 * The pointer to the callback parameters structure
 * \ref cy_stc_syspm_callback_params_t.
-*
-* \param mode
-* Callback mode, see \ref cy_en_syspm_callback_mode_t
 *
 * \return
 * \ref cy_en_syspm_status_t
@@ -284,14 +293,14 @@ void Cy_SCB_SPI_Disable(CySCB_Type *base, cy_stc_scb_spi_context_t *context)
 * and clock enable code in the \ref CY_SYSPM_AFTER_TRANSITION mode processing.
 *
 *******************************************************************************/
-cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams, cy_en_syspm_callback_mode_t mode)
+cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t *callbackParams)
 {
     CySCB_Type *locBase = (CySCB_Type *) callbackParams->base;
     cy_stc_scb_spi_context_t *locContext = (cy_stc_scb_spi_context_t *) callbackParams->context;
 
     cy_en_syspm_status_t retStatus = CY_SYSPM_FAIL;
 
-    switch(mode)
+    switch(callbackParams->mode)
     {
         case CY_SYSPM_CHECK_READY:
         {
@@ -310,7 +319,7 @@ cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t
                     {
                         if (0UL == Cy_SCB_SPI_GetNumInRxFifo(locBase))
                         {
-                            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+                            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
                             {
                                 /* The SCB is wakeup-capable: clear the SPI
                                 * wakeup interrupt source because it triggers
@@ -350,7 +359,7 @@ cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t
             * Active mode configuration.
             */
 
-            if (!_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+            if (!_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
             {
                 /* The SCB is NOT wakeup-capable: enable the SPI to operate */
                 Cy_SCB_SPI_Enable(locBase);
@@ -369,7 +378,7 @@ cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t
             * does nothing and the device remains in Active mode.
             */
 
-            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
             {
                 /* The SCB is wakeup-capable: enable the SPI wakeup interrupt
                 * source. If any transaction happens, the wakeup interrupt
@@ -378,7 +387,7 @@ cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t
                 Cy_SCB_SetSpiInterruptMask(locBase, CY_SCB_I2C_INTR_WAKEUP);
                 
                 /* Disable SCB clock */
-                SCB_I2C_CFG(locBase) &= (uint32_t) ~CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
+                locBase->I2C_CFG &= (uint32_t) ~CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
                             
                 /* IMPORTANT (replace line above for the CY8CKIT-062 rev-08): 
                 * for proper entering Deep Sleep mode the SPI clock must be disabled. 
@@ -393,10 +402,10 @@ cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t
 
         case CY_SYSPM_AFTER_TRANSITION:
         {
-            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, SCB_CTRL(locBase)))
+            if (_FLD2BOOL(SCB_CTRL_EC_AM_MODE, locBase->CTRL))
             {
                 /* Enable SCB clock */
-                SCB_I2C_CFG(locBase) |= CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
+                locBase->I2C_CFG |= CY_SCB_I2C_CFG_CLK_ENABLE_Msk;
                 
                 /* IMPORTANT (replace line above for the CY8CKIT-062 rev-08): 
                 * for proper exiting Deep Sleep mode, the SPI clock must be enabled. 
@@ -435,35 +444,31 @@ cy_en_syspm_status_t Cy_SCB_SPI_DeepSleepCallback(cy_stc_syspm_callback_params_t
 * It prevents the device from entering Hibernate mode if the SPI slave or 
 * master is actively communicating, or there is any data in the TX or RX FIFOs.
 * If the SPI is ready to enter Hibernate mode, it is disabled. If the device
-* failed to enter Hibernate mode, the SPI is re-enabled. While the SPI is
-* disabled, it stops driving the outputs and ignores the inputs. Any incoming 
-* data is ignored. Refer to section \ref group_scb_spi_lp for more information 
-* about SPI pins when SCB disabled.
+* failed to enter Hibernate mode, the SPI is enabled. While the SPI is
+* disabled, it stops driving the outputs and ignores the inputs.
+* Any incoming data is ignored.
 *
-* This function must be called during execution of \ref Cy_SysPm_SystemEnterHibernate.
+* This function must be called during execution of \ref Cy_SysPm_Hibernate.
 * To do it, register this function as a callback before calling
-* \ref Cy_SysPm_SystemEnterHibernate : specify \ref CY_SYSPM_HIBERNATE as the callback
-* type and call \ref Cy_SysPm_RegisterCallback. 
+* \ref Cy_SysPm_Hibernate : specify \ref CY_SYSPM_HIBERNATE as the callback
+* type and call \ref Cy_SysPm_RegisterCallback.
 *
 * \param callbackParams
 * The pointer to the callback parameters structure
 * \ref cy_stc_syspm_callback_params_t.
 *
-* \param mode
-* Callback mode, see \ref cy_en_syspm_callback_mode_t
-*
 * \return
 * \ref cy_en_syspm_status_t
 *
 *******************************************************************************/
-cy_en_syspm_status_t Cy_SCB_SPI_HibernateCallback(cy_stc_syspm_callback_params_t *callbackParams, cy_en_syspm_callback_mode_t mode)
+cy_en_syspm_status_t Cy_SCB_SPI_HibernateCallback(cy_stc_syspm_callback_params_t *callbackParams)
 {
     CySCB_Type *locBase = (CySCB_Type *) callbackParams->base;
     cy_stc_scb_spi_context_t *locContext = (cy_stc_scb_spi_context_t *) callbackParams->context;
 
     cy_en_syspm_status_t  retStatus = CY_SYSPM_FAIL;
 
-    switch(mode)
+    switch(callbackParams->mode)
     {
         case CY_SYSPM_CHECK_READY:
         {
@@ -564,12 +569,12 @@ cy_en_syspm_status_t Cy_SCB_SPI_HibernateCallback(cy_stc_syspm_callback_params_t
 *
 * \param txBuffer
 * The pointer of the buffer with data to transmit.
-* The element size is defined by the data type that depends on the configured
+* The item size is defined by the data type that depends on the configured
 * TX data width.
 *
 * \param rxBuffer
 * The pointer to the buffer to store received data.
-* The element size is defined by the data type that depends on the configured
+* The item size is defined by the data type that depends on the configured
 * RX data width.
 *
 * \param size
@@ -619,7 +624,7 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Transfer(CySCB_Type *base, void *txBuffer, voi
         /* Set the TX interrupt when half of FIFO was transmitted */
         Cy_SCB_SetTxFifoLevel(base, fifoSize / 2UL);
 
-        if (_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, SCB_SPI_CTRL(base)))
+        if (_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, base->SPI_CTRL))
         {
             /* Trigger an RX interrupt:
             * - If the transfer size is equal to or less than FIFO, trigger at the end of the transfer.
@@ -660,7 +665,7 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Transfer(CySCB_Type *base, void *txBuffer, voi
 ****************************************************************************//**
 *
 * Aborts the current SPI transfer.
-* It disables the TX and RX interrupt sources, clears the TX
+* It disables the transmit and RX interrupt sources, clears the TX
 * and RX FIFOs and the status.
 *
 * \param base
@@ -673,9 +678,9 @@ cy_en_scb_spi_status_t Cy_SCB_SPI_Transfer(CySCB_Type *base, void *txBuffer, voi
 * in this structure.
 *
 * \note
-* If slave aborts transfer and the master is still transferring data, 
-* that data will be placed in the RX FIFO, and the TX underflow will be set. 
-* To drop data received into the RX FIFO, RX FIFO must be cleared when
+* In the slave mode and after abort of transfer operation master continue
+* sending data it gets into RX FIFO and TX FIFO is underflow as there is
+* nothing to send. To drop this data, RX FIFO must be cleared when
 * the transfer is complete. Otherwise, received data will be kept and
 * copied to the buffer when \ref Cy_SCB_SPI_Transfer is called.
 *
@@ -691,7 +696,7 @@ void Cy_SCB_SPI_AbortTransfer(CySCB_Type *base, cy_stc_scb_spi_context_t *contex
     /* Disable interrupt sources */
     Cy_SCB_SetSlaveInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
 
-    if (_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, SCB_SPI_CTRL(base)))
+    if (_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, base->SPI_CTRL))
     {
         Cy_SCB_SetRxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
         Cy_SCB_SetTxInterruptMask(base, CY_SCB_CLEAR_ALL_INTR_SRC);
@@ -925,7 +930,7 @@ static void HandleReceive(CySCB_Type *base, cy_stc_scb_spi_context_t *context)
     }
     else
     {
-        uint32_t level = (_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, SCB_SPI_CTRL(base))) ?
+        uint32_t level = (_FLD2BOOL(SCB_SPI_CTRL_MASTER_MODE, base->SPI_CTRL)) ?
                                     Cy_SCB_GetFifoSize(base) : (Cy_SCB_GetFifoSize(base) / 2UL);
 
         if (context->rxBufSize < level)
@@ -1024,11 +1029,11 @@ static void DiscardArrayNoCheck(CySCB_Type const *base, uint32_t size)
     }
 }
 
+
 #if defined(__cplusplus)
 }
 #endif
 
-#endif /* CY_IP_MXSCB */
 
 /* [] END OF FILE */
 

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_ipc_pipe.c
-* \version 1.30
+* \version 1.20
 *
 *  Description:
 *   IPC Pipe Driver - This source file includes code for the Pipe layer on top
@@ -17,7 +17,6 @@
 
 /* Define a pointer to array of endPoints. */
 static cy_stc_ipc_pipe_ep_t * cy_ipc_pipe_epArray = NULL;
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_Config
@@ -47,7 +46,6 @@ void Cy_IPC_Pipe_Config(cy_stc_ipc_pipe_ep_t * theEpArray)
         cy_ipc_pipe_epArray = theEpArray;
     }
 }
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_Init
@@ -86,6 +84,8 @@ void Cy_IPC_Pipe_Init(cy_stc_ipc_pipe_config_t const *config)
     CY_ASSERT_L2((uint32_t)(1UL << __NVIC_PRIO_BITS) > config->ep1ConfigData.ipcNotifierPriority);
     #endif
     CY_ASSERT_L1(NULL != config->endpointsCallbacksArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > config->ep0ConfigData.epAddress);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > config->ep1ConfigData.epAddress);
     CY_ASSERT_L1(NULL != config->userPipeIsrHandler);
     /* Parameters checking end */
 
@@ -97,7 +97,7 @@ void Cy_IPC_Pipe_Init(cy_stc_ipc_pipe_config_t const *config)
 
     /* Configure CM0 interrupts */
     ipc_intr_cypipeConfig.intrSrc          = (IRQn_Type)epConfigDataA.ipcNotifierMuxNumber;
-    ipc_intr_cypipeConfig.cm0pSrc          = (cy_en_intr_t)((int32_t)cy_device->cpussIpc0Irq + (int32_t)epConfigDataA.ipcNotifierNumber);
+    ipc_intr_cypipeConfig.cm0pSrc          = (cy_en_intr_t)((int32_t)cpuss_interrupts_ipc_0_IRQn + (int32_t)epConfigDataA.ipcNotifierNumber);
     ipc_intr_cypipeConfig.intrPriority     = epConfigDataA.ipcNotifierPriority;
 
 #else
@@ -107,7 +107,7 @@ void Cy_IPC_Pipe_Init(cy_stc_ipc_pipe_config_t const *config)
     epConfigDataB = config->ep0ConfigData;
 
     /* Configure interrupts */
-    ipc_intr_cypipeConfig.intrSrc          = (IRQn_Type)((int32_t)cy_device->cpussIpc0Irq + (int32_t)epConfigDataA.ipcNotifierNumber);
+    ipc_intr_cypipeConfig.intrSrc          = (IRQn_Type)(cpuss_interrupts_ipc_0_IRQn + epConfigDataA.ipcNotifierNumber);
     ipc_intr_cypipeConfig.intrPriority     = epConfigDataA.ipcNotifierPriority;
 
 #endif
@@ -127,7 +127,6 @@ void Cy_IPC_Pipe_Init(cy_stc_ipc_pipe_config_t const *config)
     /* Enable the interrupts */
     NVIC_EnableIRQ(ipc_intr_cypipeConfig.intrSrc);
 }
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_EndpointInit
@@ -179,6 +178,7 @@ void Cy_IPC_Pipe_EndpointInit(uint32_t epAddr, cy_ipc_pipe_callback_array_ptr_t 
     cy_stc_ipc_pipe_ep_t * endpoint;
 
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > epAddr);
 
     endpoint = &cy_ipc_pipe_epArray[epAddr];
 
@@ -252,6 +252,8 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_SendMessage(uint32_t toAddr, uint32_t fromAd
 
     CY_ASSERT_L1(NULL != msgPtr);
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > toAddr);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > fromAddr);
 
     toEp   = &(cy_ipc_pipe_epArray[toAddr]);
     fromEp = &cy_ipc_pipe_epArray[fromAddr];
@@ -313,6 +315,7 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_SendMessage(uint32_t toAddr, uint32_t fromAd
 }
 
 
+
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_RegisterCallback
 ****************************************************************************//**
@@ -348,6 +351,7 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_RegisterCallback(uint32_t epAddr, cy_ipc_pip
     cy_stc_ipc_pipe_ep_t * thisEp;
 
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > epAddr);
 
     thisEp = &cy_ipc_pipe_epArray[epAddr];
 
@@ -367,7 +371,6 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_RegisterCallback(uint32_t epAddr, cy_ipc_pip
     }
     return (returnStatus);
 }
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_RegisterCallbackRel
@@ -398,13 +401,13 @@ void Cy_IPC_Pipe_RegisterCallbackRel(uint32_t epAddr, cy_ipc_pipe_relcallback_pt
     cy_stc_ipc_pipe_ep_t * endpoint;
 
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > epAddr);
 
     endpoint = &cy_ipc_pipe_epArray[epAddr];
 
     /* Copy callback function into callback function pointer array */
     endpoint->defaultReleaseCallbackPtr = callBackPtr;
 }
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_ExecuteCallback
@@ -431,12 +434,12 @@ void Cy_IPC_Pipe_ExecuteCallback(uint32_t epAddr)
     cy_stc_ipc_pipe_ep_t * endpoint;
 
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > epAddr);
 
     endpoint = &cy_ipc_pipe_epArray[epAddr];
 
     Cy_IPC_Pipe_ExecCallback(endpoint);
 }
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_ExecCallback
@@ -530,7 +533,6 @@ void Cy_IPC_Pipe_ExecCallback(cy_stc_ipc_pipe_ep_t * endpoint)
     (void)Cy_IPC_Drv_GetInterruptStatus(endpoint->ipcIntrPtr);
 }
 
-
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_EndpointPause
 ****************************************************************************//**
@@ -553,6 +555,7 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_EndpointPause(uint32_t epAddr)
     cy_stc_ipc_pipe_ep_t * endpoint;
 
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > epAddr);
 
     endpoint = &cy_ipc_pipe_epArray[epAddr];
 
@@ -561,7 +564,6 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_EndpointPause(uint32_t epAddr)
 
     return (CY_IPC_PIPE_SUCCESS);
 }
-
 
 /*******************************************************************************
 * Function Name: Cy_IPC_Pipe_EndpointResume
@@ -585,6 +587,7 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_EndpointResume(uint32_t epAddr)
     cy_stc_ipc_pipe_ep_t * endpoint;
 
     CY_ASSERT_L1(NULL != cy_ipc_pipe_epArray);
+    CY_ASSERT_L2(CY_IPC_MAX_ENDPOINTS > epAddr);
 
     endpoint = &cy_ipc_pipe_epArray[epAddr];
 
@@ -596,3 +599,4 @@ cy_en_ipc_pipe_status_t Cy_IPC_Pipe_EndpointResume(uint32_t epAddr)
 
 
 /* [] END OF FILE */
+

@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file cy_sysanalog.c
-* \version 1.10
+* \version 1.0
 *
 * Provides the public functions for the API for the SAR driver.
 *
@@ -12,8 +12,6 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 #include "cy_sysanalog.h"
-
-#ifdef CY_IP_MXS40PASS
 
 #if defined(__cplusplus)
 extern "C" {
@@ -88,7 +86,7 @@ cy_en_sysanalog_status_t Cy_SysAnalog_Init(const cy_stc_sysanalog_config_t *conf
                   | (uint32_t) config->vref \
                   | (uint32_t) config->deepSleep;
 
-        PASS_AREF_AREF_CTRL = ctrlReg;
+        PASS_AREF->AREF_CTRL = ctrlReg;
 
         result = CY_SYSANALOG_SUCCESS;
     }
@@ -99,8 +97,6 @@ cy_en_sysanalog_status_t Cy_SysAnalog_Init(const cy_stc_sysanalog_config_t *conf
 #if defined(__cplusplus)
 }
 #endif
-
-#endif /* CY_IP_MXS40PASS */
 
 /* [] END OF FILE */
 
