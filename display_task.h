@@ -36,8 +36,9 @@ extern uint8 imageBufferCache[CY_EINK_FRAME_SIZE];  // declaration dans affichag
 //extern int16_t vecteurAffichage[100];
 
 
-#define GET_SIZE(data)  sizeof(data)/sizeof(int32_t);
-
+#define GET_SIZE(data)      sizeof(data)/sizeof(int32_t);
+#define MENU_PRINCIPAL      0       // en hexa ??
+#define MENU_SECONDAIRE     1 
 
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle);
@@ -50,8 +51,8 @@ void convertirVecteurEnInt16(int16_t* vConverti, int32_t* vData, size_t lData);
 void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement);
 
 void updateParametres(int SPO2, int BPM);
-void afficherMenuSecondaire();
-
+void afficherMenuSecondaire(uint8_t * ptrOptionPresent);
+void updateMenuSecondaire(uint8_t * ptrOptionPresent);
 
 void Task_AffichageGraphique(void *data);
 

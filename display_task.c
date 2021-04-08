@@ -121,11 +121,10 @@ void updateParametres(int SPO2, int BPM)
 }
 
 //////////////////AFFICHER MENU SECONDAIRE-TERTIARE////////////////////////
-
-void afficherMenuSecondaire(){
+void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
     //GUI_DrawRect
     //ClearScreen();
-    int font = 20;
+    uint8_t font = 20;
     GUI_Clear();
     GUI_SetFont(GUI_FONT_20_1);
     GUI_DispStringAt("1. Modifier le courant des", 40, 10);
@@ -143,15 +142,44 @@ void afficherMenuSecondaire(){
     GUI_FillRect(10, 10, 30, 30);
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
-    
-    
-    GUI_ClearRect(10, 10, 30, 30);
-    GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    *ptrOptionPresent = 1;
     
 }
 
+void updateMenuSecondaire(uint8_t * ptrOptionPresent){
+    
+    uint8_t font = 20;
+    uint8_t optionPresent = *ptrOptionPresent;
+    
+    switch (optionPresent) {
+        case 1: // curseur passe de option 1 a 2
+            GUI_ClearRect(10, 10, 30, 30);
+            GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+            *ptrOptionPresent = 2;
+            break;
+        case 2: // curseur passe de option 2 a 3
+            GUI_ClearRect(10, 10+(2*font), 30, 30+(2*font));
+            GUI_FillRect(10, 10+(4*font), 30, 30+(4*font));
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+            *ptrOptionPresent = 3;
+            break;
+        case 3: // curseur passe de option 3 a 4
+            GUI_ClearRect(10, 10+(4*font), 30, 30+(4*font));
+            GUI_FillRect(10, 10+(6*font), 30, 30+(6*font));
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+            *ptrOptionPresent = 4;
+            break;
+        case 4: // curseur passe de option 4 a 1
+            GUI_ClearRect(10, 10+(6*font), 30, 30+(6*font));
+            GUI_FillRect(10, 10, 30, 30);
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+            *ptrOptionPresent = 1;
+            break;
+    }
+   
 
+}
 
 
 

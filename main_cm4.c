@@ -94,7 +94,7 @@ void Task_AffichageGraphique(void *data){
    
     //int32_t * vecteurData = (int32_t *)data;
 
-    
+    uint8_t optionMenuSecondaire = 0;
     int longueurAffichage = longueurData/espacement;
 
     
@@ -107,7 +107,14 @@ void Task_AffichageGraphique(void *data){
     
     updateParametres(SPO2, BPM);
     
-    afficherMenuSecondaire();
+    afficherMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
+    updateMenuSecondaire(&optionMenuSecondaire);
     
     GUI_Clear();
     
