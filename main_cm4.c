@@ -53,8 +53,8 @@
 #include "LCDConf.h"
 #include <stdlib.h>
 
-#include <stdio.h>  //?
-#include <unistd.h> //?
+//#include <stdio.h>  //?
+//#include <unistd.h> //?
 
 #include "FreeRTOS.h"
 #include "queue.h"
@@ -67,8 +67,12 @@
 #include "display_task.h"
 #include "touch_task.h"
 
-//vecteur sinus de 150 élément entre -1 et 1
-// float vectorSinus[]={0.099833,0.29552,0.47943,0.64422,0.78333,0.89121,0.96356,0.99749,0.99166,0.9463,0.86321,0.74571,0.59847,0.42738,0.23925,0.041581,-0.15775,-0.35078,-0.52984,-0.68777,-0.81828,-0.91617,-0.97753,-0.99992,-0.98245,-0.92581,-0.83227,-0.70554,-0.55069,-0.37388,-0.18216,0.016814,0.21512,0.40485,0.57844,0.72897,0.85044,0.938,0.98817,0.99894,0.96989,0.90217,0.79849,0.66297,0.50102,0.3191,0.12445,-0.075151,-0.27176,-0.45754,-0.62507,-0.76769,-0.8797,-0.95664,-0.99544,-0.99455,-0.95402,-0.87545,-0.76198,-0.61814,-0.44965,-0.26323,-0.066322,0.13323,0.32747,0.50866,0.66957,0.80378,0.90595,0.97201,0.99931,0.98677,0.9349,0.84575,0.72288,0.5712,0.39674,0.20647,0.0079632,-0.19086,-0.38207,-0.55805,-0.71179,-0.83714,-0.92912,-0.98407,-0.99977,-0.97563,-0.91258,-0.81316,-0.68131,-0.52231,-0.34248,-0.149,0.050423,0.24783,0.43537,0.60554,0.75157,0.86764,0.94912,0.99277,0.99683,0.96115,0.88716,0.77779,0.63742,0.47164,0.28705,0.091022,-0.10864,-0.30396,-0.48717,-0.65096,-0.7888,-0.89519,-0.96589,-0.99808,-0.99049,-0.9434,-0.85871,-0.73978,-0.59136,-0.41936,-0.23065};
+
+
+#define DISPLAY_TASK_STACK_SIZE     (1024u)
+#define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
+
+
 
 
 // vecteur de 160 elements, LED rouge 
@@ -79,10 +83,8 @@ size_t longueurData = sizeof(vecteurData)/sizeof(int32_t); // 160
 size_t espacement = 3;
     
 
-
     // quand je mets en argument qqch pour le task, ca ne marche plus
     // l'ecran refresh, mais n'affiche rien
-
 
     // quand je mets les 2 vecteurs vides dans task, meme le refresh s'arrete
 
@@ -93,7 +95,7 @@ int BPM = 85;
 void Task_AffichageGraphique(void *data){
    
     //int32_t * vecteurData = (int32_t *)data;
-
+    DisplayInit();
     uint8_t optionMenuSecondaire = 0;
     int longueurAffichage = longueurData/espacement;
 
@@ -123,55 +125,14 @@ void Task_AffichageGraphique(void *data){
 
 
 
-/*
-void convertirVecteurEnInt16(int16_t* vConverti, int32_t* vData, size_t lData){
-    for(int i =0; i < lData; i++){
-        vConverti[i] = vData[i]/100;
-    }
-}
-
-
-int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
-    int16_t min = vConverti[0];
-    for(int i =1; i < lData; i++){
-        if(vConverti[i] < min){
-            min = vConverti[i];
-        }
-    }
-    return min;
-}
-
-
-int16_t trouverMaximumVecteur(int16_t* vConverti, size_t lData){
-    int16_t max = vConverti[0];
-    for(int i =1; i < lData; i++){
-        if(vConverti[i] > max){
-            max = vConverti[i];
-        }
-    }
-    return max;
-}
-
-
-void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement){
-    
-    int16_t min = trouverMinimumVecteur(vConverti, lData);
-    int16_t max = trouverMaximumVecteur(vConverti, lData);
-    
-    int j = 0;
-    for(int i=0; i < lData; i+=espacement){
-        vAffichage[j] = (150*(vConverti[i]-min))/(max-min); // graphique : 150 pixels en y
-        j++;                                                      // probleme de convertion int-nbre a virgule? 
-    }
-}
 
 
 
 
 // Image buffer cache //
-uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
+//uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
-*/
+
 
 
 /*******************************************************************************
@@ -264,17 +225,7 @@ int main(void)
     __enable_irq(); /* Enable global interrupts. */
     
     
-    /* Initialize emWin Graphics */
-    GUI_Init();
     
-    /* Start the eInk display interface and turn on the display power */
-    Cy_EINK_Start(20);
-    Cy_EINK_Power(1);
-    
-    GUI_SetPenSize(1);
-    GUI_SetColor(GUI_BLACK);
-    GUI_SetBkColor(GUI_WHITE);
-    GUI_Clear();
     
     
     /* Initialisation de CapSense */
@@ -285,8 +236,8 @@ int main(void)
     /* Initialisation des tasks */
         /* Create the queues. See the respective data-types for details of queue
        contents */
-    //extern QueueHandle_t touchDataQ;
-    //touchDataQ = xQueueCreate(TOUCH_ELEMENT_QUEUE_LEN, sizeof(touch_data_t));
+    
+    touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
          
     /* Create the user Tasks. See the respective Task definition for more
        details of these tasks */       

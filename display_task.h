@@ -10,8 +10,8 @@
  * ========================================
 */
 
-#ifndef  AFFICHAGE_H
-#define  AFFICHAGE_H
+#ifndef  DISPLAY_TASK_H
+#define  DISPLAY_TASK_H
 
 
 #include "project.h"
@@ -28,8 +28,9 @@
 #include "semphr.h"
 //#include "params.h"
     
+#include "touch_task.h"     // pour avoir access a la queue
     
-//#include ... task, RTOS stuff
+
   
 extern uint8 imageBufferCache[CY_EINK_FRAME_SIZE];  // declaration dans affichage.c 
 //extern int16_t vecteurConverti[160];
