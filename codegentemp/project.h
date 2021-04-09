@@ -111,21 +111,7 @@
 #include "CY_EINK_Timer.h"
 #include "Status_SW2.h"
 #include "Clock_2.h"
-#include "CapSense.h"
-#include "CapSense_Control.h"
-#include "CapSense_Filter.h"
-#include "CapSense_Processing.h"
-#include "CapSense_Sensing.h"
-#include "CapSense_Structure.h"
-#include "CapSense_Tuner.h"
-#include "CapSense_Configuration.h"
-#include "CapSense_SensingCSD_LL.h"
-#include "CapSense_SensingCSX_LL.h"
-#include "CapSense_RegisterMap.h"
-#include "CapSense_Centroid_LL.h"
-#include "CapSense_SmartSense_LL.h"
 #include "CY_EINK_SPIM_SCBCLK.h"
-#include "CapSense_ModClk.h"
 
 /*[]*/
 

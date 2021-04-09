@@ -25,21 +25,6 @@
 #define Clock_2__DIV_NUM 0
 #define Clock_2__DIV_TYPE CY_SYSCLK_DIV_24_5_BIT
 
-/* CapSense */
-#define CapSense_CSD__CMOD_PAD 1u
-#define CapSense_CSD__CSH_TANK_PAD 2u
-#define CapSense_CSD__CSHIELD_PAD 4u
-#define CapSense_CSD__HW CSD0
-#define CapSense_CSD__IDX 0
-#define CapSense_CSD__VREF_EXT_PAD 8u
-#define CapSense_IDACComp__HW CSD0
-#define CapSense_IDACComp__IDX 1
-#define CapSense_IDACMod__HW CSD0
-#define CapSense_IDACMod__IDX 0
-#define CapSense_ModClk__DIV_IDX 0
-#define CapSense_ModClk__DIV_NUM 0
-#define CapSense_ModClk__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-
 /* EINK_Clock */
 #define EINK_Clock__DIV_IDX 8
 #define EINK_Clock__DIV_NUM 0
@@ -69,8 +54,8 @@
 #define CY_EINK_SPIM_SCB__SS1_POSITION 1u
 #define CY_EINK_SPIM_SCB__SS2_POSITION 2u
 #define CY_EINK_SPIM_SCB__SS3_POSITION 3u
-#define CY_EINK_SPIM_SCBCLK__DIV_IDX 1
-#define CY_EINK_SPIM_SCBCLK__DIV_NUM 1
+#define CY_EINK_SPIM_SCBCLK__DIV_IDX 0
+#define CY_EINK_SPIM_SCBCLK__DIV_NUM 0
 #define CY_EINK_SPIM_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* CY_EINK_Timer */
