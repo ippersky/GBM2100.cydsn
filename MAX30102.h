@@ -11,9 +11,9 @@
 
 
 // Adresse fixe du capteur MAX30102
-#define ADRESSE_I2C 0x57
-#define ADRESSE_I2C_WR 0x57
-#define ADRESSE_I2C_RD 0x57
+#define ADRESSE_MAX 0x57
+#define ADRESSE_MAX_WR 0x57
+#define ADRESSE_MAX_RD 0x57
 
 // Registres des différentes composantes du capteur MAX30102
 
@@ -43,7 +43,7 @@
 uint8_t readRegistre(uint8_t adresse);
 void writeRegistre(uint8_t data, uint8_t adresse);
 void MAX30102_config();
-void readFIFO (uint32_t *red_LED, uint32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples);
+void readFIFO (float32_t *red_LED, float32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples);
 void changeLED1(short ledAmp1);
 void changeLED2(short ledAmp2);
 

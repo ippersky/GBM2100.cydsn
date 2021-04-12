@@ -210,12 +210,15 @@ static void ClockInit(void)
 	Cy_SysLib_SetWaitStates(false, 100);
 
 	/* Configure peripheral clock dividers */
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB2_CLOCK, CY_SYSCLK_DIV_8_BIT, 1u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 12u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
 	Cy_SysClk_PeriphAssignDivider(PCLK_SCB3_CLOCK, CY_SYSCLK_DIV_8_BIT, 0u);
 	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 0u, 12u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 0u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB5_CLOCK, CY_SYSCLK_DIV_8_BIT, 1u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 71u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB5_CLOCK, CY_SYSCLK_DIV_8_BIT, 2u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 71u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 2u);
 }
 
 
@@ -284,6 +287,12 @@ void Cy_SystemInit(void)
 	/* Clock */
 	ClockInit();
 	{
+		/* SCB2_CTRL Starting address: CYDEV_SCB2_CTRL */
+		CY_SET_REG32((void *)(CYREG_SCB2_CTRL), 0x0000000Fu);
+
+		/* SCB2_TX Starting address: CYDEV_SCB2_TX_CTRL */
+		CY_SET_REG32((void *)(CYREG_SCB2_TX_CTRL), 0x00010107u);
+
 		/* SCB3_CTRL Starting address: CYDEV_SCB3_CTRL */
 		CY_SET_REG32((void *)(CYREG_SCB3_CTRL), 0x0000000Fu);
 
@@ -324,6 +333,23 @@ void Cy_SystemInit(void)
 	        .sel1Active = 0x1D1D0000u,
 	    };
 	    (void)Cy_GPIO_Port_Init(GPIO_PRT6, &port6_cfg);
+	}
+
+	/* Port9 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port9_cfg =
+	    {
+	        .out        = 0x00000003u,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x000000CCu,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00001313u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT9, &port9_cfg);
 	}
 
 

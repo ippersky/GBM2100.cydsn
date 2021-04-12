@@ -14,12 +14,15 @@
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\cyfitter_gpio.h" value="HEADER;;;;;Pins and Interrupts" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\cyfitter_sysint.h" value="HEADER;;;;;Pins and Interrupts" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\cydisabledsheets.h" value="HEADER;;;;;" />
-  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C.c" value="SOURCE_C;CortexM0p,CortexM4;;;;I2C" />
-  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C.h" value="HEADER;;;;;I2C" />
+  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_MAX.c" value="SOURCE_C;CortexM0p,CortexM4;;;;I2C_MAX" />
+  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_MAX.h" value="HEADER;;;;;I2C_MAX" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\UART_1.c" value="SOURCE_C;CortexM0p,CortexM4;;;;UART_1" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\UART_1.h" value="HEADER;;;;;UART_1" />
-  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_SCBCLK.h" value="HEADER;;;;;I2C_SCBCLK" />
+  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_BMI.c" value="SOURCE_C;CortexM0p,CortexM4;;;;I2C_BMI" />
+  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_BMI.h" value="HEADER;;;;;I2C_BMI" />
+  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_MAX_SCBCLK.h" value="HEADER;;;;;I2C_MAX_SCBCLK" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\UART_1_SCBCLK.h" value="HEADER;;;;;UART_1_SCBCLK" />
+  <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\I2C_BMI_SCBCLK.h" value="HEADER;;;;;I2C_BMI_SCBCLK" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\project.h" value="OTHER;;;;;" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\cycodeshareimport.ld" value="OTHER;;;;;" />
   <file name="C:\Users\fatim\Desktop\Polytechnique\Annee 2\H2021\GBM2100\Projet\GBM2100.cydsn\codegentemp\cycodeshareexport.ld" value="OTHER;;;;;" />

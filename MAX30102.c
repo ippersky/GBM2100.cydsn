@@ -36,18 +36,18 @@ uint8_t readRegistre (uint8_t adresse){
     cy_en_scb_i2c_status_t status;
     uint8_t regValue = 0;
     
-    status = I2C_MasterSendStart(ADRESSE_I2C,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
+    status = I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
     if(status==CY_SCB_I2C_SUCCESS){
-    I2C_MasterWriteByte(adresse, I2C_TIMEOUT); 
+    I2C_MAX_MasterWriteByte(adresse, I2C_TIMEOUT); 
     }
-    status = I2C_MasterSendReStart(ADRESSE_I2C,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);  
+    status = I2C_MAX_MasterSendReStart(ADRESSE_MAX,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);  
     if(status==CY_SCB_I2C_SUCCESS){
         do{
-        status=I2C_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&regValue,I2C_TIMEOUT); //Pourquoi NACK ?
+        status=I2C_MAX_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&regValue,I2C_TIMEOUT); //Pourquoi NACK ?
         }
         while(status != CY_SCB_I2C_MASTER_MANUAL_NAK);
     }
-    status = I2C_MasterSendStop(I2C_TIMEOUT);
+    status = I2C_MAX_MasterSendStop(I2C_TIMEOUT);
     return regValue;
 }
 
@@ -55,24 +55,24 @@ void writeRegistre(uint8_t adresse, uint8_t data){
     
     cy_en_scb_i2c_status_t status;
     
-    status = I2C_MasterSendStart(ADRESSE_I2C,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
+    status = I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
     if(status==CY_SCB_I2C_SUCCESS){
-        I2C_MasterWriteByte(adresse,I2C_TIMEOUT);
+        I2C_MAX_MasterWriteByte(adresse,I2C_TIMEOUT); 
     }
     
-    I2C_MasterWriteByte(data,I2C_TIMEOUT);
-    I2C_MasterSendStop(I2C_TIMEOUT);
+    I2C_MAX_MasterWriteByte(data,I2C_TIMEOUT);
+    I2C_MAX_MasterSendStop(I2C_TIMEOUT);
     
 } 
 
-void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples){
+void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples){
     
     uint8_t i2c_data [6];
     
     
-    I2C_MasterSendStart(ADRESSE_I2C,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
-    I2C_MasterWriteByte(dataAdress,I2C_TIMEOUT);
-    I2C_MasterSendReStart(ADRESSE_I2C,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);
+    I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
+    I2C_MAX_MasterWriteByte(dataAdress,I2C_TIMEOUT);
+    I2C_MAX_MasterSendReStart(ADRESSE_MAX,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);
     
     uint8_t index1=0;
     uint8_t index2=0;
@@ -81,7 +81,7 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint8_t dataAdress, uint8_t n
     {
         for(index2=0; index2<5; index2++) //explique pk
             {
-            I2C_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&i2c_data[index2],I2C_TIMEOUT); // ecq il va y avoir plus que 24 bit?
+            I2C_MAX_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&i2c_data[index2],I2C_TIMEOUT); // ecq il va y avoir plus que 24 bit?
             }
             *red_LED=(i2c_data[0]<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
             *ir_LED= (i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
@@ -89,9 +89,9 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint8_t dataAdress, uint8_t n
             ir_LED++;
             uint8_t i2c_data = { 0 }; // comme ça?
     }
-    I2C_MasterReadByte(CY_SCB_I2C_NAK,(uint8_t*)&i2c_data[index1],I2C_TIMEOUT);
+    I2C_MAX_MasterReadByte(CY_SCB_I2C_NAK,(uint8_t*)&i2c_data[index1],I2C_TIMEOUT);
     
-    I2C_MasterSendStop(I2C_TIMEOUT);
+    I2C_MAX_MasterSendStop(I2C_TIMEOUT);
 }
 
 void changeLED1 (short int ledAmp1)//ecq une données en chiffre genre 3.6 ou 0x0F
