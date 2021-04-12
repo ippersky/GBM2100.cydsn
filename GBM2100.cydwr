@@ -12,7 +12,7 @@
     </Group>
     <Group key="Pin">
       <Data key="0af7e12b-8471-4e8f-89eb-e88b1590e3d5" value="Pin_2" />
-      <Data key="3bebfee8-790b-4297-b73a-27818bdce71c" value="SDA" />
+      <Data key="3bebfee8-790b-4297-b73a-27818bdce71c" value="Pin_1" />
       <Data key="3c4d3e18-34dd-4016-a84e-c17ca6d6ec67" value="LED_Orange" />
       <Data key="3f689d1f-616a-46b3-9763-7adafcd15dbb/2aab8a93-e7dd-4bd4-8210-42652cd079c5" value="I2C_MAX_sda" />
       <Data key="3f689d1f-616a-46b3-9763-7adafcd15dbb/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641" value="I2C_MAX_scl" />
@@ -708,7 +708,7 @@
     </Group>
     <Group key="3bebfee8-790b-4297-b73a-27818bdce71c">
       <Group key="0">
-        <Data key="Port Format" value="6,0" />
+        <Data key="Port Format" value="9,2" />
       </Group>
     </Group>
     <Group key="3c4d3e18-34dd-4016-a84e-c17ca6d6ec67">

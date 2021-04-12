@@ -96,7 +96,7 @@ int main(void)
             char ir_LED_data [50];
             itoa (red_LED_buffer[bufferIndex], red_LED_data, 10);
             itoa (ir_LED_buffer[bufferIndex], ir_LED_data, 10);
-            //UART_1_PutString(red_LED_data);
+            UART_1_PutString(red_LED_data);
             UART_1_PutString(ir_LED_data);
             UART_1_PutString("\n\r");
             CyDelay(100);

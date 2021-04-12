@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file cy_ble_clk.c
-* \version 2.20
+* \version 2.60
 *
 * \brief
 *  Contains the source code for the BLE ECO clock.
 *
 ********************************************************************************
 * \copyright
-* Copyright 2017-2018, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2017-2020, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -65,7 +65,7 @@ static cy_en_ble_eco_status_t Cy_BLE_HAL_MxdRadioEnableClocks(const cy_stc_ble_b
 #define CY_BLE_DEFAULT_ISOLATE_DEASSERT_DELAY                (0UL)
 #define CY_BLE_DEFAULT_ACT_TO_SWITCH_DELAY                   (0UL)
 #define CY_BLE_DEFAULT_HVLDO_DISABLE_DELAY                   (1UL)
-#define CY_BLE_DEFAULT_ACT_STARTUP_DELAY                     (4UL)
+#define CY_BLE_DEFAULT_ACT_STARTUP_DELAY                     (10UL)
 #define CY_BLE_DEFAULT_DIG_LDO_STARTUP_DELAY                 (0UL)
 #define CY_BLE_DEFAULT_XTAL_DISABLE_DELAY                    (1UL)
 #define CY_BLE_DEFAULT_DIG_LDO_DISABLE_DELAY                 (0UL)

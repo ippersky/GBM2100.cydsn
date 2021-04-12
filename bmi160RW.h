@@ -11,4 +11,3 @@
 
 #define ADRESSE_BMI 0x68
 
-static struct bmi160_dev bmi160Dev;

@@ -68,7 +68,8 @@ void writeRegistre(uint8_t adresse, uint8_t data){
 void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples){
     
     uint8_t i2c_data [6];
-    
+   
+    readRegistre(REG_INTR_STAT_1);
     
     I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
     I2C_MAX_MasterWriteByte(dataAdress,I2C_TIMEOUT);
