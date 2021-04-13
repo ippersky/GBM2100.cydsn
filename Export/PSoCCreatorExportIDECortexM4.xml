@@ -48,14 +48,17 @@
           <File BuildType="BUILD" Toolchain="">params.h</File>
           <File BuildType="BUILD" Toolchain="">FreeRTOSConfig.h</File>
           <File BuildType="BUILD" Toolchain="">MAX30102.h</File>
-          <File BuildType="BUILD" Toolchain="">bmi160RW.h</File>
+          <File BuildType="BUILD" Toolchain="">bmi160_task.h</File>
+          <File BuildType="BUILD" Toolchain="">BMI160_driver-master\bmi160.h</File>
+          <File BuildType="BUILD" Toolchain="">BMI160_driver-master\bmi160_defs.h</File>
           <File BuildType="BUILD" Toolchain="">main_cm4.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">gcc\startup_psoc6_01_cm4.S</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">iar\startup_psoc6_01_cm4.s</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">mdk\startup_psoc6_01_cm4.s</File>
           <File BuildType="BUILD" Toolchain="">MAX30102.c</File>
-          <File BuildType="BUILD" Toolchain="">bmi160RW.c</File>
+          <File BuildType="BUILD" Toolchain="">bmi160_task.c</File>
           <File BuildType="BUILD" Toolchain="">system_psoc6_cm4.c</File>
+          <File BuildType="BUILD" Toolchain="">BMI160_driver-master\bmi160.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">cy8c6xx7_cm4_dual.ld</File>
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">cy8c6xx7_cm4_dual.icf</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">cy8c6xx7_cm4_dual.scat</File>

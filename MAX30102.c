@@ -15,9 +15,17 @@
 
 void MAX30102_config()
 {
-writeRegistre(REG_INTR_ENABLE_1, 0x00); 
+CyDelay(100);    
+    
+writeRegistre(REG_INTR_ENABLE_1, 0xd0); //enable ...
         
 writeRegistre(REG_INTR_ENABLE_2, 0x00);
+
+writeRegistre(REG_FIFO_WR,0x00);
+
+writeRegistre(REG_OVFLOW_COUNTER, 0x00);
+
+writeRegistre(REG_FIFO_RD,0x00);
         
 writeRegistre(REG_FIFO_CONFIG, 0x1f); //no smp averaging, fifo rollover on, fifo fill = 15 empty data sample;
         
@@ -68,31 +76,34 @@ void writeRegistre(uint8_t adresse, uint8_t data){
 void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples){
     
     uint8_t i2c_data [6];
-   
-    readRegistre(REG_INTR_STAT_1);
+    uint8_t isr_status=0;
+    isr_status=readRegistre(REG_INTR_STAT_1);
     
-    I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
-    I2C_MAX_MasterWriteByte(dataAdress,I2C_TIMEOUT);
-    I2C_MAX_MasterSendReStart(ADRESSE_MAX,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);
+    if (isr_status==64){
+        I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
+        I2C_MAX_MasterWriteByte(dataAdress,I2C_TIMEOUT);
+        I2C_MAX_MasterSendReStart(ADRESSE_MAX,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);
+        
+        uint8_t index1=0;
+        uint8_t index2=0;
+        
+        for(index1=0; index1<nSamples-1; index1++)//exemple ça lit 5 samples de 24 bits chaque
+        {
+            for(index2=0; index2<5; index2++) //explique pk
+                {
+                I2C_MAX_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&i2c_data[index2],I2C_TIMEOUT); // ecq il va y avoir plus que 24 bit?
+                }
+                *red_LED=(i2c_data[0]<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
+                *ir_LED= (i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
+                red_LED++;
+                ir_LED++;
+                uint8_t i2c_data = { 0 }; // comme ça?
+        }
+        I2C_MAX_MasterReadByte(CY_SCB_I2C_NAK,(uint8_t*)&i2c_data[index1],I2C_TIMEOUT);
+        
+        I2C_MAX_MasterSendStop(I2C_TIMEOUT);
     
-    uint8_t index1=0;
-    uint8_t index2=0;
-    
-    for(index1=0; index1<nSamples-1; index1++)//exemple ça lit 5 samples de 24 bits chaque
-    {
-        for(index2=0; index2<5; index2++) //explique pk
-            {
-            I2C_MAX_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&i2c_data[index2],I2C_TIMEOUT); // ecq il va y avoir plus que 24 bit?
-            }
-            *red_LED=(i2c_data[0]<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-            *ir_LED= (i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
-            red_LED++;
-            ir_LED++;
-            uint8_t i2c_data = { 0 }; // comme ça?
     }
-    I2C_MAX_MasterReadByte(CY_SCB_I2C_NAK,(uint8_t*)&i2c_data[index1],I2C_TIMEOUT);
-    
-    I2C_MAX_MasterSendStop(I2C_TIMEOUT);
 }
 
 void changeLED1 (short int ledAmp1)//ecq une données en chiffre genre 3.6 ou 0x0F

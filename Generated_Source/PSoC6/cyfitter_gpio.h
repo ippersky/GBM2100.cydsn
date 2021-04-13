@@ -40,6 +40,28 @@
 #define Pin_1_SLEWRATE CY_GPIO_SLEW_FAST
 #define Pin_1_THRESHOLD_LEVEL CY_GPIO_VTRIP_CMOS
 
+/* greenLED */
+#define greenLED_0_DRIVEMODE CY_GPIO_DM_STRONG_IN_OFF
+#define greenLED_0_INBUF_ENABLED 0u
+#define greenLED_0_INIT_DRIVESTATE 0u
+#define greenLED_0_INIT_MUXSEL 0u
+#define greenLED_0_INPUT_SYNC 2u
+#define greenLED_0_INTERRUPT_MODE CY_GPIO_INTR_DISABLE
+#define greenLED_0_NUM 1u
+#define greenLED_0_PORT GPIO_PRT1
+#define greenLED_0_SLEWRATE CY_GPIO_SLEW_FAST
+#define greenLED_0_THRESHOLD_LEVEL CY_GPIO_VTRIP_CMOS
+#define greenLED_DRIVEMODE CY_GPIO_DM_STRONG_IN_OFF
+#define greenLED_INBUF_ENABLED 0u
+#define greenLED_INIT_DRIVESTATE 0u
+#define greenLED_INIT_MUXSEL 0u
+#define greenLED_INPUT_SYNC 2u
+#define greenLED_INTERRUPT_MODE CY_GPIO_INTR_DISABLE
+#define greenLED_NUM 1u
+#define greenLED_PORT GPIO_PRT1
+#define greenLED_SLEWRATE CY_GPIO_SLEW_FAST
+#define greenLED_THRESHOLD_LEVEL CY_GPIO_VTRIP_CMOS
+
 /* UART_1_rx */
 #define UART_1_rx_0_DRIVEMODE CY_GPIO_DM_HIGHZ
 #define UART_1_rx_0_INBUF_ENABLED 1u
@@ -171,5 +193,27 @@
 #define I2C_MAX_sda_PORT GPIO_PRT9
 #define I2C_MAX_sda_SLEWRATE CY_GPIO_SLEW_FAST
 #define I2C_MAX_sda_THRESHOLD_LEVEL CY_GPIO_VTRIP_CMOS
+
+/* Pin_Orient_INT */
+#define Pin_Orient_INT_0_DRIVEMODE CY_GPIO_DM_PULLDOWN
+#define Pin_Orient_INT_0_INBUF_ENABLED 1u
+#define Pin_Orient_INT_0_INIT_DRIVESTATE 0u
+#define Pin_Orient_INT_0_INIT_MUXSEL 0u
+#define Pin_Orient_INT_0_INPUT_SYNC 2u
+#define Pin_Orient_INT_0_INTERRUPT_MODE CY_GPIO_INTR_RISING
+#define Pin_Orient_INT_0_NUM 0u
+#define Pin_Orient_INT_0_PORT GPIO_PRT13
+#define Pin_Orient_INT_0_SLEWRATE CY_GPIO_SLEW_FAST
+#define Pin_Orient_INT_0_THRESHOLD_LEVEL CY_GPIO_VTRIP_CMOS
+#define Pin_Orient_INT_DRIVEMODE CY_GPIO_DM_PULLDOWN
+#define Pin_Orient_INT_INBUF_ENABLED 1u
+#define Pin_Orient_INT_INIT_DRIVESTATE 0u
+#define Pin_Orient_INT_INIT_MUXSEL 0u
+#define Pin_Orient_INT_INPUT_SYNC 2u
+#define Pin_Orient_INT_INTERRUPT_MODE CY_GPIO_INTR_RISING
+#define Pin_Orient_INT_NUM 0u
+#define Pin_Orient_INT_PORT GPIO_PRT13
+#define Pin_Orient_INT_SLEWRATE CY_GPIO_SLEW_FAST
+#define Pin_Orient_INT_THRESHOLD_LEVEL CY_GPIO_VTRIP_CMOS
 
 #endif /* INCLUDED_CYFITTER_GPIO_H */

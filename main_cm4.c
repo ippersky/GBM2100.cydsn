@@ -55,7 +55,7 @@
 #include <MAX30102.h>
 #include "FreeRTOS.h"
 #include "task.h"
-#include "bmi160.h"
+#include "bmi160_task.h"
 //#include <sdtio.h>
 
 
@@ -68,30 +68,35 @@ int main(void)
     #define BUFFER_LENGTH 2000
     
     /*Variables*/
-    float32_t red_LED_buffer [2000]; //pour 10 secondes d'acquisition
-    float32_t ir_LED_buffer [2000];
-    float32_t nSamples=4;
     
+   /* float32_t red_LED_buffer [2000]; //pour 10 secondes d'acquisition
+    float32_t ir_LED_buffer [2000];
+    float32_t nSamples=1;
+    */
     
     /*Start-up code*/
-    I2C_MAX_Start();
+    
+   // I2C_MAX_Start();
     UART_1_Start();
-   
+    xTaskCreate(get_accData, "getAcc task",400,0,1,0);
+    vTaskStartScheduler();
     /*Configure I2C*/
-    MAX30102_config();
+    //MAX30102_config();
     
     
     
     
     for(;;)
     {
-        uint16_t bufferIndex=0;
+       /* uint16_t bufferIndex=0;
         uint16_t halfbufferIndex=0;
         
-        for (bufferIndex=0; bufferIndex<BUFFER_LENGTH ; bufferIndex++)
+        
+            //readFIFO(red_LED_buffer, ir_LED_buffer,REG_FIFO_DATA, nSamples);
+            
+            for (bufferIndex=0; bufferIndex<BUFFER_LENGTH ; bufferIndex++)
         {
             readFIFO(red_LED_buffer, ir_LED_buffer,REG_FIFO_DATA, nSamples);
-            
             char red_LED_data [50];
             char ir_LED_data [50];
             itoa (red_LED_buffer[bufferIndex], red_LED_data, 10);
@@ -99,14 +104,17 @@ int main(void)
             UART_1_PutString(red_LED_data);
             UART_1_PutString(ir_LED_data);
             UART_1_PutString("\n\r");
+           
             CyDelay(100);
+            
+            
 
             if (bufferIndex == BUFFER_LENGTH-1){//vérifier
                 bufferIndex=0;
             }
             
         }
-        
+        */
     }
 }
 

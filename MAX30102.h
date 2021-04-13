@@ -18,7 +18,7 @@
 // Registres des différentes composantes du capteur MAX30102
 
 #define REG_INTR_STAT_1 0x00
-#define REG_INTR_STAT_3 0x01
+#define REG_INTR_STAT_2 0x01
 #define REG_INTR_ENABLE_1 0x02
 #define REG_INTR_ENABLE_2 0x03
 #define REG_FIFO_WR 0x04
