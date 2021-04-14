@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/13/2021 at 12:25
+// 04/13/2021 at 17:53
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -825,9 +825,9 @@ module top ;
 		 (.int_signal(Net_551));
 
 
-	wire [0:0] tmpFB_0__greenLED_net;
-	wire [0:0] tmpIO_0__greenLED_net;
-	electrical [0:0] tmpSIOVREF__greenLED_net;
+	wire [0:0] tmpFB_0__redLED_net;
+	wire [0:0] tmpIO_0__redLED_net;
+	electrical [0:0] tmpSIOVREF__redLED_net;
 
 	cy_mxs40_gpio_v1_0
 		#(.id("a61270bc-07ec-447d-ac9e-34cfe85c30e9"),
@@ -853,12 +853,12 @@ module top ;
 		  .vtrip("0"),
 		  .use_annotation("0"),
 		  .hotswap_needed("0"))
-		greenLED
+		redLED
 		 (.oe({1'b1}),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__greenLED_net[0:0]}),
-		  .io({tmpIO_0__greenLED_net[0:0]}),
-		  .siovref(tmpSIOVREF__greenLED_net));
+		  .fb({tmpFB_0__redLED_net[0:0]}),
+		  .io({tmpIO_0__redLED_net[0:0]}),
+		  .siovref(tmpSIOVREF__redLED_net));
 
 
 

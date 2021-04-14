@@ -18,7 +18,9 @@
 #include "bmi160_task.h"
 #include "bmi160.h"
 #include "bmi160_defs.h"//
+#include <stdlib.h>
 
+static struct bmi160_dev bmi160Sensor;
 
 static int8_t bmi160Write(uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
@@ -52,50 +54,57 @@ static int8_t bmi160Read(uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
 }
 
-static int8_t bmi160Config ()
+static void bmi160Config ()
 {
-    uint8_t result  = BMI160_OK;
+    int8_t resultat = BMI160_OK;
     
-    vTaskDelay(pdMS_TO_TICKS(200));
     
-    I2C_BMI_Start();
+    
+    bmi160Sensor.read       = (bmi160_com_fptr_t)bmi160Read;
+    bmi160Sensor.write      = (bmi160_com_fptr_t)bmi160Write;
+    bmi160Sensor.delay_ms   = (bmi160_delay_fptr_t)vTaskDelay;
     
     bmi160Sensor.id         = BMI160_I2C_ADDR;
-    bmi160Sensor.intf       = BMI160_I2C_INTF;
-    bmi160Sensor.read       = (bmi160_read_fptr_t)bmi160Read;
-    bmi160Sensor.write      = (bmi160_write_fptr_t)bmi160Write;
-    bmi160Sensor.delay_ms   = vTaskDelay;
     
-    result+= bmi160_init(&bmi160Sensor);
+    //bmi160Sensor.interface  = BMI160_I2C_INTF;
+
     
-    if (result == BMI160_OK)
+    resultat += bmi160_init(&bmi160Sensor);
+    
+    if(resultat == BMI160_OK)
     {
-        //Acceléromètre
-        bmi160Sensor.accel_cfg.odr = BMI160_ACCEL_ODR_200HZ;
-        bmi160Sensor.accel_cfg.range = BMI160_ACCEL_RANGE_16G; // ??
-        bmi160Sensor.accel_cfg.bw   = BMI160_ACCEL_BW_NORMAL_AVG4; //??
+    //Acceléromètre
+    bmi160Sensor.accel_cfg.odr = BMI160_ACCEL_ODR_200HZ;
+    bmi160Sensor.accel_cfg.range = BMI160_ACCEL_RANGE_2G; // ??
+    bmi160Sensor.accel_cfg.bw   = BMI160_ACCEL_BW_OSR4_AVG1; //??
+    bmi160Sensor.accel_cfg.power = BMI160_ACCEL_NORMAL_MODE;
+    
+    //gyroscope
+    bmi160Sensor.gyro_cfg.odr   = BMI160_GYRO_ODR_800HZ;
+    bmi160Sensor.gyro_cfg.range = BMI160_GYRO_RANGE_125_DPS;
+    bmi160Sensor.gyro_cfg.bw    = BMI160_GYRO_BW_OSR4_MODE;
+    bmi160Sensor.gyro_cfg.power = BMI160_GYRO_NORMAL_MODE;
         
-        //Power mode de accel
-        bmi160Sensor.accel_cfg.power = BMI160_ACCEL_NORMAL_MODE;
         
-        //gyroscope
-        bmi160Sensor.gyro_cfg.odr   = BMI160_GYRO_ODR_3200HZ;
-        bmi160Sensor.gyro_cfg.range = BMI160_GYRO_RANGE_1000_DPS;
-        bmi160Sensor.gyro_cfg.bw    = BMI160_GYRO_BW_NORMAL_MODE;
-        
-        // Power mode de gyro
-        bmi160Sensor.gyro_cfg.power = BMI160_GYRO_NORMAL_MODE;
-        
-        result=bmi160_set_sens_conf(&bmi160Sensor);
+    bmi160_set_sens_conf(&bmi160Sensor);
+    bmi160Sensor.delay_ms(50);
     }
-    return result;
+        else
+    {
+        UART_1_PutString("Echec de la connection avec I2C");
+    }
 }
 
 
 void get_accData ()
 {
-    struct bmi160_sensor_data acc;
     
+    
+    
+    I2C_BMI_Start();
+    bmi160Config();
+    
+    struct bmi160_sensor_data acc;
     float gx, gy, gz;
     
     while(1)
@@ -105,10 +114,15 @@ void get_accData ()
         gx= (float)acc.x/MAXACCEL;
         gy= (float)acc.y/MAXACCEL;
         gz= (float)acc.z/MAXACCEL;
-    }
-    printf("x=%1.2f y=%1.2f z=%1.2f \r\n",gx,gy,gz);
+        char acc_string[40];
     
-    vTaskDelay(pdMS_TO_TICKS(200));
+        sprintf(acc_string,"x=%1.2f y=%1.2f z=%1.2f \r\n",gx,gy,gz);
+        UART_1_PutString(acc_string);
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+    
+    
+    
     
 }
 /*
@@ -121,7 +135,7 @@ static void orient_isr()
     NVIC_ClearPendingIRQ(SysInt_OrientINT_cfg.intrSrc);
     
     //Allume led verte
-    Cy_GPIO_Write(greenLED_PORT,greenLED_NUM,1);
+    Cy_GPIO_Write(greenLED_PORT,redLED_NUM,1);
     
     // Resume Task_Motion
     xHigherPriorityTaskWoken = xTaskResumeFromISR(xTaskHandleMotion);

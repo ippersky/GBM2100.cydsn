@@ -13,6 +13,7 @@
 #include "project.h"
 
 
+
 void MAX30102_config()
 {
 CyDelay(100);    
@@ -73,56 +74,40 @@ void writeRegistre(uint8_t adresse, uint8_t data){
     
 } 
 
-void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint8_t dataAdress, uint8_t nSamples){
-    
-    uint8_t i2c_data [6];
-    uint8_t isr_status=0;
-    isr_status=readRegistre(REG_INTR_STAT_1);
-    
-    if (isr_status==64){
-        I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT);
-        I2C_MAX_MasterWriteByte(dataAdress,I2C_TIMEOUT);
+void readMultipleBytes(uint8_t baseAddress, uint8_t *buffer, uint8_t length)
+{
+        I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT); 
+        I2C_MAX_MasterWriteByte(baseAddress,I2C_TIMEOUT);       
         I2C_MAX_MasterSendReStart(ADRESSE_MAX,CY_SCB_I2C_READ_XFER,I2C_TIMEOUT);
-        
-        uint8_t index1=0;
-        uint8_t index2=0;
-        
-        for(index1=0; index1<nSamples-1; index1++)//exemple ça lit 5 samples de 24 bits chaque
-        {
-            for(index2=0; index2<5; index2++) //explique pk
-                {
-                I2C_MAX_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&i2c_data[index2],I2C_TIMEOUT); // ecq il va y avoir plus que 24 bit?
-                }
-                *red_LED=(i2c_data[0]<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-                *ir_LED= (i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
-                red_LED++;
-                ir_LED++;
-                uint8_t i2c_data = { 0 }; // comme ça?
+        uint8_t idx = 0;
+        for(idx=0 ; idx < length-1 ; idx++){ 
+            I2C_MAX_MasterReadByte(CY_SCB_I2C_ACK,(uint8_t*)&buffer[idx],I2C_TIMEOUT);  
         }
-        I2C_MAX_MasterReadByte(CY_SCB_I2C_NAK,(uint8_t*)&i2c_data[index1],I2C_TIMEOUT);
-        
-        I2C_MAX_MasterSendStop(I2C_TIMEOUT);
-    
-    }
+        I2C_MAX_MasterReadByte(CY_SCB_I2C_NAK,(uint8_t*)&buffer[idx],I2C_TIMEOUT);
+        I2C_MAX_MasterSendStop(I2C_TIMEOUT); 
 }
 
-void changeLED1 (short int ledAmp1)//ecq une données en chiffre genre 3.6 ou 0x0F
-{
-    ledAmp1=ledAmp1/0.2;
+void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint16_t compteur){
+    //ou remplacer par tableau
+    uint8_t i2c_data [6];
+        
+        readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
+        red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
+        ir_LED[compteur]= (i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
+        
+    
+    
+}
 
-    
-    writeRegistre(REG_LED_AMP_1, ledAmp1); 
-        
-    
-}
-    
-void changeLED2 (short ledAmp2)
+void changeLED (short int ledAmp)//ecq une données en chiffre genre 3.6 ou 0x0F
 {
-    ledAmp2=ledAmp2/0.2;
-    writeRegistre(REG_LED_AMP_2, ledAmp2); 
-        
+    ledAmp=ledAmp/0.2;
+    writeRegistre(REG_LED_AMP_1, ledAmp); 
+    writeRegistre(REG_LED_AMP_2, ledAmp); 
     
 }
+    
+
 
 
 

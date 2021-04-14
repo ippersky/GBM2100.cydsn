@@ -2,7 +2,7 @@
 --	Conversion of GBM2100.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Apr 13 12:25:43 2021
+--	Tue Apr 13 17:53:26 2021
 --
 
 USE cypress.cypress.all;
@@ -113,9 +113,9 @@ TERMINAL tmpSIOVREF__Pin_1_net_0 : bit;
 SIGNAL Net_551 : bit;
 SIGNAL tmpIO_0__Pin_Orient_INT_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Orient_INT_net_0 : bit;
-SIGNAL tmpFB_0__greenLED_net_0 : bit;
-SIGNAL tmpIO_0__greenLED_net_0 : bit;
-TERMINAL tmpSIOVREF__greenLED_net_0 : bit;
+SIGNAL tmpFB_0__redLED_net_0 : bit;
+SIGNAL tmpIO_0__redLED_net_0 : bit;
+TERMINAL tmpSIOVREF__redLED_net_0 : bit;
 BEGIN
 
 one <=  ('1') ;
@@ -503,7 +503,7 @@ SysInt_OrientINT:cy_mxs40_isr_v1_0
 		deepsleep_required=>'0',
 		int_type=>"10")
 	PORT MAP(int_signal=>Net_551);
-greenLED:cy_mxs40_gpio_v1_0
+redLED:cy_mxs40_gpio_v1_0
 	GENERIC MAP(cy_registers=>"",
 		width=>1,
 		sio_grp_cnt=>0,
@@ -530,10 +530,10 @@ greenLED:cy_mxs40_gpio_v1_0
 		hotswap_needed=>"0")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(tmpFB_0__greenLED_net_0),
+		fb=>(tmpFB_0__redLED_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__greenLED_net_0),
+		io=>(tmpIO_0__redLED_net_0),
 		annotation=>(open),
-		siovref=>(tmpSIOVREF__greenLED_net_0));
+		siovref=>(tmpSIOVREF__redLED_net_0));
 
 END R_T_L;

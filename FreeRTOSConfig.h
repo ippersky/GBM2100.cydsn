@@ -42,7 +42,7 @@
 
 #include "syslib/cy_syslib.h"
 
-#warning This is a template. Modify it according to your project and remove this line. 
+//#warning This is a template. Modify it according to your project and remove this line. 
 
 #define configUSE_PREEMPTION                    1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 0
@@ -68,7 +68,7 @@
 /* Memory allocation related definitions. */
 #define configSUPPORT_STATIC_ALLOCATION         0
 #define configSUPPORT_DYNAMIC_ALLOCATION        1
-#define configTOTAL_HEAP_SIZE                   10240
+#define configTOTAL_HEAP_SIZE                   (48*1024)
 #define configAPPLICATION_ALLOCATED_HEAP        0
 
 /* Hook function related definitions. */

@@ -14,6 +14,7 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
+
 #ifndef STDIO_USER_H
 #define STDIO_USER_H
 /**
@@ -159,12 +160,12 @@
 * \}
 */
 #include "cy_device_headers.h"
-
+#include "project.h"
 /* Must remain uncommented to use this utility */
 #define IO_STDOUT_ENABLE
 #define IO_STDIN_ENABLE
-#define IO_STDOUT_UART      SCB0
-#define IO_STDIN_UART       SCB0
+#define IO_STDOUT_UART      UART_1_HW
+#define IO_STDIN_UART       UART_1_HW
 
 #if defined(IO_STDOUT_ENABLE) || defined(IO_STDIN_ENABLE)
 #if defined(IO_STDOUT_UART) || defined(IO_STDIN_UART)
