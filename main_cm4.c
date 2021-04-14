@@ -56,6 +56,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "bmi160_task.h"
+#include "bmi160.h"
 //#include <sdtio.h>
 
 
@@ -69,27 +70,28 @@ int main(void)
     
     /*Variables*/
     
+    /*
     float32_t red_LED_buffer [2000]; //pour 10 secondes d'acquisition
     float32_t ir_LED_buffer [2000];
     float32_t nSamples=1;
     uint16_t compteur=0;
-    
+    */
     
     /*Start-up code*/
     
-    I2C_MAX_Start();
+    //I2C_MAX_Start();
     UART_1_Start();
-    //xTaskCreate(get_accData, "getAcc task",50,0,1,0);
-    //vTaskStartScheduler();
+    xTaskCreate(get_accData, "getAcc task",400,0,1,0);
+    vTaskStartScheduler();
     /*Configure I2C*/
-    MAX30102_config();
+    // MAX30102_config();
     
     
     
     
     for(;;)
     {
-        
+        /*
         uint16_t bufferIndex=0;
         uint16_t halfbufferIndex=0;
         
@@ -110,7 +112,7 @@ int main(void)
             }
             
         }
-        
+        */
     }
 }
 
