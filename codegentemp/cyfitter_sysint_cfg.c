@@ -20,16 +20,28 @@
 /* ARM CM4 */
 #if (((__CORTEX_M == 4) && (CY_CORE_ID == 0)))
 
-    /* I2C_SCB_IRQ */
-    const cy_stc_sysint_t I2C_SCB_IRQ_cfg = {
-        .intrSrc = (IRQn_Type)I2C_SCB_IRQ__INTC_NUMBER,
-        .intrPriority = I2C_SCB_IRQ__INTC_CORTEXM4_PRIORITY
+    /* I2C_MAX_SCB_IRQ */
+    const cy_stc_sysint_t I2C_MAX_SCB_IRQ_cfg = {
+        .intrSrc = (IRQn_Type)I2C_MAX_SCB_IRQ__INTC_NUMBER,
+        .intrPriority = I2C_MAX_SCB_IRQ__INTC_CORTEXM4_PRIORITY
+    };
+
+    /* I2C_BMI_SCB_IRQ */
+    const cy_stc_sysint_t I2C_BMI_SCB_IRQ_cfg = {
+        .intrSrc = (IRQn_Type)I2C_BMI_SCB_IRQ__INTC_NUMBER,
+        .intrPriority = I2C_BMI_SCB_IRQ__INTC_CORTEXM4_PRIORITY
     };
 
     /* UART_1_SCB_IRQ */
     const cy_stc_sysint_t UART_1_SCB_IRQ_cfg = {
         .intrSrc = (IRQn_Type)UART_1_SCB_IRQ__INTC_NUMBER,
         .intrPriority = UART_1_SCB_IRQ__INTC_CORTEXM4_PRIORITY
+    };
+
+    /* SysInt_OrientINT */
+    const cy_stc_sysint_t SysInt_OrientINT_cfg = {
+        .intrSrc = (IRQn_Type)SysInt_OrientINT__INTC_NUMBER,
+        .intrPriority = SysInt_OrientINT__INTC_CORTEXM4_PRIORITY
     };
 
 #endif /* ((__CORTEX_M == 4) && (CY_CORE_ID == 0)) */
