@@ -20,11 +20,6 @@
 #include "cyfitter_gpio.h"
 #include "cyfitter_sysint.h"
 
-/* Clock_2 */
-#define Clock_2__DIV_IDX 28
-#define Clock_2__DIV_NUM 0
-#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_24_5_BIT
-
 /* CapSense */
 #define CapSense_CSD__CMOD_PAD 1u
 #define CapSense_CSD__CSH_TANK_PAD 2u
@@ -44,23 +39,6 @@
 #define EINK_Clock__DIV_IDX 8
 #define EINK_Clock__DIV_NUM 0
 #define EINK_Clock__DIV_TYPE CY_SYSCLK_DIV_16_BIT
-
-/* Status_SW2 */
-#define Status_SW2_sts_sts_reg__0__MASK 0x01u
-#define Status_SW2_sts_sts_reg__0__POS 0
-#define Status_SW2_sts_sts_reg__16BIT_STATUS_AUX_CTL_REG 0x40341904u
-#define Status_SW2_sts_sts_reg__16BIT_STATUS_REG 0x40341604u
-#define Status_SW2_sts_sts_reg__32BIT_MASK_REG 0x40341804u
-#define Status_SW2_sts_sts_reg__32BIT_STATUS_AUX_CTL_REG 0x40341904u
-#define Status_SW2_sts_sts_reg__32BIT_STATUS_REG 0x40341604u
-#define Status_SW2_sts_sts_reg__MASK 0x01u
-#define Status_SW2_sts_sts_reg__MASK_REG 0x40341804u
-#define Status_SW2_sts_sts_reg__RC_CFG0 0x403420DCu
-#define Status_SW2_sts_sts_reg__RC_CFG1 0x403420E0u
-#define Status_SW2_sts_sts_reg__SC_CFG0 0x403420D4u
-#define Status_SW2_sts_sts_reg__SC_CFG1 0x403420D8u
-#define Status_SW2_sts_sts_reg__STATUS_AUX_CTL_REG 0x40341904u
-#define Status_SW2_sts_sts_reg__STATUS_REG 0x40341604u
 
 /* CY_EINK_SPIM */
 #define CY_EINK_SPIM_SCB__HW SCB6

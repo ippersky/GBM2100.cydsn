@@ -69,60 +69,19 @@
 
 
 
+/* Priorities of user tasks in this project */
+#define TASK_TOUCH_PRIORITY         (10u)
+#define TASK_DISPLAY_PRIORITY       (5u)
+
+
+/* Stack sizes of user tasks in this project */
 #define DISPLAY_TASK_STACK_SIZE     (1024u)
 #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
 
 
 
 
-// vecteur de 160 elements, LED rouge 
-int32_t vecteurData[] = {205973,207305,206168,208001,206188,208050,206371,208225,206544,208577,206719,208501,206990,208473,207183,208417,207367,208379,207724,208151,207986,207993,208303,207802,208682,207622,208730,207587,209365,207455,209209,207541,209337,207549,209635,207806,209501,207957,209461,207996,209317,208103,209140,208491,209000,208672,208748,209006,208491,209357,208350,209326,208242,209947,208089,209826,208216,210028,208306,210395,208429,210203,208596,210292,208686,210169,208954,210055,209354,209987,209644,209821,210027,209660,210440,209483,210556,209554,211304,209484,211253,209696,211585,209817,211970,210011,211842,210178,211772,209972,211207,209606,210230,208954,209085,208043,207710,207263,206266,206439,205001,205392,203820,204970,202756,203955,202073,203512,201459,203377,201194,202759,200993,202713,201002,202459,201198,202302,201513,202188,201835,202108,202327,202081,202824,201965,203003,202176,203932,202267,203918,202500,204436,202777,204921,203032,204880,203312,205157,203520,205057,203810,205034,204221,204997,204527,204912,204994,204917,205416,204837,205671,204732,206338,204657,206251,204614,206460,204591,206662};
-int16_t vecteurConverti[160] = {};  
-int16_t vecteurAffichage[100] = {}; // a redefinir : taille = longueurData/espacement
-size_t longueurData = sizeof(vecteurData)/sizeof(int32_t); // 160
-size_t espacement = 3;
-    
-
-    // quand je mets en argument qqch pour le task, ca ne marche plus
-    // l'ecran refresh, mais n'affiche rien
-
-    // quand je mets les 2 vecteurs vides dans task, meme le refresh s'arrete
-
-int SPO2 = 35; 
-int BPM = 85;
-
-
-void Task_AffichageGraphique(void *data){
-   
-    //int32_t * vecteurData = (int32_t *)data;
-    DisplayInit();
-    uint8_t optionMenuSecondaire = 0;
-    int longueurAffichage = longueurData/espacement;
-
-    
-    for(;;){
-        
-    convertirVecteurEnInt16(vecteurConverti, vecteurData, longueurData);
-    creerVecteurAffichage(vecteurConverti, vecteurAffichage, longueurData, espacement);
-    GUI_DrawGraph(vecteurAffichage, longueurAffichage, 0, 0); 
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
-    updateParametres(SPO2, BPM);
-    
-    afficherMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    updateMenuSecondaire(&optionMenuSecondaire);
-    
-    GUI_Clear();
-    
-    }
-}
-
+volatile SemaphoreHandle_t bouton_semph;
 
 
 
@@ -131,6 +90,9 @@ void Task_AffichageGraphique(void *data){
 
 // Image buffer cache //
 //uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
+
+
+
 
 
 
@@ -192,14 +154,16 @@ void Task_AffichageGraphique(void *data){
 *  This is a blocking function and exits only on a button press and release
 *
 *******************************************************************************/
+/*
 void WaitforSwitchPressAndRelease(void)
 {
-    /* Wait for SW2 to be pressed */
+    // Wait for SW2 to be pressed 
     while(Status_SW2_Read() != 0);
     
-    /* Wait for SW2 to be released */
+    // Wait for SW2 to be released
     while(Status_SW2_Read() == 0);
 }
+*/
 
 /*******************************************************************************
 * Function Name: int main(void)
@@ -217,16 +181,54 @@ void WaitforSwitchPressAndRelease(void)
 
 
 
+void isr_bouton(void){
+    //touch_data_t currentTouch = BUTTON2_TOUCHED;
+    //xQueueSendFromISR(touchDataQ, &currentTouch, NULL);
+
+
+    
+    xSemaphoreGiveFromISR(bouton_semph, NULL);
+    CyDelay(1000);      // more or less ??
+    Cy_GPIO_ClearInterrupt(Bouton_0_PORT, Bouton_0_NUM);
+    NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
+
+}
+
+
+void Task_Bouton2(void *arg){
+    
+    touch_data_t currentTouch = NO_TOUCH;
+    
+    for(;;){
+        
+        if(xSemaphoreTake(bouton_semph, portMAX_DELAY) == pdTRUE){
+            
+            currentTouch =  BUTTON2_TOUCHED;
+            xQueueSend(touchDataQ, &currentTouch, ( TickType_t ) 0);
+            currentTouch = NO_TOUCH;
+            vTaskDelay(pdMS_TO_TICKS(100));
+            
+            //vTaskDelay(pdMS_TO_TICKS(20));
+        }
+
+    }
+}
+
+
+
+
 
 
 int main(void)
 {
+    bouton_semph = xSemaphoreCreateBinary();
+    
     
     __enable_irq(); /* Enable global interrupts. */
     
+    DisplayInit();
     
-    
-    
+
     
     /* Initialisation de CapSense */
     
@@ -238,13 +240,21 @@ int main(void)
        contents */
     
     touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
+    
+        
+    Cy_SysInt_Init(&Bouton_ISR_cfg, isr_bouton);
+    NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
+    NVIC_EnableIRQ(Bouton_ISR_cfg.intrSrc);
+    
          
     /* Create the user Tasks. See the respective Task definition for more
        details of these tasks */       
-    //xTaskCreate(Task_Touch, "Touch Task", TASK_TOUCH_STACK_SIZE,
-                //NULL, TASK_TOUCH_PRIORITY, NULL);
+    xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
 
-    xTaskCreate(Task_AffichageGraphique, "Task A", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+    xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
+    
+    xTaskCreate(Task_Bouton2, "Task Bouton 2", TOUCH_TASK_STACK_SIZE, NULL, 4u, NULL);
+    
     /* Initialize thread-safe debug message printing. See uart_debug.h header file
        to enable / disable this feature */
     //DebugPrintfInit();

@@ -31,6 +31,7 @@
       <Data key="94d28ee0-9d93-4376-b8d6-09b8d2c1a3d1/dbc12ae1-a607-4701-99cc-6261716a9147" value="CapSense_CintB" />
       <Data key="122d9389-0083-4701-afa6-d5a418aa7bf2" value="SW2" />
       <Data key="0479a41f-7847-4e96-b9d9-0145177051b1" value="CY_EINK_Border" />
+      <Data key="782fd2b8-f1df-4c27-a974-b539b3d29db0" value="Bouton" />
       <Data key="0113321b-4a37-46f6-8407-2f8646c68756" value="ADC_IN" />
       <Data key="a168f3f7-9ffe-4429-841e-44d553d0e936" value="CY_EINK_Discharge" />
       <Data key="a61270bc-07ec-447d-ac9e-34cfe85c30e9" value="GreenLED" />
@@ -826,6 +827,11 @@
     <Group key="0479a41f-7847-4e96-b9d9-0145177051b1">
       <Group key="0">
         <Data key="Port Format" value="5,6" />
+      </Group>
+    </Group>
+    <Group key="782fd2b8-f1df-4c27-a974-b539b3d29db0">
+      <Group key="0">
+        <Data key="Port Format" value="0,4" />
       </Group>
     </Group>
     <Group key="0113321b-4a37-46f6-8407-2f8646c68756">

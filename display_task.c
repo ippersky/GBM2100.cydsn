@@ -17,6 +17,26 @@ uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
 
 
+ // vecteur de 160 elements, LED rouge 
+int32_t vecteurData[] = {205973,207305,206168,208001,206188,208050,206371,208225,206544,208577,206719,208501,206990,208473,207183,208417,207367,208379,207724,208151,207986,207993,208303,207802,208682,207622,208730,207587,209365,207455,209209,207541,209337,207549,209635,207806,209501,207957,209461,207996,209317,208103,209140,208491,209000,208672,208748,209006,208491,209357,208350,209326,208242,209947,208089,209826,208216,210028,208306,210395,208429,210203,208596,210292,208686,210169,208954,210055,209354,209987,209644,209821,210027,209660,210440,209483,210556,209554,211304,209484,211253,209696,211585,209817,211970,210011,211842,210178,211772,209972,211207,209606,210230,208954,209085,208043,207710,207263,206266,206439,205001,205392,203820,204970,202756,203955,202073,203512,201459,203377,201194,202759,200993,202713,201002,202459,201198,202302,201513,202188,201835,202108,202327,202081,202824,201965,203003,202176,203932,202267,203918,202500,204436,202777,204921,203032,204880,203312,205157,203520,205057,203810,205034,204221,204997,204527,204912,204994,204917,205416,204837,205671,204732,206338,204657,206251,204614,206460,204591,206662};
+int16_t vecteurConverti[160] = {};  
+int16_t vecteurAffichage[100] = {}; // a redefinir : taille = longueurData/espacement
+size_t longueurData = sizeof(vecteurData)/sizeof(int32_t); // 160
+size_t espacement = 3;
+    
+
+    // quand je mets en argument qqch pour le task, ca ne marche plus
+    // l'ecran refresh, mais n'affiche rien
+
+    // quand je mets les 2 vecteurs vides dans task, meme le refresh s'arrete
+
+int SPO2 = 35; 
+int BPM = 85;
+
+
+uint8_t courantLEDrouge = 225;
+uint8_t courantLEDir = 1;
+
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle)
 {
@@ -120,6 +140,23 @@ void updateParametres(int SPO2, int BPM)
     
 }
 
+
+void afficherMenuPrincipal(void){
+
+    int longueurAffichage = longueurData/espacement;
+    GUI_Clear();
+    
+    convertirVecteurEnInt16(vecteurConverti, vecteurData, longueurData);
+    creerVecteurAffichage(vecteurConverti, vecteurAffichage, longueurData, espacement);
+    GUI_DrawGraph(vecteurAffichage, longueurAffichage, 0, 0); 
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    
+    updateParametres(SPO2, BPM);
+
+}
+
+
+
 //////////////////AFFICHER MENU SECONDAIRE-TERTIARE////////////////////////
 void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
     //GUI_DrawRect
@@ -182,11 +219,311 @@ void updateMenuSecondaire(uint8_t * ptrOptionPresent){
 }
 
 
+/////////// fonctions affichage des menus tertiaires /////////
+
+void afficherMenuTertiaire1(uint8_t * ptrOptionPresent){
+
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+    
+    GUI_DispStringAt("Modifier le courant de :", 40, 10);    
+    GUI_DispStringAt("1. LED rouge", 40, 10+(2*font));
+    GUI_DispStringAt("2. LED infrarouge", 40, 10+(4*font));
+    GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+    
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    *ptrOptionPresent = 1;
+        
+}
+
+void afficherMenuTertiaire2(uint8_t * ptrOptionPresent){
+
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+    
+    GUI_DispStringAt("Bornes de l'alarme BPM :", 40, 10);    
+    GUI_DispStringAt("1. Modifier borne maximale", 40, 10+(2*font));
+    GUI_DispStringAt("2. Modifier borne minimale", 40, 10+(4*font));
+    GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+    
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    *ptrOptionPresent = 1;
+        
+}
+
+
+void afficherMenuTertiaire3(uint8_t * ptrOptionPresent){
+
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+    
+    GUI_DispStringAt("Activer ou desactiver :", 40, 10);    
+    GUI_DispStringAt("1. Alarme Accelerometre", 40, 10+(2*font));
+    GUI_DispStringAt("2. Alarme BPM", 40, 10+(4*font));
+    GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+    
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    *ptrOptionPresent = 1;
+        
+}
+
+void afficherMenuTertiaire4(uint8_t * ptrOptionPresent){
+
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+    
+    GUI_DispStringAt("Afficher la courbe de :", 40, 10);    
+    GUI_DispStringAt("1. Absorption rouge", 40, 10+(2*font));
+    GUI_DispStringAt("2. Absorption infrarouge", 40, 10+(4*font));
+    GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+    
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    *ptrOptionPresent = 1;
+        
+}
+
+///////// fonction de update menus tertiaires ///////
+
+void updateMenuTertiaire(uint8_t * ptrOptionPresent){
+    
+    uint8_t font = 20;
+    uint8_t optionPresent = *ptrOptionPresent;
+
+    switch (optionPresent) {
+        case 1: // curseur passe de option 1 a 2
+            GUI_ClearRect(10, 10+(2*font), 30, 30+(2*font));
+            GUI_FillRect(10, 10+(4*font), 30, 30+(4*font));
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+            *ptrOptionPresent = 2;
+            break;
+        case 2: // curseur passe de option 2 a 1 
+            GUI_ClearRect(10, 10+(4*font), 30, 30+(4*font));
+            GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+            *ptrOptionPresent = 1;
+            break;
+    }
+}
+
+////////// fonctions affichage des menus quaternaires //////////
+
+void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
+
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+    
+    if(*ptrOptionTertiaire == 1){
+        GUI_DispStringAt("Courant LED rouge :", 40, 10);   
+    }
+    else if(*ptrOptionTertiaire == 2){
+        GUI_DispStringAt("Courant LED infrarouge :", 40, 10); 
+    }
+
+    GUI_DispStringAt("Bonds de 5 mA", 40, 10+(6*font));
+    GUI_DispStringAt("Intervalle : 0 a 51 mA", 40, 10+(7*font));
+    
+    GUI_DispStringAt("-", 40, 10+(3*font));
+    GUI_DispStringAt("+", 140, 10+(3*font));
+    
+    //GUI_FillRect(10, 10+(6*font), 30, 30+(6*font));
+    
+    uint8_t courantHEX = *ptrCourantLED;
+    float courantDEC = ((float)courantHEX*51)/255;
+    
+    char sCourantHEX[5];
+    itoa(courantHEX, sCourantHEX, 10);
+    GUI_DispStringAt(sCourantHEX, 90, 10+(3*font));
+    
+    
+
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    
+
+}
+
+
+
+
+
+
+///////// fonction du Task //////////
+
+void Task_AffichageGraphique(void *data){
+   
+    //int32_t * vecteurData = (int32_t *)data;   
+    // si Task prend en argument le vecteur data original 
+    
+    DisplayInit();
+
 
     
+    uint8_t optionMenuSecondaire = 0;
+    uint8_t optionMenuTertiaire = 0;
+    //uint8_t optionMenuTertiare2 = 0;
+    //uint8_t optionMenuTertiare3 = 0;
+    //uint8_t optionMenuTertiare4 = 0;
+    
+    page_data_t currentPage = MENU_PRINCIPAL;
+    
+    touch_data_t touchData;
+    
+    BaseType_t rtosApiResult; 
+    
+    
+    afficherMenuPrincipal();
+   
+    
+    for(;;){
+    
+        rtosApiResult = xQueueReceive(touchDataQ, &touchData, portMAX_DELAY);
+        if (rtosApiResult == pdTRUE)
+        {
+    
+            if(touchData == BUTTON0_TOUCHED){   //aller a la prochaine page
+                switch(currentPage){
+                    case MENU_PRINCIPAL:
+                        afficherMenuSecondaire(&optionMenuSecondaire);
+                        currentPage = MENU_SECONDAIRE;
+                        break;
+                    case MENU_SECONDAIRE:
+                        if(optionMenuSecondaire == 1){
+                            afficherMenuTertiaire1(&optionMenuTertiaire);
+                            currentPage = MENU_TERTIAIRE_1;
+                            break;
+                        }
+                        else if(optionMenuSecondaire == 2){
+                            afficherMenuTertiaire2(&optionMenuTertiaire);
+                            currentPage = MENU_TERTIAIRE_2;
+                            break;
+                        }
+                        else if(optionMenuSecondaire == 3){
+                            afficherMenuTertiaire3(&optionMenuTertiaire);
+                            currentPage = MENU_TERTIAIRE_3;
+                            break;
+                        }
+                        else if(optionMenuSecondaire == 4){
+                            afficherMenuTertiaire4(&optionMenuTertiaire);
+                            currentPage = MENU_TERTIAIRE_4;
+                            break;
+                        }                     
+                    ////// menus tertiaires /////
+                    case MENU_TERTIAIRE_1:
+                        if (optionMenuTertiaire == 1){
+                            afficherMenuQuat1(&courantLEDrouge, &optionMenuTertiaire);
+                            currentPage = MENU_QUAT_1_1;    // possible de juste MENU_QUAT_1 ??
+                            break;
+                        }
+                        else if (optionMenuTertiaire == 2){
+                            afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);
+                            currentPage = MENU_QUAT_1_2;
+                            break;
+                        }
+                
+                    case MENU_TERTIAIRE_2:
+                        break;
+                
+                    case MENU_TERTIAIRE_3:
+                        break;
+                
+                    case MENU_TERTIAIRE_4:
+                        break;
+                    /////// menus quat ///////
+                        
+                    case MENU_QUAT_1_1:
+                        if(courantLEDrouge >= 25)
+                            courantLEDrouge -= 25;
+                        else
+                            courantLEDrouge = 0;
+                        afficherMenuQuat1(&courantLEDrouge, &optionMenuTertiaire);                        
+                        break;
+                    case MENU_QUAT_1_2:
+                        if(courantLEDir >= 25)
+                            courantLEDir -= 25;
+                        else 
+                            courantLEDir = 0;
+                        afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);
+                    
+                    default :
+                        break;
+                
+                }
+               
+            }
+            
+            
+            else if(touchData == BUTTON1_TOUCHED){   //deplacer le curseur
+                
+                if (currentPage == MENU_SECONDAIRE)
+                    updateMenuSecondaire(&optionMenuSecondaire);
+                else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3 || currentPage == MENU_TERTIAIRE_4){
+                    updateMenuTertiaire(&optionMenuTertiaire);
+                }
+                
+                ////// menus quat //////
+                
+                else if(currentPage == MENU_QUAT_1_1){
+                    if(courantLEDrouge <= 255-25)
+                        courantLEDrouge += 25;      // variable globale, directement accessible          
+                    else
+                        courantLEDrouge = 255;
+                    afficherMenuQuat1(&courantLEDrouge, &optionMenuTertiaire);
+                }
+                else if(currentPage == MENU_QUAT_1_2){
+                    if(courantLEDir <= 255-25)
+                        courantLEDir += 25;
+                    else
+                        courantLEDir = 255;
+                    afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);                
+                }
+                
+                
+            }
+            
+            
+            else if(touchData == BUTTON2_TOUCHED){    // retourner en arriere
+                
+                if (currentPage == MENU_SECONDAIRE){
+                    afficherMenuPrincipal();
+                    currentPage = MENU_PRINCIPAL;
+                }
+                else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3 || currentPage == MENU_TERTIAIRE_4){
+                    afficherMenuSecondaire(&optionMenuSecondaire);
+                    currentPage = MENU_SECONDAIRE;
+                }
+                
+                ////// menus quat //////
+                else if(currentPage == MENU_QUAT_1_1){        
+                    // appel fonction qui ecrit dans le registre LED rouge 
+                    // OU lever flag
+                    afficherMenuPrincipal();                    
+                    currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
+                }
+                else if(currentPage == MENU_QUAT_1_2){
+                    // appel fonction qui ecrit dans le registre LED rouge 
+                    // OU lever flag
+                    afficherMenuPrincipal();                    
+                    currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
+                }
+                
+                
+            }
+            
 
+        }
     
+
+    //GUI_Clear();
     
+    }
+}
+  
+
+  
     
 
 

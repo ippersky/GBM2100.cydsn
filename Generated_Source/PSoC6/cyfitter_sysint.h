@@ -18,6 +18,14 @@
 #define INCLUDED_CYFITTER_SYSINT_H
 #include "cy_device_headers.h"
 
+/* Bouton_ISR */
+#define Bouton_ISR__INTC_CORTEXM4_ASSIGNED 1
+#define Bouton_ISR__INTC_CORTEXM4_PRIORITY 7u
+#define Bouton_ISR__INTC_NUMBER 0u
+#define Bouton_ISR_INTC_CORTEXM4_ASSIGNED 1
+#define Bouton_ISR_INTC_CORTEXM4_PRIORITY 7u
+#define Bouton_ISR_INTC_NUMBER 0u
+
 /* CapSense_ISR */
 #define CapSense_ISR__INTC_CORTEXM4_ASSIGNED 1
 #define CapSense_ISR__INTC_CORTEXM4_PRIORITY 7u

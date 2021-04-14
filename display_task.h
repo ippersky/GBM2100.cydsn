@@ -28,7 +28,7 @@
 #include "semphr.h"
 //#include "params.h"
     
-#include "touch_task.h"     // pour avoir access a la queue
+#include "touch_task.h"     // pour avoir access a la queue et MACROs de touch_data_t
     
 
   
@@ -38,8 +38,25 @@ extern uint8 imageBufferCache[CY_EINK_FRAME_SIZE];  // declaration dans affichag
 
 
 #define GET_SIZE(data)      sizeof(data)/sizeof(int32_t);
-#define MENU_PRINCIPAL      0       // en hexa ??
-#define MENU_SECONDAIRE     1 
+//#define MENU_PRINCIPAL      0       // en hexa ??
+//#define MENU_SECONDAIRE     1 
+
+typedef enum
+{
+    MENU_PRINCIPAL      = 0u,
+    MENU_SECONDAIRE     = 1u,  
+    MENU_TERTIAIRE_1    = 2u, 
+    MENU_TERTIAIRE_2    = 3u,
+    MENU_TERTIAIRE_3    = 4u,          //0x04u,
+    MENU_TERTIAIRE_4    = 5u,  
+    MENU_QUAT_1_1       = 6u,
+    MENU_QUAT_1_2       = 7u,
+    MENU_QUAT_2_1       = 8u,
+    MENU_QUAT_2_2       = 9u,    
+    MENU_QUAT_3_1       = 10u,    
+    MENU_QUAT_3_2       = 11u
+    
+}   page_data_t; 
 
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle);
@@ -50,14 +67,31 @@ void DisplayInit(void);
 
 void convertirVecteurEnInt16(int16_t* vConverti, int32_t* vData, size_t lData);
 void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement);
-
 void updateParametres(int SPO2, int BPM);
+
+
+void afficherMenuPrincipal(void);
+
+
 void afficherMenuSecondaire(uint8_t * ptrOptionPresent);
 void updateMenuSecondaire(uint8_t * ptrOptionPresent);
+
+
+void afficherMenuTertiaire1(uint8_t * ptrOptionPresent);
+void afficherMenuTertiaire2(uint8_t * ptrOptionPresent);
+void afficherMenuTertiaire3(uint8_t * ptrOptionPresent);
+void afficherMenuTertiaire4(uint8_t * ptrOptionPresent);
+void updateMenuTertiaire(uint8_t * ptrOptionPresent);
+
+
+
+
 
 void Task_AffichageGraphique(void *data);
 
 
+///// essaie ////
+void Task_Touch(void * arg);
     
 #endif
 

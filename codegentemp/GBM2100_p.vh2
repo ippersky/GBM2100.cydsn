@@ -1,5 +1,5 @@
 -- Project:   GBM2100
--- Generated: 04/08/2021 17:19:30
+-- Generated: 04/14/2021 10:47:56
 -- PSoC Creator  4.4
 
 ENTITY GBM2100 IS
@@ -14,7 +14,7 @@ ENTITY GBM2100 IS
         CY_EINK_DispIoEn(0)_PAD : OUT std_ulogic;
         CY_EINK_DispBusy(0)_PAD : IN std_ulogic;
         CY_EINK_Ssel(0)_PAD : OUT std_ulogic;
-        SW2(0)_PAD : IN std_ulogic);
+        Bouton(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VBACKUP OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDD_NS OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDA_CSD OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -31,6 +31,7 @@ ENTITY GBM2100 IS
 END GBM2100;
 
 ARCHITECTURE __DEFAULT__ OF GBM2100 IS
+    SIGNAL Bouton(0)__PA : bit;
     SIGNAL CPUSS_swj_swclk_tclk : bit;
     SIGNAL CPUSS_swj_swdio_tms : bit;
     SIGNAL CY_CPUSS_SWJ_SWCLK_TCLK(0)__PA : bit;
@@ -60,16 +61,15 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
     ATTRIBUTE global_signal OF ClockBlock_PeriClk : SIGNAL IS true;
     SIGNAL ClockBlock_SlowClk : bit;
     SIGNAL ClockBlock_WCO : bit;
+    SIGNAL INDIVIDUAL_PICU_OUT_0 : bit;
     SIGNAL Net_22 : bit;
     SIGNAL Net_23 : bit;
     SIGNAL Net_24 : bit;
     SIGNAL Net_25 : bit;
     SIGNAL Net_3 : bit;
-    SIGNAL Net_32 : bit;
     SIGNAL Net_4 : bit;
     SIGNAL Net_700_ff11 : bit;
     ATTRIBUTE global_signal OF Net_700_ff11 : SIGNAL IS true;
-    SIGNAL SW2(0)__PA : bit;
     SIGNAL \CY_EINK_SPIM:Net_216\ : bit;
     SIGNAL \CY_EINK_SPIM:Net_488\ : bit;
     SIGNAL \CY_EINK_SPIM:Net_489\ : bit;
@@ -157,31 +157,30 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
     ATTRIBUTE Location OF CY_EINK_DispBusy(0) : LABEL IS "P5[3]";
     ATTRIBUTE lib_model OF CY_EINK_Ssel(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF CY_EINK_Ssel(0) : LABEL IS "P12[3]";
-    ATTRIBUTE lib_model OF SW2(0) : LABEL IS "iocell13";
-    ATTRIBUTE Location OF SW2(0) : LABEL IS "P0[4]";
-    ATTRIBUTE lib_model OF \CapSense:Cmod(0)\ : LABEL IS "iocell14";
+    ATTRIBUTE lib_model OF \CapSense:Cmod(0)\ : LABEL IS "iocell13";
     ATTRIBUTE Location OF \CapSense:Cmod(0)\ : LABEL IS "P7[7]";
-    ATTRIBUTE lib_model OF \CapSense:Rx(0)\ : LABEL IS "iocell15";
+    ATTRIBUTE lib_model OF \CapSense:Rx(0)\ : LABEL IS "iocell14";
     ATTRIBUTE Location OF \CapSense:Rx(0)\ : LABEL IS "P8[1]";
-    ATTRIBUTE lib_model OF \CapSense:Rx(1)\ : LABEL IS "iocell16";
+    ATTRIBUTE lib_model OF \CapSense:Rx(1)\ : LABEL IS "iocell15";
     ATTRIBUTE Location OF \CapSense:Rx(1)\ : LABEL IS "P8[2]";
-    ATTRIBUTE lib_model OF \CapSense:CintB(0)\ : LABEL IS "iocell17";
+    ATTRIBUTE lib_model OF \CapSense:CintB(0)\ : LABEL IS "iocell16";
     ATTRIBUTE Location OF \CapSense:CintB(0)\ : LABEL IS "P7[2]";
-    ATTRIBUTE lib_model OF \CapSense:CintA(0)\ : LABEL IS "iocell18";
+    ATTRIBUTE lib_model OF \CapSense:CintA(0)\ : LABEL IS "iocell17";
     ATTRIBUTE Location OF \CapSense:CintA(0)\ : LABEL IS "P7[1]";
-    ATTRIBUTE lib_model OF \CapSense:Sns(0)\ : LABEL IS "iocell19";
+    ATTRIBUTE lib_model OF \CapSense:Sns(0)\ : LABEL IS "iocell18";
     ATTRIBUTE Location OF \CapSense:Sns(0)\ : LABEL IS "P8[3]";
-    ATTRIBUTE lib_model OF \CapSense:Sns(1)\ : LABEL IS "iocell20";
+    ATTRIBUTE lib_model OF \CapSense:Sns(1)\ : LABEL IS "iocell19";
     ATTRIBUTE Location OF \CapSense:Sns(1)\ : LABEL IS "P8[4]";
-    ATTRIBUTE lib_model OF \CapSense:Sns(2)\ : LABEL IS "iocell21";
+    ATTRIBUTE lib_model OF \CapSense:Sns(2)\ : LABEL IS "iocell20";
     ATTRIBUTE Location OF \CapSense:Sns(2)\ : LABEL IS "P8[5]";
-    ATTRIBUTE lib_model OF \CapSense:Sns(3)\ : LABEL IS "iocell22";
+    ATTRIBUTE lib_model OF \CapSense:Sns(3)\ : LABEL IS "iocell21";
     ATTRIBUTE Location OF \CapSense:Sns(3)\ : LABEL IS "P8[6]";
-    ATTRIBUTE lib_model OF \CapSense:Sns(4)\ : LABEL IS "iocell23";
+    ATTRIBUTE lib_model OF \CapSense:Sns(4)\ : LABEL IS "iocell22";
     ATTRIBUTE Location OF \CapSense:Sns(4)\ : LABEL IS "P8[7]";
-    ATTRIBUTE lib_model OF \CapSense:Tx(0)\ : LABEL IS "iocell24";
+    ATTRIBUTE lib_model OF \CapSense:Tx(0)\ : LABEL IS "iocell23";
     ATTRIBUTE Location OF \CapSense:Tx(0)\ : LABEL IS "P1[0]";
-    ATTRIBUTE lib_model OF \Status_SW2:sts:sts_reg\ : LABEL IS "statuscell1";
+    ATTRIBUTE lib_model OF Bouton(0) : LABEL IS "iocell24";
+    ATTRIBUTE Location OF Bouton(0) : LABEL IS "P0[4]";
     ATTRIBUTE Location OF \CapSense:IDACMod\ : LABEL IS "F(CSIDAC7,0)";
     ATTRIBUTE Location OF \CapSense:IDACComp\ : LABEL IS "F(CSIDAC7,1)";
     ATTRIBUTE Location OF \CapSense:CSD\ : LABEL IS "F(CSD,0)";
@@ -546,6 +545,26 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
             out_clock_en : IN std_ulogic;
             out_reset : IN std_ulogic);
     END COMPONENT;
+    COMPONENT IOSS
+        PORT (
+            interrupt_gpio : OUT std_ulogic;
+            interrupt_vdd : OUT std_ulogic;
+            interrupt_port_0 : OUT std_ulogic;
+            interrupt_port_1 : OUT std_ulogic;
+            interrupt_port_2 : OUT std_ulogic;
+            interrupt_port_3 : OUT std_ulogic;
+            interrupt_port_4 : OUT std_ulogic;
+            interrupt_port_5 : OUT std_ulogic;
+            interrupt_port_6 : OUT std_ulogic;
+            interrupt_port_7 : OUT std_ulogic;
+            interrupt_port_8 : OUT std_ulogic;
+            interrupt_port_9 : OUT std_ulogic;
+            interrupt_port_10 : OUT std_ulogic;
+            interrupt_port_11 : OUT std_ulogic;
+            interrupt_port_12 : OUT std_ulogic;
+            interrupt_port_13 : OUT std_ulogic;
+            interrupt_port_14 : OUT std_ulogic);
+    END COMPONENT;
     COMPONENT logicalport
         PORT (
             interrupt : OUT std_ulogic;
@@ -578,23 +597,6 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
             tr_rx_req : OUT std_ulogic;
             tr_i2c_scl_filtered : OUT std_ulogic);
     END COMPONENT;
-    COMPONENT statuscell
-        PORT (
-            status_0 : IN std_ulogic;
-            status_1 : IN std_ulogic;
-            status_2 : IN std_ulogic;
-            status_3 : IN std_ulogic;
-            status_4 : IN std_ulogic;
-            status_5 : IN std_ulogic;
-            status_6 : IN std_ulogic;
-            status_7 : IN std_ulogic;
-            clock : IN std_ulogic;
-            reset : IN std_ulogic;
-            clk_en : IN std_ulogic);
-    END COMPONENT;
-    ATTRIBUTE udb_clk OF statuscell : COMPONENT IS "clock";
-    ATTRIBUTE udb_clken OF statuscell : COMPONENT IS "clk_en";
-    ATTRIBUTE udb_reset OF statuscell : COMPONENT IS "reset";
     COMPONENT TCPWM
         PORT (
             clock : IN std_ulogic;
@@ -1296,61 +1298,6 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    SW2:logicalport
-        GENERIC MAP(
-            cy_registers => "",
-            drive_mode => "010",
-            drive_strength => "0",
-            hotswap_needed => "0",
-            i2c_mode => "0",
-            ibuf_enabled => "1",
-            id => "122d9389-0083-4701-afa6-d5a418aa7bf2",
-            init_dr_st => "1",
-            input_sync => "0",
-            intr_mode => "00",
-            io_voltage => "",
-            max_frequency => "100",
-            oe_conn => "0",
-            oe_sync => "0",
-            output_conn => "0",
-            output_current_cap => "8",
-            output_sync => "0",
-            pin_aliases => "",
-            pin_mode => "B",
-            sio_grp_cnt => 0,
-            slew_rate => "0",
-            use_annotation => "0",
-            vtrip => "00",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0);
-
-    SW2(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "SW2",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
-        PORT MAP(
-            pa_out => SW2(0)__PA,
-            oe => open,
-            fb => Net_32,
-            pad_in => SW2(0)_PAD,
-            in_clock => open,
-            in_clock_en => open,
-            in_reset => open,
-            out_clock => open,
-            out_clock_en => open,
-            out_reset => open);
-
     \CapSense:Cmod\:logicalport
         GENERIC MAP(
             cy_registers => "",
@@ -1759,6 +1706,60 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
+    Bouton:logicalport
+        GENERIC MAP(
+            cy_registers => "",
+            drive_mode => "010",
+            drive_strength => "0",
+            hotswap_needed => "0",
+            i2c_mode => "0",
+            ibuf_enabled => "1",
+            id => "782fd2b8-f1df-4c27-a974-b539b3d29db0",
+            init_dr_st => "1",
+            input_sync => "0",
+            intr_mode => "11",
+            io_voltage => "",
+            max_frequency => "100",
+            oe_conn => "0",
+            oe_sync => "0",
+            output_conn => "0",
+            output_current_cap => "8",
+            output_sync => "0",
+            pin_aliases => "",
+            pin_mode => "B",
+            sio_grp_cnt => 0,
+            slew_rate => "0",
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0);
+
+    Bouton(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Bouton",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Bouton(0)__PA,
+            oe => open,
+            pad_in => Bouton(0)_PAD,
+            in_clock => open,
+            in_clock_en => open,
+            in_reset => open,
+            out_clock => open,
+            out_clock_en => open,
+            out_reset => open);
+
     \CY_EINK_SPIM:SCB\:SCB
         GENERIC MAP(
             cy_registers => "",
@@ -1811,21 +1812,14 @@ BEGIN
             line => \CY_EINK_Timer:Net_2\,
             interrupt => Net_22);
 
-    \Status_SW2:sts:sts_reg\:statuscell
+    Bouton_ISR:interrupt
         GENERIC MAP(
-            cy_force_order => 1,
-            cy_md_select => "00000000",
-            clken_mode => 1)
+            cy_registers => "",
+            deepsleep_required => 0,
+            int_type => "10")
         PORT MAP(
-            clock => open,
-            status_7 => open,
-            status_6 => open,
-            status_5 => open,
-            status_4 => open,
-            status_3 => open,
-            status_2 => open,
-            status_1 => open,
-            status_0 => Net_32);
+            interrupt => INDIVIDUAL_PICU_OUT_0,
+            clock => ClockBlock_PeriClk);
 
     \CapSense:IDACMod\:CSIDAC7
         GENERIC MAP(
@@ -1901,5 +1895,9 @@ BEGIN
         PORT MAP(
             interrupt => \CapSense:Net_849\,
             clock => ClockBlock_PeriClk);
+
+    IOSS:IOSS
+        PORT MAP(
+            interrupt_port_0 => INDIVIDUAL_PICU_OUT_0);
 
 END __DEFAULT__;

@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/08/2021 at 17:19
+// 04/14/2021 at 10:47
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -446,19 +446,6 @@ module TCPWM_Counter_PDL_v1_0_1 (
 
 endmodule
 
-// Component: CyStatusReg_v1_90
-`ifdef CY_BLK_DIR
-`undef CY_BLK_DIR
-`endif
-
-`ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v"
-`else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v"
-`endif
-
 // Component: cy_analog_virtualmux_v1_0
 `ifdef CY_BLK_DIR
 `undef CY_BLK_DIR
@@ -881,16 +868,7 @@ endmodule
 // top
 module top ;
 
-          wire  Net_54;
-          wire [7:0] Net_47;
-          wire  Net_45;
-          wire  Net_44;
-          wire  Net_43;
-          wire  Net_42;
-          wire  Net_40;
-          wire  Net_39;
-          wire  Net_38;
-          wire  Net_46;
+          wire  Net_500;
           wire  Net_24;
           wire  Net_17;
           wire  Net_19;
@@ -916,8 +894,6 @@ module top ;
           wire  Net_8;
           wire  Net_1;
           wire  Net_2;
-          wire  Net_41;
-          wire  Net_32;
           wire  Net_700;
 
     SCB_SPI_PDL_v2_0_0 CY_EINK_SPIM (
@@ -1213,18 +1189,36 @@ module top ;
         .stop(1'b0),
         .undrflw(Net_24));
 
-	wire [0:0] tmpIO_0__SW2_net;
-	electrical [0:0] tmpSIOVREF__SW2_net;
+
+	cy_mxs40_isr_v1_0
+		#(.deepsleep_required(0),
+		  .int_type(2'b10))
+		Bouton_ISR
+		 (.int_signal(Net_500));
+
+
+
+	cy_gsref_v1_0
+		#(.guid("8C3B410E-0600-5ECF-95DD-0AF91BF8D8A7"))
+		GlobalSignal_1
+		 (.sig_out(Net_500));
+
+
+    CapSense_v3_0_2 CapSense ();
+
+	wire [0:0] tmpFB_0__Bouton_net;
+	wire [0:0] tmpIO_0__Bouton_net;
+	electrical [0:0] tmpSIOVREF__Bouton_net;
 
 	cy_mxs40_gpio_v1_0
-		#(.id("122d9389-0083-4701-afa6-d5a418aa7bf2"),
+		#(.id("782fd2b8-f1df-4c27-a974-b539b3d29db0"),
 		  .width(1),
 		  .sio_grp_cnt(0),
 		  .drive_mode("2"),
 		  .ibuf_enabled("1"),
 		  .init_dr_st("1"),
 		  .input_sync("0"),
-		  .intr_mode("0"),
+		  .intr_mode("3"),
 		  .io_voltage(""),
 		  .output_conn("0"),
 		  .oe_conn("0"),
@@ -1240,52 +1234,13 @@ module top ;
 		  .vtrip("0"),
 		  .use_annotation("0"),
 		  .hotswap_needed("0"))
-		SW2
+		Bouton
 		 (.oe({1'b1}),
 		  .y({1'b0}),
-		  .fb({Net_32}),
-		  .io({tmpIO_0__SW2_net[0:0]}),
-		  .siovref(tmpSIOVREF__SW2_net));
+		  .fb({tmpFB_0__Bouton_net[0:0]}),
+		  .io({tmpIO_0__Bouton_net[0:0]}),
+		  .siovref(tmpSIOVREF__Bouton_net));
 
-
-    CyStatusReg_v1_90 Status_SW2 (
-        .clock(Net_41),
-        .intr(Net_46),
-        .status_0(Net_32),
-        .status_1(1'b0),
-        .status_2(1'b0),
-        .status_3(1'b0),
-        .status_4(1'b0),
-        .status_5(1'b0),
-        .status_6(1'b0),
-        .status_7(1'b0),
-        .status_bus(8'b0));
-    defparam Status_SW2.Bit0Mode = 0;
-    defparam Status_SW2.Bit1Mode = 0;
-    defparam Status_SW2.Bit2Mode = 0;
-    defparam Status_SW2.Bit3Mode = 0;
-    defparam Status_SW2.Bit4Mode = 0;
-    defparam Status_SW2.Bit5Mode = 0;
-    defparam Status_SW2.Bit6Mode = 0;
-    defparam Status_SW2.Bit7Mode = 0;
-    defparam Status_SW2.BusDisplay = 0;
-    defparam Status_SW2.Interrupt = 0;
-    defparam Status_SW2.MaskValue = 0;
-    defparam Status_SW2.NumInputs = 1;
-
-
-	cy_clock_v1_0
-		#(.id("0fb2d049-5c16-4a2b-aca7-55b89cf8132e"),
-		  .source_clock_id("2FB4EC85-8328-4C5A-9ED9-8B63060178EB"),
-		  .divisor(0),
-		  .period("10000000000000"),
-		  .is_direct(0),
-		  .is_digital(0))
-		Clock_2
-		 (.clock_out(Net_41));
-
-
-    CapSense_v3_0_2 CapSense ();
 
 
 

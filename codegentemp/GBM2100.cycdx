@@ -5,7 +5,8 @@
   </block>
   <block name="EINK_Clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CY_EINK_Ssel" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="SW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Bouton_ISR" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Bouton" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CapSense" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="ZeroTerminal_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -414,37 +415,7 @@
       <field name="LEG3_EN" from="26" to="26" access="RW" resetVal="" desc="output enable for leg3 to CSDBUSC, only allowed when RANGE = IDAC_LO. When this bit is set both other legs should be off.&#xA;Note that leg3 can only be used for ADC mode, not GP mode. Which means that leg3 can only be on when the ADC Sequencer is in the ADC_measure or Calib_measure state. In those states  leg3 is controlled by the ADC configuration and the HSCMP output. In addition this leg3 enable bit can optionally be mixed with DSI (see DSI_CTRL_EN).&#xA;When LEG3_EN=1 also the IDACB polarity is controlled by the ADC sequencer." hidden="false" />
     </register>
   </block>
-  <block name="Clock_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Status_SW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="Status_SW2_STATUS_REG" address="0x40341604" bitWidth="8" desc="" hidden="false" />
-    <register name="Status_SW2_MASK_REG" address="0x40341804" bitWidth="8" desc="" hidden="false" />
-    <register name="Status_SW2_STATUS_AUX_CTL_REG" address="0x40341904" bitWidth="8" desc="" hidden="false">
-      <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
-        <value name="ENABLED" value="1" desc="Enable counter" />
-        <value name="DISABLED" value="0" desc="Disable counter" />
-      </field>
-      <field name="INTRENBL" from="4" to="4" access="RW" resetVal="" desc="Enables or disables the Interrupt" hidden="false">
-        <value name="ENABLED" value="1" desc="Interrupt enabled" />
-        <value name="DISABLED" value="0" desc="Interrupt disabled" />
-      </field>
-      <field name="FIFO1LEVEL" from="3" to="3" access="RW" resetVal="" desc="FIFO level" hidden="false">
-        <value name="ENABLED" value="1" desc="FIFO LVL: input mode: FIFO at least 1/2 empty; output mode: FIFO at least 1/2 full" />
-        <value name="DISABLED" value="0" desc="FIFO LVL: input mode: FIFO not full; output mode: FIFO not empty" />
-      </field>
-      <field name="FIFO0LEVEL" from="2" to="2" access="RW" resetVal="" desc="FIFO level" hidden="false">
-        <value name="ENABLED" value="1" desc="FIFO LVL: input mode: FIFO at least 1/2 empty; output mode: FIFO at least 1/2 full" />
-        <value name="DISABLED" value="0" desc="FIFO LVL: input mode: FIFO not full; output mode: FIFO not empty" />
-      </field>
-      <field name="FIFO1CLEAR" from="1" to="1" access="RW" resetVal="" desc="FIFO clear" hidden="false">
-        <value name="ENABLED" value="1" desc="Clear FIFO state" />
-        <value name="DISABLED" value="0" desc="Normal FIFO operation" />
-      </field>
-      <field name="FIFO0CLEAR" from="0" to="0" access="RW" resetVal="" desc="FIFO clear" hidden="false">
-        <value name="ENABLED" value="1" desc="Clear FIFO state" />
-        <value name="DISABLED" value="0" desc="Normal FIFO operation" />
-      </field>
-    </register>
-  </block>
+  <block name="GlobalSignal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CY_EINK_DispEn" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CY_EINK_DispRst" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CY_EINK_SPIM" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">

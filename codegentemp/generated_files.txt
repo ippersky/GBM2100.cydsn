@@ -19,9 +19,6 @@
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\EINK_Clock.h" value="HEADER;;;;;EINK_Clock" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CY_EINK_Timer.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CY_EINK_Timer" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CY_EINK_Timer.h" value="HEADER;;;;;CY_EINK_Timer" />
-  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\Status_SW2.c" value="SOURCE_C;CortexM0p,CortexM4;;;;Status_SW2" />
-  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\Status_SW2.h" value="HEADER;;;;;Status_SW2" />
-  <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\Clock_2.h" value="HEADER;;;;;Clock_2" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense.h" value="HEADER;;;;;CapSense" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Control.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
   <file name="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\codegentemp\CapSense_Processing.c" value="SOURCE_C;CortexM0p,CortexM4;;;;CapSense" />
