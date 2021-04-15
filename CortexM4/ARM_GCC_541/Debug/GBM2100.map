@@ -4797,7 +4797,7 @@ END GROUP
                 0x90700000                __cy_memory_4_start = 0x90700000
                 0x00100000                __cy_memory_4_length = 0x100000
                 0x00000001                __cy_memory_4_row_size = 0x1
-OUTPUT(C:\GBM2100\GBM2100.cydsn\CortexM4\ARM_GCC_541\Debug\GBM2100_link.elf elf32-littlearm)
+OUTPUT(C:\GBM2100.cydsn\CortexM4\ARM_GCC_541\Debug\GBM2100_link.elf elf32-littlearm)
 
 .rel.dyn        0x080252c0        0x0 load address 0x9856553c
  .rel.iplt      0x080252c0        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/crtbegin.o
@@ -4953,29 +4953,29 @@ OUTPUT(C:\GBM2100\GBM2100.cydsn\CortexM4\ARM_GCC_541\Debug\GBM2100_link.elf elf3
  .debug_line    0x00004c75      0x157 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
  .debug_line    0x00004dcc      0x372 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
 
-.debug_info     0x00000000    0x1393d
+.debug_info     0x00000000    0x1393f
  .debug_info    0x00000000       0x54 .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o
- .debug_info    0x00000054      0x8d1 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
- .debug_info    0x00000925     0x1bb3 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .debug_info    0x000024d8      0xd6b .\CortexM4\ARM_GCC_541\Debug\algorithme.o
- .debug_info    0x00003243       0xac .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x000032ef     0x2a10 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_info    0x00005cff      0x906 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_info    0x00006605      0xc1e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_info    0x00007223     0x1952 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_info    0x00008b75      0xe11 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_info    0x00009986     0x24fa .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_info    0x0000be80       0x82 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
- .debug_info    0x0000bf02     0x4014 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_info    0x0000ff16      0x551 .\CortexM4\ARM_GCC_541\Debug\cy_device.o
- .debug_info    0x00010467      0x2df .\CortexM4\ARM_GCC_541\Debug\list.o
- .debug_info    0x00010746     0x22b4 .\CortexM4\ARM_GCC_541\Debug\tasks.o
- .debug_info    0x000129fa      0x5ed .\CortexM4\ARM_GCC_541\Debug\port.o
- .debug_info    0x00012fe7      0x16a .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_min_f32.o)
- .debug_info    0x00013151      0x159 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_mean_f32.o)
- .debug_info    0x000132aa      0x16a .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_max_f32.o)
- .debug_info    0x00013414      0x1a5 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
- .debug_info    0x000135b9      0x384 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
+ .debug_info    0x00000054      0x8d3 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .debug_info    0x00000927     0x1bb3 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .debug_info    0x000024da      0xd6b .\CortexM4\ARM_GCC_541\Debug\algorithme.o
+ .debug_info    0x00003245       0xac .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x000032f1     0x2a10 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_info    0x00005d01      0x906 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_info    0x00006607      0xc1e .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_info    0x00007225     0x1952 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_info    0x00008b77      0xe11 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_info    0x00009988     0x24fa .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_info    0x0000be82       0x82 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
+ .debug_info    0x0000bf04     0x4014 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_info    0x0000ff18      0x551 .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+ .debug_info    0x00010469      0x2df .\CortexM4\ARM_GCC_541\Debug\list.o
+ .debug_info    0x00010748     0x22b4 .\CortexM4\ARM_GCC_541\Debug\tasks.o
+ .debug_info    0x000129fc      0x5ed .\CortexM4\ARM_GCC_541\Debug\port.o
+ .debug_info    0x00012fe9      0x16a .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_min_f32.o)
+ .debug_info    0x00013153      0x159 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_mean_f32.o)
+ .debug_info    0x000132ac      0x16a .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_max_f32.o)
+ .debug_info    0x00013416      0x1a5 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
+ .debug_info    0x000135bb      0x384 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
 
 .debug_abbrev   0x00000000     0x240c
  .debug_abbrev  0x00000000       0x14 .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o
@@ -5068,46 +5068,46 @@ OUTPUT(C:\GBM2100\GBM2100.cydsn\CortexM4\ARM_GCC_541\Debug\GBM2100_link.elf elf3
  .debug_ranges  0x00000678       0x10 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
  .debug_ranges  0x00000688       0x10 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
 
-.debug_str      0x00000000     0x6d20
- .debug_str     0x00000000      0x96f .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
-                                0x9f0 (size before relaxing)
- .debug_str     0x0000096f     0x1c0a .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+.debug_str      0x00000000     0x6d07
+ .debug_str     0x00000000      0x967 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+                                0x9e8 (size before relaxing)
+ .debug_str     0x00000967     0x1bf9 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
                                0x23aa (size before relaxing)
- .debug_str     0x00002579      0x15b .\CortexM4\ARM_GCC_541\Debug\algorithme.o
-                                0xaed (size before relaxing)
- .debug_str     0x000026d4       0x30 .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
+ .debug_str     0x00002560      0x15b .\CortexM4\ARM_GCC_541\Debug\algorithme.o
+                                0xae5 (size before relaxing)
+ .debug_str     0x000026bb       0x30 .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
                                 0x193 (size before relaxing)
- .debug_str     0x00002704     0x1113 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_str     0x000026eb     0x1113 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
                                0x2d92 (size before relaxing)
- .debug_str     0x00003817       0xfd .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_str     0x000037fe       0xfd .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
                                 0x954 (size before relaxing)
- .debug_str     0x00003914       0xed .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_str     0x000038fb       0xed .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
                                 0xb41 (size before relaxing)
- .debug_str     0x00003a01      0x318 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_str     0x000039e8      0x318 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
                                0x2063 (size before relaxing)
- .debug_str     0x00003d19       0xf0 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_str     0x00003d00       0xf0 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
                                0x1934 (size before relaxing)
- .debug_str     0x00003e09      0xabb .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_str     0x00003df0      0xabb .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
                                0x1c87 (size before relaxing)
- .debug_str     0x000048c4     0x12bc .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_str     0x000048ab     0x12bc .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
                                0x2b4e (size before relaxing)
- .debug_str     0x00005b80       0x5d .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+ .debug_str     0x00005b67       0x5d .\CortexM4\ARM_GCC_541\Debug\cy_device.o
                                 0x7a1 (size before relaxing)
- .debug_str     0x00005bdd      0x172 .\CortexM4\ARM_GCC_541\Debug\list.o
+ .debug_str     0x00005bc4      0x172 .\CortexM4\ARM_GCC_541\Debug\list.o
                                 0x31f (size before relaxing)
- .debug_str     0x00005d4f      0xbd7 .\CortexM4\ARM_GCC_541\Debug\tasks.o
+ .debug_str     0x00005d36      0xbd7 .\CortexM4\ARM_GCC_541\Debug\tasks.o
                                 0xede (size before relaxing)
- .debug_str     0x00006926      0x198 .\CortexM4\ARM_GCC_541\Debug\port.o
+ .debug_str     0x0000690d      0x198 .\CortexM4\ARM_GCC_541\Debug\port.o
                                 0x4e6 (size before relaxing)
- .debug_str     0x00006abe      0x152 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_min_f32.o)
+ .debug_str     0x00006aa5      0x152 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_min_f32.o)
                                 0x22d (size before relaxing)
- .debug_str     0x00006c10       0x30 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_mean_f32.o)
+ .debug_str     0x00006bf7       0x30 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_mean_f32.o)
                                 0x209 (size before relaxing)
- .debug_str     0x00006c40       0x3f .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_max_f32.o)
+ .debug_str     0x00006c27       0x3f .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_max_f32.o)
                                 0x22d (size before relaxing)
- .debug_str     0x00006c7f       0x33 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
+ .debug_str     0x00006c66       0x33 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
                                 0x243 (size before relaxing)
- .debug_str     0x00006cb2       0x6e .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
+ .debug_str     0x00006c99       0x6e .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
                                 0x27e (size before relaxing)
 
 .debug_frame    0x00000000     0x16e4

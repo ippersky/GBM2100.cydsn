@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\FreeRTOSConfig.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\algorithme.c">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -81,12 +81,6 @@
 <v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\algorithme.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\arm_math.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\core_cm4.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\debug.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
@@ -98,6 +92,12 @@
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\algorithme.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\main_cm4.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
+<v>GBM2100-000\GBM2100\Shared Files</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -304,7 +304,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="690, 358" SelectedTabbedMdiWindow="20ace802-22ae-443c-af67-a90c869b8d41"><DocumentWindow Key="C:\GBM2100\GBM2100.cydsn\main_cm4.c" Guid="b1ab7967-2065-4be4-b22a-41d618a69d80" /><DocumentWindow Key="C:\GBM2100\GBM2100.cydsn\algorithme.c" Guid="20ace802-22ae-443c-af67-a90c869b8d41" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5a2cf9f4-51d9-4019-80e3-e1f985391c78" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="690, 358" SelectedTabbedMdiWindow="6f63b56e-692d-4633-a4bb-c278dc335ceb"><DocumentWindow Key="C:\GBM2100.cydsn\main_cm4.c" Guid="93ae1887-f5bd-484f-be7b-e3ffa1f13ab6" /><DocumentWindow Key="C:\GBM2100.cydsn\algorithme.c" Guid="6f63b56e-692d-4633-a4bb-c278dc335ceb" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5a2cf9f4-51d9-4019-80e3-e1f985391c78" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
   27:main_cm4.c    **** * 
   28:main_cm4.c    **** * If no EULA applies, Cypress hereby grants you a personal, non-exclusive, 
   29:main_cm4.c    **** * non-transferable license to copy, modify, and compile the Software source 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 2
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 2
 
 
   30:main_cm4.c    **** * code solely for use in connection with Cypress’s integrated circuit products. 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
   84:main_cm4.c    **** *
   85:main_cm4.c    **** * Side Effects:
   86:main_cm4.c    **** *  It takes about a second to refresh the display.  This is a blocking function
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 3
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 3
 
 
   87:main_cm4.c    **** *  and only returns after the display refresh
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  141:main_cm4.c    **** *
  142:main_cm4.c    **** *******************************************************************************/
  143:main_cm4.c    **** void WaitforSwitchPressAndRelease(void)
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 4
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 4
 
 
  144:main_cm4.c    **** {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  165:main_cm4.c    **** int main(void)
  166:main_cm4.c    **** {
   62              		.loc 1 166 0
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 5
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 5
 
 
   63              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
   38:.\CMSIS\Core\Include/cmsis_gcc.h **** 
   39:.\CMSIS\Core\Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
   40:.\CMSIS\Core\Include/cmsis_gcc.h **** #ifndef   __ASM
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 6
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 6
 
 
   41:.\CMSIS\Core\Include/cmsis_gcc.h ****   #define __ASM                                  __asm
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
   95:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   96:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   97:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 7
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 7
 
 
   98:.\CMSIS\Core\Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
   92 0018 1C30     		adds	r0, r0, #28
   93 001a FFF7FEFF 		bl	memcpy
   94              	.LVL3:
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 8
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 8
 
 
  175:main_cm4.c    ****     float32_t signalIR [] = {99513,98160,99413,98419,99319,98729,99145,99050,98949,99419,98798,9985
@@ -430,30 +430,30 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  100              	.LVL4:
  176:main_cm4.c    **** 
  177:main_cm4.c    ****    
- 178:main_cm4.c    ****     volatile float32_t BPM = HeartRate(&signalRouge[0],0,1250);
+ 178:main_cm4.c    ****     volatile float32_t BPM = HeartRate(&signalRouge[0],500,1750);
  101              		.loc 1 178 0
- 102 002a 40F2E242 		movw	r2, #1250
- 103 002e 0021     		movs	r1, #0
- 104 0030 0DF52A50 		add	r0, sp, #10880
- 105 0034 1C30     		adds	r0, r0, #28
- 106 0036 FFF7FEFF 		bl	HeartRate
+ 102 002a 40F2D662 		movw	r2, #1750
+ 103 002e 4FF4FA71 		mov	r1, #500
+ 104 0032 0DF52A50 		add	r0, sp, #10880
+ 105 0036 1C30     		adds	r0, r0, #28
+ 106 0038 FFF7FEFF 		bl	HeartRate
  107              	.LVL5:
- 108 003a 0290     		str	r0, [sp, #8]	@ float
+ 108 003c 0290     		str	r0, [sp, #8]	@ float
  179:main_cm4.c    ****   
  180:main_cm4.c    ****     volatile float32_t saturation = calculSpO2(&signalRouge[0], &signalIR[0],0,1250);
  109              		.loc 1 180 0
- 110 003c 40F2E243 		movw	r3, #1250
- 111 0040 0022     		movs	r2, #0
- 112 0042 03A9     		add	r1, sp, #12
- 113 0044 0DF52A50 		add	r0, sp, #10880
- 114 0048 1C30     		adds	r0, r0, #28
- 115 004a FFF7FEFF 		bl	calculSpO2
+ 110 003e 40F2E243 		movw	r3, #1250
+ 111 0042 0022     		movs	r2, #0
+ 112 0044 03A9     		add	r1, sp, #12
+ 113 0046 0DF52A50 		add	r0, sp, #10880
+ 114 004a 1C30     		adds	r0, r0, #28
+ 115 004c FFF7FEFF 		bl	calculSpO2
  116              	.LVL6:
- 117 004e 0190     		str	r0, [sp, #4]	@ float
+ 117 0050 0190     		str	r0, [sp, #4]	@ float
  118              	.L6:
- 119 0050 FEE7     		b	.L6
+ 119 0052 FEE7     		b	.L6
  120              	.L9:
- 121 0052 00BF     		.align	2
+ 121              		.align	2
  122              	.L8:
  123 0054 00000000 		.word	.LANCHOR0
  124 0058 E4280000 		.word	.LANCHOR1+1780
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  143 0024 40B04B48 		.word	1212919872
  144 0028 C0DF4948 		.word	1212800960
  145 002c 409D4B48 		.word	1212915008
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 9
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 9
 
 
  146 0030 80234A48 		.word	1212818304
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  200 0108 800E4C48 		.word	1212944000
  201 010c C0214D48 		.word	1213014464
  202 0110 80724C48 		.word	1212969600
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 10
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 10
 
 
  203 0114 C0104D48 		.word	1213010112
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  257 01ec 40584548 		.word	1212504128
  258 01f0 00124648 		.word	1212551680
  259 01f4 403B4548 		.word	1212496704
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 11
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 11
 
 
  260 01f8 C03E4648 		.word	1212563136
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  314 02d0 80A84848 		.word	1212721280
  315 02d4 C0364748 		.word	1212626624
  316 02d8 80154948 		.word	1212749184
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 12
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 12
 
 
  317 02dc 804A4748 		.word	1212631680
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  371 03b4 40494B48 		.word	1212893504
  372 03b8 40364D48 		.word	1213019712
  373 03bc 005A4B48 		.word	1212897792
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 13
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 13
 
 
  374 03c0 C00A4D48 		.word	1213008576
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  428 0498 80B84F48 		.word	1213184128
  429 049c 40C74E48 		.word	1213122368
  430 04a0 40924F48 		.word	1213174336
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 14
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 14
 
 
  431 04a4 80094F48 		.word	1213139328
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  485 057c 808A4948 		.word	1212779136
  486 0580 80254948 		.word	1212753280
  487 0584 80104A48 		.word	1212813440
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 15
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 15
 
 
  488 0588 80FC4848 		.word	1212742784
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  542 0660 C0494A48 		.word	1212828096
  543 0664 80EA4B48 		.word	1212934784
  544 0668 407E4A48 		.word	1212841536
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 16
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 16
 
 
  545 066c C0614C48 		.word	1212965312
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  599 0744 00204F48 		.word	1213145088
  600 0748 C0794D48 		.word	1213036992
  601 074c 00574F48 		.word	1213159168
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 17
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 17
 
 
  602 0750 C08A4D48 		.word	1213041344
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  656 0828 80494848 		.word	1212696960
  657 082c 00FA4848 		.word	1212742144
  658 0830 80F14748 		.word	1212674432
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 18
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 18
 
 
  659 0834 C05C4848 		.word	1212701888
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  713 090c 00474A48 		.word	1212827392
  714 0910 00BA4A48 		.word	1212856832
  715 0914 00FB4948 		.word	1212807936
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 19
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 19
 
 
  716 0918 40014B48 		.word	1212875072
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  770 09f0 C0C54D48 		.word	1213056448
  771 09f4 80FE4B48 		.word	1212939904
  772 09f8 80BE4D48 		.word	1213054592
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 20
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 20
 
 
  773 09fc 00234C48 		.word	1212949248
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  827 0ad4 80E64D48 		.word	1213064832
  828 0ad8 40974F48 		.word	1213175616
  829 0adc C0124E48 		.word	1213076160
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 21
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 21
 
 
  830 0ae0 00D14F48 		.word	1213190400
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  884 0bb8 402C4848 		.word	1212689472
  885 0bbc 00424748 		.word	1212629504
  886 0bc0 402A4848 		.word	1212688960
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 22
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 22
 
 
  887 0bc4 808A4748 		.word	1212648064
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  941 0c9c 405A4948 		.word	1212766784
  942 0ca0 00024948 		.word	1212744192
  943 0ca4 40AA4948 		.word	1212787264
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 23
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 23
 
 
  944 0ca8 00EA4848 		.word	1212738048
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  998 0d80 80E24B48 		.word	1212932736
  999 0d84 00A14D48 		.word	1213047040
  1000 0d88 80D14B48 		.word	1212928384
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 24
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 24
 
 
  1001 0d8c 80A54D48 		.word	1213048192
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1055 0e64 00785248 		.word	1213364224
  1056 0e68 006D5048 		.word	1213230336
  1057 0e6c 00F55148 		.word	1213330688
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 25
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 25
 
 
  1058 0e70 C01E5048 		.word	1213210304
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1112 0f48 C0BC4948 		.word	1212792000
  1113 0f4c 80D74A48 		.word	1212864384
  1114 0f50 80FD4948 		.word	1212808576
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 26
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 26
 
 
  1115 0f54 C0D24A48 		.word	1212863168
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1169 102c 00294C48 		.word	1212950784
  1170 1030 806C4C48 		.word	1212968064
  1171 1034 400D4C48 		.word	1212943680
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 27
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 27
 
 
  1172 1038 40C04C48 		.word	1212989504
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1226 1110 80105048 		.word	1213206656
  1227 1114 00E84E48 		.word	1213130752
  1228 1118 C0AF5048 		.word	1213247424
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 28
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 28
 
 
  1229 111c 00DF4E48 		.word	1213128448
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1283 11f4 404B5048 		.word	1213221696
  1284 11f8 800C5248 		.word	1213336704
  1285 11fc C0894F48 		.word	1213172160
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 29
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 29
 
 
  1286 1200 40AD5048 		.word	1213246784
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1340 12d8 C0E94B48 		.word	1212934592
  1341 12dc 80B84A48 		.word	1212856448
  1342 12e0 80F24B48 		.word	1212936832
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 30
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 30
 
 
  1343 12e4 00034B48 		.word	1212875520
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1397 13bc 40034D48 		.word	1213006656
  1398 13c0 40F74C48 		.word	1213003584
  1399 13c4 C0564D48 		.word	1213028032
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 31
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 31
 
 
  1400 13c8 00ED4C48 		.word	1213000960
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1454 14a0 00FE4E48 		.word	1213136384
  1455 14a4 802F5048 		.word	1213214592
  1456 14a8 00064F48 		.word	1213138432
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 32
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 32
 
 
  1457 14ac 40CB5048 		.word	1213254464
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1511 1584 C0EE5248 		.word	1213394624
  1512 1588 00CA5048 		.word	1213254144
  1513 158c 403F5248 		.word	1213349696
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 33
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 33
 
 
  1514 1590 40C04F48 		.word	1213186112
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1568 1668 80CE4B48 		.word	1212927616
  1569 166c 00544D48 		.word	1213027328
  1570 1670 402D4C48 		.word	1212951872
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 34
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 34
 
 
  1571 1674 C0664D48 		.word	1213032128
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1625 174c 80784E48 		.word	1213102208
  1626 1750 405B4E48 		.word	1213094720
  1627 1754 00884E48 		.word	1213106176
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 35
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 35
 
 
  1628 1758 00D54E48 		.word	1213125888
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1682 1830 80AB5348 		.word	1213442944
  1683 1834 C06D5248 		.word	1213361600
  1684 1838 40AE5348 		.word	1213443648
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 36
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 36
 
 
  1685 183c 00925248 		.word	1213370880
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1739 1914 80044C48 		.word	1212941440
  1740 1918 00864D48 		.word	1213040128
  1741 191c 40944B48 		.word	1212912704
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 37
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 37
 
 
  1742 1920 006D4D48 		.word	1213033728
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1796 19f8 40955048 		.word	1213240640
  1797 19fc C0B94E48 		.word	1213118912
  1798 1a00 801A5048 		.word	1213209216
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 38
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 38
 
 
  1799 1a04 80B44E48 		.word	1213117568
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1853 1adc 80975148 		.word	1213306752
  1854 1ae0 402A5248 		.word	1213344320
  1855 1ae4 40025248 		.word	1213334080
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 39
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 39
 
 
  1856 1ae8 800F5248 		.word	1213337472
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1910 1bc0 40F75348 		.word	1213462336
  1911 1bc4 C0055548 		.word	1213531584
  1912 1bc8 40CC5348 		.word	1213451328
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 40
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 40
 
 
  1913 1bcc C0025548 		.word	1213530816
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  1967 1ca4 40EB4D48 		.word	1213066048
  1968 1ca8 40704C48 		.word	1212969024
  1969 1cac 40514E48 		.word	1213092160
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 41
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 41
 
 
  1970 1cb0 C0B44C48 		.word	1212986560
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2024 1d88 C0EA4D48 		.word	1213065920
  2025 1d8c 00CE4F48 		.word	1213189632
  2026 1d90 402E4E48 		.word	1213083200
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 42
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 42
 
 
  2027 1d94 80BB4F48 		.word	1213184896
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2081 1e6c 80425348 		.word	1213416064
  2082 1e70 40635248 		.word	1213358912
  2083 1e74 00135348 		.word	1213403904
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 43
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 43
 
 
  2084 1e78 40CA5248 		.word	1213385280
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2138 1f50 40884D48 		.word	1213040704
  2139 1f54 C08C4C48 		.word	1212976320
  2140 1f58 40024D48 		.word	1213006400
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 44
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 44
 
 
  2141 1f5c 006E4B48 		.word	1212902912
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2195 2034 00C24C48 		.word	1212989952
  2196 2038 404B4E48 		.word	1213090624
  2197 203c 40AF4C48 		.word	1212985152
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 45
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 45
 
 
  2198 2040 405C4E48 		.word	1213094976
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2252 2118 80E25048 		.word	1213260416
  2253 211c C0564F48 		.word	1213159104
  2254 2120 002F5148 		.word	1213280000
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 46
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 46
 
 
  2255 2124 00814F48 		.word	1213169920
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2309 21fc 00C65148 		.word	1213318656
  2310 2200 00FA5248 		.word	1213397504
  2311 2204 800B5248 		.word	1213336448
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 47
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 47
 
 
  2312 2208 00DF5248 		.word	1213390592
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2366 22e0 C0EE4948 		.word	1212804800
  2367 22e4 004F4A48 		.word	1212829440
  2368 22e8 80EB4948 		.word	1212803968
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 48
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 48
 
 
  2369 22ec 00F04A48 		.word	1212870656
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2423 23c4 40F94C48 		.word	1213004096
  2424 23c8 80514B48 		.word	1212895616
  2425 23cc C0D84C48 		.word	1212995776
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 49
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 49
 
 
  2426 23d0 40714B48 		.word	1212903744
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2480 24a8 C0835148 		.word	1213301696
  2481 24ac 80515348 		.word	1213419904
  2482 24b0 00D05148 		.word	1213321216
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 50
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 50
 
 
  2483 24b4 C0E25348 		.word	1213457088
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2537 258c 006E5848 		.word	1213754880
  2538 2590 00C25648 		.word	1213645312
  2539 2594 80685748 		.word	1213687936
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 51
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 51
 
 
  2540 2598 80D25548 		.word	1213584000
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2594 2670 00095048 		.word	1213204736
  2595 2674 405D5048 		.word	1213226304
  2596 2678 009B5048 		.word	1213242112
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 52
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 52
 
 
  2597 267c 40505048 		.word	1213222976
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2651 2754 40F35048 		.word	1213264704
  2652 2758 40815248 		.word	1213366592
  2653 275c 000F5148 		.word	1213271808
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 53
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 53
 
 
  2654 2760 40945248 		.word	1213371456
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2708 2838 C0AB5548 		.word	1213574080
  2709 283c 80C95348 		.word	1213450624
  2710 2840 C08F5548 		.word	1213566912
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 54
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 54
 
 
  2711 2844 80F15348 		.word	1213460864
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2765 2918 0003C347 		.word	1203962624
  2766 291c 80B0C047 		.word	1203810432
  2767 2920 8028C447 		.word	1204037760
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 55
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 55
 
 
  2768 2924 8092C047 		.word	1203802752
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2822 29fc 0088C347 		.word	1203996672
  2823 2a00 00A1C747 		.word	1204265216
  2824 2a04 80CDC347 		.word	1204014464
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 56
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 56
 
 
  2825 2a08 003BC747 		.word	1204239104
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2879 2ae0 80C2BC47 		.word	1203552896
  2880 2ae4 0066BA47 		.word	1203398144
  2881 2ae8 00B7BC47 		.word	1203549952
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 57
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 57
 
 
  2882 2aec 0025BB47 		.word	1203447040
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2936 2bc4 005EBE47 		.word	1203658240
  2937 2bc8 800FBE47 		.word	1203638144
  2938 2bcc 80D6BE47 		.word	1203689088
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 58
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 58
 
 
  2939 2bd0 00BBBD47 		.word	1203616512
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  2993 2ca8 0062C247 		.word	1203921408
  2994 2cac 8034C547 		.word	1204106368
  2995 2cb0 806FC247 		.word	1203924864
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 59
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 59
 
 
  2996 2cb4 002BC647 		.word	1204169472
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3050 2d8c 00C9C947 		.word	1204406528
  3051 2d90 0014C647 		.word	1204163584
  3052 2d94 00BCC947 		.word	1204403200
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 60
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 60
 
 
  3053 2d98 004CC547 		.word	1204112384
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3107 2e70 804ABF47 		.word	1203718784
  3108 2e74 000BC247 		.word	1203899136
  3109 2e78 00CEBF47 		.word	1203752448
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 61
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 61
 
 
  3110 2e7c 80CFC147 		.word	1203883904
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3164 2f54 000DC347 		.word	1203965184
  3165 2f58 804FC347 		.word	1203982208
  3166 2f5c 80B0C247 		.word	1203941504
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 62
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 62
 
 
  3167 2f60 0012C447 		.word	1204032000
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3221 3038 80D9C847 		.word	1204345216
  3222 303c 008CC547 		.word	1204128768
  3223 3040 007CC847 		.word	1204321280
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 63
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 63
 
 
  3224 3044 8090C547 		.word	1204129920
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3278 311c 80B9BC47 		.word	1203550592
  3279 3120 00F1BF47 		.word	1203761408
  3280 3124 8071BC47 		.word	1203532160
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 64
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 64
 
 
  3281 3128 8029C047 		.word	1203775872
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3335 3200 0048C347 		.word	1203980288
  3336 3204 809FC047 		.word	1203806080
  3337 3208 00C3C247 		.word	1203946240
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 65
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 65
 
 
  3338 320c 80AAC047 		.word	1203808896
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3392 32e4 003FC547 		.word	1204109056
  3393 32e8 0066C547 		.word	1204119040
  3394 32ec 00F9C547 		.word	1204156672
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 66
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 66
 
 
  3395 32f0 0012C547 		.word	1204097536
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3449 33c8 00EEC647 		.word	1204219392
  3450 33cc 0052CA47 		.word	1204441600
  3451 33d0 80AFC647 		.word	1204203392
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 67
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 67
 
 
  3452 33d4 8016CA47 		.word	1204426368
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3506 34ac 80C3C047 		.word	1203815296
  3507 34b0 80E7BC47 		.word	1203562368
  3508 34b4 8089C047 		.word	1203800448
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 68
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 68
 
 
  3509 34b8 004BBD47 		.word	1203587840
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3563 3590 8070BF47 		.word	1203728512
  3564 3594 8024C247 		.word	1203905664
  3565 3598 00DCBF47 		.word	1203756032
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 69
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 69
 
 
  3566 359c 80DEC147 		.word	1203887744
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3620 3674 8073C547 		.word	1204122496
  3621 3678 804FC547 		.word	1204113280
  3622 367c 0008C547 		.word	1204094976
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 70
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 70
 
 
  3623 3680 00D2C547 		.word	1204146688
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3677 3758 808ACA47 		.word	1204456064
  3678 375c 80C7C747 		.word	1204275072
  3679 3760 803DCA47 		.word	1204436352
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 71
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 71
 
 
  3680 3764 80EBC547 		.word	1204153216
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3734 383c 00DABF47 		.word	1203755520
  3735 3840 80F8C347 		.word	1204025472
  3736 3844 0060C047 		.word	1203789824
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 72
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 72
 
 
  3737 3848 00B5C347 		.word	1204008192
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3791 3920 8036C647 		.word	1204172416
  3792 3924 806FC347 		.word	1203990400
  3793 3928 000DC647 		.word	1204161792
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 73
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 73
 
 
  3794 392c 00CDC347 		.word	1204014336
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3848 3a04 80F1C847 		.word	1204351360
  3849 3a08 8079C947 		.word	1204386176
  3850 3a0c 806FC947 		.word	1204383616
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 74
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 74
 
 
  3851 3a10 8019C947 		.word	1204361600
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3905 3ae8 8043C747 		.word	1204241280
  3906 3aec 007BC847 		.word	1204321024
  3907 3af0 007AC547 		.word	1204124160
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 75
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 75
 
 
  3908 3af4 800EC847 		.word	1204293248
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  3962 3bcc 801AC547 		.word	1204099712
  3963 3bd0 009FC147 		.word	1203871488
  3964 3bd4 80B9C547 		.word	1204140416
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 76
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 76
 
 
  3965 3bd8 00D4C147 		.word	1203885056
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4019 3cb0 8073C447 		.word	1204056960
  4020 3cb4 00C4C747 		.word	1204274176
  4021 3cb8 000BC547 		.word	1204095744
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 77
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 77
 
 
  4022 3cbc 00BDC747 		.word	1204272384
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4076 3d94 0059CA47 		.word	1204443392
  4077 3d98 8073C947 		.word	1204384640
  4078 3d9c 80F3C947 		.word	1204417408
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 78
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 78
 
 
  4079 3da0 80DAC947 		.word	1204411008
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4133 3e78 809CCA47 		.word	1204460672
  4134 3e7c 00B6C747 		.word	1204270592
  4135 3e80 80EAC847 		.word	1204349568
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 79
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 79
 
 
  4136 3e84 00D8C547 		.word	1204148224
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4190 3f5c 00ACC347 		.word	1204005888
  4191 3f60 0039C747 		.word	1204238592
  4192 3f64 00AEC347 		.word	1204006400
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 80
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 80
 
 
  4193 3f68 00C1C747 		.word	1204273408
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4247 4040 0017CA47 		.word	1204426496
  4248 4044 00B1C647 		.word	1204203776
  4249 4048 000FCA47 		.word	1204424448
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 81
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 81
 
 
  4250 404c 005CC747 		.word	1204247552
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4304 4124 8070CD47 		.word	1204646016
  4305 4128 8045CF47 		.word	1204766080
  4306 412c 804BCE47 		.word	1204702080
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 82
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 82
 
 
  4307 4130 80A2CE47 		.word	1204724352
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4361 4208 0085C347 		.word	1203995904
  4362 420c 80CCC447 		.word	1204079744
  4363 4210 80C8C247 		.word	1203947648
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 83
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 83
 
 
  4364 4214 008AC447 		.word	1204062720
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4418 42ec 00FCC947 		.word	1204419584
  4419 42f0 00E7C647 		.word	1204217600
  4420 42f4 8076CA47 		.word	1204450944
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 84
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 84
 
 
  4421 42f8 80B3C647 		.word	1204204416
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4475 43d0 0093CB47 		.word	1204523776
  4476 43d4 00A8CF47 		.word	1204791296
  4477 43d8 00F4CB47 		.word	1204548608
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 85
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 85
 
 
  4478 43dc 803BCF47 		.word	1204763520
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4532 44b4 0038D247 		.word	1204959232
  4533 44b8 8056D047 		.word	1204835968
  4534 44bc 0005D247 		.word	1204946176
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 86
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 86
 
 
  4535 44c0 001DD147 		.word	1204886784
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4589 4598 8011C747 		.word	1204228480
  4590 459c 0079C647 		.word	1204189440
  4591 45a0 0020C847 		.word	1204297728
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 87
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 87
 
 
  4592 45a4 8067C647 		.word	1204184960
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4646 467c 002FC747 		.word	1204236032
  4647 4680 005ACA47 		.word	1204443648
  4648 4684 809FC747 		.word	1204264832
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 88
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 88
 
 
  4649 4688 0035CB47 		.word	1204499712
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4703 4760 806DD047 		.word	1204841856
  4704 4764 0012CD47 		.word	1204621824
  4705 4768 00FBD047 		.word	1204878080
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 89
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 89
 
 
  4706 476c 803FCD47 		.word	1204633472
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4760 4844 0066C347 		.word	1203987968
  4761 4848 0055C547 		.word	1204114688
  4762 484c 00CCC247 		.word	1203948544
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 90
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 90
 
 
  4763 4850 0016C447 		.word	1204033024
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4817 4928 80F7C647 		.word	1204221824
  4818 492c 8019C747 		.word	1204230528
  4819 4930 805DC647 		.word	1204182400
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 91
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 91
 
 
  4820 4934 007FC747 		.word	1204256512
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4874 4a0c 00A5CC47 		.word	1204593920
  4875 4a10 8079C947 		.word	1204386176
  4876 4a14 0069CC47 		.word	1204578560
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 92
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 92
 
 
  4877 4a18 008CC947 		.word	1204390912
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4931 4af0 00F5CC47 		.word	1204614400
  4932 4af4 807BD047 		.word	1204845440
  4933 4af8 8035CD47 		.word	1204630912
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 93
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 93
 
 
  4934 4afc 004BD147 		.word	1204898560
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  4988 4bd4 00E2C447 		.word	1204085248
  4989 4bd8 8020C247 		.word	1203904640
  4990 4bdc 00F3C447 		.word	1204089600
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 94
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 94
 
 
  4991 4be0 80BFC247 		.word	1203945344
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5045 4cb8 801EC547 		.word	1204100736
  5046 4cbc 00DBC547 		.word	1204148992
  5047 4cc0 001CC647 		.word	1204165632
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 95
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 95
 
 
  5048 4cc4 80B9C547 		.word	1204140416
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5102 4d9c 00B3CD47 		.word	1204663040
  5103 4da0 005AD047 		.word	1204836864
  5104 4da4 809ACD47 		.word	1204656768
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 96
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 96
 
 
  5105 4da8 006FD047 		.word	1204842240
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5159 4e80 00FAD347 		.word	1205074432
  5160 4e84 804BCF47 		.word	1204767616
  5161 4e88 809CD147 		.word	1204919424
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 97
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 97
 
 
  5162 4e8c 801ECD47 		.word	1204625024
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5216 4f64 0094CA47 		.word	1204458496
  5217 4f68 80C2CD47 		.word	1204667008
  5218 4f6c 80A8CA47 		.word	1204463744
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 98
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 98
 
 
  5219 4f70 0059CD47 		.word	1204640000
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5273 5048 8096CE47 		.word	1204721280
  5274 504c 008BCD47 		.word	1204652800
  5275 5050 007FCE47 		.word	1204715264
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 99
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 99
 
 
  5276 5054 0048CE47 		.word	1204701184
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5330 512c 007DD247 		.word	1204976896
  5331 5130 8016D147 		.word	1204885120
  5332 5134 806ED347 		.word	1205038720
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 100
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 100
 
 
  5333 5138 00E5D047 		.word	1204872448
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5387 5210 00E4C347 		.word	1204020224
  5388 5214 805AC747 		.word	1204247168
  5389 5218 0046C447 		.word	1204045312
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 101
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 101
 
 
  5390 521c 00DBC747 		.word	1204280064
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5444 52f4 80D9CB47 		.word	1204541824
  5445 52f8 009DC847 		.word	1204329728
  5446 52fc 804BCC47 		.word	1204571008
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 102
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 102
 
 
  5447 5300 80D4C847 		.word	1204343936
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5501 0050 CC7A51BF 		.word	-1085179188
  5502 0054 1E8A6ABF 		.word	-1083536866
  5503 0058 683F7ABF 		.word	-1082507416
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 103
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 103
 
 
  5504 005c C2FA7FBF 		.word	-1082131774
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5558 0134 DF6C533E 		.word	1045654751
  5559 0138 1578023C 		.word	1006794773
  5560 013c CE7043BE 		.word	-1102876466
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 104
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 104
 
 
  5561 0140 AE9EC3BE 		.word	-1094476114
@@ -6238,33 +6238,33 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5615              		.file 10 "Generated_Source\\PSoC6/CY_EINK_SPIM.h"
  5616              		.file 11 "Generated_Source\\PSoC6/CY_EINK_Timer.h"
  5617              		.file 12 "Generated_Source\\PSoC6/Status_SW2.h"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 105
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 105
 
 
  5618              		.file 13 "./system_psoc6.h"
  5619              		.file 14 "./algorithme.h"
  5620              		.section	.debug_info,"",%progbits
  5621              	.Ldebug_info0:
- 5622 0000 CD080000 		.4byte	0x8cd
+ 5622 0000 CF080000 		.4byte	0x8cf
  5623 0004 0400     		.2byte	0x4
  5624 0006 00000000 		.4byte	.Ldebug_abbrev0
  5625 000a 04       		.byte	0x4
  5626 000b 01       		.uleb128 0x1
- 5627 000c D8050000 		.4byte	.LASF158
+ 5627 000c DD050000 		.4byte	.LASF158
  5628 0010 0C       		.byte	0xc
- 5629 0011 BF090000 		.4byte	.LASF159
- 5630 0015 B4070000 		.4byte	.LASF160
+ 5629 0011 B7090000 		.4byte	.LASF159
+ 5630 0015 D7020000 		.4byte	.LASF160
  5631 0019 00000000 		.4byte	.Ldebug_ranges0+0
  5632 001d 00000000 		.4byte	0
  5633 0021 00000000 		.4byte	.Ldebug_line0
  5634 0025 02       		.uleb128 0x2
  5635 0026 02       		.byte	0x2
  5636 0027 05       		.byte	0x5
- 5637 0028 1E070000 		.4byte	.LASF0
+ 5637 0028 23070000 		.4byte	.LASF0
  5638 002c 02       		.uleb128 0x2
  5639 002d 01       		.byte	0x1
  5640 002e 06       		.byte	0x6
- 5641 002f D1080000 		.4byte	.LASF1
+ 5641 002f C9080000 		.4byte	.LASF1
  5642 0033 03       		.uleb128 0x3
  5643 0034 9D000000 		.4byte	.LASF3
  5644 0038 03       		.byte	0x3
@@ -6273,23 +6273,23 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5647 003e 02       		.uleb128 0x2
  5648 003f 01       		.byte	0x1
  5649 0040 08       		.byte	0x8
- 5650 0041 EF060000 		.4byte	.LASF2
+ 5650 0041 F4060000 		.4byte	.LASF2
  5651 0045 03       		.uleb128 0x3
- 5652 0046 39030000 		.4byte	.LASF4
+ 5652 0046 4A030000 		.4byte	.LASF4
  5653 004a 03       		.byte	0x3
  5654 004b 29       		.byte	0x29
  5655 004c 25000000 		.4byte	0x25
  5656 0050 03       		.uleb128 0x3
- 5657 0051 DB070000 		.4byte	.LASF5
+ 5657 0051 D3070000 		.4byte	.LASF5
  5658 0055 03       		.byte	0x3
  5659 0056 2B       		.byte	0x2b
  5660 0057 5B000000 		.4byte	0x5b
  5661 005b 02       		.uleb128 0x2
  5662 005c 02       		.byte	0x2
  5663 005d 07       		.byte	0x7
- 5664 005e 2D080000 		.4byte	.LASF6
+ 5664 005e 25080000 		.4byte	.LASF6
  5665 0062 03       		.uleb128 0x3
- 5666 0063 F9070000 		.4byte	.LASF7
+ 5666 0063 F1070000 		.4byte	.LASF7
  5667 0067 03       		.byte	0x3
  5668 0068 3F       		.byte	0x3f
  5669 0069 6D000000 		.4byte	0x6d
@@ -6298,17 +6298,17 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5672 006f 05       		.byte	0x5
  5673 0070 74020000 		.4byte	.LASF8
  5674 0074 03       		.uleb128 0x3
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 106
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 106
 
 
- 5675 0075 1E030000 		.4byte	.LASF9
+ 5675 0075 2F030000 		.4byte	.LASF9
  5676 0079 03       		.byte	0x3
  5677 007a 41       		.byte	0x41
  5678 007b 7F000000 		.4byte	0x7f
  5679 007f 02       		.uleb128 0x2
  5680 0080 04       		.byte	0x4
  5681 0081 07       		.byte	0x7
- 5682 0082 E1030000 		.4byte	.LASF10
+ 5682 0082 F2030000 		.4byte	.LASF10
  5683 0086 02       		.uleb128 0x2
  5684 0087 08       		.byte	0x8
  5685 0088 05       		.byte	0x5
@@ -6324,9 +6324,9 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5695 009b 02       		.uleb128 0x2
  5696 009c 04       		.byte	0x4
  5697 009d 07       		.byte	0x7
- 5698 009e A5030000 		.4byte	.LASF13
+ 5698 009e B6030000 		.4byte	.LASF13
  5699 00a2 03       		.uleb128 0x3
- 5700 00a3 09090000 		.4byte	.LASF14
+ 5700 00a3 01090000 		.4byte	.LASF14
  5701 00a7 04       		.byte	0x4
  5702 00a8 18       		.byte	0x18
  5703 00a9 33000000 		.4byte	0x33
@@ -6336,33 +6336,33 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5707 00b3 20       		.byte	0x20
  5708 00b4 45000000 		.4byte	0x45
  5709 00b8 03       		.uleb128 0x3
- 5710 00b9 B2030000 		.4byte	.LASF16
+ 5710 00b9 C3030000 		.4byte	.LASF16
  5711 00bd 04       		.byte	0x4
  5712 00be 24       		.byte	0x24
  5713 00bf 50000000 		.4byte	0x50
  5714 00c3 03       		.uleb128 0x3
- 5715 00c4 E7060000 		.4byte	.LASF17
+ 5715 00c4 EC060000 		.4byte	.LASF17
  5716 00c8 04       		.byte	0x4
  5717 00c9 2C       		.byte	0x2c
  5718 00ca 62000000 		.4byte	0x62
  5719 00ce 03       		.uleb128 0x3
- 5720 00cf 86070000 		.4byte	.LASF18
+ 5720 00cf 8B070000 		.4byte	.LASF18
  5721 00d3 04       		.byte	0x4
  5722 00d4 30       		.byte	0x30
  5723 00d5 74000000 		.4byte	0x74
  5724 00d9 02       		.uleb128 0x2
  5725 00da 04       		.byte	0x4
  5726 00db 07       		.byte	0x7
- 5727 00dc 33050000 		.4byte	.LASF19
+ 5727 00dc 44050000 		.4byte	.LASF19
  5728 00e0 05       		.uleb128 0x5
  5729 00e1 CE000000 		.4byte	0xce
  5730 00e5 02       		.uleb128 0x2
  5731 00e6 08       		.byte	0x8
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 107
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 107
 
 
  5732 00e7 04       		.byte	0x4
- 5733 00e8 98070000 		.4byte	.LASF20
+ 5733 00e8 9D070000 		.4byte	.LASF20
  5734 00ec 06       		.uleb128 0x6
  5735 00ed B8       		.byte	0xb8
  5736 00ee 05       		.byte	0x5
@@ -6375,7 +6375,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5743 00fb CE000000 		.4byte	0xce
  5744 00ff 00       		.byte	0
  5745 0100 07       		.uleb128 0x7
- 5746 0101 13030000 		.4byte	.LASF22
+ 5746 0101 24030000 		.4byte	.LASF22
  5747 0105 05       		.byte	0x5
  5748 0106 38       		.byte	0x38
  5749 0107 CE000000 		.4byte	0xce
@@ -6387,7 +6387,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5755 0113 CE000000 		.4byte	0xce
  5756 0117 08       		.byte	0x8
  5757 0118 07       		.uleb128 0x7
- 5758 0119 D9060000 		.4byte	.LASF24
+ 5758 0119 DE060000 		.4byte	.LASF24
  5759 011d 05       		.byte	0x5
  5760 011e 3A       		.byte	0x3a
  5761 011f CE000000 		.4byte	0xce
@@ -6405,7 +6405,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5773 0137 CE000000 		.4byte	0xce
  5774 013b 14       		.byte	0x14
  5775 013c 07       		.uleb128 0x7
- 5776 013d 10040000 		.4byte	.LASF27
+ 5776 013d 21040000 		.4byte	.LASF27
  5777 0141 05       		.byte	0x5
  5778 0142 3D       		.byte	0x3d
  5779 0143 CE000000 		.4byte	0xce
@@ -6417,8 +6417,8 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5785 014f CE000000 		.4byte	0xce
  5786 0153 1C       		.byte	0x1c
  5787 0154 07       		.uleb128 0x7
- 5788 0155 8F090000 		.4byte	.LASF29
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 108
+ 5788 0155 87090000 		.4byte	.LASF29
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 108
 
 
  5789 0159 05       		.byte	0x5
@@ -6426,13 +6426,13 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5791 015b CE000000 		.4byte	0xce
  5792 015f 20       		.byte	0x20
  5793 0160 07       		.uleb128 0x7
- 5794 0161 B3050000 		.4byte	.LASF30
+ 5794 0161 B8050000 		.4byte	.LASF30
  5795 0165 05       		.byte	0x5
  5796 0166 40       		.byte	0x40
  5797 0167 CE000000 		.4byte	0xce
  5798 016b 24       		.byte	0x24
  5799 016c 07       		.uleb128 0x7
- 5800 016d DD040000 		.4byte	.LASF31
+ 5800 016d EE040000 		.4byte	.LASF31
  5801 0171 05       		.byte	0x5
  5802 0172 43       		.byte	0x43
  5803 0173 A2000000 		.4byte	0xa2
@@ -6444,25 +6444,25 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5809 017f A2000000 		.4byte	0xa2
  5810 0183 29       		.byte	0x29
  5811 0184 07       		.uleb128 0x7
- 5812 0185 85090000 		.4byte	.LASF33
+ 5812 0185 7D090000 		.4byte	.LASF33
  5813 0189 05       		.byte	0x5
  5814 018a 45       		.byte	0x45
  5815 018b A2000000 		.4byte	0xa2
  5816 018f 2A       		.byte	0x2a
  5817 0190 07       		.uleb128 0x7
- 5818 0191 A5050000 		.4byte	.LASF34
+ 5818 0191 AA050000 		.4byte	.LASF34
  5819 0195 05       		.byte	0x5
  5820 0196 46       		.byte	0x46
  5821 0197 A2000000 		.4byte	0xa2
  5822 019b 2B       		.byte	0x2b
  5823 019c 07       		.uleb128 0x7
- 5824 019d 60040000 		.4byte	.LASF35
+ 5824 019d 71040000 		.4byte	.LASF35
  5825 01a1 05       		.byte	0x5
  5826 01a2 47       		.byte	0x47
  5827 01a3 A2000000 		.4byte	0xa2
  5828 01a7 2C       		.byte	0x2c
  5829 01a8 07       		.uleb128 0x7
- 5830 01a9 03080000 		.4byte	.LASF36
+ 5830 01a9 FB070000 		.4byte	.LASF36
  5831 01ad 05       		.byte	0x5
  5832 01ae 48       		.byte	0x48
  5833 01af A2000000 		.4byte	0xa2
@@ -6474,22 +6474,22 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5839 01bb A2000000 		.4byte	0xa2
  5840 01bf 2E       		.byte	0x2e
  5841 01c0 07       		.uleb128 0x7
- 5842 01c1 EA040000 		.4byte	.LASF38
+ 5842 01c1 FB040000 		.4byte	.LASF38
  5843 01c5 05       		.byte	0x5
  5844 01c6 4A       		.byte	0x4a
  5845 01c7 A2000000 		.4byte	0xa2
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 109
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 109
 
 
  5846 01cb 2F       		.byte	0x2f
  5847 01cc 07       		.uleb128 0x7
- 5848 01cd 7D050000 		.4byte	.LASF39
+ 5848 01cd B9070000 		.4byte	.LASF39
  5849 01d1 05       		.byte	0x5
  5850 01d2 4B       		.byte	0x4b
  5851 01d3 A2000000 		.4byte	0xa2
  5852 01d7 30       		.byte	0x30
  5853 01d8 07       		.uleb128 0x7
- 5854 01d9 05040000 		.4byte	.LASF40
+ 5854 01d9 16040000 		.4byte	.LASF40
  5855 01dd 05       		.byte	0x5
  5856 01de 4E       		.byte	0x4e
  5857 01df A2000000 		.4byte	0xa2
@@ -6501,19 +6501,19 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5863 01eb A2000000 		.4byte	0xa2
  5864 01ef 32       		.byte	0x32
  5865 01f0 07       		.uleb128 0x7
- 5866 01f1 99030000 		.4byte	.LASF42
+ 5866 01f1 AA030000 		.4byte	.LASF42
  5867 01f5 05       		.byte	0x5
  5868 01f6 50       		.byte	0x50
  5869 01f7 A2000000 		.4byte	0xa2
  5870 01fb 33       		.byte	0x33
  5871 01fc 07       		.uleb128 0x7
- 5872 01fd 47050000 		.4byte	.LASF43
+ 5872 01fd 58050000 		.4byte	.LASF43
  5873 0201 05       		.byte	0x5
  5874 0202 51       		.byte	0x51
  5875 0203 A2000000 		.4byte	0xa2
  5876 0207 34       		.byte	0x34
  5877 0208 07       		.uleb128 0x7
- 5878 0209 70080000 		.4byte	.LASF44
+ 5878 0209 68080000 		.4byte	.LASF44
  5879 020d 05       		.byte	0x5
  5880 020e 52       		.byte	0x52
  5881 020f AD000000 		.4byte	0xad
@@ -6525,7 +6525,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5887 021b AD000000 		.4byte	0xad
  5888 021f 38       		.byte	0x38
  5889 0220 07       		.uleb128 0x7
- 5890 0221 E4080000 		.4byte	.LASF46
+ 5890 0221 DC080000 		.4byte	.LASF46
  5891 0225 05       		.byte	0x5
  5892 0226 54       		.byte	0x54
  5893 0227 AD000000 		.4byte	0xad
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5900 0237 3C       		.byte	0x3c
  5901 0238 07       		.uleb128 0x7
  5902 0239 CC020000 		.4byte	.LASF48
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 110
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 110
 
 
  5903 023d 05       		.byte	0x5
@@ -6546,7 +6546,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5905 023f A2000000 		.4byte	0xa2
  5906 0243 3D       		.byte	0x3d
  5907 0244 07       		.uleb128 0x7
- 5908 0245 68070000 		.4byte	.LASF49
+ 5908 0245 6D070000 		.4byte	.LASF49
  5909 0249 05       		.byte	0x5
  5910 024a 57       		.byte	0x57
  5911 024b A2000000 		.4byte	0xa2
@@ -6558,25 +6558,25 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5917 0257 A2000000 		.4byte	0xa2
  5918 025b 3F       		.byte	0x3f
  5919 025c 07       		.uleb128 0x7
- 5920 025d BE050000 		.4byte	.LASF51
+ 5920 025d C3050000 		.4byte	.LASF51
  5921 0261 05       		.byte	0x5
  5922 0262 59       		.byte	0x59
  5923 0263 A2000000 		.4byte	0xa2
  5924 0267 40       		.byte	0x40
  5925 0268 07       		.uleb128 0x7
- 5926 0269 29030000 		.4byte	.LASF52
+ 5926 0269 3A030000 		.4byte	.LASF52
  5927 026d 05       		.byte	0x5
  5928 026e 5A       		.byte	0x5a
  5929 026f A2000000 		.4byte	0xa2
  5930 0273 41       		.byte	0x41
  5931 0274 07       		.uleb128 0x7
- 5932 0275 9B040000 		.4byte	.LASF53
+ 5932 0275 AC040000 		.4byte	.LASF53
  5933 0279 05       		.byte	0x5
  5934 027a 5B       		.byte	0x5b
  5935 027b A2000000 		.4byte	0xa2
  5936 027f 42       		.byte	0x42
  5937 0280 07       		.uleb128 0x7
- 5938 0281 9A050000 		.4byte	.LASF54
+ 5938 0281 9F050000 		.4byte	.LASF54
  5939 0285 05       		.byte	0x5
  5940 0286 5C       		.byte	0x5c
  5941 0287 A2000000 		.4byte	0xa2
@@ -6598,12 +6598,12 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5957 02a9 05       		.byte	0x5
  5958 02aa 5F       		.byte	0x5f
  5959 02ab CE000000 		.4byte	0xce
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 111
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 111
 
 
  5960 02af 4C       		.byte	0x4c
  5961 02b0 07       		.uleb128 0x7
- 5962 02b1 D6090000 		.4byte	.LASF58
+ 5962 02b1 CE090000 		.4byte	.LASF58
  5963 02b5 05       		.byte	0x5
  5964 02b6 60       		.byte	0x60
  5965 02b7 A2000000 		.4byte	0xa2
@@ -6615,19 +6615,19 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5971 02c3 A2000000 		.4byte	0xa2
  5972 02c7 51       		.byte	0x51
  5973 02c8 07       		.uleb128 0x7
- 5974 02c9 F9080000 		.4byte	.LASF60
+ 5974 02c9 F1080000 		.4byte	.LASF60
  5975 02cd 05       		.byte	0x5
  5976 02ce 62       		.byte	0x62
  5977 02cf A2000000 		.4byte	0xa2
  5978 02d3 52       		.byte	0x52
  5979 02d4 07       		.uleb128 0x7
- 5980 02d5 AD090000 		.4byte	.LASF61
+ 5980 02d5 A5090000 		.4byte	.LASF61
  5981 02d9 05       		.byte	0x5
  5982 02da 63       		.byte	0x63
  5983 02db A2000000 		.4byte	0xa2
  5984 02df 53       		.byte	0x53
  5985 02e0 07       		.uleb128 0x7
- 5986 02e1 76070000 		.4byte	.LASF62
+ 5986 02e1 7B070000 		.4byte	.LASF62
  5987 02e5 05       		.byte	0x5
  5988 02e6 64       		.byte	0x64
  5989 02e7 A2000000 		.4byte	0xa2
@@ -6639,13 +6639,13 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  5995 02f3 A2000000 		.4byte	0xa2
  5996 02f7 55       		.byte	0x55
  5997 02f8 07       		.uleb128 0x7
- 5998 02f9 CD030000 		.4byte	.LASF64
+ 5998 02f9 DE030000 		.4byte	.LASF64
  5999 02fd 05       		.byte	0x5
  6000 02fe 66       		.byte	0x66
  6001 02ff A2000000 		.4byte	0xa2
  6002 0303 56       		.byte	0x56
  6003 0304 07       		.uleb128 0x7
- 6004 0305 19040000 		.4byte	.LASF65
+ 6004 0305 2A040000 		.4byte	.LASF65
  6005 0309 05       		.byte	0x5
  6006 030a 67       		.byte	0x67
  6007 030b A2000000 		.4byte	0xa2
@@ -6657,8 +6657,8 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6013 0317 A2000000 		.4byte	0xa2
  6014 031b 58       		.byte	0x58
  6015 031c 07       		.uleb128 0x7
- 6016 031d FD060000 		.4byte	.LASF67
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 112
+ 6016 031d 02070000 		.4byte	.LASF67
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 112
 
 
  6017 0321 05       		.byte	0x5
@@ -6666,13 +6666,13 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6019 0323 A2000000 		.4byte	0xa2
  6020 0327 59       		.byte	0x59
  6021 0328 07       		.uleb128 0x7
- 6022 0329 3C050000 		.4byte	.LASF68
+ 6022 0329 4D050000 		.4byte	.LASF68
  6023 032d 05       		.byte	0x5
  6024 032e 6E       		.byte	0x6e
  6025 032f B8000000 		.4byte	0xb8
  6026 0333 5A       		.byte	0x5a
  6027 0334 07       		.uleb128 0x7
- 6028 0335 40080000 		.4byte	.LASF69
+ 6028 0335 38080000 		.4byte	.LASF69
  6029 0339 05       		.byte	0x5
  6030 033a 6F       		.byte	0x6f
  6031 033b B8000000 		.4byte	0xb8
@@ -6684,19 +6684,19 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6037 0347 A2000000 		.4byte	0xa2
  6038 034b 5E       		.byte	0x5e
  6039 034c 07       		.uleb128 0x7
- 6040 034d B8060000 		.4byte	.LASF71
+ 6040 034d BD060000 		.4byte	.LASF71
  6041 0351 05       		.byte	0x5
  6042 0352 71       		.byte	0x71
  6043 0353 A2000000 		.4byte	0xa2
  6044 0357 5F       		.byte	0x5f
  6045 0358 07       		.uleb128 0x7
- 6046 0359 89050000 		.4byte	.LASF72
+ 6046 0359 8E050000 		.4byte	.LASF72
  6047 035d 05       		.byte	0x5
  6048 035e 72       		.byte	0x72
  6049 035f A2000000 		.4byte	0xa2
  6050 0363 60       		.byte	0x60
  6051 0364 07       		.uleb128 0x7
- 6052 0365 91060000 		.4byte	.LASF73
+ 6052 0365 96060000 		.4byte	.LASF73
  6053 0369 05       		.byte	0x5
  6054 036a 73       		.byte	0x73
  6055 036b CE000000 		.4byte	0xce
@@ -6708,28 +6708,28 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6061 0377 B8000000 		.4byte	0xb8
  6062 037b 68       		.byte	0x68
  6063 037c 07       		.uleb128 0x7
- 6064 037d BB030000 		.4byte	.LASF75
+ 6064 037d CC030000 		.4byte	.LASF75
  6065 0381 05       		.byte	0x5
  6066 0382 77       		.byte	0x77
  6067 0383 B8000000 		.4byte	0xb8
  6068 0387 6A       		.byte	0x6a
  6069 0388 07       		.uleb128 0x7
- 6070 0389 2D040000 		.4byte	.LASF76
+ 6070 0389 3E040000 		.4byte	.LASF76
  6071 038d 05       		.byte	0x5
  6072 038e 78       		.byte	0x78
  6073 038f B8000000 		.4byte	0xb8
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 113
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 113
 
 
  6074 0393 6C       		.byte	0x6c
  6075 0394 07       		.uleb128 0x7
- 6076 0395 53040000 		.4byte	.LASF77
+ 6076 0395 64040000 		.4byte	.LASF77
  6077 0399 05       		.byte	0x5
  6078 039a 79       		.byte	0x79
  6079 039b B8000000 		.4byte	0xb8
  6080 039f 6E       		.byte	0x6e
  6081 03a0 07       		.uleb128 0x7
- 6082 03a1 33070000 		.4byte	.LASF78
+ 6082 03a1 38070000 		.4byte	.LASF78
  6083 03a5 05       		.byte	0x5
  6084 03a6 7B       		.byte	0x7b
  6085 03a7 A2000000 		.4byte	0xa2
@@ -6741,25 +6741,25 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6091 03b3 A2000000 		.4byte	0xa2
  6092 03b7 71       		.byte	0x71
  6093 03b8 07       		.uleb128 0x7
- 6094 03b9 97090000 		.4byte	.LASF80
+ 6094 03b9 8F090000 		.4byte	.LASF80
  6095 03bd 05       		.byte	0x5
  6096 03be 7D       		.byte	0x7d
  6097 03bf A2000000 		.4byte	0xa2
  6098 03c3 72       		.byte	0x72
  6099 03c4 07       		.uleb128 0x7
- 6100 03c5 58050000 		.4byte	.LASF81
+ 6100 03c5 69050000 		.4byte	.LASF81
  6101 03c9 05       		.byte	0x5
  6102 03ca 7E       		.byte	0x7e
  6103 03cb A2000000 		.4byte	0xa2
  6104 03cf 73       		.byte	0x73
  6105 03d0 07       		.uleb128 0x7
- 6106 03d1 ED020000 		.4byte	.LASF82
+ 6106 03d1 FE020000 		.4byte	.LASF82
  6107 03d5 05       		.byte	0x5
  6108 03d6 80       		.byte	0x80
  6109 03d7 B8000000 		.4byte	0xb8
  6110 03db 74       		.byte	0x74
  6111 03dc 07       		.uleb128 0x7
- 6112 03dd E6070000 		.4byte	.LASF83
+ 6112 03dd DE070000 		.4byte	.LASF83
  6113 03e1 05       		.byte	0x5
  6114 03e2 81       		.byte	0x81
  6115 03e3 B8000000 		.4byte	0xb8
@@ -6777,8 +6777,8 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6127 03fb B8000000 		.4byte	0xb8
  6128 03ff 7A       		.byte	0x7a
  6129 0400 07       		.uleb128 0x7
- 6130 0401 3B090000 		.4byte	.LASF86
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 114
+ 6130 0401 33090000 		.4byte	.LASF86
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 114
 
 
  6131 0405 05       		.byte	0x5
@@ -6786,7 +6786,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6133 0407 A2000000 		.4byte	0xa2
  6134 040b 7C       		.byte	0x7c
  6135 040c 07       		.uleb128 0x7
- 6136 040d B2080000 		.4byte	.LASF87
+ 6136 040d AA080000 		.4byte	.LASF87
  6137 0411 05       		.byte	0x5
  6138 0412 87       		.byte	0x87
  6139 0413 A2000000 		.4byte	0xa2
@@ -6798,19 +6798,19 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6145 041f A2000000 		.4byte	0xa2
  6146 0423 7E       		.byte	0x7e
  6147 0424 07       		.uleb128 0x7
- 6148 0425 FF020000 		.4byte	.LASF89
+ 6148 0425 10030000 		.4byte	.LASF89
  6149 0429 05       		.byte	0x5
  6150 042a 89       		.byte	0x89
  6151 042b A2000000 		.4byte	0xa2
  6152 042f 7F       		.byte	0x7f
  6153 0430 07       		.uleb128 0x7
- 6154 0431 85030000 		.4byte	.LASF90
+ 6154 0431 96030000 		.4byte	.LASF90
  6155 0435 05       		.byte	0x5
  6156 0436 8A       		.byte	0x8a
  6157 0437 A2000000 		.4byte	0xa2
  6158 043b 80       		.byte	0x80
  6159 043c 07       		.uleb128 0x7
- 6160 043d 9B080000 		.4byte	.LASF91
+ 6160 043d 93080000 		.4byte	.LASF91
  6161 0441 05       		.byte	0x5
  6162 0442 8D       		.byte	0x8d
  6163 0443 CE000000 		.4byte	0xce
@@ -6822,34 +6822,34 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6169 044f CE000000 		.4byte	0xce
  6170 0453 88       		.byte	0x88
  6171 0454 07       		.uleb128 0x7
- 6172 0455 26090000 		.4byte	.LASF93
+ 6172 0455 1E090000 		.4byte	.LASF93
  6173 0459 05       		.byte	0x5
  6174 045a 8F       		.byte	0x8f
  6175 045b CE000000 		.4byte	0xce
  6176 045f 8C       		.byte	0x8c
  6177 0460 07       		.uleb128 0x7
- 6178 0461 F6040000 		.4byte	.LASF94
+ 6178 0461 07050000 		.4byte	.LASF94
  6179 0465 05       		.byte	0x5
  6180 0466 90       		.byte	0x90
  6181 0467 CE000000 		.4byte	0xce
  6182 046b 90       		.byte	0x90
  6183 046c 07       		.uleb128 0x7
- 6184 046d 55030000 		.4byte	.LASF95
+ 6184 046d 66030000 		.4byte	.LASF95
  6185 0471 05       		.byte	0x5
  6186 0472 91       		.byte	0x91
  6187 0473 CE000000 		.4byte	0xce
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 115
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 115
 
 
  6188 0477 94       		.byte	0x94
  6189 0478 07       		.uleb128 0x7
- 6190 0479 BC040000 		.4byte	.LASF96
+ 6190 0479 CD040000 		.4byte	.LASF96
  6191 047d 05       		.byte	0x5
  6192 047e 92       		.byte	0x92
  6193 047f CE000000 		.4byte	0xce
  6194 0483 98       		.byte	0x98
  6195 0484 07       		.uleb128 0x7
- 6196 0485 60090000 		.4byte	.LASF97
+ 6196 0485 58090000 		.4byte	.LASF97
  6197 0489 05       		.byte	0x5
  6198 048a 93       		.byte	0x93
  6199 048b CE000000 		.4byte	0xce
@@ -6867,38 +6867,38 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6211 04a3 B8000000 		.4byte	0xb8
  6212 04a7 A4       		.byte	0xa4
  6213 04a8 07       		.uleb128 0x7
- 6214 04a9 A7040000 		.4byte	.LASF100
+ 6214 04a9 B8040000 		.4byte	.LASF100
  6215 04ad 05       		.byte	0x5
  6216 04ae 96       		.byte	0x96
  6217 04af B8000000 		.4byte	0xb8
  6218 04b3 A6       		.byte	0xa6
  6219 04b4 07       		.uleb128 0x7
- 6220 04b5 AC060000 		.4byte	.LASF101
+ 6220 04b5 B1060000 		.4byte	.LASF101
  6221 04b9 05       		.byte	0x5
  6222 04ba 97       		.byte	0x97
  6223 04bb B8000000 		.4byte	0xb8
  6224 04bf A8       		.byte	0xa8
  6225 04c0 07       		.uleb128 0x7
- 6226 04c1 CD070000 		.4byte	.LASF102
+ 6226 04c1 C5070000 		.4byte	.LASF102
  6227 04c5 05       		.byte	0x5
  6228 04c6 98       		.byte	0x98
  6229 04c7 B8000000 		.4byte	0xb8
  6230 04cb AA       		.byte	0xaa
  6231 04cc 07       		.uleb128 0x7
- 6232 04cd 3C040000 		.4byte	.LASF103
+ 6232 04cd 4D040000 		.4byte	.LASF103
  6233 04d1 05       		.byte	0x5
  6234 04d2 99       		.byte	0x99
  6235 04d3 B8000000 		.4byte	0xb8
  6236 04d7 AC       		.byte	0xac
  6237 04d8 07       		.uleb128 0x7
- 6238 04d9 6F050000 		.4byte	.LASF104
+ 6238 04d9 80050000 		.4byte	.LASF104
  6239 04dd 05       		.byte	0x5
  6240 04de 9A       		.byte	0x9a
  6241 04df B8000000 		.4byte	0xb8
  6242 04e3 AE       		.byte	0xae
  6243 04e4 07       		.uleb128 0x7
- 6244 04e5 53080000 		.4byte	.LASF105
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 116
+ 6244 04e5 4B080000 		.4byte	.LASF105
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 116
 
 
  6245 04e9 05       		.byte	0x5
@@ -6913,23 +6913,23 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6254 04fb B4       		.byte	0xb4
  6255 04fc 00       		.byte	0
  6256 04fd 03       		.uleb128 0x3
- 6257 04fe 72040000 		.4byte	.LASF107
+ 6257 04fe 83040000 		.4byte	.LASF107
  6258 0502 05       		.byte	0x5
  6259 0503 9F       		.byte	0x9f
  6260 0504 EC000000 		.4byte	0xec
  6261 0508 02       		.uleb128 0x2
  6262 0509 01       		.byte	0x1
  6263 050a 08       		.byte	0x8
- 6264 050b A4070000 		.4byte	.LASF108
+ 6264 050b A9070000 		.4byte	.LASF108
  6265 050f 08       		.uleb128 0x8
- 6266 0510 10080000 		.4byte	.LASF109
+ 6266 0510 08080000 		.4byte	.LASF109
  6267 0514 06       		.byte	0x6
  6268 0515 F701     		.2byte	0x1f7
  6269 0517 1B050000 		.4byte	0x51b
  6270 051b 02       		.uleb128 0x2
  6271 051c 04       		.byte	0x4
  6272 051d 04       		.byte	0x4
- 6273 051e 8B060000 		.4byte	.LASF110
+ 6273 051e 90060000 		.4byte	.LASF110
  6274 0522 02       		.uleb128 0x2
  6275 0523 08       		.byte	0x8
  6276 0524 04       		.byte	0x4
@@ -6939,7 +6939,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6280 052b 02       		.uleb128 0x2
  6281 052c 01       		.byte	0x1
  6282 052d 02       		.byte	0x2
- 6283 052e E1060000 		.4byte	.LASF112
+ 6283 052e E6060000 		.4byte	.LASF112
  6284 0532 0A       		.uleb128 0xa
  6285 0533 04       		.byte	0x4
  6286 0534 38050000 		.4byte	0x538
@@ -6958,18 +6958,18 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6299 0554 24       		.byte	0x24
  6300 0555 07       		.byte	0x7
  6301 0556 7402     		.2byte	0x274
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 117
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 117
 
 
  6302 0558 D2050000 		.4byte	0x5d2
  6303 055c 0E       		.uleb128 0xe
- 6304 055d DD080000 		.4byte	.LASF114
+ 6304 055d D5080000 		.4byte	.LASF114
  6305 0561 07       		.byte	0x7
  6306 0562 7702     		.2byte	0x277
  6307 0564 E0000000 		.4byte	0xe0
  6308 0568 00       		.byte	0
  6309 0569 0E       		.uleb128 0xe
- 6310 056a CB080000 		.4byte	.LASF115
+ 6310 056a C3080000 		.4byte	.LASF115
  6311 056e 07       		.byte	0x7
  6312 056f 7902     		.2byte	0x279
  6313 0571 29050000 		.4byte	0x529
@@ -6981,52 +6981,52 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6319 057e CE000000 		.4byte	0xce
  6320 0582 08       		.byte	0x8
  6321 0583 0E       		.uleb128 0xe
- 6322 0584 43030000 		.4byte	.LASF117
+ 6322 0584 54030000 		.4byte	.LASF117
  6323 0588 07       		.byte	0x7
  6324 0589 7B02     		.2byte	0x27b
  6325 058b E0000000 		.4byte	0xe0
  6326 058f 0C       		.byte	0xc
  6327 0590 0E       		.uleb128 0xe
- 6328 0591 6C040000 		.4byte	.LASF118
+ 6328 0591 7D040000 		.4byte	.LASF118
  6329 0595 07       		.byte	0x7
  6330 0596 7D02     		.2byte	0x27d
  6331 0598 29050000 		.4byte	0x529
  6332 059c 10       		.byte	0x10
  6333 059d 0E       		.uleb128 0xe
- 6334 059e 6A030000 		.4byte	.LASF119
+ 6334 059e 7B030000 		.4byte	.LASF119
  6335 05a2 07       		.byte	0x7
  6336 05a3 7E02     		.2byte	0x27e
  6337 05a5 CE000000 		.4byte	0xce
  6338 05a9 14       		.byte	0x14
  6339 05aa 0E       		.uleb128 0xe
- 6340 05ab E7090000 		.4byte	.LASF120
+ 6340 05ab DF090000 		.4byte	.LASF120
  6341 05af 07       		.byte	0x7
  6342 05b0 7F02     		.2byte	0x27f
  6343 05b2 E0000000 		.4byte	0xe0
  6344 05b6 18       		.byte	0x18
  6345 05b7 0E       		.uleb128 0xe
- 6346 05b8 4A040000 		.4byte	.LASF121
+ 6346 05b8 5B040000 		.4byte	.LASF121
  6347 05bc 07       		.byte	0x7
  6348 05bd 8502     		.2byte	0x285
  6349 05bf 43050000 		.4byte	0x543
  6350 05c3 1C       		.byte	0x1c
  6351 05c4 0E       		.uleb128 0xe
- 6352 05c5 C3080000 		.4byte	.LASF122
+ 6352 05c5 BB080000 		.4byte	.LASF122
  6353 05c9 07       		.byte	0x7
  6354 05ca 8802     		.2byte	0x288
  6355 05cc CE000000 		.4byte	0xce
  6356 05d0 20       		.byte	0x20
  6357 05d1 00       		.byte	0
  6358 05d2 08       		.uleb128 0x8
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 118
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 118
 
 
- 6359 05d3 82040000 		.4byte	.LASF123
+ 6359 05d3 93040000 		.4byte	.LASF123
  6360 05d7 07       		.byte	0x7
  6361 05d8 8B02     		.2byte	0x28b
  6362 05da 4F050000 		.4byte	0x54f
  6363 05de 0F       		.uleb128 0xf
- 6364 05df 0B050000 		.4byte	.LASF125
+ 6364 05df 1C050000 		.4byte	.LASF125
  6365 05e3 4C       		.byte	0x4c
  6366 05e4 08       		.byte	0x8
  6367 05e5 2F       		.byte	0x2f
@@ -7056,40 +7056,40 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6391 0615 CE000000 		.4byte	0xce
  6392 0619 0C       		.byte	0xc
  6393 061a 07       		.uleb128 0x7
- 6394 061b 57070000 		.4byte	.LASF130
+ 6394 061b 5C070000 		.4byte	.LASF130
  6395 061f 08       		.byte	0x8
  6396 0620 37       		.byte	0x37
  6397 0621 CE000000 		.4byte	0xce
  6398 0625 10       		.byte	0x10
  6399 0626 07       		.uleb128 0x7
- 6400 0627 8F070000 		.4byte	.LASF131
+ 6400 0627 94070000 		.4byte	.LASF131
  6401 062b 08       		.byte	0x8
  6402 062c 38       		.byte	0x38
  6403 062d CE000000 		.4byte	0xce
  6404 0631 14       		.byte	0x14
  6405 0632 07       		.uleb128 0x7
- 6406 0633 92080000 		.4byte	.LASF132
+ 6406 0633 8A080000 		.4byte	.LASF132
  6407 0637 08       		.byte	0x8
  6408 0638 39       		.byte	0x39
  6409 0639 CE000000 		.4byte	0xce
  6410 063d 18       		.byte	0x18
  6411 063e 07       		.uleb128 0x7
- 6412 063f F3030000 		.4byte	.LASF133
+ 6412 063f 04040000 		.4byte	.LASF133
  6413 0643 08       		.byte	0x8
  6414 0644 3A       		.byte	0x3a
  6415 0645 2B050000 		.4byte	0x52b
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 119
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 119
 
 
  6416 0649 1C       		.byte	0x1c
  6417 064a 07       		.uleb128 0x7
- 6418 064b 74030000 		.4byte	.LASF134
+ 6418 064b 85030000 		.4byte	.LASF134
  6419 064f 08       		.byte	0x8
  6420 0650 3C       		.byte	0x3c
  6421 0651 CE000000 		.4byte	0xce
  6422 0655 20       		.byte	0x20
  6423 0656 07       		.uleb128 0x7
- 6424 0657 DC020000 		.4byte	.LASF135
+ 6424 0657 ED020000 		.4byte	.LASF135
  6425 065b 08       		.byte	0x8
  6426 065c 3D       		.byte	0x3d
  6427 065d CE000000 		.4byte	0xce
@@ -7101,25 +7101,25 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6433 0669 CE000000 		.4byte	0xce
  6434 066d 28       		.byte	0x28
  6435 066e 07       		.uleb128 0x7
- 6436 066f 50090000 		.4byte	.LASF137
+ 6436 066f 48090000 		.4byte	.LASF137
  6437 0673 08       		.byte	0x8
  6438 0674 40       		.byte	0x40
  6439 0675 CE000000 		.4byte	0xce
  6440 0679 2C       		.byte	0x2c
  6441 067a 07       		.uleb128 0x7
- 6442 067b 21080000 		.4byte	.LASF138
+ 6442 067b 19080000 		.4byte	.LASF138
  6443 067f 08       		.byte	0x8
  6444 0680 42       		.byte	0x42
  6445 0681 CE000000 		.4byte	0xce
  6446 0685 30       		.byte	0x30
  6447 0686 07       		.uleb128 0x7
- 6448 0687 61080000 		.4byte	.LASF139
+ 6448 0687 59080000 		.4byte	.LASF139
  6449 068b 08       		.byte	0x8
  6450 068c 43       		.byte	0x43
  6451 068d CE000000 		.4byte	0xce
  6452 0691 34       		.byte	0x34
  6453 0692 07       		.uleb128 0x7
- 6454 0693 D2040000 		.4byte	.LASF140
+ 6454 0693 E3040000 		.4byte	.LASF140
  6455 0697 08       		.byte	0x8
  6456 0698 45       		.byte	0x45
  6457 0699 CE000000 		.4byte	0xce
@@ -7131,14 +7131,14 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6463 06a5 CE000000 		.4byte	0xce
  6464 06a9 3C       		.byte	0x3c
  6465 06aa 07       		.uleb128 0x7
- 6466 06ab 49080000 		.4byte	.LASF142
+ 6466 06ab 41080000 		.4byte	.LASF142
  6467 06af 08       		.byte	0x8
  6468 06b0 48       		.byte	0x48
  6469 06b1 CE000000 		.4byte	0xce
  6470 06b5 40       		.byte	0x40
  6471 06b6 07       		.uleb128 0x7
- 6472 06b7 76090000 		.4byte	.LASF143
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 120
+ 6472 06b7 6E090000 		.4byte	.LASF143
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 120
 
 
  6473 06bb 08       		.byte	0x8
@@ -7146,7 +7146,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6475 06bd CE000000 		.4byte	0xce
  6476 06c1 44       		.byte	0x44
  6477 06c2 07       		.uleb128 0x7
- 6478 06c3 A9070000 		.4byte	.LASF144
+ 6478 06c3 AE070000 		.4byte	.LASF144
  6479 06c7 08       		.byte	0x8
  6480 06c8 4B       		.byte	0x4b
  6481 06c9 CE000000 		.4byte	0xce
@@ -7158,7 +7158,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6487 06d5 4C       		.byte	0x4c
  6488 06d6 DE050000 		.4byte	0x5de
  6489 06da 10       		.uleb128 0x10
- 6490 06db CB050000 		.4byte	.LASF161
+ 6490 06db D0050000 		.4byte	.LASF161
  6491 06df 02       		.byte	0x2
  6492 06e0 81       		.byte	0x81
  6493 06e1 03       		.byte	0x3
@@ -7173,13 +7173,13 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6502 06f3 0A070000 		.4byte	0x70a
  6503 06f7 12       		.uleb128 0x12
  6504 06f8 06000000 		.4byte	.LVL0
- 6505 06fc 9A080000 		.4byte	0x89a
+ 6505 06fc 9C080000 		.4byte	0x89c
  6506 0700 12       		.uleb128 0x12
  6507 0701 0E000000 		.4byte	.LVL1
- 6508 0705 9A080000 		.4byte	0x89a
+ 6508 0705 9C080000 		.4byte	0x89c
  6509 0709 00       		.byte	0
  6510 070a 13       		.uleb128 0x13
- 6511 070b D7020000 		.4byte	.LASF163
+ 6511 070b E8020000 		.4byte	.LASF163
  6512 070f 01       		.byte	0x1
  6513 0710 A5       		.byte	0xa5
  6514 0711 94000000 		.4byte	0x94
@@ -7187,23 +7187,23 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6516 0719 5C000000 		.4byte	.LFE590-.LFB590
  6517 071d 01       		.uleb128 0x1
  6518 071e 9C       		.byte	0x9c
- 6519 071f 10080000 		.4byte	0x810
+ 6519 071f 12080000 		.4byte	0x812
  6520 0723 14       		.uleb128 0x14
- 6521 0724 27050000 		.4byte	.LASF146
+ 6521 0724 38050000 		.4byte	.LASF146
  6522 0728 01       		.byte	0x1
  6523 0729 AE       		.byte	0xae
- 6524 072a 10080000 		.4byte	0x810
+ 6524 072a 12080000 		.4byte	0x812
  6525 072e 04       		.uleb128 0x4
  6526 072f 91       		.byte	0x91
  6527 0730 94AE7F   		.sleb128 -10476
  6528 0733 14       		.uleb128 0x14
- 6529 0734 4C030000 		.4byte	.LASF147
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 121
+ 6529 0734 5D030000 		.4byte	.LASF147
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 121
 
 
  6530 0738 01       		.byte	0x1
  6531 0739 AF       		.byte	0xaf
- 6532 073a 21080000 		.4byte	0x821
+ 6532 073a 23080000 		.4byte	0x823
  6533 073e 04       		.uleb128 0x4
  6534 073f 91       		.byte	0x91
  6535 0740 84D97E   		.sleb128 -21372
@@ -7211,15 +7211,15 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6537 0744 42504D00 		.ascii	"BPM\000"
  6538 0748 01       		.byte	0x1
  6539 0749 B2       		.byte	0xb2
- 6540 074a 32080000 		.4byte	0x832
+ 6540 074a 34080000 		.4byte	0x834
  6541 074e 04       		.uleb128 0x4
  6542 074f 91       		.byte	0x91
  6543 0750 80D97E   		.sleb128 -21376
  6544 0753 14       		.uleb128 0x14
- 6545 0754 28070000 		.4byte	.LASF148
+ 6545 0754 2D070000 		.4byte	.LASF148
  6546 0758 01       		.byte	0x1
  6547 0759 B4       		.byte	0xb4
- 6548 075a 32080000 		.4byte	0x832
+ 6548 075a 34080000 		.4byte	0x834
  6549 075e 04       		.uleb128 0x4
  6550 075f 91       		.byte	0x91
  6551 0760 FCD87E   		.sleb128 -21380
@@ -7231,10 +7231,10 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6557 0771 AA       		.byte	0xaa
  6558 0772 12       		.uleb128 0x12
  6559 0773 0C000000 		.4byte	.LVL2
- 6560 0777 A5080000 		.4byte	0x8a5
+ 6560 0777 A7080000 		.4byte	0x8a7
  6561 077b 17       		.uleb128 0x17
  6562 077c 1E000000 		.4byte	.LVL3
- 6563 0780 B1080000 		.4byte	0x8b1
+ 6563 0780 B3080000 		.4byte	0x8b3
  6564 0784 A1070000 		.4byte	0x7a1
  6565 0788 18       		.uleb128 0x18
  6566 0789 01       		.uleb128 0x1
@@ -7257,8 +7257,8 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6583 07a0 00       		.byte	0
  6584 07a1 17       		.uleb128 0x17
  6585 07a2 2A000000 		.4byte	.LVL4
- 6586 07a6 B1080000 		.4byte	0x8b1
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 122
+ 6586 07a6 B3080000 		.4byte	0x8b3
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 122
 
 
  6587 07aa C7070000 		.4byte	0x7c7
@@ -7282,9 +7282,9 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6605 07c4 902A     		.2byte	0x2a90
  6606 07c6 00       		.byte	0
  6607 07c7 17       		.uleb128 0x17
- 6608 07c8 3A000000 		.4byte	.LVL5
- 6609 07cc BA080000 		.4byte	0x8ba
- 6610 07d0 E9070000 		.4byte	0x7e9
+ 6608 07c8 3C000000 		.4byte	.LVL5
+ 6609 07cc BC080000 		.4byte	0x8bc
+ 6610 07d0 EB070000 		.4byte	0x7eb
  6611 07d4 18       		.uleb128 0x18
  6612 07d5 01       		.uleb128 0x1
  6613 07d6 50       		.byte	0x50
@@ -7294,1502 +7294,1503 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 1
  6617 07dc 18       		.uleb128 0x18
  6618 07dd 01       		.uleb128 0x1
  6619 07de 51       		.byte	0x51
- 6620 07df 01       		.uleb128 0x1
- 6621 07e0 30       		.byte	0x30
- 6622 07e1 18       		.uleb128 0x18
- 6623 07e2 01       		.uleb128 0x1
- 6624 07e3 52       		.byte	0x52
- 6625 07e4 03       		.uleb128 0x3
- 6626 07e5 0A       		.byte	0xa
- 6627 07e6 E204     		.2byte	0x4e2
- 6628 07e8 00       		.byte	0
- 6629 07e9 19       		.uleb128 0x19
- 6630 07ea 4E000000 		.4byte	.LVL6
- 6631 07ee C5080000 		.4byte	0x8c5
- 6632 07f2 18       		.uleb128 0x18
- 6633 07f3 01       		.uleb128 0x1
- 6634 07f4 50       		.byte	0x50
- 6635 07f5 04       		.uleb128 0x4
- 6636 07f6 91       		.byte	0x91
- 6637 07f7 94AE7F   		.sleb128 -10476
- 6638 07fa 18       		.uleb128 0x18
- 6639 07fb 01       		.uleb128 0x1
- 6640 07fc 51       		.byte	0x51
- 6641 07fd 04       		.uleb128 0x4
- 6642 07fe 91       		.byte	0x91
- 6643 07ff 84D97E   		.sleb128 -21372
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 123
+ 6620 07df 03       		.uleb128 0x3
+ 6621 07e0 0A       		.byte	0xa
+ 6622 07e1 F401     		.2byte	0x1f4
+ 6623 07e3 18       		.uleb128 0x18
+ 6624 07e4 01       		.uleb128 0x1
+ 6625 07e5 52       		.byte	0x52
+ 6626 07e6 03       		.uleb128 0x3
+ 6627 07e7 0A       		.byte	0xa
+ 6628 07e8 D606     		.2byte	0x6d6
+ 6629 07ea 00       		.byte	0
+ 6630 07eb 19       		.uleb128 0x19
+ 6631 07ec 50000000 		.4byte	.LVL6
+ 6632 07f0 C7080000 		.4byte	0x8c7
+ 6633 07f4 18       		.uleb128 0x18
+ 6634 07f5 01       		.uleb128 0x1
+ 6635 07f6 50       		.byte	0x50
+ 6636 07f7 04       		.uleb128 0x4
+ 6637 07f8 91       		.byte	0x91
+ 6638 07f9 94AE7F   		.sleb128 -10476
+ 6639 07fc 18       		.uleb128 0x18
+ 6640 07fd 01       		.uleb128 0x1
+ 6641 07fe 51       		.byte	0x51
+ 6642 07ff 04       		.uleb128 0x4
+ 6643 0800 91       		.byte	0x91
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 123
 
 
- 6644 0802 18       		.uleb128 0x18
- 6645 0803 01       		.uleb128 0x1
- 6646 0804 52       		.byte	0x52
- 6647 0805 01       		.uleb128 0x1
- 6648 0806 30       		.byte	0x30
- 6649 0807 18       		.uleb128 0x18
- 6650 0808 01       		.uleb128 0x1
- 6651 0809 53       		.byte	0x53
- 6652 080a 03       		.uleb128 0x3
- 6653 080b 0A       		.byte	0xa
- 6654 080c E204     		.2byte	0x4e2
- 6655 080e 00       		.byte	0
- 6656 080f 00       		.byte	0
- 6657 0810 1A       		.uleb128 0x1a
- 6658 0811 0F050000 		.4byte	0x50f
- 6659 0815 21080000 		.4byte	0x821
- 6660 0819 1B       		.uleb128 0x1b
- 6661 081a D9000000 		.4byte	0xd9
- 6662 081e 380A     		.2byte	0xa38
- 6663 0820 00       		.byte	0
- 6664 0821 1A       		.uleb128 0x1a
- 6665 0822 0F050000 		.4byte	0x50f
- 6666 0826 32080000 		.4byte	0x832
- 6667 082a 1B       		.uleb128 0x1b
- 6668 082b D9000000 		.4byte	0xd9
- 6669 082f A30A     		.2byte	0xaa3
- 6670 0831 00       		.byte	0
- 6671 0832 05       		.uleb128 0x5
- 6672 0833 0F050000 		.4byte	0x50f
- 6673 0837 1C       		.uleb128 0x1c
- 6674 0838 11070000 		.4byte	.LASF149
- 6675 083c 09       		.byte	0x9
- 6676 083d 0108     		.2byte	0x801
- 6677 083f 43080000 		.4byte	0x843
- 6678 0843 05       		.uleb128 0x5
- 6679 0844 C3000000 		.4byte	0xc3
- 6680 0848 1D       		.uleb128 0x1d
- 6681 0849 A2060000 		.4byte	.LASF150
- 6682 084d 05       		.byte	0x5
- 6683 084e A7       		.byte	0xa7
- 6684 084f 53080000 		.4byte	0x853
- 6685 0853 0A       		.uleb128 0xa
- 6686 0854 04       		.byte	0x4
- 6687 0855 59080000 		.4byte	0x859
- 6688 0859 1E       		.uleb128 0x1e
- 6689 085a FD040000 		.4byte	0x4fd
- 6690 085e 1D       		.uleb128 0x1d
- 6691 085f 7D080000 		.4byte	.LASF151
- 6692 0863 0A       		.byte	0xa
- 6693 0864 5E       		.byte	0x5e
- 6694 0865 D2050000 		.4byte	0x5d2
- 6695 0869 1D       		.uleb128 0x1d
- 6696 086a 11090000 		.4byte	.LASF152
- 6697 086e 0B       		.byte	0xb
- 6698 086f 1F       		.byte	0x1f
- 6699 0870 74080000 		.4byte	0x874
- 6700 0874 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 124
+ 6644 0801 84D97E   		.sleb128 -21372
+ 6645 0804 18       		.uleb128 0x18
+ 6646 0805 01       		.uleb128 0x1
+ 6647 0806 52       		.byte	0x52
+ 6648 0807 01       		.uleb128 0x1
+ 6649 0808 30       		.byte	0x30
+ 6650 0809 18       		.uleb128 0x18
+ 6651 080a 01       		.uleb128 0x1
+ 6652 080b 53       		.byte	0x53
+ 6653 080c 03       		.uleb128 0x3
+ 6654 080d 0A       		.byte	0xa
+ 6655 080e E204     		.2byte	0x4e2
+ 6656 0810 00       		.byte	0
+ 6657 0811 00       		.byte	0
+ 6658 0812 1A       		.uleb128 0x1a
+ 6659 0813 0F050000 		.4byte	0x50f
+ 6660 0817 23080000 		.4byte	0x823
+ 6661 081b 1B       		.uleb128 0x1b
+ 6662 081c D9000000 		.4byte	0xd9
+ 6663 0820 380A     		.2byte	0xa38
+ 6664 0822 00       		.byte	0
+ 6665 0823 1A       		.uleb128 0x1a
+ 6666 0824 0F050000 		.4byte	0x50f
+ 6667 0828 34080000 		.4byte	0x834
+ 6668 082c 1B       		.uleb128 0x1b
+ 6669 082d D9000000 		.4byte	0xd9
+ 6670 0831 A30A     		.2byte	0xaa3
+ 6671 0833 00       		.byte	0
+ 6672 0834 05       		.uleb128 0x5
+ 6673 0835 0F050000 		.4byte	0x50f
+ 6674 0839 1C       		.uleb128 0x1c
+ 6675 083a 16070000 		.4byte	.LASF149
+ 6676 083e 09       		.byte	0x9
+ 6677 083f 0108     		.2byte	0x801
+ 6678 0841 45080000 		.4byte	0x845
+ 6679 0845 05       		.uleb128 0x5
+ 6680 0846 C3000000 		.4byte	0xc3
+ 6681 084a 1D       		.uleb128 0x1d
+ 6682 084b A7060000 		.4byte	.LASF150
+ 6683 084f 05       		.byte	0x5
+ 6684 0850 A7       		.byte	0xa7
+ 6685 0851 55080000 		.4byte	0x855
+ 6686 0855 0A       		.uleb128 0xa
+ 6687 0856 04       		.byte	0x4
+ 6688 0857 5B080000 		.4byte	0x85b
+ 6689 085b 1E       		.uleb128 0x1e
+ 6690 085c FD040000 		.4byte	0x4fd
+ 6691 0860 1D       		.uleb128 0x1d
+ 6692 0861 75080000 		.4byte	.LASF151
+ 6693 0865 0A       		.byte	0xa
+ 6694 0866 5E       		.byte	0x5e
+ 6695 0867 D2050000 		.4byte	0x5d2
+ 6696 086b 1D       		.uleb128 0x1d
+ 6697 086c 09090000 		.4byte	.LASF152
+ 6698 0870 0B       		.byte	0xb
+ 6699 0871 1F       		.byte	0x1f
+ 6700 0872 76080000 		.4byte	0x876
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 124
 
 
- 6701 0875 CF060000 		.4byte	0x6cf
- 6702 0879 1A       		.uleb128 0x1a
- 6703 087a 1B050000 		.4byte	0x51b
- 6704 087e 89080000 		.4byte	0x889
- 6705 0882 1F       		.uleb128 0x1f
- 6706 0883 D9000000 		.4byte	0xd9
- 6707 0887 7C       		.byte	0x7c
- 6708 0888 00       		.byte	0
- 6709 0889 20       		.uleb128 0x20
- 6710 088a CA090000 		.4byte	.LASF153
- 6711 088e 01       		.byte	0x1
- 6712 088f 40       		.byte	0x40
- 6713 0890 79080000 		.4byte	0x879
- 6714 0894 05       		.uleb128 0x5
- 6715 0895 03       		.byte	0x3
- 6716 0896 00000000 		.4byte	vectorSinus
- 6717 089a 21       		.uleb128 0x21
- 6718 089b 47070000 		.4byte	.LASF154
- 6719 089f 47070000 		.4byte	.LASF154
- 6720 08a3 0C       		.byte	0xc
- 6721 08a4 30       		.byte	0x30
- 6722 08a5 22       		.uleb128 0x22
- 6723 08a6 CE060000 		.4byte	.LASF155
- 6724 08aa CE060000 		.4byte	.LASF155
- 6725 08ae 0D       		.byte	0xd
- 6726 08af 1902     		.2byte	0x219
- 6727 08b1 23       		.uleb128 0x23
- 6728 08b2 1A080000 		.4byte	.LASF164
- 6729 08b6 1A080000 		.4byte	.LASF164
- 6730 08ba 21       		.uleb128 0x21
- 6731 08bb 85000000 		.4byte	.LASF156
- 6732 08bf 85000000 		.4byte	.LASF156
- 6733 08c3 0E       		.byte	0xe
- 6734 08c4 13       		.byte	0x13
- 6735 08c5 21       		.uleb128 0x21
- 6736 08c6 1A010000 		.4byte	.LASF157
- 6737 08ca 1A010000 		.4byte	.LASF157
- 6738 08ce 0E       		.byte	0xe
- 6739 08cf 16       		.byte	0x16
- 6740 08d0 00       		.byte	0
- 6741              		.section	.debug_abbrev,"",%progbits
- 6742              	.Ldebug_abbrev0:
- 6743 0000 01       		.uleb128 0x1
- 6744 0001 11       		.uleb128 0x11
- 6745 0002 01       		.byte	0x1
- 6746 0003 25       		.uleb128 0x25
- 6747 0004 0E       		.uleb128 0xe
- 6748 0005 13       		.uleb128 0x13
- 6749 0006 0B       		.uleb128 0xb
- 6750 0007 03       		.uleb128 0x3
- 6751 0008 0E       		.uleb128 0xe
- 6752 0009 1B       		.uleb128 0x1b
- 6753 000a 0E       		.uleb128 0xe
- 6754 000b 55       		.uleb128 0x55
- 6755 000c 17       		.uleb128 0x17
- 6756 000d 11       		.uleb128 0x11
- 6757 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 125
+ 6701 0876 1E       		.uleb128 0x1e
+ 6702 0877 CF060000 		.4byte	0x6cf
+ 6703 087b 1A       		.uleb128 0x1a
+ 6704 087c 1B050000 		.4byte	0x51b
+ 6705 0880 8B080000 		.4byte	0x88b
+ 6706 0884 1F       		.uleb128 0x1f
+ 6707 0885 D9000000 		.4byte	0xd9
+ 6708 0889 7C       		.byte	0x7c
+ 6709 088a 00       		.byte	0
+ 6710 088b 20       		.uleb128 0x20
+ 6711 088c C2090000 		.4byte	.LASF153
+ 6712 0890 01       		.byte	0x1
+ 6713 0891 40       		.byte	0x40
+ 6714 0892 7B080000 		.4byte	0x87b
+ 6715 0896 05       		.uleb128 0x5
+ 6716 0897 03       		.byte	0x3
+ 6717 0898 00000000 		.4byte	vectorSinus
+ 6718 089c 21       		.uleb128 0x21
+ 6719 089d 4C070000 		.4byte	.LASF154
+ 6720 08a1 4C070000 		.4byte	.LASF154
+ 6721 08a5 0C       		.byte	0xc
+ 6722 08a6 30       		.byte	0x30
+ 6723 08a7 22       		.uleb128 0x22
+ 6724 08a8 D3060000 		.4byte	.LASF155
+ 6725 08ac D3060000 		.4byte	.LASF155
+ 6726 08b0 0D       		.byte	0xd
+ 6727 08b1 1902     		.2byte	0x219
+ 6728 08b3 23       		.uleb128 0x23
+ 6729 08b4 12080000 		.4byte	.LASF164
+ 6730 08b8 12080000 		.4byte	.LASF164
+ 6731 08bc 21       		.uleb128 0x21
+ 6732 08bd 85000000 		.4byte	.LASF156
+ 6733 08c1 85000000 		.4byte	.LASF156
+ 6734 08c5 0E       		.byte	0xe
+ 6735 08c6 13       		.byte	0x13
+ 6736 08c7 21       		.uleb128 0x21
+ 6737 08c8 1A010000 		.4byte	.LASF157
+ 6738 08cc 1A010000 		.4byte	.LASF157
+ 6739 08d0 0E       		.byte	0xe
+ 6740 08d1 16       		.byte	0x16
+ 6741 08d2 00       		.byte	0
+ 6742              		.section	.debug_abbrev,"",%progbits
+ 6743              	.Ldebug_abbrev0:
+ 6744 0000 01       		.uleb128 0x1
+ 6745 0001 11       		.uleb128 0x11
+ 6746 0002 01       		.byte	0x1
+ 6747 0003 25       		.uleb128 0x25
+ 6748 0004 0E       		.uleb128 0xe
+ 6749 0005 13       		.uleb128 0x13
+ 6750 0006 0B       		.uleb128 0xb
+ 6751 0007 03       		.uleb128 0x3
+ 6752 0008 0E       		.uleb128 0xe
+ 6753 0009 1B       		.uleb128 0x1b
+ 6754 000a 0E       		.uleb128 0xe
+ 6755 000b 55       		.uleb128 0x55
+ 6756 000c 17       		.uleb128 0x17
+ 6757 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 125
 
 
- 6758 000f 10       		.uleb128 0x10
- 6759 0010 17       		.uleb128 0x17
- 6760 0011 00       		.byte	0
- 6761 0012 00       		.byte	0
- 6762 0013 02       		.uleb128 0x2
- 6763 0014 24       		.uleb128 0x24
- 6764 0015 00       		.byte	0
- 6765 0016 0B       		.uleb128 0xb
- 6766 0017 0B       		.uleb128 0xb
- 6767 0018 3E       		.uleb128 0x3e
- 6768 0019 0B       		.uleb128 0xb
- 6769 001a 03       		.uleb128 0x3
- 6770 001b 0E       		.uleb128 0xe
- 6771 001c 00       		.byte	0
- 6772 001d 00       		.byte	0
- 6773 001e 03       		.uleb128 0x3
- 6774 001f 16       		.uleb128 0x16
- 6775 0020 00       		.byte	0
- 6776 0021 03       		.uleb128 0x3
- 6777 0022 0E       		.uleb128 0xe
- 6778 0023 3A       		.uleb128 0x3a
- 6779 0024 0B       		.uleb128 0xb
- 6780 0025 3B       		.uleb128 0x3b
- 6781 0026 0B       		.uleb128 0xb
- 6782 0027 49       		.uleb128 0x49
- 6783 0028 13       		.uleb128 0x13
- 6784 0029 00       		.byte	0
- 6785 002a 00       		.byte	0
- 6786 002b 04       		.uleb128 0x4
- 6787 002c 24       		.uleb128 0x24
- 6788 002d 00       		.byte	0
- 6789 002e 0B       		.uleb128 0xb
- 6790 002f 0B       		.uleb128 0xb
- 6791 0030 3E       		.uleb128 0x3e
- 6792 0031 0B       		.uleb128 0xb
- 6793 0032 03       		.uleb128 0x3
- 6794 0033 08       		.uleb128 0x8
- 6795 0034 00       		.byte	0
- 6796 0035 00       		.byte	0
- 6797 0036 05       		.uleb128 0x5
- 6798 0037 35       		.uleb128 0x35
- 6799 0038 00       		.byte	0
- 6800 0039 49       		.uleb128 0x49
- 6801 003a 13       		.uleb128 0x13
- 6802 003b 00       		.byte	0
- 6803 003c 00       		.byte	0
- 6804 003d 06       		.uleb128 0x6
- 6805 003e 13       		.uleb128 0x13
- 6806 003f 01       		.byte	0x1
- 6807 0040 0B       		.uleb128 0xb
- 6808 0041 0B       		.uleb128 0xb
- 6809 0042 3A       		.uleb128 0x3a
- 6810 0043 0B       		.uleb128 0xb
- 6811 0044 3B       		.uleb128 0x3b
- 6812 0045 0B       		.uleb128 0xb
- 6813 0046 01       		.uleb128 0x1
- 6814 0047 13       		.uleb128 0x13
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 126
+ 6758 000e 01       		.uleb128 0x1
+ 6759 000f 10       		.uleb128 0x10
+ 6760 0010 17       		.uleb128 0x17
+ 6761 0011 00       		.byte	0
+ 6762 0012 00       		.byte	0
+ 6763 0013 02       		.uleb128 0x2
+ 6764 0014 24       		.uleb128 0x24
+ 6765 0015 00       		.byte	0
+ 6766 0016 0B       		.uleb128 0xb
+ 6767 0017 0B       		.uleb128 0xb
+ 6768 0018 3E       		.uleb128 0x3e
+ 6769 0019 0B       		.uleb128 0xb
+ 6770 001a 03       		.uleb128 0x3
+ 6771 001b 0E       		.uleb128 0xe
+ 6772 001c 00       		.byte	0
+ 6773 001d 00       		.byte	0
+ 6774 001e 03       		.uleb128 0x3
+ 6775 001f 16       		.uleb128 0x16
+ 6776 0020 00       		.byte	0
+ 6777 0021 03       		.uleb128 0x3
+ 6778 0022 0E       		.uleb128 0xe
+ 6779 0023 3A       		.uleb128 0x3a
+ 6780 0024 0B       		.uleb128 0xb
+ 6781 0025 3B       		.uleb128 0x3b
+ 6782 0026 0B       		.uleb128 0xb
+ 6783 0027 49       		.uleb128 0x49
+ 6784 0028 13       		.uleb128 0x13
+ 6785 0029 00       		.byte	0
+ 6786 002a 00       		.byte	0
+ 6787 002b 04       		.uleb128 0x4
+ 6788 002c 24       		.uleb128 0x24
+ 6789 002d 00       		.byte	0
+ 6790 002e 0B       		.uleb128 0xb
+ 6791 002f 0B       		.uleb128 0xb
+ 6792 0030 3E       		.uleb128 0x3e
+ 6793 0031 0B       		.uleb128 0xb
+ 6794 0032 03       		.uleb128 0x3
+ 6795 0033 08       		.uleb128 0x8
+ 6796 0034 00       		.byte	0
+ 6797 0035 00       		.byte	0
+ 6798 0036 05       		.uleb128 0x5
+ 6799 0037 35       		.uleb128 0x35
+ 6800 0038 00       		.byte	0
+ 6801 0039 49       		.uleb128 0x49
+ 6802 003a 13       		.uleb128 0x13
+ 6803 003b 00       		.byte	0
+ 6804 003c 00       		.byte	0
+ 6805 003d 06       		.uleb128 0x6
+ 6806 003e 13       		.uleb128 0x13
+ 6807 003f 01       		.byte	0x1
+ 6808 0040 0B       		.uleb128 0xb
+ 6809 0041 0B       		.uleb128 0xb
+ 6810 0042 3A       		.uleb128 0x3a
+ 6811 0043 0B       		.uleb128 0xb
+ 6812 0044 3B       		.uleb128 0x3b
+ 6813 0045 0B       		.uleb128 0xb
+ 6814 0046 01       		.uleb128 0x1
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 126
 
 
- 6815 0048 00       		.byte	0
- 6816 0049 00       		.byte	0
- 6817 004a 07       		.uleb128 0x7
- 6818 004b 0D       		.uleb128 0xd
- 6819 004c 00       		.byte	0
- 6820 004d 03       		.uleb128 0x3
- 6821 004e 0E       		.uleb128 0xe
- 6822 004f 3A       		.uleb128 0x3a
- 6823 0050 0B       		.uleb128 0xb
- 6824 0051 3B       		.uleb128 0x3b
- 6825 0052 0B       		.uleb128 0xb
- 6826 0053 49       		.uleb128 0x49
- 6827 0054 13       		.uleb128 0x13
- 6828 0055 38       		.uleb128 0x38
- 6829 0056 0B       		.uleb128 0xb
- 6830 0057 00       		.byte	0
- 6831 0058 00       		.byte	0
- 6832 0059 08       		.uleb128 0x8
- 6833 005a 16       		.uleb128 0x16
- 6834 005b 00       		.byte	0
- 6835 005c 03       		.uleb128 0x3
- 6836 005d 0E       		.uleb128 0xe
- 6837 005e 3A       		.uleb128 0x3a
- 6838 005f 0B       		.uleb128 0xb
- 6839 0060 3B       		.uleb128 0x3b
- 6840 0061 05       		.uleb128 0x5
- 6841 0062 49       		.uleb128 0x49
- 6842 0063 13       		.uleb128 0x13
- 6843 0064 00       		.byte	0
- 6844 0065 00       		.byte	0
- 6845 0066 09       		.uleb128 0x9
- 6846 0067 0F       		.uleb128 0xf
- 6847 0068 00       		.byte	0
- 6848 0069 0B       		.uleb128 0xb
- 6849 006a 0B       		.uleb128 0xb
- 6850 006b 00       		.byte	0
- 6851 006c 00       		.byte	0
- 6852 006d 0A       		.uleb128 0xa
- 6853 006e 0F       		.uleb128 0xf
- 6854 006f 00       		.byte	0
- 6855 0070 0B       		.uleb128 0xb
- 6856 0071 0B       		.uleb128 0xb
- 6857 0072 49       		.uleb128 0x49
- 6858 0073 13       		.uleb128 0x13
- 6859 0074 00       		.byte	0
- 6860 0075 00       		.byte	0
- 6861 0076 0B       		.uleb128 0xb
- 6862 0077 15       		.uleb128 0x15
- 6863 0078 01       		.byte	0x1
- 6864 0079 27       		.uleb128 0x27
- 6865 007a 19       		.uleb128 0x19
- 6866 007b 01       		.uleb128 0x1
- 6867 007c 13       		.uleb128 0x13
- 6868 007d 00       		.byte	0
- 6869 007e 00       		.byte	0
- 6870 007f 0C       		.uleb128 0xc
- 6871 0080 05       		.uleb128 0x5
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 127
+ 6815 0047 13       		.uleb128 0x13
+ 6816 0048 00       		.byte	0
+ 6817 0049 00       		.byte	0
+ 6818 004a 07       		.uleb128 0x7
+ 6819 004b 0D       		.uleb128 0xd
+ 6820 004c 00       		.byte	0
+ 6821 004d 03       		.uleb128 0x3
+ 6822 004e 0E       		.uleb128 0xe
+ 6823 004f 3A       		.uleb128 0x3a
+ 6824 0050 0B       		.uleb128 0xb
+ 6825 0051 3B       		.uleb128 0x3b
+ 6826 0052 0B       		.uleb128 0xb
+ 6827 0053 49       		.uleb128 0x49
+ 6828 0054 13       		.uleb128 0x13
+ 6829 0055 38       		.uleb128 0x38
+ 6830 0056 0B       		.uleb128 0xb
+ 6831 0057 00       		.byte	0
+ 6832 0058 00       		.byte	0
+ 6833 0059 08       		.uleb128 0x8
+ 6834 005a 16       		.uleb128 0x16
+ 6835 005b 00       		.byte	0
+ 6836 005c 03       		.uleb128 0x3
+ 6837 005d 0E       		.uleb128 0xe
+ 6838 005e 3A       		.uleb128 0x3a
+ 6839 005f 0B       		.uleb128 0xb
+ 6840 0060 3B       		.uleb128 0x3b
+ 6841 0061 05       		.uleb128 0x5
+ 6842 0062 49       		.uleb128 0x49
+ 6843 0063 13       		.uleb128 0x13
+ 6844 0064 00       		.byte	0
+ 6845 0065 00       		.byte	0
+ 6846 0066 09       		.uleb128 0x9
+ 6847 0067 0F       		.uleb128 0xf
+ 6848 0068 00       		.byte	0
+ 6849 0069 0B       		.uleb128 0xb
+ 6850 006a 0B       		.uleb128 0xb
+ 6851 006b 00       		.byte	0
+ 6852 006c 00       		.byte	0
+ 6853 006d 0A       		.uleb128 0xa
+ 6854 006e 0F       		.uleb128 0xf
+ 6855 006f 00       		.byte	0
+ 6856 0070 0B       		.uleb128 0xb
+ 6857 0071 0B       		.uleb128 0xb
+ 6858 0072 49       		.uleb128 0x49
+ 6859 0073 13       		.uleb128 0x13
+ 6860 0074 00       		.byte	0
+ 6861 0075 00       		.byte	0
+ 6862 0076 0B       		.uleb128 0xb
+ 6863 0077 15       		.uleb128 0x15
+ 6864 0078 01       		.byte	0x1
+ 6865 0079 27       		.uleb128 0x27
+ 6866 007a 19       		.uleb128 0x19
+ 6867 007b 01       		.uleb128 0x1
+ 6868 007c 13       		.uleb128 0x13
+ 6869 007d 00       		.byte	0
+ 6870 007e 00       		.byte	0
+ 6871 007f 0C       		.uleb128 0xc
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 127
 
 
- 6872 0081 00       		.byte	0
- 6873 0082 49       		.uleb128 0x49
- 6874 0083 13       		.uleb128 0x13
- 6875 0084 00       		.byte	0
- 6876 0085 00       		.byte	0
- 6877 0086 0D       		.uleb128 0xd
- 6878 0087 13       		.uleb128 0x13
- 6879 0088 01       		.byte	0x1
- 6880 0089 03       		.uleb128 0x3
- 6881 008a 0E       		.uleb128 0xe
- 6882 008b 0B       		.uleb128 0xb
- 6883 008c 0B       		.uleb128 0xb
- 6884 008d 3A       		.uleb128 0x3a
- 6885 008e 0B       		.uleb128 0xb
- 6886 008f 3B       		.uleb128 0x3b
- 6887 0090 05       		.uleb128 0x5
- 6888 0091 01       		.uleb128 0x1
- 6889 0092 13       		.uleb128 0x13
- 6890 0093 00       		.byte	0
- 6891 0094 00       		.byte	0
- 6892 0095 0E       		.uleb128 0xe
- 6893 0096 0D       		.uleb128 0xd
- 6894 0097 00       		.byte	0
- 6895 0098 03       		.uleb128 0x3
- 6896 0099 0E       		.uleb128 0xe
- 6897 009a 3A       		.uleb128 0x3a
- 6898 009b 0B       		.uleb128 0xb
- 6899 009c 3B       		.uleb128 0x3b
- 6900 009d 05       		.uleb128 0x5
- 6901 009e 49       		.uleb128 0x49
- 6902 009f 13       		.uleb128 0x13
- 6903 00a0 38       		.uleb128 0x38
- 6904 00a1 0B       		.uleb128 0xb
- 6905 00a2 00       		.byte	0
- 6906 00a3 00       		.byte	0
- 6907 00a4 0F       		.uleb128 0xf
- 6908 00a5 13       		.uleb128 0x13
- 6909 00a6 01       		.byte	0x1
- 6910 00a7 03       		.uleb128 0x3
- 6911 00a8 0E       		.uleb128 0xe
- 6912 00a9 0B       		.uleb128 0xb
- 6913 00aa 0B       		.uleb128 0xb
- 6914 00ab 3A       		.uleb128 0x3a
- 6915 00ac 0B       		.uleb128 0xb
- 6916 00ad 3B       		.uleb128 0x3b
- 6917 00ae 0B       		.uleb128 0xb
- 6918 00af 01       		.uleb128 0x1
- 6919 00b0 13       		.uleb128 0x13
- 6920 00b1 00       		.byte	0
- 6921 00b2 00       		.byte	0
- 6922 00b3 10       		.uleb128 0x10
- 6923 00b4 2E       		.uleb128 0x2e
- 6924 00b5 00       		.byte	0
- 6925 00b6 03       		.uleb128 0x3
- 6926 00b7 0E       		.uleb128 0xe
- 6927 00b8 3A       		.uleb128 0x3a
- 6928 00b9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 128
+ 6872 0080 05       		.uleb128 0x5
+ 6873 0081 00       		.byte	0
+ 6874 0082 49       		.uleb128 0x49
+ 6875 0083 13       		.uleb128 0x13
+ 6876 0084 00       		.byte	0
+ 6877 0085 00       		.byte	0
+ 6878 0086 0D       		.uleb128 0xd
+ 6879 0087 13       		.uleb128 0x13
+ 6880 0088 01       		.byte	0x1
+ 6881 0089 03       		.uleb128 0x3
+ 6882 008a 0E       		.uleb128 0xe
+ 6883 008b 0B       		.uleb128 0xb
+ 6884 008c 0B       		.uleb128 0xb
+ 6885 008d 3A       		.uleb128 0x3a
+ 6886 008e 0B       		.uleb128 0xb
+ 6887 008f 3B       		.uleb128 0x3b
+ 6888 0090 05       		.uleb128 0x5
+ 6889 0091 01       		.uleb128 0x1
+ 6890 0092 13       		.uleb128 0x13
+ 6891 0093 00       		.byte	0
+ 6892 0094 00       		.byte	0
+ 6893 0095 0E       		.uleb128 0xe
+ 6894 0096 0D       		.uleb128 0xd
+ 6895 0097 00       		.byte	0
+ 6896 0098 03       		.uleb128 0x3
+ 6897 0099 0E       		.uleb128 0xe
+ 6898 009a 3A       		.uleb128 0x3a
+ 6899 009b 0B       		.uleb128 0xb
+ 6900 009c 3B       		.uleb128 0x3b
+ 6901 009d 05       		.uleb128 0x5
+ 6902 009e 49       		.uleb128 0x49
+ 6903 009f 13       		.uleb128 0x13
+ 6904 00a0 38       		.uleb128 0x38
+ 6905 00a1 0B       		.uleb128 0xb
+ 6906 00a2 00       		.byte	0
+ 6907 00a3 00       		.byte	0
+ 6908 00a4 0F       		.uleb128 0xf
+ 6909 00a5 13       		.uleb128 0x13
+ 6910 00a6 01       		.byte	0x1
+ 6911 00a7 03       		.uleb128 0x3
+ 6912 00a8 0E       		.uleb128 0xe
+ 6913 00a9 0B       		.uleb128 0xb
+ 6914 00aa 0B       		.uleb128 0xb
+ 6915 00ab 3A       		.uleb128 0x3a
+ 6916 00ac 0B       		.uleb128 0xb
+ 6917 00ad 3B       		.uleb128 0x3b
+ 6918 00ae 0B       		.uleb128 0xb
+ 6919 00af 01       		.uleb128 0x1
+ 6920 00b0 13       		.uleb128 0x13
+ 6921 00b1 00       		.byte	0
+ 6922 00b2 00       		.byte	0
+ 6923 00b3 10       		.uleb128 0x10
+ 6924 00b4 2E       		.uleb128 0x2e
+ 6925 00b5 00       		.byte	0
+ 6926 00b6 03       		.uleb128 0x3
+ 6927 00b7 0E       		.uleb128 0xe
+ 6928 00b8 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 128
 
 
- 6929 00ba 3B       		.uleb128 0x3b
- 6930 00bb 0B       		.uleb128 0xb
- 6931 00bc 27       		.uleb128 0x27
- 6932 00bd 19       		.uleb128 0x19
- 6933 00be 20       		.uleb128 0x20
- 6934 00bf 0B       		.uleb128 0xb
- 6935 00c0 00       		.byte	0
- 6936 00c1 00       		.byte	0
- 6937 00c2 11       		.uleb128 0x11
- 6938 00c3 2E       		.uleb128 0x2e
- 6939 00c4 01       		.byte	0x1
- 6940 00c5 3F       		.uleb128 0x3f
- 6941 00c6 19       		.uleb128 0x19
- 6942 00c7 03       		.uleb128 0x3
- 6943 00c8 0E       		.uleb128 0xe
- 6944 00c9 3A       		.uleb128 0x3a
- 6945 00ca 0B       		.uleb128 0xb
- 6946 00cb 3B       		.uleb128 0x3b
- 6947 00cc 0B       		.uleb128 0xb
- 6948 00cd 27       		.uleb128 0x27
- 6949 00ce 19       		.uleb128 0x19
- 6950 00cf 11       		.uleb128 0x11
- 6951 00d0 01       		.uleb128 0x1
- 6952 00d1 12       		.uleb128 0x12
- 6953 00d2 06       		.uleb128 0x6
- 6954 00d3 40       		.uleb128 0x40
- 6955 00d4 18       		.uleb128 0x18
- 6956 00d5 9742     		.uleb128 0x2117
- 6957 00d7 19       		.uleb128 0x19
- 6958 00d8 01       		.uleb128 0x1
- 6959 00d9 13       		.uleb128 0x13
- 6960 00da 00       		.byte	0
- 6961 00db 00       		.byte	0
- 6962 00dc 12       		.uleb128 0x12
- 6963 00dd 898201   		.uleb128 0x4109
- 6964 00e0 00       		.byte	0
- 6965 00e1 11       		.uleb128 0x11
- 6966 00e2 01       		.uleb128 0x1
- 6967 00e3 31       		.uleb128 0x31
- 6968 00e4 13       		.uleb128 0x13
- 6969 00e5 00       		.byte	0
- 6970 00e6 00       		.byte	0
- 6971 00e7 13       		.uleb128 0x13
- 6972 00e8 2E       		.uleb128 0x2e
- 6973 00e9 01       		.byte	0x1
- 6974 00ea 3F       		.uleb128 0x3f
- 6975 00eb 19       		.uleb128 0x19
- 6976 00ec 03       		.uleb128 0x3
- 6977 00ed 0E       		.uleb128 0xe
- 6978 00ee 3A       		.uleb128 0x3a
- 6979 00ef 0B       		.uleb128 0xb
- 6980 00f0 3B       		.uleb128 0x3b
- 6981 00f1 0B       		.uleb128 0xb
- 6982 00f2 27       		.uleb128 0x27
- 6983 00f3 19       		.uleb128 0x19
- 6984 00f4 49       		.uleb128 0x49
- 6985 00f5 13       		.uleb128 0x13
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 129
+ 6929 00b9 0B       		.uleb128 0xb
+ 6930 00ba 3B       		.uleb128 0x3b
+ 6931 00bb 0B       		.uleb128 0xb
+ 6932 00bc 27       		.uleb128 0x27
+ 6933 00bd 19       		.uleb128 0x19
+ 6934 00be 20       		.uleb128 0x20
+ 6935 00bf 0B       		.uleb128 0xb
+ 6936 00c0 00       		.byte	0
+ 6937 00c1 00       		.byte	0
+ 6938 00c2 11       		.uleb128 0x11
+ 6939 00c3 2E       		.uleb128 0x2e
+ 6940 00c4 01       		.byte	0x1
+ 6941 00c5 3F       		.uleb128 0x3f
+ 6942 00c6 19       		.uleb128 0x19
+ 6943 00c7 03       		.uleb128 0x3
+ 6944 00c8 0E       		.uleb128 0xe
+ 6945 00c9 3A       		.uleb128 0x3a
+ 6946 00ca 0B       		.uleb128 0xb
+ 6947 00cb 3B       		.uleb128 0x3b
+ 6948 00cc 0B       		.uleb128 0xb
+ 6949 00cd 27       		.uleb128 0x27
+ 6950 00ce 19       		.uleb128 0x19
+ 6951 00cf 11       		.uleb128 0x11
+ 6952 00d0 01       		.uleb128 0x1
+ 6953 00d1 12       		.uleb128 0x12
+ 6954 00d2 06       		.uleb128 0x6
+ 6955 00d3 40       		.uleb128 0x40
+ 6956 00d4 18       		.uleb128 0x18
+ 6957 00d5 9742     		.uleb128 0x2117
+ 6958 00d7 19       		.uleb128 0x19
+ 6959 00d8 01       		.uleb128 0x1
+ 6960 00d9 13       		.uleb128 0x13
+ 6961 00da 00       		.byte	0
+ 6962 00db 00       		.byte	0
+ 6963 00dc 12       		.uleb128 0x12
+ 6964 00dd 898201   		.uleb128 0x4109
+ 6965 00e0 00       		.byte	0
+ 6966 00e1 11       		.uleb128 0x11
+ 6967 00e2 01       		.uleb128 0x1
+ 6968 00e3 31       		.uleb128 0x31
+ 6969 00e4 13       		.uleb128 0x13
+ 6970 00e5 00       		.byte	0
+ 6971 00e6 00       		.byte	0
+ 6972 00e7 13       		.uleb128 0x13
+ 6973 00e8 2E       		.uleb128 0x2e
+ 6974 00e9 01       		.byte	0x1
+ 6975 00ea 3F       		.uleb128 0x3f
+ 6976 00eb 19       		.uleb128 0x19
+ 6977 00ec 03       		.uleb128 0x3
+ 6978 00ed 0E       		.uleb128 0xe
+ 6979 00ee 3A       		.uleb128 0x3a
+ 6980 00ef 0B       		.uleb128 0xb
+ 6981 00f0 3B       		.uleb128 0x3b
+ 6982 00f1 0B       		.uleb128 0xb
+ 6983 00f2 27       		.uleb128 0x27
+ 6984 00f3 19       		.uleb128 0x19
+ 6985 00f4 49       		.uleb128 0x49
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 129
 
 
- 6986 00f6 8701     		.uleb128 0x87
- 6987 00f8 19       		.uleb128 0x19
- 6988 00f9 11       		.uleb128 0x11
- 6989 00fa 01       		.uleb128 0x1
- 6990 00fb 12       		.uleb128 0x12
- 6991 00fc 06       		.uleb128 0x6
- 6992 00fd 40       		.uleb128 0x40
- 6993 00fe 18       		.uleb128 0x18
- 6994 00ff 9742     		.uleb128 0x2117
- 6995 0101 19       		.uleb128 0x19
- 6996 0102 01       		.uleb128 0x1
- 6997 0103 13       		.uleb128 0x13
- 6998 0104 00       		.byte	0
- 6999 0105 00       		.byte	0
- 7000 0106 14       		.uleb128 0x14
- 7001 0107 34       		.uleb128 0x34
- 7002 0108 00       		.byte	0
- 7003 0109 03       		.uleb128 0x3
- 7004 010a 0E       		.uleb128 0xe
- 7005 010b 3A       		.uleb128 0x3a
- 7006 010c 0B       		.uleb128 0xb
- 7007 010d 3B       		.uleb128 0x3b
- 7008 010e 0B       		.uleb128 0xb
- 7009 010f 49       		.uleb128 0x49
- 7010 0110 13       		.uleb128 0x13
- 7011 0111 02       		.uleb128 0x2
- 7012 0112 18       		.uleb128 0x18
- 7013 0113 00       		.byte	0
- 7014 0114 00       		.byte	0
- 7015 0115 15       		.uleb128 0x15
- 7016 0116 34       		.uleb128 0x34
- 7017 0117 00       		.byte	0
- 7018 0118 03       		.uleb128 0x3
- 7019 0119 08       		.uleb128 0x8
- 7020 011a 3A       		.uleb128 0x3a
- 7021 011b 0B       		.uleb128 0xb
- 7022 011c 3B       		.uleb128 0x3b
- 7023 011d 0B       		.uleb128 0xb
- 7024 011e 49       		.uleb128 0x49
- 7025 011f 13       		.uleb128 0x13
- 7026 0120 02       		.uleb128 0x2
- 7027 0121 18       		.uleb128 0x18
- 7028 0122 00       		.byte	0
- 7029 0123 00       		.byte	0
- 7030 0124 16       		.uleb128 0x16
- 7031 0125 1D       		.uleb128 0x1d
- 7032 0126 00       		.byte	0
- 7033 0127 31       		.uleb128 0x31
- 7034 0128 13       		.uleb128 0x13
- 7035 0129 11       		.uleb128 0x11
- 7036 012a 01       		.uleb128 0x1
- 7037 012b 12       		.uleb128 0x12
- 7038 012c 06       		.uleb128 0x6
- 7039 012d 58       		.uleb128 0x58
- 7040 012e 0B       		.uleb128 0xb
- 7041 012f 59       		.uleb128 0x59
- 7042 0130 0B       		.uleb128 0xb
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 130
+ 6986 00f5 13       		.uleb128 0x13
+ 6987 00f6 8701     		.uleb128 0x87
+ 6988 00f8 19       		.uleb128 0x19
+ 6989 00f9 11       		.uleb128 0x11
+ 6990 00fa 01       		.uleb128 0x1
+ 6991 00fb 12       		.uleb128 0x12
+ 6992 00fc 06       		.uleb128 0x6
+ 6993 00fd 40       		.uleb128 0x40
+ 6994 00fe 18       		.uleb128 0x18
+ 6995 00ff 9742     		.uleb128 0x2117
+ 6996 0101 19       		.uleb128 0x19
+ 6997 0102 01       		.uleb128 0x1
+ 6998 0103 13       		.uleb128 0x13
+ 6999 0104 00       		.byte	0
+ 7000 0105 00       		.byte	0
+ 7001 0106 14       		.uleb128 0x14
+ 7002 0107 34       		.uleb128 0x34
+ 7003 0108 00       		.byte	0
+ 7004 0109 03       		.uleb128 0x3
+ 7005 010a 0E       		.uleb128 0xe
+ 7006 010b 3A       		.uleb128 0x3a
+ 7007 010c 0B       		.uleb128 0xb
+ 7008 010d 3B       		.uleb128 0x3b
+ 7009 010e 0B       		.uleb128 0xb
+ 7010 010f 49       		.uleb128 0x49
+ 7011 0110 13       		.uleb128 0x13
+ 7012 0111 02       		.uleb128 0x2
+ 7013 0112 18       		.uleb128 0x18
+ 7014 0113 00       		.byte	0
+ 7015 0114 00       		.byte	0
+ 7016 0115 15       		.uleb128 0x15
+ 7017 0116 34       		.uleb128 0x34
+ 7018 0117 00       		.byte	0
+ 7019 0118 03       		.uleb128 0x3
+ 7020 0119 08       		.uleb128 0x8
+ 7021 011a 3A       		.uleb128 0x3a
+ 7022 011b 0B       		.uleb128 0xb
+ 7023 011c 3B       		.uleb128 0x3b
+ 7024 011d 0B       		.uleb128 0xb
+ 7025 011e 49       		.uleb128 0x49
+ 7026 011f 13       		.uleb128 0x13
+ 7027 0120 02       		.uleb128 0x2
+ 7028 0121 18       		.uleb128 0x18
+ 7029 0122 00       		.byte	0
+ 7030 0123 00       		.byte	0
+ 7031 0124 16       		.uleb128 0x16
+ 7032 0125 1D       		.uleb128 0x1d
+ 7033 0126 00       		.byte	0
+ 7034 0127 31       		.uleb128 0x31
+ 7035 0128 13       		.uleb128 0x13
+ 7036 0129 11       		.uleb128 0x11
+ 7037 012a 01       		.uleb128 0x1
+ 7038 012b 12       		.uleb128 0x12
+ 7039 012c 06       		.uleb128 0x6
+ 7040 012d 58       		.uleb128 0x58
+ 7041 012e 0B       		.uleb128 0xb
+ 7042 012f 59       		.uleb128 0x59
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 130
 
 
- 7043 0131 00       		.byte	0
- 7044 0132 00       		.byte	0
- 7045 0133 17       		.uleb128 0x17
- 7046 0134 898201   		.uleb128 0x4109
- 7047 0137 01       		.byte	0x1
- 7048 0138 11       		.uleb128 0x11
- 7049 0139 01       		.uleb128 0x1
- 7050 013a 31       		.uleb128 0x31
- 7051 013b 13       		.uleb128 0x13
- 7052 013c 01       		.uleb128 0x1
- 7053 013d 13       		.uleb128 0x13
- 7054 013e 00       		.byte	0
- 7055 013f 00       		.byte	0
- 7056 0140 18       		.uleb128 0x18
- 7057 0141 8A8201   		.uleb128 0x410a
- 7058 0144 00       		.byte	0
- 7059 0145 02       		.uleb128 0x2
- 7060 0146 18       		.uleb128 0x18
- 7061 0147 9142     		.uleb128 0x2111
- 7062 0149 18       		.uleb128 0x18
- 7063 014a 00       		.byte	0
- 7064 014b 00       		.byte	0
- 7065 014c 19       		.uleb128 0x19
- 7066 014d 898201   		.uleb128 0x4109
- 7067 0150 01       		.byte	0x1
- 7068 0151 11       		.uleb128 0x11
- 7069 0152 01       		.uleb128 0x1
- 7070 0153 31       		.uleb128 0x31
- 7071 0154 13       		.uleb128 0x13
- 7072 0155 00       		.byte	0
- 7073 0156 00       		.byte	0
- 7074 0157 1A       		.uleb128 0x1a
- 7075 0158 01       		.uleb128 0x1
- 7076 0159 01       		.byte	0x1
- 7077 015a 49       		.uleb128 0x49
- 7078 015b 13       		.uleb128 0x13
- 7079 015c 01       		.uleb128 0x1
- 7080 015d 13       		.uleb128 0x13
- 7081 015e 00       		.byte	0
- 7082 015f 00       		.byte	0
- 7083 0160 1B       		.uleb128 0x1b
- 7084 0161 21       		.uleb128 0x21
- 7085 0162 00       		.byte	0
- 7086 0163 49       		.uleb128 0x49
- 7087 0164 13       		.uleb128 0x13
- 7088 0165 2F       		.uleb128 0x2f
- 7089 0166 05       		.uleb128 0x5
- 7090 0167 00       		.byte	0
- 7091 0168 00       		.byte	0
- 7092 0169 1C       		.uleb128 0x1c
- 7093 016a 34       		.uleb128 0x34
- 7094 016b 00       		.byte	0
- 7095 016c 03       		.uleb128 0x3
- 7096 016d 0E       		.uleb128 0xe
- 7097 016e 3A       		.uleb128 0x3a
- 7098 016f 0B       		.uleb128 0xb
- 7099 0170 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 131
+ 7043 0130 0B       		.uleb128 0xb
+ 7044 0131 00       		.byte	0
+ 7045 0132 00       		.byte	0
+ 7046 0133 17       		.uleb128 0x17
+ 7047 0134 898201   		.uleb128 0x4109
+ 7048 0137 01       		.byte	0x1
+ 7049 0138 11       		.uleb128 0x11
+ 7050 0139 01       		.uleb128 0x1
+ 7051 013a 31       		.uleb128 0x31
+ 7052 013b 13       		.uleb128 0x13
+ 7053 013c 01       		.uleb128 0x1
+ 7054 013d 13       		.uleb128 0x13
+ 7055 013e 00       		.byte	0
+ 7056 013f 00       		.byte	0
+ 7057 0140 18       		.uleb128 0x18
+ 7058 0141 8A8201   		.uleb128 0x410a
+ 7059 0144 00       		.byte	0
+ 7060 0145 02       		.uleb128 0x2
+ 7061 0146 18       		.uleb128 0x18
+ 7062 0147 9142     		.uleb128 0x2111
+ 7063 0149 18       		.uleb128 0x18
+ 7064 014a 00       		.byte	0
+ 7065 014b 00       		.byte	0
+ 7066 014c 19       		.uleb128 0x19
+ 7067 014d 898201   		.uleb128 0x4109
+ 7068 0150 01       		.byte	0x1
+ 7069 0151 11       		.uleb128 0x11
+ 7070 0152 01       		.uleb128 0x1
+ 7071 0153 31       		.uleb128 0x31
+ 7072 0154 13       		.uleb128 0x13
+ 7073 0155 00       		.byte	0
+ 7074 0156 00       		.byte	0
+ 7075 0157 1A       		.uleb128 0x1a
+ 7076 0158 01       		.uleb128 0x1
+ 7077 0159 01       		.byte	0x1
+ 7078 015a 49       		.uleb128 0x49
+ 7079 015b 13       		.uleb128 0x13
+ 7080 015c 01       		.uleb128 0x1
+ 7081 015d 13       		.uleb128 0x13
+ 7082 015e 00       		.byte	0
+ 7083 015f 00       		.byte	0
+ 7084 0160 1B       		.uleb128 0x1b
+ 7085 0161 21       		.uleb128 0x21
+ 7086 0162 00       		.byte	0
+ 7087 0163 49       		.uleb128 0x49
+ 7088 0164 13       		.uleb128 0x13
+ 7089 0165 2F       		.uleb128 0x2f
+ 7090 0166 05       		.uleb128 0x5
+ 7091 0167 00       		.byte	0
+ 7092 0168 00       		.byte	0
+ 7093 0169 1C       		.uleb128 0x1c
+ 7094 016a 34       		.uleb128 0x34
+ 7095 016b 00       		.byte	0
+ 7096 016c 03       		.uleb128 0x3
+ 7097 016d 0E       		.uleb128 0xe
+ 7098 016e 3A       		.uleb128 0x3a
+ 7099 016f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 131
 
 
- 7100 0171 05       		.uleb128 0x5
- 7101 0172 49       		.uleb128 0x49
- 7102 0173 13       		.uleb128 0x13
- 7103 0174 3F       		.uleb128 0x3f
- 7104 0175 19       		.uleb128 0x19
- 7105 0176 3C       		.uleb128 0x3c
- 7106 0177 19       		.uleb128 0x19
- 7107 0178 00       		.byte	0
- 7108 0179 00       		.byte	0
- 7109 017a 1D       		.uleb128 0x1d
- 7110 017b 34       		.uleb128 0x34
- 7111 017c 00       		.byte	0
- 7112 017d 03       		.uleb128 0x3
- 7113 017e 0E       		.uleb128 0xe
- 7114 017f 3A       		.uleb128 0x3a
- 7115 0180 0B       		.uleb128 0xb
- 7116 0181 3B       		.uleb128 0x3b
- 7117 0182 0B       		.uleb128 0xb
- 7118 0183 49       		.uleb128 0x49
- 7119 0184 13       		.uleb128 0x13
- 7120 0185 3F       		.uleb128 0x3f
- 7121 0186 19       		.uleb128 0x19
- 7122 0187 3C       		.uleb128 0x3c
- 7123 0188 19       		.uleb128 0x19
- 7124 0189 00       		.byte	0
- 7125 018a 00       		.byte	0
- 7126 018b 1E       		.uleb128 0x1e
- 7127 018c 26       		.uleb128 0x26
- 7128 018d 00       		.byte	0
- 7129 018e 49       		.uleb128 0x49
- 7130 018f 13       		.uleb128 0x13
- 7131 0190 00       		.byte	0
- 7132 0191 00       		.byte	0
- 7133 0192 1F       		.uleb128 0x1f
- 7134 0193 21       		.uleb128 0x21
- 7135 0194 00       		.byte	0
- 7136 0195 49       		.uleb128 0x49
- 7137 0196 13       		.uleb128 0x13
- 7138 0197 2F       		.uleb128 0x2f
- 7139 0198 0B       		.uleb128 0xb
- 7140 0199 00       		.byte	0
- 7141 019a 00       		.byte	0
- 7142 019b 20       		.uleb128 0x20
- 7143 019c 34       		.uleb128 0x34
- 7144 019d 00       		.byte	0
- 7145 019e 03       		.uleb128 0x3
- 7146 019f 0E       		.uleb128 0xe
- 7147 01a0 3A       		.uleb128 0x3a
- 7148 01a1 0B       		.uleb128 0xb
- 7149 01a2 3B       		.uleb128 0x3b
- 7150 01a3 0B       		.uleb128 0xb
- 7151 01a4 49       		.uleb128 0x49
- 7152 01a5 13       		.uleb128 0x13
- 7153 01a6 3F       		.uleb128 0x3f
- 7154 01a7 19       		.uleb128 0x19
- 7155 01a8 02       		.uleb128 0x2
- 7156 01a9 18       		.uleb128 0x18
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 132
+ 7100 0170 3B       		.uleb128 0x3b
+ 7101 0171 05       		.uleb128 0x5
+ 7102 0172 49       		.uleb128 0x49
+ 7103 0173 13       		.uleb128 0x13
+ 7104 0174 3F       		.uleb128 0x3f
+ 7105 0175 19       		.uleb128 0x19
+ 7106 0176 3C       		.uleb128 0x3c
+ 7107 0177 19       		.uleb128 0x19
+ 7108 0178 00       		.byte	0
+ 7109 0179 00       		.byte	0
+ 7110 017a 1D       		.uleb128 0x1d
+ 7111 017b 34       		.uleb128 0x34
+ 7112 017c 00       		.byte	0
+ 7113 017d 03       		.uleb128 0x3
+ 7114 017e 0E       		.uleb128 0xe
+ 7115 017f 3A       		.uleb128 0x3a
+ 7116 0180 0B       		.uleb128 0xb
+ 7117 0181 3B       		.uleb128 0x3b
+ 7118 0182 0B       		.uleb128 0xb
+ 7119 0183 49       		.uleb128 0x49
+ 7120 0184 13       		.uleb128 0x13
+ 7121 0185 3F       		.uleb128 0x3f
+ 7122 0186 19       		.uleb128 0x19
+ 7123 0187 3C       		.uleb128 0x3c
+ 7124 0188 19       		.uleb128 0x19
+ 7125 0189 00       		.byte	0
+ 7126 018a 00       		.byte	0
+ 7127 018b 1E       		.uleb128 0x1e
+ 7128 018c 26       		.uleb128 0x26
+ 7129 018d 00       		.byte	0
+ 7130 018e 49       		.uleb128 0x49
+ 7131 018f 13       		.uleb128 0x13
+ 7132 0190 00       		.byte	0
+ 7133 0191 00       		.byte	0
+ 7134 0192 1F       		.uleb128 0x1f
+ 7135 0193 21       		.uleb128 0x21
+ 7136 0194 00       		.byte	0
+ 7137 0195 49       		.uleb128 0x49
+ 7138 0196 13       		.uleb128 0x13
+ 7139 0197 2F       		.uleb128 0x2f
+ 7140 0198 0B       		.uleb128 0xb
+ 7141 0199 00       		.byte	0
+ 7142 019a 00       		.byte	0
+ 7143 019b 20       		.uleb128 0x20
+ 7144 019c 34       		.uleb128 0x34
+ 7145 019d 00       		.byte	0
+ 7146 019e 03       		.uleb128 0x3
+ 7147 019f 0E       		.uleb128 0xe
+ 7148 01a0 3A       		.uleb128 0x3a
+ 7149 01a1 0B       		.uleb128 0xb
+ 7150 01a2 3B       		.uleb128 0x3b
+ 7151 01a3 0B       		.uleb128 0xb
+ 7152 01a4 49       		.uleb128 0x49
+ 7153 01a5 13       		.uleb128 0x13
+ 7154 01a6 3F       		.uleb128 0x3f
+ 7155 01a7 19       		.uleb128 0x19
+ 7156 01a8 02       		.uleb128 0x2
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 132
 
 
- 7157 01aa 00       		.byte	0
- 7158 01ab 00       		.byte	0
- 7159 01ac 21       		.uleb128 0x21
- 7160 01ad 2E       		.uleb128 0x2e
- 7161 01ae 00       		.byte	0
- 7162 01af 3F       		.uleb128 0x3f
- 7163 01b0 19       		.uleb128 0x19
- 7164 01b1 3C       		.uleb128 0x3c
- 7165 01b2 19       		.uleb128 0x19
- 7166 01b3 6E       		.uleb128 0x6e
- 7167 01b4 0E       		.uleb128 0xe
- 7168 01b5 03       		.uleb128 0x3
- 7169 01b6 0E       		.uleb128 0xe
- 7170 01b7 3A       		.uleb128 0x3a
- 7171 01b8 0B       		.uleb128 0xb
- 7172 01b9 3B       		.uleb128 0x3b
- 7173 01ba 0B       		.uleb128 0xb
- 7174 01bb 00       		.byte	0
- 7175 01bc 00       		.byte	0
- 7176 01bd 22       		.uleb128 0x22
- 7177 01be 2E       		.uleb128 0x2e
- 7178 01bf 00       		.byte	0
- 7179 01c0 3F       		.uleb128 0x3f
- 7180 01c1 19       		.uleb128 0x19
- 7181 01c2 3C       		.uleb128 0x3c
- 7182 01c3 19       		.uleb128 0x19
- 7183 01c4 6E       		.uleb128 0x6e
- 7184 01c5 0E       		.uleb128 0xe
- 7185 01c6 03       		.uleb128 0x3
- 7186 01c7 0E       		.uleb128 0xe
- 7187 01c8 3A       		.uleb128 0x3a
- 7188 01c9 0B       		.uleb128 0xb
- 7189 01ca 3B       		.uleb128 0x3b
- 7190 01cb 05       		.uleb128 0x5
- 7191 01cc 00       		.byte	0
- 7192 01cd 00       		.byte	0
- 7193 01ce 23       		.uleb128 0x23
- 7194 01cf 2E       		.uleb128 0x2e
- 7195 01d0 00       		.byte	0
- 7196 01d1 3F       		.uleb128 0x3f
- 7197 01d2 19       		.uleb128 0x19
- 7198 01d3 3C       		.uleb128 0x3c
- 7199 01d4 19       		.uleb128 0x19
- 7200 01d5 6E       		.uleb128 0x6e
- 7201 01d6 0E       		.uleb128 0xe
- 7202 01d7 03       		.uleb128 0x3
- 7203 01d8 0E       		.uleb128 0xe
- 7204 01d9 00       		.byte	0
- 7205 01da 00       		.byte	0
- 7206 01db 00       		.byte	0
- 7207              		.section	.debug_aranges,"",%progbits
- 7208 0000 24000000 		.4byte	0x24
- 7209 0004 0200     		.2byte	0x2
- 7210 0006 00000000 		.4byte	.Ldebug_info0
- 7211 000a 04       		.byte	0x4
- 7212 000b 00       		.byte	0
- 7213 000c 0000     		.2byte	0
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 133
+ 7157 01a9 18       		.uleb128 0x18
+ 7158 01aa 00       		.byte	0
+ 7159 01ab 00       		.byte	0
+ 7160 01ac 21       		.uleb128 0x21
+ 7161 01ad 2E       		.uleb128 0x2e
+ 7162 01ae 00       		.byte	0
+ 7163 01af 3F       		.uleb128 0x3f
+ 7164 01b0 19       		.uleb128 0x19
+ 7165 01b1 3C       		.uleb128 0x3c
+ 7166 01b2 19       		.uleb128 0x19
+ 7167 01b3 6E       		.uleb128 0x6e
+ 7168 01b4 0E       		.uleb128 0xe
+ 7169 01b5 03       		.uleb128 0x3
+ 7170 01b6 0E       		.uleb128 0xe
+ 7171 01b7 3A       		.uleb128 0x3a
+ 7172 01b8 0B       		.uleb128 0xb
+ 7173 01b9 3B       		.uleb128 0x3b
+ 7174 01ba 0B       		.uleb128 0xb
+ 7175 01bb 00       		.byte	0
+ 7176 01bc 00       		.byte	0
+ 7177 01bd 22       		.uleb128 0x22
+ 7178 01be 2E       		.uleb128 0x2e
+ 7179 01bf 00       		.byte	0
+ 7180 01c0 3F       		.uleb128 0x3f
+ 7181 01c1 19       		.uleb128 0x19
+ 7182 01c2 3C       		.uleb128 0x3c
+ 7183 01c3 19       		.uleb128 0x19
+ 7184 01c4 6E       		.uleb128 0x6e
+ 7185 01c5 0E       		.uleb128 0xe
+ 7186 01c6 03       		.uleb128 0x3
+ 7187 01c7 0E       		.uleb128 0xe
+ 7188 01c8 3A       		.uleb128 0x3a
+ 7189 01c9 0B       		.uleb128 0xb
+ 7190 01ca 3B       		.uleb128 0x3b
+ 7191 01cb 05       		.uleb128 0x5
+ 7192 01cc 00       		.byte	0
+ 7193 01cd 00       		.byte	0
+ 7194 01ce 23       		.uleb128 0x23
+ 7195 01cf 2E       		.uleb128 0x2e
+ 7196 01d0 00       		.byte	0
+ 7197 01d1 3F       		.uleb128 0x3f
+ 7198 01d2 19       		.uleb128 0x19
+ 7199 01d3 3C       		.uleb128 0x3c
+ 7200 01d4 19       		.uleb128 0x19
+ 7201 01d5 6E       		.uleb128 0x6e
+ 7202 01d6 0E       		.uleb128 0xe
+ 7203 01d7 03       		.uleb128 0x3
+ 7204 01d8 0E       		.uleb128 0xe
+ 7205 01d9 00       		.byte	0
+ 7206 01da 00       		.byte	0
+ 7207 01db 00       		.byte	0
+ 7208              		.section	.debug_aranges,"",%progbits
+ 7209 0000 24000000 		.4byte	0x24
+ 7210 0004 0200     		.2byte	0x2
+ 7211 0006 00000000 		.4byte	.Ldebug_info0
+ 7212 000a 04       		.byte	0x4
+ 7213 000b 00       		.byte	0
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 133
 
 
- 7214 000e 0000     		.2byte	0
- 7215 0010 00000000 		.4byte	.LFB589
- 7216 0014 14000000 		.4byte	.LFE589-.LFB589
- 7217 0018 00000000 		.4byte	.LFB590
- 7218 001c 5C000000 		.4byte	.LFE590-.LFB590
- 7219 0020 00000000 		.4byte	0
- 7220 0024 00000000 		.4byte	0
- 7221              		.section	.debug_ranges,"",%progbits
- 7222              	.Ldebug_ranges0:
- 7223 0000 00000000 		.4byte	.LFB589
- 7224 0004 14000000 		.4byte	.LFE589
- 7225 0008 00000000 		.4byte	.LFB590
- 7226 000c 5C000000 		.4byte	.LFE590
- 7227 0010 00000000 		.4byte	0
- 7228 0014 00000000 		.4byte	0
- 7229              		.section	.debug_line,"",%progbits
- 7230              	.Ldebug_line0:
- 7231 0000 15030000 		.section	.debug_str,"MS",%progbits,1
- 7231      0200D602 
- 7231      00000201 
- 7231      FB0E0D00 
- 7231      01010101 
- 7232              	.LASF56:
- 7233 0000 70726F74 		.ascii	"protBusMasterMask\000"
- 7233      4275734D 
- 7233      61737465 
- 7233      724D6173 
- 7233      6B00
- 7234              	.LASF128:
- 7235 0012 72756E4D 		.ascii	"runMode\000"
- 7235      6F646500 
- 7236              	.LASF116:
- 7237 001a 72784275 		.ascii	"rxBufSize\000"
- 7237      6653697A 
- 7237      6500
- 7238              	.LASF66:
- 7239 0024 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
- 7239      6843746C 
- 7239      4D61696E 
- 7239      57733346 
- 7239      72657100 
- 7240              	.LASF88:
- 7241 0038 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
- 7241      50727443 
- 7241      6667496E 
- 7241      4F666673 
- 7241      657400
- 7242              	.LASF106:
- 7243 004b 6970634C 		.ascii	"ipcLockStatusOffset\000"
- 7243      6F636B53 
- 7243      74617475 
- 7243      734F6666 
- 7243      73657400 
- 7244              	.LASF32:
- 7245 005f 63727970 		.ascii	"cryptoVersion\000"
- 7245      746F5665 
- 7245      7273696F 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 134
+ 7214 000c 0000     		.2byte	0
+ 7215 000e 0000     		.2byte	0
+ 7216 0010 00000000 		.4byte	.LFB589
+ 7217 0014 14000000 		.4byte	.LFE589-.LFB589
+ 7218 0018 00000000 		.4byte	.LFB590
+ 7219 001c 5C000000 		.4byte	.LFE590-.LFB590
+ 7220 0020 00000000 		.4byte	0
+ 7221 0024 00000000 		.4byte	0
+ 7222              		.section	.debug_ranges,"",%progbits
+ 7223              	.Ldebug_ranges0:
+ 7224 0000 00000000 		.4byte	.LFB589
+ 7225 0004 14000000 		.4byte	.LFE589
+ 7226 0008 00000000 		.4byte	.LFB590
+ 7227 000c 5C000000 		.4byte	.LFE590
+ 7228 0010 00000000 		.4byte	0
+ 7229 0014 00000000 		.4byte	0
+ 7230              		.section	.debug_line,"",%progbits
+ 7231              	.Ldebug_line0:
+ 7232 0000 15030000 		.section	.debug_str,"MS",%progbits,1
+ 7232      0200D602 
+ 7232      00000201 
+ 7232      FB0E0D00 
+ 7232      01010101 
+ 7233              	.LASF56:
+ 7234 0000 70726F74 		.ascii	"protBusMasterMask\000"
+ 7234      4275734D 
+ 7234      61737465 
+ 7234      724D6173 
+ 7234      6B00
+ 7235              	.LASF128:
+ 7236 0012 72756E4D 		.ascii	"runMode\000"
+ 7236      6F646500 
+ 7237              	.LASF116:
+ 7238 001a 72784275 		.ascii	"rxBufSize\000"
+ 7238      6653697A 
+ 7238      6500
+ 7239              	.LASF66:
+ 7240 0024 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
+ 7240      6843746C 
+ 7240      4D61696E 
+ 7240      57733346 
+ 7240      72657100 
+ 7241              	.LASF88:
+ 7242 0038 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
+ 7242      50727443 
+ 7242      6667496E 
+ 7242      4F666673 
+ 7242      657400
+ 7243              	.LASF106:
+ 7244 004b 6970634C 		.ascii	"ipcLockStatusOffset\000"
+ 7244      6F636B53 
+ 7244      74617475 
+ 7244      734F6666 
+ 7244      73657400 
+ 7245              	.LASF32:
+ 7246 005f 63727970 		.ascii	"cryptoVersion\000"
+ 7246      746F5665 
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 134
 
 
- 7245      6E00
- 7246              	.LASF70:
- 7247 006d 64774368 		.ascii	"dwChCtlPrioPos\000"
- 7247      43746C50 
- 7247      72696F50 
- 7247      6F7300
- 7248              	.LASF28:
- 7249 007c 70617373 		.ascii	"passBase\000"
- 7249      42617365 
- 7249      00
- 7250              	.LASF156:
- 7251 0085 48656172 		.ascii	"HeartRate\000"
- 7251      74526174 
- 7251      6500
- 7252              	.LASF41:
- 7253 008f 63707573 		.ascii	"cpussIpcIrqNr\000"
- 7253      73497063 
- 7253      4972714E 
- 7253      7200
- 7254              	.LASF3:
- 7255 009d 5F5F7569 		.ascii	"__uint8_t\000"
- 7255      6E74385F 
- 7255      7400
- 7256              	.LASF85:
- 7257 00a7 70657269 		.ascii	"periDiv24_5CtlOffset\000"
- 7257      44697632 
- 7257      345F3543 
- 7257      746C4F66 
- 7257      66736574 
- 7258              	.LASF92:
- 7259 00bc 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
- 7259      73436D34 
- 7259      436C6F63 
- 7259      6B43746C 
- 7259      4F666673 
- 7260              	.LASF129:
- 7261 00d3 636F756E 		.ascii	"countDirection\000"
- 7261      74446972 
- 7261      65637469 
- 7261      6F6E00
- 7262              	.LASF141:
- 7263 00e2 73746F70 		.ascii	"stopInputMode\000"
- 7263      496E7075 
- 7263      744D6F64 
- 7263      6500
- 7264              	.LASF21:
- 7265 00f0 63707573 		.ascii	"cpussBase\000"
- 7265      73426173 
- 7265      6500
- 7266              	.LASF126:
- 7267 00fa 70657269 		.ascii	"period\000"
- 7267      6F6400
- 7268              	.LASF50:
- 7269 0101 70657269 		.ascii	"periClockNr\000"
- 7269      436C6F63 
- 7269      6B4E7200 
- 7270              	.LASF136:
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 135
+ 7246      7273696F 
+ 7246      6E00
+ 7247              	.LASF70:
+ 7248 006d 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 7248      43746C50 
+ 7248      72696F50 
+ 7248      6F7300
+ 7249              	.LASF28:
+ 7250 007c 70617373 		.ascii	"passBase\000"
+ 7250      42617365 
+ 7250      00
+ 7251              	.LASF156:
+ 7252 0085 48656172 		.ascii	"HeartRate\000"
+ 7252      74526174 
+ 7252      6500
+ 7253              	.LASF41:
+ 7254 008f 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 7254      73497063 
+ 7254      4972714E 
+ 7254      7200
+ 7255              	.LASF3:
+ 7256 009d 5F5F7569 		.ascii	"__uint8_t\000"
+ 7256      6E74385F 
+ 7256      7400
+ 7257              	.LASF85:
+ 7258 00a7 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 7258      44697632 
+ 7258      345F3543 
+ 7258      746C4F66 
+ 7258      66736574 
+ 7259              	.LASF92:
+ 7260 00bc 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ 7260      73436D34 
+ 7260      436C6F63 
+ 7260      6B43746C 
+ 7260      4F666673 
+ 7261              	.LASF129:
+ 7262 00d3 636F756E 		.ascii	"countDirection\000"
+ 7262      74446972 
+ 7262      65637469 
+ 7262      6F6E00
+ 7263              	.LASF141:
+ 7264 00e2 73746F70 		.ascii	"stopInputMode\000"
+ 7264      496E7075 
+ 7264      744D6F64 
+ 7264      6500
+ 7265              	.LASF21:
+ 7266 00f0 63707573 		.ascii	"cpussBase\000"
+ 7266      73426173 
+ 7266      6500
+ 7267              	.LASF126:
+ 7268 00fa 70657269 		.ascii	"period\000"
+ 7268      6F6400
+ 7269              	.LASF50:
+ 7270 0101 70657269 		.ascii	"periClockNr\000"
+ 7270      436C6F63 
+ 7270      6B4E7200 
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 135
 
 
- 7271 010d 63617074 		.ascii	"captureInput\000"
- 7271      75726549 
- 7271      6E707574 
- 7271      00
- 7272              	.LASF157:
- 7273 011a 63616C63 		.ascii	"calculSpO2\000"
- 7273      756C5370 
- 7273      4F3200
- 7274              	.LASF12:
- 7275 0125 6C6F6E67 		.ascii	"long long unsigned int\000"
- 7275      206C6F6E 
- 7275      6720756E 
- 7275      7369676E 
- 7275      65642069 
- 7276              	.LASF127:
- 7277 013c 636C6F63 		.ascii	"clockPrescaler\000"
- 7277      6B507265 
- 7277      7363616C 
- 7277      657200
- 7278              	.LASF74:
- 7279 014b 70657269 		.ascii	"periTrCmdOffset\000"
- 7279      5472436D 
- 7279      644F6666 
- 7279      73657400 
- 7280              	.LASF98:
- 7281 015b 63707573 		.ascii	"cpussSysTickCtlOffset\000"
- 7281      73537973 
- 7281      5469636B 
- 7281      43746C4F 
- 7281      66667365 
- 7282              	.LASF162:
- 7283 0171 57616974 		.ascii	"WaitforSwitchPressAndRelease\000"
- 7283      666F7253 
- 7283      77697463 
- 7283      68507265 
- 7283      7373416E 
- 7284              	.LASF59:
- 7285 018e 666C6173 		.ascii	"flashPipeRequired\000"
- 7285      68506970 
- 7285      65526571 
- 7285      75697265 
- 7285      6400
- 7286              	.LASF63:
- 7287 01a0 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
- 7287      6843746C 
- 7287      4D61696E 
- 7287      57733046 
- 7287      72657100 
- 7288              	.LASF15:
- 7289 01b4 696E7431 		.ascii	"int16_t\000"
- 7289      365F7400 
- 7290              	.LASF11:
- 7291 01bc 6C6F6E67 		.ascii	"long long int\000"
- 7291      206C6F6E 
- 7291      6720696E 
- 7291      7400
- 7292              	.LASF145:
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 136
+ 7271              	.LASF136:
+ 7272 010d 63617074 		.ascii	"captureInput\000"
+ 7272      75726549 
+ 7272      6E707574 
+ 7272      00
+ 7273              	.LASF157:
+ 7274 011a 63616C63 		.ascii	"calculSpO2\000"
+ 7274      756C5370 
+ 7274      4F3200
+ 7275              	.LASF12:
+ 7276 0125 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 7276      206C6F6E 
+ 7276      6720756E 
+ 7276      7369676E 
+ 7276      65642069 
+ 7277              	.LASF127:
+ 7278 013c 636C6F63 		.ascii	"clockPrescaler\000"
+ 7278      6B507265 
+ 7278      7363616C 
+ 7278      657200
+ 7279              	.LASF74:
+ 7280 014b 70657269 		.ascii	"periTrCmdOffset\000"
+ 7280      5472436D 
+ 7280      644F6666 
+ 7280      73657400 
+ 7281              	.LASF98:
+ 7282 015b 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ 7282      73537973 
+ 7282      5469636B 
+ 7282      43746C4F 
+ 7282      66667365 
+ 7283              	.LASF162:
+ 7284 0171 57616974 		.ascii	"WaitforSwitchPressAndRelease\000"
+ 7284      666F7253 
+ 7284      77697463 
+ 7284      68507265 
+ 7284      7373416E 
+ 7285              	.LASF59:
+ 7286 018e 666C6173 		.ascii	"flashPipeRequired\000"
+ 7286      68506970 
+ 7286      65526571 
+ 7286      75697265 
+ 7286      6400
+ 7287              	.LASF63:
+ 7288 01a0 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 7288      6843746C 
+ 7288      4D61696E 
+ 7288      57733046 
+ 7288      72657100 
+ 7289              	.LASF15:
+ 7290 01b4 696E7431 		.ascii	"int16_t\000"
+ 7290      365F7400 
+ 7291              	.LASF11:
+ 7292 01bc 6C6F6E67 		.ascii	"long long int\000"
+ 7292      206C6F6E 
+ 7292      6720696E 
+ 7292      7400
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 136
 
 
- 7293 01ca 63795F73 		.ascii	"cy_stc_tcpwm_counter_config_t\000"
- 7293      74635F74 
- 7293      6370776D 
- 7293      5F636F75 
- 7293      6E746572 
- 7294              	.LASF124:
- 7295 01e8 63795F73 		.ascii	"cy_stc_scb_spi_context\000"
- 7295      74635F73 
- 7295      63625F73 
- 7295      70695F63 
- 7295      6F6E7465 
- 7296              	.LASF79:
- 7297 01ff 70657269 		.ascii	"periDivCmdTypeSelPos\000"
- 7297      44697643 
- 7297      6D645479 
- 7297      70655365 
- 7297      6C506F73 
- 7298              	.LASF25:
- 7299 0214 70726F74 		.ascii	"protBase\000"
- 7299      42617365 
- 7299      00
- 7300              	.LASF37:
- 7301 021d 69706356 		.ascii	"ipcVersion\000"
- 7301      65727369 
- 7301      6F6E00
- 7302              	.LASF99:
- 7303 0228 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
- 7303      73436D30 
- 7303      4E6D6943 
- 7303      746C4F66 
- 7303      66736574 
- 7304              	.LASF113:
- 7305 023d 63795F63 		.ascii	"cy_cb_scb_spi_handle_events_t\000"
- 7305      625F7363 
- 7305      625F7370 
- 7305      695F6861 
- 7305      6E646C65 
- 7306              	.LASF47:
- 7307 025b 73727373 		.ascii	"srssNumClkpath\000"
- 7307      4E756D43 
- 7307      6C6B7061 
- 7307      746800
- 7308              	.LASF26:
- 7309 026a 6873696F 		.ascii	"hsiomBase\000"
- 7309      6D426173 
- 7309      6500
- 7310              	.LASF8:
- 7311 0274 6C6F6E67 		.ascii	"long int\000"
- 7311      20696E74 
- 7311      00
- 7312              	.LASF57:
- 7313 027d 63727970 		.ascii	"cryptoMemSize\000"
- 7313      746F4D65 
- 7313      6D53697A 
- 7313      6500
- 7314              	.LASF23:
- 7315 028b 70657269 		.ascii	"periBase\000"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 137
+ 7293              	.LASF145:
+ 7294 01ca 63795F73 		.ascii	"cy_stc_tcpwm_counter_config_t\000"
+ 7294      74635F74 
+ 7294      6370776D 
+ 7294      5F636F75 
+ 7294      6E746572 
+ 7295              	.LASF124:
+ 7296 01e8 63795F73 		.ascii	"cy_stc_scb_spi_context\000"
+ 7296      74635F73 
+ 7296      63625F73 
+ 7296      70695F63 
+ 7296      6F6E7465 
+ 7297              	.LASF79:
+ 7298 01ff 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 7298      44697643 
+ 7298      6D645479 
+ 7298      70655365 
+ 7298      6C506F73 
+ 7299              	.LASF25:
+ 7300 0214 70726F74 		.ascii	"protBase\000"
+ 7300      42617365 
+ 7300      00
+ 7301              	.LASF37:
+ 7302 021d 69706356 		.ascii	"ipcVersion\000"
+ 7302      65727369 
+ 7302      6F6E00
+ 7303              	.LASF99:
+ 7304 0228 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 7304      73436D30 
+ 7304      4E6D6943 
+ 7304      746C4F66 
+ 7304      66736574 
+ 7305              	.LASF113:
+ 7306 023d 63795F63 		.ascii	"cy_cb_scb_spi_handle_events_t\000"
+ 7306      625F7363 
+ 7306      625F7370 
+ 7306      695F6861 
+ 7306      6E646C65 
+ 7307              	.LASF47:
+ 7308 025b 73727373 		.ascii	"srssNumClkpath\000"
+ 7308      4E756D43 
+ 7308      6C6B7061 
+ 7308      746800
+ 7309              	.LASF26:
+ 7310 026a 6873696F 		.ascii	"hsiomBase\000"
+ 7310      6D426173 
+ 7310      6500
+ 7311              	.LASF8:
+ 7312 0274 6C6F6E67 		.ascii	"long int\000"
+ 7312      20696E74 
+ 7312      00
+ 7313              	.LASF57:
+ 7314 027d 63727970 		.ascii	"cryptoMemSize\000"
+ 7314      746F4D65 
+ 7314      6D53697A 
+ 7314      6500
+ 7315              	.LASF23:
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 137
 
 
- 7315      42617365 
- 7315      00
- 7316              	.LASF55:
- 7317 0294 73797350 		.ascii	"sysPmSimoPresent\000"
- 7317      6D53696D 
- 7317      6F507265 
- 7317      73656E74 
- 7317      00
- 7318              	.LASF45:
- 7319 02a5 63707573 		.ascii	"cpussFmIrq\000"
- 7319      73466D49 
- 7319      727100
- 7320              	.LASF111:
- 7321 02b0 646F7562 		.ascii	"double\000"
- 7321      6C6500
- 7322              	.LASF84:
- 7323 02b7 70657269 		.ascii	"periDiv16_5CtlOffset\000"
- 7323      44697631 
- 7323      365F3543 
- 7323      746C4F66 
- 7323      66736574 
- 7324              	.LASF48:
- 7325 02cc 73727373 		.ascii	"srssNumPll\000"
- 7325      4E756D50 
- 7325      6C6C00
- 7326              	.LASF163:
- 7327 02d7 6D61696E 		.ascii	"main\000"
- 7327      00
- 7328              	.LASF135:
- 7329 02dc 63617074 		.ascii	"captureInputMode\000"
- 7329      75726549 
- 7329      6E707574 
- 7329      4D6F6465 
- 7329      00
- 7330              	.LASF82:
- 7331 02ed 70657269 		.ascii	"periDiv8CtlOffset\000"
- 7331      44697638 
- 7331      43746C4F 
- 7331      66667365 
- 7331      7400
- 7332              	.LASF89:
- 7333 02ff 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
- 7333      50727443 
- 7333      66674F75 
- 7333      744F6666 
- 7333      73657400 
- 7334              	.LASF22:
- 7335 0313 666C6173 		.ascii	"flashcBase\000"
- 7335      68634261 
- 7335      736500
- 7336              	.LASF9:
- 7337 031e 5F5F7569 		.ascii	"__uint32_t\000"
- 7337      6E743332 
- 7337      5F7400
- 7338              	.LASF52:
- 7339 0329 70617373 		.ascii	"passSarChannels\000"
- 7339      53617243 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 138
+ 7316 028b 70657269 		.ascii	"periBase\000"
+ 7316      42617365 
+ 7316      00
+ 7317              	.LASF55:
+ 7318 0294 73797350 		.ascii	"sysPmSimoPresent\000"
+ 7318      6D53696D 
+ 7318      6F507265 
+ 7318      73656E74 
+ 7318      00
+ 7319              	.LASF45:
+ 7320 02a5 63707573 		.ascii	"cpussFmIrq\000"
+ 7320      73466D49 
+ 7320      727100
+ 7321              	.LASF111:
+ 7322 02b0 646F7562 		.ascii	"double\000"
+ 7322      6C6500
+ 7323              	.LASF84:
+ 7324 02b7 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 7324      44697631 
+ 7324      365F3543 
+ 7324      746C4F66 
+ 7324      66736574 
+ 7325              	.LASF48:
+ 7326 02cc 73727373 		.ascii	"srssNumPll\000"
+ 7326      4E756D50 
+ 7326      6C6C00
+ 7327              	.LASF160:
+ 7328 02d7 433A5C47 		.ascii	"C:\\GBM2100.cydsn\000"
+ 7328      424D3231 
+ 7328      30302E63 
+ 7328      7964736E 
+ 7328      00
+ 7329              	.LASF163:
+ 7330 02e8 6D61696E 		.ascii	"main\000"
+ 7330      00
+ 7331              	.LASF135:
+ 7332 02ed 63617074 		.ascii	"captureInputMode\000"
+ 7332      75726549 
+ 7332      6E707574 
+ 7332      4D6F6465 
+ 7332      00
+ 7333              	.LASF82:
+ 7334 02fe 70657269 		.ascii	"periDiv8CtlOffset\000"
+ 7334      44697638 
+ 7334      43746C4F 
+ 7334      66667365 
+ 7334      7400
+ 7335              	.LASF89:
+ 7336 0310 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ 7336      50727443 
+ 7336      66674F75 
+ 7336      744F6666 
+ 7336      73657400 
+ 7337              	.LASF22:
+ 7338 0324 666C6173 		.ascii	"flashcBase\000"
+ 7338      68634261 
+ 7338      736500
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 138
 
 
- 7339      68616E6E 
- 7339      656C7300 
- 7340              	.LASF4:
- 7341 0339 5F5F696E 		.ascii	"__int16_t\000"
- 7341      7431365F 
- 7341      7400
- 7342              	.LASF117:
- 7343 0343 72784275 		.ascii	"rxBufIdx\000"
- 7343      66496478 
- 7343      00
- 7344              	.LASF147:
- 7345 034c 7369676E 		.ascii	"signalIR\000"
- 7345      616C4952 
- 7345      00
- 7346              	.LASF95:
- 7347 0355 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
- 7347      73436D34 
- 7347      50777243 
- 7347      746C4F66 
- 7347      66736574 
- 7348              	.LASF119:
- 7349 036a 74784275 		.ascii	"txBufSize\000"
- 7349      6653697A 
- 7349      6500
- 7350              	.LASF134:
- 7351 0374 696E7465 		.ascii	"interruptSources\000"
- 7351      72727570 
- 7351      74536F75 
- 7351      72636573 
- 7351      00
- 7352              	.LASF90:
- 7353 0385 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
- 7353      50727443 
- 7353      66675369 
- 7353      6F4F6666 
- 7353      73657400 
- 7354              	.LASF42:
- 7355 0399 63707573 		.ascii	"cpussDwChNr\000"
- 7355      73447743 
- 7355      684E7200 
- 7356              	.LASF13:
- 7357 03a5 756E7369 		.ascii	"unsigned int\000"
- 7357      676E6564 
- 7357      20696E74 
- 7357      00
- 7358              	.LASF16:
- 7359 03b2 75696E74 		.ascii	"uint16_t\000"
- 7359      31365F74 
- 7359      00
- 7360              	.LASF75:
- 7361 03bb 70657269 		.ascii	"periTrCmdGrSelMsk\000"
- 7361      5472436D 
- 7361      64477253 
- 7361      656C4D73 
- 7361      6B00
- 7362              	.LASF64:
- 7363 03cd 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 139
+ 7339              	.LASF9:
+ 7340 032f 5F5F7569 		.ascii	"__uint32_t\000"
+ 7340      6E743332 
+ 7340      5F7400
+ 7341              	.LASF52:
+ 7342 033a 70617373 		.ascii	"passSarChannels\000"
+ 7342      53617243 
+ 7342      68616E6E 
+ 7342      656C7300 
+ 7343              	.LASF4:
+ 7344 034a 5F5F696E 		.ascii	"__int16_t\000"
+ 7344      7431365F 
+ 7344      7400
+ 7345              	.LASF117:
+ 7346 0354 72784275 		.ascii	"rxBufIdx\000"
+ 7346      66496478 
+ 7346      00
+ 7347              	.LASF147:
+ 7348 035d 7369676E 		.ascii	"signalIR\000"
+ 7348      616C4952 
+ 7348      00
+ 7349              	.LASF95:
+ 7350 0366 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
+ 7350      73436D34 
+ 7350      50777243 
+ 7350      746C4F66 
+ 7350      66736574 
+ 7351              	.LASF119:
+ 7352 037b 74784275 		.ascii	"txBufSize\000"
+ 7352      6653697A 
+ 7352      6500
+ 7353              	.LASF134:
+ 7354 0385 696E7465 		.ascii	"interruptSources\000"
+ 7354      72727570 
+ 7354      74536F75 
+ 7354      72636573 
+ 7354      00
+ 7355              	.LASF90:
+ 7356 0396 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 7356      50727443 
+ 7356      66675369 
+ 7356      6F4F6666 
+ 7356      73657400 
+ 7357              	.LASF42:
+ 7358 03aa 63707573 		.ascii	"cpussDwChNr\000"
+ 7358      73447743 
+ 7358      684E7200 
+ 7359              	.LASF13:
+ 7360 03b6 756E7369 		.ascii	"unsigned int\000"
+ 7360      676E6564 
+ 7360      20696E74 
+ 7360      00
+ 7361              	.LASF16:
+ 7362 03c3 75696E74 		.ascii	"uint16_t\000"
+ 7362      31365F74 
+ 7362      00
+ 7363              	.LASF75:
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 139
 
 
- 7363      6843746C 
- 7363      4D61696E 
- 7363      57733146 
- 7363      72657100 
- 7364              	.LASF10:
- 7365 03e1 6C6F6E67 		.ascii	"long unsigned int\000"
- 7365      20756E73 
- 7365      69676E65 
- 7365      6420696E 
- 7365      7400
- 7366              	.LASF133:
- 7367 03f3 656E6162 		.ascii	"enableCompareSwap\000"
- 7367      6C65436F 
- 7367      6D706172 
- 7367      65537761 
- 7367      7000
- 7368              	.LASF40:
- 7369 0405 63707573 		.ascii	"cpussIpcNr\000"
- 7369      73497063 
- 7369      4E7200
- 7370              	.LASF27:
- 7371 0410 6770696F 		.ascii	"gpioBase\000"
- 7371      42617365 
- 7371      00
- 7372              	.LASF65:
- 7373 0419 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
- 7373      6843746C 
- 7373      4D61696E 
- 7373      57733246 
- 7373      72657100 
- 7374              	.LASF76:
- 7375 042d 70657269 		.ascii	"periTrGrOffset\000"
- 7375      54724772 
- 7375      4F666673 
- 7375      657400
- 7376              	.LASF103:
- 7377 043c 63707573 		.ascii	"cpussRam1Ctl0\000"
- 7377      7352616D 
- 7377      3143746C 
- 7377      3000
- 7378              	.LASF121:
- 7379 044a 63624576 		.ascii	"cbEvents\000"
- 7379      656E7473 
- 7379      00
- 7380              	.LASF77:
- 7381 0453 70657269 		.ascii	"periTrGrSize\000"
- 7381      54724772 
- 7381      53697A65 
- 7381      00
- 7382              	.LASF35:
- 7383 0460 6770696F 		.ascii	"gpioVersion\000"
- 7383      56657273 
- 7383      696F6E00 
- 7384              	.LASF118:
- 7385 046c 74784275 		.ascii	"txBuf\000"
- 7385      6600
- 7386              	.LASF107:
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 140
+ 7364 03cc 70657269 		.ascii	"periTrCmdGrSelMsk\000"
+ 7364      5472436D 
+ 7364      64477253 
+ 7364      656C4D73 
+ 7364      6B00
+ 7365              	.LASF64:
+ 7366 03de 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 7366      6843746C 
+ 7366      4D61696E 
+ 7366      57733146 
+ 7366      72657100 
+ 7367              	.LASF10:
+ 7368 03f2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 7368      20756E73 
+ 7368      69676E65 
+ 7368      6420696E 
+ 7368      7400
+ 7369              	.LASF133:
+ 7370 0404 656E6162 		.ascii	"enableCompareSwap\000"
+ 7370      6C65436F 
+ 7370      6D706172 
+ 7370      65537761 
+ 7370      7000
+ 7371              	.LASF40:
+ 7372 0416 63707573 		.ascii	"cpussIpcNr\000"
+ 7372      73497063 
+ 7372      4E7200
+ 7373              	.LASF27:
+ 7374 0421 6770696F 		.ascii	"gpioBase\000"
+ 7374      42617365 
+ 7374      00
+ 7375              	.LASF65:
+ 7376 042a 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 7376      6843746C 
+ 7376      4D61696E 
+ 7376      57733246 
+ 7376      72657100 
+ 7377              	.LASF76:
+ 7378 043e 70657269 		.ascii	"periTrGrOffset\000"
+ 7378      54724772 
+ 7378      4F666673 
+ 7378      657400
+ 7379              	.LASF103:
+ 7380 044d 63707573 		.ascii	"cpussRam1Ctl0\000"
+ 7380      7352616D 
+ 7380      3143746C 
+ 7380      3000
+ 7381              	.LASF121:
+ 7382 045b 63624576 		.ascii	"cbEvents\000"
+ 7382      656E7473 
+ 7382      00
+ 7383              	.LASF77:
+ 7384 0464 70657269 		.ascii	"periTrGrSize\000"
+ 7384      54724772 
+ 7384      53697A65 
+ 7384      00
+ 7385              	.LASF35:
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 140
 
 
- 7387 0472 63795F73 		.ascii	"cy_stc_device_t\000"
- 7387      74635F64 
- 7387      65766963 
- 7387      655F7400 
- 7388              	.LASF123:
- 7389 0482 63795F73 		.ascii	"cy_stc_scb_spi_context_t\000"
- 7389      74635F73 
- 7389      63625F73 
- 7389      70695F63 
- 7389      6F6E7465 
- 7390              	.LASF53:
- 7391 049b 65704D6F 		.ascii	"epMonitorNr\000"
- 7391      6E69746F 
- 7391      724E7200 
- 7392              	.LASF100:
- 7393 04a7 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
- 7393      73436D34 
- 7393      4E6D6943 
- 7393      746C4F66 
- 7393      66736574 
- 7394              	.LASF96:
- 7395 04bc 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
- 7395      73547269 
- 7395      6D52616D 
- 7395      43746C4F 
- 7395      66667365 
- 7396              	.LASF140:
- 7397 04d2 73746172 		.ascii	"startInput\000"
- 7397      74496E70 
- 7397      757400
- 7398              	.LASF31:
- 7399 04dd 63707573 		.ascii	"cpussVersion\000"
- 7399      73566572 
- 7399      73696F6E 
- 7399      00
- 7400              	.LASF38:
- 7401 04ea 70657269 		.ascii	"periVersion\000"
- 7401      56657273 
- 7401      696F6E00 
- 7402              	.LASF94:
- 7403 04f6 63707573 		.ascii	"cpussCm0StatusOffset\000"
- 7403      73436D30 
- 7403      53746174 
- 7403      75734F66 
- 7403      66736574 
- 7404              	.LASF125:
- 7405 050b 63795F73 		.ascii	"cy_stc_tcpwm_counter_config\000"
- 7405      74635F74 
- 7405      6370776D 
- 7405      5F636F75 
- 7405      6E746572 
- 7406              	.LASF146:
- 7407 0527 7369676E 		.ascii	"signalRouge\000"
- 7407      616C526F 
- 7407      75676500 
- 7408              	.LASF19:
- 7409 0533 73697A65 		.ascii	"sizetype\000"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 141
+ 7386 0471 6770696F 		.ascii	"gpioVersion\000"
+ 7386      56657273 
+ 7386      696F6E00 
+ 7387              	.LASF118:
+ 7388 047d 74784275 		.ascii	"txBuf\000"
+ 7388      6600
+ 7389              	.LASF107:
+ 7390 0483 63795F73 		.ascii	"cy_stc_device_t\000"
+ 7390      74635F64 
+ 7390      65766963 
+ 7390      655F7400 
+ 7391              	.LASF123:
+ 7392 0493 63795F73 		.ascii	"cy_stc_scb_spi_context_t\000"
+ 7392      74635F73 
+ 7392      63625F73 
+ 7392      70695F63 
+ 7392      6F6E7465 
+ 7393              	.LASF53:
+ 7394 04ac 65704D6F 		.ascii	"epMonitorNr\000"
+ 7394      6E69746F 
+ 7394      724E7200 
+ 7395              	.LASF100:
+ 7396 04b8 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
+ 7396      73436D34 
+ 7396      4E6D6943 
+ 7396      746C4F66 
+ 7396      66736574 
+ 7397              	.LASF96:
+ 7398 04cd 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
+ 7398      73547269 
+ 7398      6D52616D 
+ 7398      43746C4F 
+ 7398      66667365 
+ 7399              	.LASF140:
+ 7400 04e3 73746172 		.ascii	"startInput\000"
+ 7400      74496E70 
+ 7400      757400
+ 7401              	.LASF31:
+ 7402 04ee 63707573 		.ascii	"cpussVersion\000"
+ 7402      73566572 
+ 7402      73696F6E 
+ 7402      00
+ 7403              	.LASF38:
+ 7404 04fb 70657269 		.ascii	"periVersion\000"
+ 7404      56657273 
+ 7404      696F6E00 
+ 7405              	.LASF94:
+ 7406 0507 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ 7406      73436D30 
+ 7406      53746174 
+ 7406      75734F66 
+ 7406      66736574 
+ 7407              	.LASF125:
+ 7408 051c 63795F73 		.ascii	"cy_stc_tcpwm_counter_config\000"
+ 7408      74635F74 
+ 7408      6370776D 
+ 7408      5F636F75 
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 141
 
 
- 7409      74797065 
- 7409      00
- 7410              	.LASF68:
- 7411 053c 64774368 		.ascii	"dwChOffset\000"
- 7411      4F666673 
- 7411      657400
- 7412              	.LASF43:
- 7413 0547 63707573 		.ascii	"cpussFlashPaSize\000"
- 7413      73466C61 
- 7413      73685061 
- 7413      53697A65 
- 7413      00
- 7414              	.LASF81:
- 7415 0558 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
- 7415      44697643 
- 7415      6D645061 
- 7415      54797065 
- 7415      53656C50 
- 7416              	.LASF104:
- 7417 056f 63707573 		.ascii	"cpussRam2Ctl0\000"
- 7417      7352616D 
- 7417      3243746C 
- 7417      3000
- 7418              	.LASF39:
- 7419 057d 70726F74 		.ascii	"protVersion\000"
- 7419      56657273 
- 7419      696F6E00 
- 7420              	.LASF72:
- 7421 0589 64775374 		.ascii	"dwStatusChIdxPos\000"
- 7421      61747573 
- 7421      43684964 
- 7421      78506F73 
- 7421      00
- 7422              	.LASF54:
- 7423 059a 75646250 		.ascii	"udbPresent\000"
- 7423      72657365 
- 7423      6E7400
- 7424              	.LASF34:
- 7425 05a5 666C6173 		.ascii	"flashcVersion\000"
- 7425      68635665 
- 7425      7273696F 
- 7425      6E00
- 7426              	.LASF30:
- 7427 05b3 63727970 		.ascii	"cryptoBase\000"
- 7427      746F4261 
- 7427      736500
- 7428              	.LASF51:
- 7429 05be 736D6966 		.ascii	"smifDeviceNr\000"
- 7429      44657669 
- 7429      63654E72 
- 7429      00
- 7430              	.LASF161:
- 7431 05cb 5F5F656E 		.ascii	"__enable_irq\000"
- 7431      61626C65 
- 7431      5F697271 
- 7431      00
- 7432              	.LASF158:
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 142
+ 7408      6E746572 
+ 7409              	.LASF146:
+ 7410 0538 7369676E 		.ascii	"signalRouge\000"
+ 7410      616C526F 
+ 7410      75676500 
+ 7411              	.LASF19:
+ 7412 0544 73697A65 		.ascii	"sizetype\000"
+ 7412      74797065 
+ 7412      00
+ 7413              	.LASF68:
+ 7414 054d 64774368 		.ascii	"dwChOffset\000"
+ 7414      4F666673 
+ 7414      657400
+ 7415              	.LASF43:
+ 7416 0558 63707573 		.ascii	"cpussFlashPaSize\000"
+ 7416      73466C61 
+ 7416      73685061 
+ 7416      53697A65 
+ 7416      00
+ 7417              	.LASF81:
+ 7418 0569 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 7418      44697643 
+ 7418      6D645061 
+ 7418      54797065 
+ 7418      53656C50 
+ 7419              	.LASF104:
+ 7420 0580 63707573 		.ascii	"cpussRam2Ctl0\000"
+ 7420      7352616D 
+ 7420      3243746C 
+ 7420      3000
+ 7421              	.LASF72:
+ 7422 058e 64775374 		.ascii	"dwStatusChIdxPos\000"
+ 7422      61747573 
+ 7422      43684964 
+ 7422      78506F73 
+ 7422      00
+ 7423              	.LASF54:
+ 7424 059f 75646250 		.ascii	"udbPresent\000"
+ 7424      72657365 
+ 7424      6E7400
+ 7425              	.LASF34:
+ 7426 05aa 666C6173 		.ascii	"flashcVersion\000"
+ 7426      68635665 
+ 7426      7273696F 
+ 7426      6E00
+ 7427              	.LASF30:
+ 7428 05b8 63727970 		.ascii	"cryptoBase\000"
+ 7428      746F4261 
+ 7428      736500
+ 7429              	.LASF51:
+ 7430 05c3 736D6966 		.ascii	"smifDeviceNr\000"
+ 7430      44657669 
+ 7430      63654E72 
+ 7430      00
+ 7431              	.LASF161:
+ 7432 05d0 5F5F656E 		.ascii	"__enable_irq\000"
+ 7432      61626C65 
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 142
 
 
- 7433 05d8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 7433      43313120 
- 7433      352E342E 
- 7433      31203230 
- 7433      31363036 
- 7434 060b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
- 7434      20726576 
- 7434      6973696F 
- 7434      6E203233 
- 7434      37373135 
- 7435 063e 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
- 7435      70202D6D 
- 7435      6670753D 
- 7435      66707634 
- 7435      2D73702D 
- 7436 0671 65637469 		.ascii	"ections -ffat-lto-objects\000"
- 7436      6F6E7320 
- 7436      2D666661 
- 7436      742D6C74 
- 7436      6F2D6F62 
- 7437              	.LASF110:
- 7438 068b 666C6F61 		.ascii	"float\000"
- 7438      7400
- 7439              	.LASF73:
- 7440 0691 64775374 		.ascii	"dwStatusChIdxMsk\000"
- 7440      61747573 
- 7440      43684964 
- 7440      784D736B 
- 7440      00
- 7441              	.LASF150:
- 7442 06a2 63795F64 		.ascii	"cy_device\000"
- 7442      65766963 
- 7442      6500
- 7443              	.LASF101:
- 7444 06ac 63707573 		.ascii	"cpussRomCtl\000"
- 7444      73526F6D 
- 7444      43746C00 
- 7445              	.LASF71:
- 7446 06b8 64774368 		.ascii	"dwChCtlPreemptablePos\000"
- 7446      43746C50 
- 7446      7265656D 
- 7446      70746162 
- 7446      6C65506F 
- 7447              	.LASF155:
- 7448 06ce 53797374 		.ascii	"SystemInit\000"
- 7448      656D496E 
- 7448      697400
- 7449              	.LASF24:
- 7450 06d9 75646242 		.ascii	"udbBase\000"
- 7450      61736500 
- 7451              	.LASF112:
- 7452 06e1 5F426F6F 		.ascii	"_Bool\000"
- 7452      6C00
- 7453              	.LASF17:
- 7454 06e7 696E7433 		.ascii	"int32_t\000"
- 7454      325F7400 
- 7455              	.LASF2:
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 143
+ 7432      5F697271 
+ 7432      00
+ 7433              	.LASF158:
+ 7434 05dd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 7434      43313120 
+ 7434      352E342E 
+ 7434      31203230 
+ 7434      31363036 
+ 7435 0610 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
+ 7435      20726576 
+ 7435      6973696F 
+ 7435      6E203233 
+ 7435      37373135 
+ 7436 0643 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
+ 7436      70202D6D 
+ 7436      6670753D 
+ 7436      66707634 
+ 7436      2D73702D 
+ 7437 0676 65637469 		.ascii	"ections -ffat-lto-objects\000"
+ 7437      6F6E7320 
+ 7437      2D666661 
+ 7437      742D6C74 
+ 7437      6F2D6F62 
+ 7438              	.LASF110:
+ 7439 0690 666C6F61 		.ascii	"float\000"
+ 7439      7400
+ 7440              	.LASF73:
+ 7441 0696 64775374 		.ascii	"dwStatusChIdxMsk\000"
+ 7441      61747573 
+ 7441      43684964 
+ 7441      784D736B 
+ 7441      00
+ 7442              	.LASF150:
+ 7443 06a7 63795F64 		.ascii	"cy_device\000"
+ 7443      65766963 
+ 7443      6500
+ 7444              	.LASF101:
+ 7445 06b1 63707573 		.ascii	"cpussRomCtl\000"
+ 7445      73526F6D 
+ 7445      43746C00 
+ 7446              	.LASF71:
+ 7447 06bd 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 7447      43746C50 
+ 7447      7265656D 
+ 7447      70746162 
+ 7447      6C65506F 
+ 7448              	.LASF155:
+ 7449 06d3 53797374 		.ascii	"SystemInit\000"
+ 7449      656D496E 
+ 7449      697400
+ 7450              	.LASF24:
+ 7451 06de 75646242 		.ascii	"udbBase\000"
+ 7451      61736500 
+ 7452              	.LASF112:
+ 7453 06e6 5F426F6F 		.ascii	"_Bool\000"
+ 7453      6C00
+ 7454              	.LASF17:
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 143
 
 
- 7456 06ef 756E7369 		.ascii	"unsigned char\000"
- 7456      676E6564 
- 7456      20636861 
- 7456      7200
- 7457              	.LASF67:
- 7458 06fd 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
- 7458      6843746C 
- 7458      4D61696E 
- 7458      57733446 
- 7458      72657100 
- 7459              	.LASF149:
- 7460 0711 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 7460      52784275 
- 7460      66666572 
- 7460      00
- 7461              	.LASF0:
- 7462 071e 73686F72 		.ascii	"short int\000"
- 7462      7420696E 
- 7462      7400
- 7463              	.LASF148:
- 7464 0728 73617475 		.ascii	"saturation\000"
- 7464      72617469 
- 7464      6F6E00
- 7465              	.LASF78:
- 7466 0733 70657269 		.ascii	"periDivCmdDivSelMsk\000"
- 7466      44697643 
- 7466      6D644469 
- 7466      7653656C 
- 7466      4D736B00 
- 7467              	.LASF154:
- 7468 0747 53746174 		.ascii	"Status_SW2_Read\000"
- 7468      75735F53 
- 7468      57325F52 
- 7468      65616400 
- 7469              	.LASF130:
- 7470 0757 636F6D70 		.ascii	"compareOrCapture\000"
- 7470      6172654F 
- 7470      72436170 
- 7470      74757265 
- 7470      00
- 7471              	.LASF49:
- 7472 0768 73727373 		.ascii	"srssNumHfroot\000"
- 7472      4E756D48 
- 7472      66726F6F 
- 7472      7400
- 7473              	.LASF62:
- 7474 0776 666C6173 		.ascii	"flashEraseDelay\000"
- 7474      68457261 
- 7474      73654465 
- 7474      6C617900 
- 7475              	.LASF18:
- 7476 0786 75696E74 		.ascii	"uint32_t\000"
- 7476      33325F74 
- 7476      00
- 7477              	.LASF131:
- 7478 078f 636F6D70 		.ascii	"compare0\000"
- 7478      61726530 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 144
+ 7455 06ec 696E7433 		.ascii	"int32_t\000"
+ 7455      325F7400 
+ 7456              	.LASF2:
+ 7457 06f4 756E7369 		.ascii	"unsigned char\000"
+ 7457      676E6564 
+ 7457      20636861 
+ 7457      7200
+ 7458              	.LASF67:
+ 7459 0702 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
+ 7459      6843746C 
+ 7459      4D61696E 
+ 7459      57733446 
+ 7459      72657100 
+ 7460              	.LASF149:
+ 7461 0716 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 7461      52784275 
+ 7461      66666572 
+ 7461      00
+ 7462              	.LASF0:
+ 7463 0723 73686F72 		.ascii	"short int\000"
+ 7463      7420696E 
+ 7463      7400
+ 7464              	.LASF148:
+ 7465 072d 73617475 		.ascii	"saturation\000"
+ 7465      72617469 
+ 7465      6F6E00
+ 7466              	.LASF78:
+ 7467 0738 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 7467      44697643 
+ 7467      6D644469 
+ 7467      7653656C 
+ 7467      4D736B00 
+ 7468              	.LASF154:
+ 7469 074c 53746174 		.ascii	"Status_SW2_Read\000"
+ 7469      75735F53 
+ 7469      57325F52 
+ 7469      65616400 
+ 7470              	.LASF130:
+ 7471 075c 636F6D70 		.ascii	"compareOrCapture\000"
+ 7471      6172654F 
+ 7471      72436170 
+ 7471      74757265 
+ 7471      00
+ 7472              	.LASF49:
+ 7473 076d 73727373 		.ascii	"srssNumHfroot\000"
+ 7473      4E756D48 
+ 7473      66726F6F 
+ 7473      7400
+ 7474              	.LASF62:
+ 7475 077b 666C6173 		.ascii	"flashEraseDelay\000"
+ 7475      68457261 
+ 7475      73654465 
+ 7475      6C617900 
+ 7476              	.LASF18:
+ 7477 078b 75696E74 		.ascii	"uint32_t\000"
+ 7477      33325F74 
+ 7477      00
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 144
 
 
- 7478      00
- 7479              	.LASF20:
- 7480 0798 6C6F6E67 		.ascii	"long double\000"
- 7480      20646F75 
- 7480      626C6500 
- 7481              	.LASF108:
- 7482 07a4 63686172 		.ascii	"char\000"
- 7482      00
- 7483              	.LASF144:
- 7484 07a9 636F756E 		.ascii	"countInput\000"
- 7484      74496E70 
- 7484      757400
- 7485              	.LASF160:
- 7486 07b4 433A5C47 		.ascii	"C:\\GBM2100\\GBM2100.cydsn\000"
- 7486      424D3231 
- 7486      30305C47 
- 7486      424D3231 
- 7486      30302E63 
- 7487              	.LASF102:
- 7488 07cd 63707573 		.ascii	"cpussRam0Ctl0\000"
- 7488      7352616D 
- 7488      3043746C 
- 7488      3000
- 7489              	.LASF5:
- 7490 07db 5F5F7569 		.ascii	"__uint16_t\000"
- 7490      6E743136 
- 7490      5F7400
- 7491              	.LASF83:
- 7492 07e6 70657269 		.ascii	"periDiv16CtlOffset\000"
- 7492      44697631 
- 7492      3643746C 
- 7492      4F666673 
- 7492      657400
- 7493              	.LASF7:
- 7494 07f9 5F5F696E 		.ascii	"__int32_t\000"
- 7494      7433325F 
- 7494      7400
- 7495              	.LASF36:
- 7496 0803 6873696F 		.ascii	"hsiomVersion\000"
- 7496      6D566572 
- 7496      73696F6E 
- 7496      00
- 7497              	.LASF109:
- 7498 0810 666C6F61 		.ascii	"float32_t\000"
- 7498      7433325F 
- 7498      7400
- 7499              	.LASF164:
- 7500 081a 6D656D63 		.ascii	"memcpy\000"
- 7500      707900
- 7501              	.LASF138:
- 7502 0821 72656C6F 		.ascii	"reloadInput\000"
- 7502      6164496E 
- 7502      70757400 
- 7503              	.LASF6:
- 7504 082d 73686F72 		.ascii	"short unsigned int\000"
- 7504      7420756E 
- 7504      7369676E 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 145
+ 7478              	.LASF131:
+ 7479 0794 636F6D70 		.ascii	"compare0\000"
+ 7479      61726530 
+ 7479      00
+ 7480              	.LASF20:
+ 7481 079d 6C6F6E67 		.ascii	"long double\000"
+ 7481      20646F75 
+ 7481      626C6500 
+ 7482              	.LASF108:
+ 7483 07a9 63686172 		.ascii	"char\000"
+ 7483      00
+ 7484              	.LASF144:
+ 7485 07ae 636F756E 		.ascii	"countInput\000"
+ 7485      74496E70 
+ 7485      757400
+ 7486              	.LASF39:
+ 7487 07b9 70726F74 		.ascii	"protVersion\000"
+ 7487      56657273 
+ 7487      696F6E00 
+ 7488              	.LASF102:
+ 7489 07c5 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 7489      7352616D 
+ 7489      3043746C 
+ 7489      3000
+ 7490              	.LASF5:
+ 7491 07d3 5F5F7569 		.ascii	"__uint16_t\000"
+ 7491      6E743136 
+ 7491      5F7400
+ 7492              	.LASF83:
+ 7493 07de 70657269 		.ascii	"periDiv16CtlOffset\000"
+ 7493      44697631 
+ 7493      3643746C 
+ 7493      4F666673 
+ 7493      657400
+ 7494              	.LASF7:
+ 7495 07f1 5F5F696E 		.ascii	"__int32_t\000"
+ 7495      7433325F 
+ 7495      7400
+ 7496              	.LASF36:
+ 7497 07fb 6873696F 		.ascii	"hsiomVersion\000"
+ 7497      6D566572 
+ 7497      73696F6E 
+ 7497      00
+ 7498              	.LASF109:
+ 7499 0808 666C6F61 		.ascii	"float32_t\000"
+ 7499      7433325F 
+ 7499      7400
+ 7500              	.LASF164:
+ 7501 0812 6D656D63 		.ascii	"memcpy\000"
+ 7501      707900
+ 7502              	.LASF138:
+ 7503 0819 72656C6F 		.ascii	"reloadInput\000"
+ 7503      6164496E 
+ 7503      70757400 
+ 7504              	.LASF6:
+ 7505 0825 73686F72 		.ascii	"short unsigned int\000"
+ 7505      7420756E 
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 145
 
 
- 7504      65642069 
- 7504      6E7400
- 7505              	.LASF69:
- 7506 0840 64774368 		.ascii	"dwChSize\000"
- 7506      53697A65 
- 7506      00
- 7507              	.LASF142:
- 7508 0849 73746F70 		.ascii	"stopInput\000"
- 7508      496E7075 
- 7508      7400
- 7509              	.LASF105:
- 7510 0853 69706353 		.ascii	"ipcStructSize\000"
- 7510      74727563 
- 7510      7453697A 
- 7510      6500
- 7511              	.LASF139:
- 7512 0861 73746172 		.ascii	"startInputMode\000"
- 7512      74496E70 
- 7512      75744D6F 
- 7512      646500
- 7513              	.LASF44:
- 7514 0870 63707573 		.ascii	"cpussIpc0Irq\000"
- 7514      73497063 
- 7514      30497271 
- 7514      00
- 7515              	.LASF151:
- 7516 087d 43595F45 		.ascii	"CY_EINK_SPIM_context\000"
- 7516      494E4B5F 
- 7516      5350494D 
- 7516      5F636F6E 
- 7516      74657874 
- 7517              	.LASF132:
- 7518 0892 636F6D70 		.ascii	"compare1\000"
- 7518      61726531 
- 7518      00
- 7519              	.LASF91:
- 7520 089b 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
- 7520      73436D30 
- 7520      436C6F63 
- 7520      6B43746C 
- 7520      4F666673 
- 7521              	.LASF87:
- 7522 08b2 6770696F 		.ascii	"gpioPrtCfgOffset\000"
- 7522      50727443 
- 7522      66674F66 
- 7522      66736574 
- 7522      00
- 7523              	.LASF122:
- 7524 08c3 696E6974 		.ascii	"initKey\000"
- 7524      4B657900 
- 7525              	.LASF115:
- 7526 08cb 72784275 		.ascii	"rxBuf\000"
- 7526      6600
- 7527              	.LASF1:
- 7528 08d1 7369676E 		.ascii	"signed char\000"
- 7528      65642063 
- 7528      68617200 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 146
+ 7505      7369676E 
+ 7505      65642069 
+ 7505      6E7400
+ 7506              	.LASF69:
+ 7507 0838 64774368 		.ascii	"dwChSize\000"
+ 7507      53697A65 
+ 7507      00
+ 7508              	.LASF142:
+ 7509 0841 73746F70 		.ascii	"stopInput\000"
+ 7509      496E7075 
+ 7509      7400
+ 7510              	.LASF105:
+ 7511 084b 69706353 		.ascii	"ipcStructSize\000"
+ 7511      74727563 
+ 7511      7453697A 
+ 7511      6500
+ 7512              	.LASF139:
+ 7513 0859 73746172 		.ascii	"startInputMode\000"
+ 7513      74496E70 
+ 7513      75744D6F 
+ 7513      646500
+ 7514              	.LASF44:
+ 7515 0868 63707573 		.ascii	"cpussIpc0Irq\000"
+ 7515      73497063 
+ 7515      30497271 
+ 7515      00
+ 7516              	.LASF151:
+ 7517 0875 43595F45 		.ascii	"CY_EINK_SPIM_context\000"
+ 7517      494E4B5F 
+ 7517      5350494D 
+ 7517      5F636F6E 
+ 7517      74657874 
+ 7518              	.LASF132:
+ 7519 088a 636F6D70 		.ascii	"compare1\000"
+ 7519      61726531 
+ 7519      00
+ 7520              	.LASF91:
+ 7521 0893 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
+ 7521      73436D30 
+ 7521      436C6F63 
+ 7521      6B43746C 
+ 7521      4F666673 
+ 7522              	.LASF87:
+ 7523 08aa 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ 7523      50727443 
+ 7523      66674F66 
+ 7523      66736574 
+ 7523      00
+ 7524              	.LASF122:
+ 7525 08bb 696E6974 		.ascii	"initKey\000"
+ 7525      4B657900 
+ 7526              	.LASF115:
+ 7527 08c3 72784275 		.ascii	"rxBuf\000"
+ 7527      6600
+ 7528              	.LASF1:
+ 7529 08c9 7369676E 		.ascii	"signed char\000"
+ 7529      65642063 
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 146
 
 
- 7529              	.LASF114:
- 7530 08dd 73746174 		.ascii	"status\000"
- 7530      757300
- 7531              	.LASF46:
- 7532 08e4 63707573 		.ascii	"cpussNotConnectedIrq\000"
- 7532      734E6F74 
- 7532      436F6E6E 
- 7532      65637465 
- 7532      64497271 
- 7533              	.LASF60:
- 7534 08f9 666C6173 		.ascii	"flashWriteDelay\000"
- 7534      68577269 
- 7534      74654465 
- 7534      6C617900 
- 7535              	.LASF14:
- 7536 0909 75696E74 		.ascii	"uint8_t\000"
- 7536      385F7400 
- 7537              	.LASF152:
- 7538 0911 43595F45 		.ascii	"CY_EINK_Timer_config\000"
- 7538      494E4B5F 
- 7538      54696D65 
- 7538      725F636F 
- 7538      6E666967 
- 7539              	.LASF93:
- 7540 0926 63707573 		.ascii	"cpussCm4StatusOffset\000"
- 7540      73436D34 
- 7540      53746174 
- 7540      75734F66 
- 7540      66736574 
- 7541              	.LASF86:
- 7542 093b 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
- 7542      50727449 
- 7542      6E747243 
- 7542      66674F66 
- 7542      66736574 
- 7543              	.LASF137:
- 7544 0950 72656C6F 		.ascii	"reloadInputMode\000"
- 7544      6164496E 
- 7544      7075744D 
- 7544      6F646500 
- 7545              	.LASF97:
- 7546 0960 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
- 7546      73547269 
- 7546      6D526F6D 
- 7546      43746C4F 
- 7546      66667365 
- 7547              	.LASF143:
- 7548 0976 636F756E 		.ascii	"countInputMode\000"
- 7548      74496E70 
- 7548      75744D6F 
- 7548      646500
- 7549              	.LASF33:
- 7550 0985 64775665 		.ascii	"dwVersion\000"
- 7550      7273696F 
- 7550      6E00
- 7551              	.LASF29:
- 7552 098f 69706342 		.ascii	"ipcBase\000"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccFBFCGw.s 			page 147
+ 7529      68617200 
+ 7530              	.LASF114:
+ 7531 08d5 73746174 		.ascii	"status\000"
+ 7531      757300
+ 7532              	.LASF46:
+ 7533 08dc 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 7533      734E6F74 
+ 7533      436F6E6E 
+ 7533      65637465 
+ 7533      64497271 
+ 7534              	.LASF60:
+ 7535 08f1 666C6173 		.ascii	"flashWriteDelay\000"
+ 7535      68577269 
+ 7535      74654465 
+ 7535      6C617900 
+ 7536              	.LASF14:
+ 7537 0901 75696E74 		.ascii	"uint8_t\000"
+ 7537      385F7400 
+ 7538              	.LASF152:
+ 7539 0909 43595F45 		.ascii	"CY_EINK_Timer_config\000"
+ 7539      494E4B5F 
+ 7539      54696D65 
+ 7539      725F636F 
+ 7539      6E666967 
+ 7540              	.LASF93:
+ 7541 091e 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 7541      73436D34 
+ 7541      53746174 
+ 7541      75734F66 
+ 7541      66736574 
+ 7542              	.LASF86:
+ 7543 0933 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
+ 7543      50727449 
+ 7543      6E747243 
+ 7543      66674F66 
+ 7543      66736574 
+ 7544              	.LASF137:
+ 7545 0948 72656C6F 		.ascii	"reloadInputMode\000"
+ 7545      6164496E 
+ 7545      7075744D 
+ 7545      6F646500 
+ 7546              	.LASF97:
+ 7547 0958 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
+ 7547      73547269 
+ 7547      6D526F6D 
+ 7547      43746C4F 
+ 7547      66667365 
+ 7548              	.LASF143:
+ 7549 096e 636F756E 		.ascii	"countInputMode\000"
+ 7549      74496E70 
+ 7549      75744D6F 
+ 7549      646500
+ 7550              	.LASF33:
+ 7551 097d 64775665 		.ascii	"dwVersion\000"
+ 7551      7273696F 
+ 7551      6E00
+ 7552              	.LASF29:
+ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\cc8O1n6M.s 			page 147
 
 
- 7552      61736500 
- 7553              	.LASF80:
- 7554 0997 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
- 7554      44697643 
- 7554      6D645061 
- 7554      44697653 
- 7554      656C506F 
- 7555              	.LASF61:
- 7556 09ad 666C6173 		.ascii	"flashProgramDelay\000"
- 7556      6850726F 
- 7556      6772616D 
- 7556      44656C61 
- 7556      7900
- 7557              	.LASF159:
- 7558 09bf 6D61696E 		.ascii	"main_cm4.c\000"
- 7558      5F636D34 
- 7558      2E6300
- 7559              	.LASF153:
- 7560 09ca 76656374 		.ascii	"vectorSinus\000"
- 7560      6F725369 
- 7560      6E757300 
- 7561              	.LASF58:
- 7562 09d6 666C6173 		.ascii	"flashRwwRequired\000"
- 7562      68527777 
- 7562      52657175 
- 7562      69726564 
- 7562      00
- 7563              	.LASF120:
- 7564 09e7 74784275 		.ascii	"txBufIdx\000"
- 7564      66496478 
- 7564      00
- 7565              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 7553 0987 69706342 		.ascii	"ipcBase\000"
+ 7553      61736500 
+ 7554              	.LASF80:
+ 7555 098f 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ 7555      44697643 
+ 7555      6D645061 
+ 7555      44697653 
+ 7555      656C506F 
+ 7556              	.LASF61:
+ 7557 09a5 666C6173 		.ascii	"flashProgramDelay\000"
+ 7557      6850726F 
+ 7557      6772616D 
+ 7557      44656C61 
+ 7557      7900
+ 7558              	.LASF159:
+ 7559 09b7 6D61696E 		.ascii	"main_cm4.c\000"
+ 7559      5F636D34 
+ 7559      2E6300
+ 7560              	.LASF153:
+ 7561 09c2 76656374 		.ascii	"vectorSinus\000"
+ 7561      6F725369 
+ 7561      6E757300 
+ 7562              	.LASF58:
+ 7563 09ce 666C6173 		.ascii	"flashRwwRequired\000"
+ 7563      68527777 
+ 7563      52657175 
+ 7563      69726564 
+ 7563      00
+ 7564              	.LASF120:
+ 7565 09df 74784275 		.ascii	"txBufIdx\000"
+ 7565      66496478 
+ 7565      00
+ 7566              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
