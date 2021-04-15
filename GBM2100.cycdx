@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="Pin_Orient_INT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="SysInt_OrientINT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_Acc_INT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="SysInt_AccINT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="redLED" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pin_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="I2C_MAX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">

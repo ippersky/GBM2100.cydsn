@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/13/2021 at 17:53
+// 04/15/2021 at 13:41
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -782,8 +782,8 @@ module top ;
 		  .siovref(tmpSIOVREF__Pin_1_net));
 
 
-	wire [0:0] tmpIO_0__Pin_Orient_INT_net;
-	electrical [0:0] tmpSIOVREF__Pin_Orient_INT_net;
+	wire [0:0] tmpIO_0__Pin_Acc_INT_net;
+	electrical [0:0] tmpSIOVREF__Pin_Acc_INT_net;
 
 	cy_mxs40_gpio_v1_0
 		#(.id("4cca878b-77b5-471d-8aeb-ad6925202455"),
@@ -809,19 +809,19 @@ module top ;
 		  .vtrip("0"),
 		  .use_annotation("0"),
 		  .hotswap_needed("0"))
-		Pin_Orient_INT
+		Pin_Acc_INT
 		 (.oe({1'b1}),
 		  .y({1'b0}),
 		  .fb({Net_551}),
-		  .io({tmpIO_0__Pin_Orient_INT_net[0:0]}),
-		  .siovref(tmpSIOVREF__Pin_Orient_INT_net));
+		  .io({tmpIO_0__Pin_Acc_INT_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pin_Acc_INT_net));
 
 
 
 	cy_mxs40_isr_v1_0
 		#(.deepsleep_required(0),
 		  .int_type(2'b10))
-		SysInt_OrientINT
+		SysInt_AccINT
 		 (.int_signal(Net_551));
 
 

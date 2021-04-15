@@ -16,41 +16,41 @@
 #include "bmi160_task.h"
 #include "bmi160.h"
 #include <stdio.h>
+#include "semphr.h"
 
 
 
 
-static int8_t bmi160Write(uint8_t reg_adresse, uint8_t *data, uint16_t length){
+static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
-    I2C_BMI_MasterSendStart(BMI160_I2C_ADDR,CY_SCB_I2C_WRITE_XFER,0);
-    I2C_BMI_MasterWriteByte(reg_adresse,0);
-    for(int idx; idx<length; idx++)
+    Cy_SCB_I2C_MasterSendStart(I2C_BMI_HW,dev_adresse,CY_SCB_I2C_WRITE_XFER,0,&I2C_BMI_context);
+    Cy_SCB_I2C_MasterWriteByte(I2C_BMI_HW,reg_adresse,0,&I2C_BMI_context);
+    for(int i = 0; i<length; i++)
     {
-        I2C_BMI_MasterWriteByte(data[idx],0);
-        
+        Cy_SCB_I2C_MasterWriteByte(I2C_BMI_HW,data[i],0,&I2C_BMI_context);   
     }
-    I2C_BMI_MasterSendStop(0);
+    
+    Cy_SCB_I2C_MasterSendStop(I2C_BMI_HW,0,&I2C_BMI_context);
     return 0;
 } // pk pas void
 
-static int8_t bmi160Read(uint8_t reg_adresse, uint8_t *data, uint16_t length){
+static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
-    I2C_BMI_MasterSendStart(BMI160_I2C_ADDR,CY_SCB_I2C_WRITE_XFER,0);
-    I2C_BMI_MasterWriteByte(reg_adresse,0);
-    I2C_BMI_MasterSendReStart(BMI160_I2C_ADDR,CY_SCB_I2C_READ_XFER,0);
-    for (int idx=0; idx<length-1; idx++)
+    Cy_SCB_I2C_MasterSendStart(I2C_BMI_HW,dev_adresse,CY_SCB_I2C_WRITE_XFER,0,&I2C_BMI_context);
+    Cy_SCB_I2C_MasterWriteByte(I2C_BMI_HW,reg_adresse,0,&I2C_BMI_context);
+    Cy_SCB_I2C_MasterSendReStart(I2C_BMI_HW,dev_adresse,CY_SCB_I2C_READ_XFER,0,&I2C_BMI_context);
+    for(int i =0; i<length-1; i++)
     {
-        I2C_BMI_MasterReadByte(CY_SCB_I2C_ACK,&data[idx],0);
-        
+        Cy_SCB_I2C_MasterReadByte(I2C_BMI_HW,CY_SCB_I2C_ACK,&data[i],0,&I2C_BMI_context);
     }
-    I2C_BMI_MasterReadByte(CY_SCB_I2C_NAK,&data[length-1],0);
+    Cy_SCB_I2C_MasterReadByte(I2C_BMI_HW,CY_SCB_I2C_NAK,&data[length-1],0,&I2C_BMI_context);
     
-    I2C_BMI_MasterSendStop(0);
+    Cy_SCB_I2C_MasterSendStop(I2C_BMI_HW,0,&I2C_BMI_context);
     
     return 0 ;
-    
-    
+      
 }
+
 
 static void bmi160Config ()
 {
@@ -82,13 +82,13 @@ static void bmi160Config ()
 }
 
 
-void get_accData (void *arg)
+void get_accData ()
 {
     
-    (void)arg;
+    //(void)arg;
     
-    I2C_BMI_Start();
-    bmi160Config();
+    //I2C_BMI_Start();
+    //bmi160Config();
     
     struct bmi160_sensor_data acc;
     float gx, gy, gz;
@@ -110,8 +110,74 @@ void get_accData (void *arg)
     
     
 }
+
+void anyMotionInt_set()
+{
+ 
+    /*Structure qui va contenir la configuration de l'interruption*/
+    struct bmi160_int_settg int_config;
+    /*Variable qui contient le retour de BMI160 APIs*/
+    uint8_t resultat = 0;
+    
+    int_config.int_channel = BMI160_INT_CHANNEL_1;
+    int_config.int_type = BMI160_ACC_ANY_MOTION_INT;
+    
+    /*Interrupt pin configuration*/
+    
+    int_config.int_pin_settg.output_en=BMI160_ENABLE;
+    int_config.int_pin_settg.output_mode=BMI160_DISABLE;
+    int_config.int_pin_settg.output_type=BMI160_ENABLE;
+    int_config.int_pin_settg.edge_ctrl=BMI160_ENABLE;
+    int_config.int_pin_settg.input_en = BMI160_DISABLE;
+    int_config.int_pin_settg.latch_dur=BMI160_LATCH_DUR_2_56_SEC;
+    
+    /*Interrupt Type configuration*/
+
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_en= BMI160_ENABLE;
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_x=BMI160_ENABLE;
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_y=BMI160_ENABLE;
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_z=BMI160_ENABLE;
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_dur=3;
+    
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_thr=10;
+    
+    resultat=bmi160_set_int_config(&int_config,&bmi160Sensor);
+    
+    Cy_SysInt_Init(&SysInt_AccINT_cfg, anyMotion_Interrupt);
+    NVIC_EnableIRQ(SysInt_AccINT_cfg.intrSrc);
+    
+    
+}
+
+void anyMotion_Interrupt ()
+{
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    
+    /* Clear any pending interrupts */
+    Cy_GPIO_ClearInterrupt(Pin_Acc_INT_PORT,Pin_Acc_INT_NUM);
+    NVIC_ClearPendingIRQ(SysInt_AccINT_cfg.intrSrc);
+    
+    printf("Ca bouge trop!");
+    
+    /* Resume Task_Motion*/
+    xHigherPriorityTaskWoken = xTaskResumeFromISR(xTaskHandleMotion);
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
  
     
+void Task_Motion(void* pvParameters)
+{
+    (void)pvParameters;
+    
+    SemaphoreHandle_t xSemaphoreI2C= xSemaphoreCreateBinary();
+    I2C_BMI_Start();
+    bmi160Config();
+    anyMotionInt_set();
+    get_accData();
+
+    
+}
 
 
 /* [] END OF FILE */

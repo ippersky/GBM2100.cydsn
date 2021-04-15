@@ -81,7 +81,7 @@ int main(void)
     
     //I2C_MAX_Start();
     UART_1_Start();
-    xTaskCreate(get_accData, "getAcc task",400,0,1,0);
+    xTaskCreate(Task_Motion, "Motion task",400,0,1,0);
     vTaskStartScheduler();
     /*Configure I2C*/
     // MAX30102_config();

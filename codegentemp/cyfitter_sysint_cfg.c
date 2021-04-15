@@ -38,10 +38,10 @@
         .intrPriority = UART_1_SCB_IRQ__INTC_CORTEXM4_PRIORITY
     };
 
-    /* SysInt_OrientINT */
-    const cy_stc_sysint_t SysInt_OrientINT_cfg = {
-        .intrSrc = (IRQn_Type)SysInt_OrientINT__INTC_NUMBER,
-        .intrPriority = SysInt_OrientINT__INTC_CORTEXM4_PRIORITY
+    /* SysInt_AccINT */
+    const cy_stc_sysint_t SysInt_AccINT_cfg = {
+        .intrSrc = (IRQn_Type)SysInt_AccINT__INTC_NUMBER,
+        .intrPriority = SysInt_AccINT__INTC_CORTEXM4_PRIORITY
     };
 
 #endif /* ((__CORTEX_M == 4) && (CY_CORE_ID == 0)) */
