@@ -20,49 +20,38 @@
 #include "cyfitter_gpio.h"
 #include "cyfitter_sysint.h"
 
-/* Clock_2 */
-#define Clock_2__DIV_IDX 28
-#define Clock_2__DIV_NUM 0
-#define Clock_2__DIV_TYPE CY_SYSCLK_DIV_24_5_BIT
+/* UART_1 */
+#define UART_1_SCB__HW SCB5
+#define UART_1_SCB__IDX 5
+#define UART_1_SCB__SS0_POSITION 0u
+#define UART_1_SCB__SS1_POSITION 1u
+#define UART_1_SCB__SS2_POSITION 2u
+#define UART_1_SCB__SS3_POSITION 3u
+#define UART_1_SCBCLK__DIV_IDX 2
+#define UART_1_SCBCLK__DIV_NUM 2
+#define UART_1_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
-/* EINK_Clock */
-#define EINK_Clock__DIV_IDX 8
-#define EINK_Clock__DIV_NUM 0
-#define EINK_Clock__DIV_TYPE CY_SYSCLK_DIV_16_BIT
+/* I2C_BMI */
+#define I2C_BMI_SCB__HW SCB3
+#define I2C_BMI_SCB__IDX 3
+#define I2C_BMI_SCB__SS0_POSITION 0u
+#define I2C_BMI_SCB__SS1_POSITION 1u
+#define I2C_BMI_SCB__SS2_POSITION 2u
+#define I2C_BMI_SCB__SS3_POSITION 3u
+#define I2C_BMI_SCBCLK__DIV_IDX 0
+#define I2C_BMI_SCBCLK__DIV_NUM 0
+#define I2C_BMI_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
-/* Status_SW2 */
-#define Status_SW2_sts_sts_reg__0__MASK 0x01u
-#define Status_SW2_sts_sts_reg__0__POS 0
-#define Status_SW2_sts_sts_reg__16BIT_STATUS_AUX_CTL_REG 0x40341904u
-#define Status_SW2_sts_sts_reg__16BIT_STATUS_REG 0x40341604u
-#define Status_SW2_sts_sts_reg__32BIT_MASK_REG 0x40341804u
-#define Status_SW2_sts_sts_reg__32BIT_STATUS_AUX_CTL_REG 0x40341904u
-#define Status_SW2_sts_sts_reg__32BIT_STATUS_REG 0x40341604u
-#define Status_SW2_sts_sts_reg__MASK 0x01u
-#define Status_SW2_sts_sts_reg__MASK_REG 0x40341804u
-#define Status_SW2_sts_sts_reg__RC_CFG0 0x403420DCu
-#define Status_SW2_sts_sts_reg__RC_CFG1 0x403420E0u
-#define Status_SW2_sts_sts_reg__SC_CFG0 0x403420D4u
-#define Status_SW2_sts_sts_reg__SC_CFG1 0x403420D8u
-#define Status_SW2_sts_sts_reg__STATUS_AUX_CTL_REG 0x40341904u
-#define Status_SW2_sts_sts_reg__STATUS_REG 0x40341604u
-
-/* CY_EINK_SPIM */
-#define CY_EINK_SPIM_SCB__HW SCB6
-#define CY_EINK_SPIM_SCB__IDX 6
-#define CY_EINK_SPIM_SCB__SS0_POSITION 0u
-#define CY_EINK_SPIM_SCB__SS1_POSITION 1u
-#define CY_EINK_SPIM_SCB__SS2_POSITION 2u
-#define CY_EINK_SPIM_SCB__SS3_POSITION 3u
-#define CY_EINK_SPIM_SCBCLK__DIV_IDX 0
-#define CY_EINK_SPIM_SCBCLK__DIV_NUM 0
-#define CY_EINK_SPIM_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
-
-/* CY_EINK_Timer */
-#define CY_EINK_Timer_TCPWM__CNT_HW TCPWM0_CNT0
-#define CY_EINK_Timer_TCPWM__CNT_IDX 0u
-#define CY_EINK_Timer_TCPWM__HW TCPWM0
-#define CY_EINK_Timer_TCPWM__IDX 0u
+/* I2C_MAX */
+#define I2C_MAX_SCB__HW SCB2
+#define I2C_MAX_SCB__IDX 2
+#define I2C_MAX_SCB__SS0_POSITION 0u
+#define I2C_MAX_SCB__SS1_POSITION 1u
+#define I2C_MAX_SCB__SS2_POSITION 2u
+#define I2C_MAX_SCB__SS3_POSITION 3u
+#define I2C_MAX_SCBCLK__DIV_IDX 1
+#define I2C_MAX_SCBCLK__DIV_NUM 1
+#define I2C_MAX_SCBCLK__DIV_TYPE CY_SYSCLK_DIV_8_BIT
 
 /* Miscellaneous */
 #define CPUSS__CTI_TR_IN_0 TRIG5_OUT_CPUSS_CTI_TR_IN0
