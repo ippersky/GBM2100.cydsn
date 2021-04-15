@@ -72,11 +72,13 @@
 /* Priorities of user tasks in this project */
 #define TASK_TOUCH_PRIORITY         (10u)
 #define TASK_DISPLAY_PRIORITY       (5u)
+#define TASK_BOUTON_PRIORITY        (4u)
 
 
 /* Stack sizes of user tasks in this project */
 #define DISPLAY_TASK_STACK_SIZE     (1024u)
 #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
+#define BOUTON_TASK_STACK_SIZE      (configMINIMAL_STACK_SIZE)
 
 
 
@@ -253,7 +255,7 @@ int main(void)
 
     xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
-    xTaskCreate(Task_Bouton2, "Task Bouton 2", TOUCH_TASK_STACK_SIZE, NULL, 4u, NULL);
+    xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
     
     /* Initialize thread-safe debug message printing. See uart_debug.h header file
        to enable / disable this feature */

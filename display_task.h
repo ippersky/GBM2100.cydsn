@@ -59,6 +59,12 @@ typedef enum
     
 }   page_data_t; 
 
+#define ON      0u
+#define OFF     1u
+
+char *gcvt(double val, int precision, char *buf);
+char *gcvtf(float val, int precision, char *buf);
+
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle);
 void ClearScreen(void);
@@ -68,7 +74,7 @@ void DisplayInit(void);
 
 void convertirVecteurEnInt16(int16_t* vConverti, int32_t* vData, size_t lData);
 void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement);
-void updateParametres(int SPO2, int BPM);
+void updateParametres(float32_t SPO2, float32_t BPM);
 
 
 void afficherMenuPrincipal(void);

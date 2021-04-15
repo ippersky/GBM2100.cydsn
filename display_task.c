@@ -30,13 +30,21 @@ size_t espacement = 3;
 
     // quand je mets les 2 vecteurs vides dans task, meme le refresh s'arrete
 
-int SPO2 = 35; 
-int BPM = 85;
+float32_t SPO2 = 35.51; 
+float32_t BPM = 120.5;
 
 // 0 a 255
 uint8_t courantLEDrouge = 31;
 uint8_t courantLEDir = 1;
 
+uint8_t flagAlarmeBPM = ON;
+uint8_t flagAlarmeSPO2 = ON;
+
+float32_t borneMaxBPM = 130;
+float32_t borneMinBPM = 60;
+
+
+//////////////////////////////////////////////////////////////////////
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle)
 {
@@ -119,24 +127,70 @@ void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData
 
 
 //////////////////UPDATE PARAMETRES////////////////////////
-void updateParametres(int SPO2, int BPM)
+void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les variables de bornes et flagAlarme ??
 {
-    char sSPO2[5];
-    itoa(SPO2, sSPO2, 10);
-    char sBPM[5];
-    itoa(BPM, sBPM, 10);
+    char sSPO2[10];
+    gcvtf(SPO2, 4, sSPO2);
+    //itoa(SPO2, sSPO2, 4);
+    
+    char sBPM[10];
+    gcvtf(BPM, 4, sBPM);
+    //itoa(BPM, sBPM, 4);
     
     
     GUI_SetFont(GUI_FONT_16B_1);
     GUI_DispStringAt("SPO2 : ", 5, 153);
-    GUI_DispStringAt(sSPO2, 80, 153);
-    GUI_DispStringAt("unit", 95, 153);
+    GUI_DispStringAt(sSPO2, 53, 153);
+    GUI_DispStringAt("%", 90, 153);
     GUI_SetFont(GUI_FONT_16B_1);
     GUI_DispStringAt("BPM : ", 125, 153);
-    GUI_DispStringAt(sBPM, 195, 153);
-    GUI_DispStringAt("unit", 230, 153);
-       
+    GUI_DispStringAt(sBPM, 168, 153);
+    //GUI_DispStringAt("batt/min", 205, 153); // necessaire?
+                                            // intensite lED a la place?
+     
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    
+    if(flagAlarmeBPM == ON){        // on peut mettre ca avant le update
+        uint8_t font = 16;
+        GUI_SetFont(GUI_FONT_16_1);
+        
+       if(BPM > borneMaxBPM){
+            char sBorneMax[10];
+            gcvtf(borneMaxBPM, 4, sBorneMax);
+            
+            GUI_Clear();
+            GUI_DispStringAt("ATTENTION", 10, 10);
+            GUI_DispStringAt("La frequence cardiaque actuelle", 10, 10+font);
+            GUI_DispStringAt(sBPM, 10, 10+(2*font));
+            GUI_DispStringAt("BPM", 60, 10+(2*font));
+            GUI_DispStringAt("est au dessus de la borne maximale", 10, 10+(3*font));
+            GUI_DispStringAt(sBorneMax, 10, 10+(4*font));
+            GUI_DispStringAt("BPM", 60, 10+(4*font));
+            
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+        }
+        else if(BPM < borneMinBPM){
+            char sBorneMin[10];
+            gcvtf(borneMinBPM, 4, sBorneMin);
+            
+            GUI_Clear();
+            GUI_DispStringAt("ATTENTION", 10, 10);
+            GUI_DispStringAt("La frequence cardiaque actuelle", 10, 10+font);
+            GUI_DispStringAt(sBPM, 10, 10+(2*font));
+            GUI_DispStringAt("BPM", 60, 10+(2*font));
+            GUI_DispStringAt("est en dessous de la borne minimale", 10, 10+(3*font));
+            GUI_DispStringAt(sBorneMin, 10, 10+(4*font));
+            GUI_DispStringAt("BPM", 60, 10+(4*font));
+            
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+        
+        }
+    
+    
+    }
+    
+    
+    
     
 }
 
@@ -356,12 +410,66 @@ void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
 
 }
 
+void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
+    
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+
+    if(*ptrOptionTertiaire == 1){
+        GUI_DispStringAt("Borne maximale BPM :", 40, 10);   
+    }
+    else if(*ptrOptionTertiaire == 2){
+        GUI_DispStringAt("Borne minimale BPM :", 40, 10); 
+    }
+
+    GUI_DispStringAt("-", 40, 10+(3*font));
+    GUI_DispStringAt("+", 140, 10+(3*font));
+    
+    float32_t borneBPM = *ptrBorneBPM;
+    char sBorneBPM[10];
+    gcvtf(borneBPM, 4, sBorneBPM);   
+    GUI_DispStringAt(sBorneBPM, 90, 10+(3*font));
+    
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    
+
+}
+
+void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
+    
+    uint8_t font = 20;
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_20_1);
+
+    if(*ptrOptionTertiaire == 1){
+        GUI_DispStringAt("Alarme Accelerometre :", 30, 10);   
+    }
+    else if(*ptrOptionTertiaire == 2){
+        GUI_DispStringAt("Alarme BPM :", 30, 10); 
+    }
+    
+    if(*ptrFlagAlarme == ON){
+        GUI_DispStringAt("Presentement ACTIVEE", 30, 10+font);
+    }
+    else if(*ptrFlagAlarme == OFF){
+        GUI_DispStringAt("Presentement DESACTIVEE", 30, 10+font);
+    }
+    
+    GUI_SetFont(GUI_FONT_20B_1);
+    GUI_DispStringAt("Activer", 30, 10+(4*font)); 
+    GUI_DispStringAt("Desactiver", 125, 10+(4*font));
+    
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+
+}
 
 
 
 
 
-///////// fonction du Task //////////
+
+////////////////////////// fonction du Task ////////////////////////////
 
 void Task_AffichageGraphique(void *data){
    
@@ -425,7 +533,7 @@ void Task_AffichageGraphique(void *data){
                     case MENU_TERTIAIRE_1:
                         if (optionMenuTertiaire == 1){
                             afficherMenuQuat1(&courantLEDrouge, &optionMenuTertiaire);
-                            currentPage = MENU_QUAT_1_1;    // possible de juste MENU_QUAT_1 ??
+                            currentPage = MENU_QUAT_1_1;    
                             break;
                         }
                         else if (optionMenuTertiaire == 2){
@@ -435,14 +543,32 @@ void Task_AffichageGraphique(void *data){
                         }
                 
                     case MENU_TERTIAIRE_2:
-                        break;
-                
+                        if (optionMenuTertiaire == 1){
+                            afficherMenuQuat2(&borneMaxBPM, &optionMenuTertiaire);
+                            currentPage = MENU_QUAT_2_1;    
+                            break;
+                        }
+                        else if (optionMenuTertiaire == 2){
+                            afficherMenuQuat2(&borneMinBPM, &optionMenuTertiaire);
+                            currentPage = MENU_QUAT_2_2;
+                            break;
+                        }                    
+                                              
                     case MENU_TERTIAIRE_3:
-                        break;
+                        if (optionMenuTertiaire == 1){
+                            afficherMenuQuat3(&flagAlarmeSPO2, &optionMenuTertiaire);
+                            currentPage = MENU_QUAT_3_1;    
+                            break;
+                        }
+                        else if (optionMenuTertiaire == 2){
+                            afficherMenuQuat3(&flagAlarmeBPM, &optionMenuTertiaire);
+                            currentPage = MENU_QUAT_3_2;
+                            break;
+                        }
                 
                     case MENU_TERTIAIRE_4:
                         break;
-                    /////// menus quat ///////
+                    /////// menu quat 1 ///////
                         
                     case MENU_QUAT_1_1:
                         if(courantLEDrouge >= 25)
@@ -457,7 +583,16 @@ void Task_AffichageGraphique(void *data){
                         else 
                             courantLEDir = 0;
                         afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);
-                    
+                    /////// Quat 2 /////
+                    case MENU_QUAT_2_1:
+                        borneMaxBPM -= 5;
+                        afficherMenuQuat2(&borneMaxBPM, &optionMenuTertiaire);
+                        break;
+                    case MENU_QUAT_2_2:
+                        borneMinBPM -= 5;
+                        afficherMenuQuat2(&borneMinBPM, &optionMenuTertiaire);
+                        break;
+                        
                     default :
                         break;
                 
@@ -474,7 +609,7 @@ void Task_AffichageGraphique(void *data){
                     updateMenuTertiaire(&optionMenuTertiaire);
                 }
                 
-                ////// menus quat //////
+                ////// menus quat 1 //////
                 
                 else if(currentPage == MENU_QUAT_1_1){
                     if(courantLEDrouge <= 255-25)
@@ -490,6 +625,16 @@ void Task_AffichageGraphique(void *data){
                         courantLEDir = 255;
                     afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);                
                 }
+                /////// Menu Quat 2 ///////
+                else if(currentPage == MENU_QUAT_2_1){
+                    borneMaxBPM += 5;
+                    afficherMenuQuat2(&borneMaxBPM, &optionMenuTertiaire);
+                }
+                else if(currentPage == MENU_QUAT_2_2){
+                    borneMinBPM += 5;
+                    afficherMenuQuat2(&borneMinBPM, &optionMenuTertiaire);
+                }
+                
                 
                 
             }
@@ -506,7 +651,7 @@ void Task_AffichageGraphique(void *data){
                     currentPage = MENU_SECONDAIRE;
                 }
                 
-                ////// menus quat //////
+                ////// menus quat 1 //////
                 else if(currentPage == MENU_QUAT_1_1){        
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
@@ -520,6 +665,13 @@ void Task_AffichageGraphique(void *data){
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
                 }
                 
+                ///// Menu Quat 2 /////
+                else if(currentPage == MENU_QUAT_2_1 || currentPage == MENU_QUAT_2_2){
+                    afficherMenuPrincipal();
+                    currentPage = MENU_PRINCIPAL;                  
+                }
+                
+                
                 
             }
             
@@ -530,6 +682,7 @@ void Task_AffichageGraphique(void *data){
     //GUI_Clear();
     
     }
+
 }
   
 

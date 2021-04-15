@@ -362,6 +362,8 @@
 <name v=".\display_task.h" />
 <name v=".\touch_task.c" />
 <name v=".\touch_task.h" />
+<name v=".\GBM2100.cydwr" />
+<name v=".\Generated_Source\PSoC6\pdl\rtos\FreeRTOS\10.0.1\Source\tasks.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -369,7 +371,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="723, 305" SelectedTabbedMdiWindow="213cd1a3-29ef-4e49-a969-2ac791a92d94"><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\main_cm4.c" Guid="6a02b5a5-30c0-4158-b32f-dd1c902b7d66" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="513e2887-3a18-4a91-91b9-17ab7480d6c1" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.c" Guid="b56372f5-6a97-47ef-ba63-18ca31a6e4fc" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.h" Guid="e5927536-c0ed-485d-8f72-bc7ca4e0b2c1" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\touch_task.c" Guid="213cd1a3-29ef-4e49-a969-2ac791a92d94" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\touch_task.h" Guid="f103d3f1-0d7d-4fd8-9d25-3d3c5e532d62" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="840, 341" SelectedTabbedMdiWindow="b56372f5-6a97-47ef-ba63-18ca31a6e4fc"><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\main_cm4.c" Guid="6a02b5a5-30c0-4158-b32f-dd1c902b7d66" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="513e2887-3a18-4a91-91b9-17ab7480d6c1" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.c" Guid="b56372f5-6a97-47ef-ba63-18ca31a6e4fc" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.h" Guid="e5927536-c0ed-485d-8f72-bc7ca4e0b2c1" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\touch_task.c" Guid="213cd1a3-29ef-4e49-a969-2ac791a92d94" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\touch_task.h" Guid="f103d3f1-0d7d-4fd8-9d25-3d3c5e532d62" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\GBM2100.cydwr" Guid="e97bde56-b7be-45a3-b5b1-7500a5f64e63" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\Generated_Source\PSoC6\pdl\rtos\FreeRTOS\10.0.1\Source\tasks.c" Guid="a7a923b6-467d-4ea8-a677-a104627d90f2" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
