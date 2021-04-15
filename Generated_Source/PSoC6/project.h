@@ -112,6 +112,9 @@
 #include "Status_SW2.h"
 #include "Clock_2.h"
 #include "CY_EINK_SPIM_SCBCLK.h"
+#include "CapSense_ModClk.h"
+#include "display_task.h"
+#include "touch_task.h"
 
 /*[]*/
 
