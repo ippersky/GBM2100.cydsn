@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   27:main_cm4.c    **** * 
   28:main_cm4.c    **** * If no EULA applies, Cypress hereby grants you a personal, non-exclusive, 
   29:main_cm4.c    **** * non-transferable license to copy, modify, and compile the Software source 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 2
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 2
 
 
   30:main_cm4.c    **** * code solely for use in connection with Cypress’s integrated circuit products. 
@@ -106,123 +106,125 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   72:main_cm4.c    **** /* Priorities of user tasks in this project */
   73:main_cm4.c    **** #define TASK_TOUCH_PRIORITY         (10u)
   74:main_cm4.c    **** #define TASK_DISPLAY_PRIORITY       (5u)
-  75:main_cm4.c    **** 
+  75:main_cm4.c    **** #define TASK_BOUTON_PRIORITY        (4u)
   76:main_cm4.c    **** 
-  77:main_cm4.c    **** /* Stack sizes of user tasks in this project */
-  78:main_cm4.c    **** #define DISPLAY_TASK_STACK_SIZE     (1024u)
-  79:main_cm4.c    **** #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
-  80:main_cm4.c    **** 
-  81:main_cm4.c    **** 
+  77:main_cm4.c    **** 
+  78:main_cm4.c    **** /* Stack sizes of user tasks in this project */
+  79:main_cm4.c    **** #define DISPLAY_TASK_STACK_SIZE     (1024u)
+  80:main_cm4.c    **** #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
+  81:main_cm4.c    **** #define BOUTON_TASK_STACK_SIZE      (configMINIMAL_STACK_SIZE)
   82:main_cm4.c    **** 
   83:main_cm4.c    **** 
-  84:main_cm4.c    **** volatile SemaphoreHandle_t bouton_semph;
+  84:main_cm4.c    **** 
   85:main_cm4.c    **** 
-  86:main_cm4.c    **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 3
+  86:main_cm4.c    **** volatile SemaphoreHandle_t bouton_semph;
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 3
 
 
   87:main_cm4.c    **** 
   88:main_cm4.c    **** 
   89:main_cm4.c    **** 
   90:main_cm4.c    **** 
-  91:main_cm4.c    **** // Image buffer cache //
-  92:main_cm4.c    **** //uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
-  93:main_cm4.c    **** 
-  94:main_cm4.c    **** 
+  91:main_cm4.c    **** 
+  92:main_cm4.c    **** 
+  93:main_cm4.c    **** // Image buffer cache //
+  94:main_cm4.c    **** //uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
   95:main_cm4.c    **** 
   96:main_cm4.c    **** 
   97:main_cm4.c    **** 
   98:main_cm4.c    **** 
   99:main_cm4.c    **** 
- 100:main_cm4.c    **** /*******************************************************************************
- 101:main_cm4.c    **** * Function Name: void UpdateDisplay(void)
- 102:main_cm4.c    **** ********************************************************************************
- 103:main_cm4.c    **** *
- 104:main_cm4.c    **** * Summary: This function updates the display with the data in the display 
- 105:main_cm4.c    **** *			buffer.  The function first transfers the content of the EmWin
- 106:main_cm4.c    **** *			display buffer to the primary EInk display buffer.  Then it calls
- 107:main_cm4.c    **** *			the Cy_EINK_ShowFrame function to update the display, and then
- 108:main_cm4.c    **** *			it copies the EmWin display buffer to the Eink display cache buffer
- 109:main_cm4.c    **** *
- 110:main_cm4.c    **** * Parameters:
- 111:main_cm4.c    **** *  None
- 112:main_cm4.c    **** *
- 113:main_cm4.c    **** * Return:
- 114:main_cm4.c    **** *  None
- 115:main_cm4.c    **** *
- 116:main_cm4.c    **** * Side Effects:
- 117:main_cm4.c    **** *  It takes about a second to refresh the display.  This is a blocking function
- 118:main_cm4.c    **** *  and only returns after the display refresh
- 119:main_cm4.c    **** *
- 120:main_cm4.c    **** *******************************************************************************/
- 121:main_cm4.c    **** 
- 122:main_cm4.c    **** 
- 123:main_cm4.c    **** /*******************************************************************************
- 124:main_cm4.c    **** * Function Name: void ClearScreen(void)
- 125:main_cm4.c    **** ********************************************************************************
- 126:main_cm4.c    **** *
- 127:main_cm4.c    **** * Summary: This function clears the screen
+ 100:main_cm4.c    **** 
+ 101:main_cm4.c    **** 
+ 102:main_cm4.c    **** /*******************************************************************************
+ 103:main_cm4.c    **** * Function Name: void UpdateDisplay(void)
+ 104:main_cm4.c    **** ********************************************************************************
+ 105:main_cm4.c    **** *
+ 106:main_cm4.c    **** * Summary: This function updates the display with the data in the display 
+ 107:main_cm4.c    **** *			buffer.  The function first transfers the content of the EmWin
+ 108:main_cm4.c    **** *			display buffer to the primary EInk display buffer.  Then it calls
+ 109:main_cm4.c    **** *			the Cy_EINK_ShowFrame function to update the display, and then
+ 110:main_cm4.c    **** *			it copies the EmWin display buffer to the Eink display cache buffer
+ 111:main_cm4.c    **** *
+ 112:main_cm4.c    **** * Parameters:
+ 113:main_cm4.c    **** *  None
+ 114:main_cm4.c    **** *
+ 115:main_cm4.c    **** * Return:
+ 116:main_cm4.c    **** *  None
+ 117:main_cm4.c    **** *
+ 118:main_cm4.c    **** * Side Effects:
+ 119:main_cm4.c    **** *  It takes about a second to refresh the display.  This is a blocking function
+ 120:main_cm4.c    **** *  and only returns after the display refresh
+ 121:main_cm4.c    **** *
+ 122:main_cm4.c    **** *******************************************************************************/
+ 123:main_cm4.c    **** 
+ 124:main_cm4.c    **** 
+ 125:main_cm4.c    **** /*******************************************************************************
+ 126:main_cm4.c    **** * Function Name: void ClearScreen(void)
+ 127:main_cm4.c    **** ********************************************************************************
  128:main_cm4.c    **** *
- 129:main_cm4.c    **** * Parameters:
- 130:main_cm4.c    **** *  None
- 131:main_cm4.c    **** *
- 132:main_cm4.c    **** * Return:
- 133:main_cm4.c    **** *  None
- 134:main_cm4.c    **** *
- 135:main_cm4.c    **** *******************************************************************************/
- 136:main_cm4.c    **** 
- 137:main_cm4.c    **** 
+ 129:main_cm4.c    **** * Summary: This function clears the screen
+ 130:main_cm4.c    **** *
+ 131:main_cm4.c    **** * Parameters:
+ 132:main_cm4.c    **** *  None
+ 133:main_cm4.c    **** *
+ 134:main_cm4.c    **** * Return:
+ 135:main_cm4.c    **** *  None
+ 136:main_cm4.c    **** *
+ 137:main_cm4.c    **** *******************************************************************************/
  138:main_cm4.c    **** 
- 139:main_cm4.c    **** /*******************************************************************************
- 140:main_cm4.c    **** * Function Name: void WaitforSwitchPressAndRelease(void)
- 141:main_cm4.c    **** ********************************************************************************
- 142:main_cm4.c    **** *
- 143:main_cm4.c    **** * Summary: This implements a simple "Wait for button press and release"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 4
+ 139:main_cm4.c    **** 
+ 140:main_cm4.c    **** 
+ 141:main_cm4.c    **** /*******************************************************************************
+ 142:main_cm4.c    **** * Function Name: void WaitforSwitchPressAndRelease(void)
+ 143:main_cm4.c    **** ********************************************************************************
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 4
 
 
- 144:main_cm4.c    **** *			function.  It first waits for the button to be pressed and then
- 145:main_cm4.c    **** *			waits for the button to be released.
- 146:main_cm4.c    **** *
- 147:main_cm4.c    **** * Parameters:
- 148:main_cm4.c    **** *  None
- 149:main_cm4.c    **** *
- 150:main_cm4.c    **** * Return:
- 151:main_cm4.c    **** *  None
- 152:main_cm4.c    **** *
- 153:main_cm4.c    **** * Side Effects:
- 154:main_cm4.c    **** *  This is a blocking function and exits only on a button press and release
- 155:main_cm4.c    **** *
- 156:main_cm4.c    **** *******************************************************************************/
- 157:main_cm4.c    **** /*
- 158:main_cm4.c    **** void WaitforSwitchPressAndRelease(void)
- 159:main_cm4.c    **** {
- 160:main_cm4.c    ****     // Wait for SW2 to be pressed 
- 161:main_cm4.c    ****     while(Status_SW2_Read() != 0);
- 162:main_cm4.c    ****     
- 163:main_cm4.c    ****     // Wait for SW2 to be released
- 164:main_cm4.c    ****     while(Status_SW2_Read() == 0);
- 165:main_cm4.c    **** }
- 166:main_cm4.c    **** */
- 167:main_cm4.c    **** 
- 168:main_cm4.c    **** /*******************************************************************************
- 169:main_cm4.c    **** * Function Name: int main(void)
- 170:main_cm4.c    **** ********************************************************************************
- 171:main_cm4.c    **** *
- 172:main_cm4.c    **** * Summary: À Remplir
+ 144:main_cm4.c    **** *
+ 145:main_cm4.c    **** * Summary: This implements a simple "Wait for button press and release"
+ 146:main_cm4.c    **** *			function.  It first waits for the button to be pressed and then
+ 147:main_cm4.c    **** *			waits for the button to be released.
+ 148:main_cm4.c    **** *
+ 149:main_cm4.c    **** * Parameters:
+ 150:main_cm4.c    **** *  None
+ 151:main_cm4.c    **** *
+ 152:main_cm4.c    **** * Return:
+ 153:main_cm4.c    **** *  None
+ 154:main_cm4.c    **** *
+ 155:main_cm4.c    **** * Side Effects:
+ 156:main_cm4.c    **** *  This is a blocking function and exits only on a button press and release
+ 157:main_cm4.c    **** *
+ 158:main_cm4.c    **** *******************************************************************************/
+ 159:main_cm4.c    **** /*
+ 160:main_cm4.c    **** void WaitforSwitchPressAndRelease(void)
+ 161:main_cm4.c    **** {
+ 162:main_cm4.c    ****     // Wait for SW2 to be pressed 
+ 163:main_cm4.c    ****     while(Status_SW2_Read() != 0);
+ 164:main_cm4.c    ****     
+ 165:main_cm4.c    ****     // Wait for SW2 to be released
+ 166:main_cm4.c    ****     while(Status_SW2_Read() == 0);
+ 167:main_cm4.c    **** }
+ 168:main_cm4.c    **** */
+ 169:main_cm4.c    **** 
+ 170:main_cm4.c    **** /*******************************************************************************
+ 171:main_cm4.c    **** * Function Name: int main(void)
+ 172:main_cm4.c    **** ********************************************************************************
  173:main_cm4.c    **** *
- 174:main_cm4.c    **** * Parameters:
- 175:main_cm4.c    **** *  None
- 176:main_cm4.c    **** *
- 177:main_cm4.c    **** * Return:
- 178:main_cm4.c    **** *  None
- 179:main_cm4.c    **** *
- 180:main_cm4.c    **** *******************************************************************************/
- 181:main_cm4.c    **** 
- 182:main_cm4.c    **** 
+ 174:main_cm4.c    **** * Summary: À Remplir
+ 175:main_cm4.c    **** *
+ 176:main_cm4.c    **** * Parameters:
+ 177:main_cm4.c    **** *  None
+ 178:main_cm4.c    **** *
+ 179:main_cm4.c    **** * Return:
+ 180:main_cm4.c    **** *  None
+ 181:main_cm4.c    **** *
+ 182:main_cm4.c    **** *******************************************************************************/
  183:main_cm4.c    **** 
- 184:main_cm4.c    **** void isr_bouton(void){
-  29              		.loc 1 184 0
+ 184:main_cm4.c    **** 
+ 185:main_cm4.c    **** 
+ 186:main_cm4.c    **** void isr_bouton(void){
+  29              		.loc 1 186 0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -230,23 +232,23 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   34              		.cfi_def_cfa_offset 8
   35              		.cfi_offset 3, -8
   36              		.cfi_offset 14, -4
- 185:main_cm4.c    ****     //touch_data_t currentTouch = BUTTON2_TOUCHED;
- 186:main_cm4.c    ****     //xQueueSendFromISR(touchDataQ, &currentTouch, NULL);
- 187:main_cm4.c    **** 
- 188:main_cm4.c    **** 
- 189:main_cm4.c    ****     
- 190:main_cm4.c    ****     xSemaphoreGiveFromISR(bouton_semph, NULL);
-  37              		.loc 1 190 0
+ 187:main_cm4.c    ****     //touch_data_t currentTouch = BUTTON2_TOUCHED;
+ 188:main_cm4.c    ****     //xQueueSendFromISR(touchDataQ, &currentTouch, NULL);
+ 189:main_cm4.c    **** 
+ 190:main_cm4.c    **** 
+ 191:main_cm4.c    ****     
+ 192:main_cm4.c    ****     xSemaphoreGiveFromISR(bouton_semph, NULL);
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 5
+
+
+  37              		.loc 1 192 0
   38 0002 0F4B     		ldr	r3, .L4
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 5
-
-
   39 0004 1868     		ldr	r0, [r3]
   40 0006 0021     		movs	r1, #0
   41 0008 FFF7FEFF 		bl	xQueueGiveFromISR
   42              	.LVL0:
- 191:main_cm4.c    ****     CyDelay(1000);      // more or less ??
-  43              		.loc 1 191 0
+ 193:main_cm4.c    ****     CyDelay(1000);      // more or less ??
+  43              		.loc 1 193 0
   44 000c 4FF47A70 		mov	r0, #1000
   45 0010 FFF7FEFF 		bl	Cy_SysLib_Delay
   46              	.LVL1:
@@ -296,11 +298,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   41:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
   42:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Once the pin/port initialization is complete, each pin can be accessed by 
   43:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * specifying the port (GPIO_PRT_Type) and the pin (0-7) in the provided API 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 6
+
+
   44:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * functions.
   45:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 6
-
-
   46:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \section group_gpio_configuration Configuration Considerations
   47:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
   48:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 1. Pin multiplexing is controlled through the High-Speed IO Matrix (HSIOM) selection.
@@ -356,11 +358,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   98:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td>A</td>
   99:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td>A pointer parameter in a function prototype should be declared as pointer 
  100:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *         to const if the pointer is not used to modify the addressed object.</td>
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 7
+
+
  101:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *     <td>The objects pointed to by the base addresses of the GPIO port are not always modified.
  102:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *         While a const qualifier can be used in select scenarios, it brings little benefit
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 7
-
-
  103:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *         in adding this to the affected functions. </td>
  104:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   </tr>
  105:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * </table>
@@ -416,11 +418,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  155:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   \defgroup group_gpio_functions_interrupt  Port Interrupt Functions
  156:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \}
  157:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_data_structures Data Structures
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 8
+
+
  158:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_enums Enumerated Types
  159:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 8
-
-
  160:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  161:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #if !defined(CY_GPIO_H)
  162:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_H
@@ -476,11 +478,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  212:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUX_GL,        /**< Close ground switch. Open right switch. Close left switch */
  213:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUX_GR,        /**< Close ground switch. Close right switch. Open left switch */
  214:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUX_GLR,       /**< Close ground switch. Close right switch. Close left switch */
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 9
+
+
  215:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }cy_en_gpio_amuxconnect_t;
  216:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 9
-
-
  217:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  218:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * AMux Bus selection
  219:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
@@ -536,11 +538,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  269:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  270:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} group_gpio_data_structures */
  271:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 10
+
+
  272:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /***************************************
  273:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *        Constants
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 10
-
-
  274:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ***************************************/
  275:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  276:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \cond INTERNAL */
@@ -596,11 +598,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  326:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_EDGE2_SEL_Msk | \
  327:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_EDGE3_SEL_Msk | \
  328:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_EDGE4_SEL_Msk | \
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 11
+
+
  329:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_EDGE5_SEL_Msk | \
  330:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_EDGE6_SEL_Msk | \
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 11
-
-
  331:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_EDGE7_SEL_Msk)
  332:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_INTR_CFG_RANGE_MASK        (CY_GPIO_PRT_INTR_CFG_EDGE_SEL_MASK | \
  333:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_FLT_EDGE_SEL_Msk | \
@@ -656,11 +658,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  383:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                        (CY_GPIO_AMUX_G       == (amuxConnect)) || \
  384:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                        (CY_GPIO_AMUX_GL      == (amuxConnect)) || \
  385:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                        (CY_GPIO_AMUX_GR      == (amuxConnect)) || \
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 12
+
+
  386:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                        (CY_GPIO_AMUX_GLR     == (amuxConnect)))
  387:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 12
-
-
  388:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_IS_AMUX_SELECT_VALID(amuxBus)       ((CY_GPIO_AMUXBUSA       == (amuxBus)) || \
  389:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                      (CY_GPIO_AMUXBUSB       == (amuxBus)))
  390:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \endcond */
@@ -716,11 +718,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  440:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  441:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  442:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_driveStrength Pin drive strength
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 13
+
+
  443:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
  444:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Constants to be used for setting the drive strength of the pin.
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 13
-
-
  445:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
  446:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_FULL                     (0x00UL) /**< Full drive strength: Max drive current
  447:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_1_2                      (0x01UL) /**< 1/2 drive strength: 1/2 drive current 
@@ -776,11 +778,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  497:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VREF_PINREF                     (0x00UL) /**< Vref from analog pin */
  498:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VREF_1_2V                       (0x01UL) /**< Vref from internal 1.2V reference */
  499:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VREF_AMUX_A                     (0x02UL) /**< Vref from AMUXBUS_A */
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 14
+
+
  500:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VREF_AMUX_B                     (0x03UL) /**< Vref from AMUXBUS_B */
  501:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} */
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 14
-
-
  502:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  503:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  504:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \defgroup group_gpio_sioVoh Regulated output voltage level (Voh) and input buffer trip-point of a
@@ -836,11 +838,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  554:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_ReadOut(GPIO_PRT_Type* base, uint32_t pinNum);
  555:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_Set(GPIO_PRT_Type* base, uint32_t pinNum);
  556:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_Clr(GPIO_PRT_Type* base, uint32_t pinNum);
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 15
+
+
  557:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_Inv(GPIO_PRT_Type* base, uint32_t pinNum);
  558:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetDrivemode(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 15
-
-
  559:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetDrivemode(GPIO_PRT_Type* base, uint32_t pinNum);
  560:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetVtrip(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
  561:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetVtrip(GPIO_PRT_Type* base, uint32_t pinNum);
@@ -896,11 +898,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  611:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /**
  612:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \addtogroup group_gpio_functions_init
  613:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 16
+
+
  614:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
  615:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 16
-
-
  616:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
  617:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_SetHSIOM
  618:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
@@ -956,11 +958,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  668:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
  669:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_GetHSIOM
  670:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 17
+
+
  671:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  672:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Returns the current HSIOM multiplexer connection to the pin.
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 17
-
-
  673:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  674:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
  675:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
@@ -1016,11 +1018,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  725:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Base address of the port register structure
  726:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  727:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 18
+
+
  728:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_PortToAddr
  729:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 18
-
-
  730:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
  731:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE GPIO_PRT_Type* Cy_GPIO_PortToAddr(uint32_t portNum)
  732:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
@@ -1076,11 +1078,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  782:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  783:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
  784:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_Write
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 19
+
+
  785:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
  786:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 19
-
-
  787:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Write a logic 0 or logic 1 state to the output driver.
  788:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  789:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * This function should be used only for software driven pins. It does not have
@@ -1136,11 +1138,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  839:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  840:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
  841:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_ReadOut(GPIO_PRT_Type* base, uint32_t pinNum)
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 20
+
+
  842:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  843:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_PIN_VALID(pinNum));
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 20
-
-
  844:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  845:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     return (GPIO_PRT_OUT(base) >> pinNum) & CY_GPIO_OUT_MASK;
  846:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
@@ -1196,11 +1198,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  896:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  897:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_PIN_VALID(pinNum));
  898:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 21
+
+
  899:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     GPIO_PRT_OUT_CLR(base) = CY_GPIO_OUT_MASK << pinNum;
  900:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 21
-
-
  901:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  902:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  903:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
@@ -1256,11 +1258,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  953:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * not thread safe as the resource is shared among multiple pins on a port.
  954:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  955:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 22
+
+
  956:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_SetDrivemode
  957:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 22
-
-
  958:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
  959:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetDrivemode(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value)
  960:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
@@ -1316,11 +1318,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1010:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
 1011:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1012:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param value
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 23
+
+
 1013:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pin voltage threshold mode. Options are detailed in \ref group_gpio_vtrip macros
 1014:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 23
-
-
 1015:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \note 
 1016:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * This function modifies a port register in a read-modify-write operation. It is
 1017:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * not thread safe as the resource is shared among multiple pins on a port.
@@ -1376,11 +1378,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1067:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1068:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \note 
 1069:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * This function has no effect for the GPIO ports, where the slew rate
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 24
+
+
 1070:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * configuration is not available. Refer to device datasheet for details.
 1071:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 24
-
-
 1072:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
 1073:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
 1074:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1436,11 +1438,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1124:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     return (GPIO_PRT_CFG_OUT(base) >> pinNum) & CY_GPIO_CFG_OUT_SLOW_MASK;
 1125:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
 1126:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 25
+
+
 1127:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
 1128:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 25
-
-
 1129:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_SetDriveSel
 1130:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
 1131:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1496,11 +1498,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1181:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_SetDriveSel
 1182:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1183:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 26
+
+
 1184:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum)
 1185:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 26
-
-
 1186:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_PIN_VALID(pinNum));
 1187:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
 1188:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     return ((GPIO_PRT_CFG_OUT(base) >> ((uint32_t)(pinNum << 1u) + CY_GPIO_CFG_OUT_DRIVE_OFFSET)) 
@@ -1556,11 +1558,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1238:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
 1239:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_GetVregEn
 1240:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 27
+
+
 1241:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1242:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Returns the SIO pin pair output buffer regulation mode.
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 27
-
-
 1243:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1244:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Note that this function has no effect on non-SIO pins.
 1245:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1616,11 +1618,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1295:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     uint32_t pinLoc;
 1296:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
 1297:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_PIN_VALID(pinNum));
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 28
+
+
 1298:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_VALUE_VALID(value));
 1299:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 28
-
-
 1300:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     pinLoc = ((pinNum & CY_GPIO_SIO_ODD_PIN_MASK) << CY_GPIO_CFG_SIO_OFFSET) + CY_GPIO_IBUF_SHIFT;
 1301:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     tempReg = (GPIO_PRT_CFG_SIO(base) & ~(CY_GPIO_IBUF_MASK << pinLoc));
 1302:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     GPIO_PRT_CFG_SIO(base) = tempReg | ((value & CY_GPIO_IBUF_MASK) << pinLoc);
@@ -1676,11 +1678,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1352:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \note 
 1353:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * This function modifies a port register in a read-modify-write operation. It is
 1354:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * not thread safe as the resource is shared among multiple pins on a port.
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 29
+
+
 1355:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1356:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 29
-
-
 1357:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_SetVtripSel
 1358:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1359:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
@@ -1736,11 +1738,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1409:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Note that this function has no effect on non-SIO pins.
 1410:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1411:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 30
+
+
 1412:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
 1413:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 30
-
-
 1414:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
 1415:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
 1416:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1796,11 +1798,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1466:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     
 1467:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     return (GPIO_PRT_CFG_SIO(base) >> (((pinNum & CY_GPIO_SIO_ODD_PIN_MASK) << CY_GPIO_CFG_SIO_OFFS
 1468:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 31
+
+
 1469:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
 1470:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 31
-
-
 1471:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
 1472:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_SetVohSel
 1473:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
@@ -1856,11 +1858,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1523:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1524:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
 1525:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 32
+
+
 1526:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1527:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \return
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 32
-
-
 1528:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * SIO pair reference voltage. Options are detailed in \ref group_gpio_sioVoh macros
 1529:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1530:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
@@ -1916,11 +1918,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1580:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
 1581:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
 1582:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_ClearInterrupt
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 33
+
+
 1583:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
 1584:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 33
-
-
 1585:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Clears the triggered pin interrupt.
 1586:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1587:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
@@ -1956,9 +1958,9 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   58              	.LVL2:
   59              	.LBE15:
   60              	.LBE14:
- 192:main_cm4.c    ****     Cy_GPIO_ClearInterrupt(Bouton_0_PORT, Bouton_0_NUM);
- 193:main_cm4.c    ****     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
-  61              		.loc 1 193 0
+ 194:main_cm4.c    ****     Cy_GPIO_ClearInterrupt(Bouton_0_PORT, Bouton_0_NUM);
+ 195:main_cm4.c    ****     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
+  61              		.loc 1 195 0
   62 001e 0A4B     		ldr	r3, .L4+8
   63 0020 B3F90030 		ldrsh	r3, [r3]
   64              	.LVL3:
@@ -1976,11 +1978,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
    9:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  *
   10:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * SPDX-License-Identifier: Apache-2.0
   11:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  *
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 34
+
+
   12:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * not use this file except in compliance with the License.
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 34
-
-
   14:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * You may obtain a copy of the License at
   15:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  *
   16:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  * www.apache.org/licenses/LICENSE-2.0
@@ -2036,11 +2038,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   66:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define __CM4_CMSIS_VERSION_MAIN  (__CM_CMSIS_VERSION_MAIN)              /*!< \deprecated [31:16] C
   67:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define __CM4_CMSIS_VERSION_SUB   (__CM_CMSIS_VERSION_SUB)               /*!< \deprecated [15:0]  C
   68:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define __CM4_CMSIS_VERSION       ((__CM4_CMSIS_VERSION_MAIN << 16U) | \
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 35
+
+
   69:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****                                     __CM4_CMSIS_VERSION_SUB           )  /*!< \deprecated CMSIS HAL
   70:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 35
-
-
   71:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define __CORTEX_M                (4U)                                   /*!< Cortex-M Core */
   72:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
   73:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /** __FPU_USED indicates whether an FPU is used or not.
@@ -2096,11 +2098,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  123:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  124:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #elif defined ( __TI_ARM__ )
  125:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #if defined __TI_VFP_SUPPORT__
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 36
+
+
  126:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
  127:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****       #define __FPU_USED       1U
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 36
-
-
  128:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #else
  129:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  130:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****       #define __FPU_USED       0U
@@ -2156,11 +2158,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  180:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* check device defines and use defaults */
  181:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #if defined __CHECK_DEVICE_DEFINES
  182:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #ifndef __CM4_REV
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 37
+
+
  183:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #define __CM4_REV               0x0000U
  184:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #warning "__CM4_REV not defined in device header file; using default!"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 37
-
-
  185:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #endif
  186:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  187:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #ifndef __FPU_PRESENT
@@ -2216,11 +2218,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  237:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core NVIC Register
  238:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core SCB Register
  239:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core SysTick Register
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 38
+
+
  240:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core Debug Register
  241:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core MPU Register
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 38
-
-
  242:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   - Core FPU Register
  243:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  ******************************************************************************/
  244:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
@@ -2276,11 +2278,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  294:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  295:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
  296:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief  Union type to access the Interrupt Program Status Register (IPSR).
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 39
+
+
  297:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
  298:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** typedef union
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 39
-
-
  299:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** {
  300:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   struct
  301:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   {
@@ -2336,11 +2338,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  351:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  352:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_ICI_IT_2_Pos                  25U                                            /*!< xPSR
  353:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_ICI_IT_2_Msk                  (3UL << xPSR_ICI_IT_2_Pos)                     /*!< xPSR
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 40
+
+
  354:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  355:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_T_Pos                         24U                                            /*!< xPSR
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 40
-
-
  356:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_T_Msk                         (1UL << xPSR_T_Pos)                            /*!< xPSR
  357:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  358:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define xPSR_GE_Pos                        16U                                            /*!< xPSR
@@ -2396,11 +2398,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  408:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t ISER[8U];               /*!< Offset: 0x000 (R/W)  Interrupt Set Enable Register */
  409:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RESERVED0[24U];
  410:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t ICER[8U];               /*!< Offset: 0x080 (R/W)  Interrupt Clear Enable Register 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 41
+
+
  411:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RSERVED1[24U];
  412:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t ISPR[8U];               /*!< Offset: 0x100 (R/W)  Interrupt Set Pending Register *
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 41
-
-
  413:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RESERVED2[24U];
  414:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t ICPR[8U];               /*!< Offset: 0x180 (R/W)  Interrupt Clear Pending Register
  415:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RESERVED3[24U];
@@ -2456,11 +2458,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  465:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* SCB CPUID Register Definitions */
  466:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CPUID_IMPLEMENTER_Pos          24U                                            /*!< SCB 
  467:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CPUID_IMPLEMENTER_Msk          (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)          /*!< SCB 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 42
+
+
  468:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  469:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CPUID_VARIANT_Pos              20U                                            /*!< SCB 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 42
-
-
  470:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CPUID_VARIANT_Msk              (0xFUL << SCB_CPUID_VARIANT_Pos)               /*!< SCB 
  471:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  472:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CPUID_ARCHITECTURE_Pos         16U                                            /*!< SCB 
@@ -2516,11 +2518,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  522:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  523:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_ENDIANESS_Pos            15U                                            /*!< SCB 
  524:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_ENDIANESS_Msk            (1UL << SCB_AIRCR_ENDIANESS_Pos)               /*!< SCB 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 43
+
+
  525:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  526:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_PRIGROUP_Pos              8U                                            /*!< SCB 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 43
-
-
  527:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_PRIGROUP_Msk             (7UL << SCB_AIRCR_PRIGROUP_Pos)                /*!< SCB 
  528:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  529:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_AIRCR_SYSRESETREQ_Pos           2U                                            /*!< SCB 
@@ -2576,11 +2578,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  579:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  580:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_BUSFAULTPENDED_Pos       14U                                            /*!< SCB 
  581:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_BUSFAULTPENDED_Msk       (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)          /*!< SCB 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 44
+
+
  582:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  583:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_MEMFAULTPENDED_Pos       13U                                            /*!< SCB 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 44
-
-
  584:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_MEMFAULTPENDED_Msk       (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)          /*!< SCB 
  585:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  586:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_SHCSR_USGFAULTPENDED_Pos       12U                                            /*!< SCB 
@@ -2636,11 +2638,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  636:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_IACCVIOL_Pos              (SCB_SHCSR_MEMFAULTACT_Pos + 0U)               /*!< SCB 
  637:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_IACCVIOL_Msk              (1UL /*<< SCB_CFSR_IACCVIOL_Pos*/)             /*!< SCB 
  638:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 45
+
+
  639:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* BusFault Status Register (part of SCB Configurable Fault Status Register) */
  640:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_BFARVALID_Pos            (SCB_CFSR_BUSFAULTSR_Pos + 7U)                  /*!< SCB 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 45
-
-
  641:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_BFARVALID_Msk            (1UL << SCB_CFSR_BFARVALID_Pos)                 /*!< SCB 
  642:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  643:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_CFSR_LSPERR_Pos               (SCB_CFSR_BUSFAULTSR_Pos + 5U)                  /*!< SCB 
@@ -2696,11 +2698,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  693:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  694:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_VCATCH_Pos                 3U                                            /*!< SCB 
  695:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_VCATCH_Msk                (1UL << SCB_DFSR_VCATCH_Pos)                   /*!< SCB 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 46
+
+
  696:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  697:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_DWTTRAP_Pos                2U                                            /*!< SCB 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 46
-
-
  698:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_DWTTRAP_Msk               (1UL << SCB_DFSR_DWTTRAP_Pos)                  /*!< SCB 
  699:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  700:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCB_DFSR_BKPT_Pos                   1U                                            /*!< SCB 
@@ -2756,11 +2758,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  750:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \ingroup  CMSIS_core_register
  751:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \defgroup CMSIS_SysTick     System Tick Timer (SysTick)
  752:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief    Type definitions for the System Timer Registers.
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 47
+
+
  753:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   @{
  754:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 47
-
-
  755:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  756:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
  757:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief  Structure type to access the System Timer (SysTick).
@@ -2816,11 +2818,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  807:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  808:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
  809:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief  Structure type to access the Instrumentation Trace Macrocell Register (ITM).
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 48
+
+
  810:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
  811:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** typedef struct
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 48
-
-
  812:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** {
  813:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __OM  union
  814:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   {
@@ -2876,11 +2878,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  864:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_SWOENA_Pos                  4U                                            /*!< ITM 
  865:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_SWOENA_Msk                 (1UL << ITM_TCR_SWOENA_Pos)                    /*!< ITM 
  866:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 49
+
+
  867:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_DWTENA_Pos                  3U                                            /*!< ITM 
  868:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_DWTENA_Msk                 (1UL << ITM_TCR_DWTENA_Pos)                    /*!< ITM 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 49
-
-
  869:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  870:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_SYNCENA_Pos                 2U                                            /*!< ITM 
  871:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_TCR_SYNCENA_Msk                (1UL << ITM_TCR_SYNCENA_Pos)                   /*!< ITM 
@@ -2936,11 +2938,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  921:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t LSUCNT;                 /*!< Offset: 0x014 (R/W)  LSU Count Register */
  922:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FOLDCNT;                /*!< Offset: 0x018 (R/W)  Folded-instruction Count Registe
  923:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IM  uint32_t PCSR;                   /*!< Offset: 0x01C (R/ )  Program Counter Sample Register 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 50
+
+
  924:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t COMP0;                  /*!< Offset: 0x020 (R/W)  Comparator Register 0 */
  925:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t MASK0;                  /*!< Offset: 0x024 (R/W)  Mask Register 0 */
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 50
-
-
  926:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FUNCTION0;              /*!< Offset: 0x028 (R/W)  Function Register 0 */
  927:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****         uint32_t RESERVED0[1U];
  928:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t COMP1;                  /*!< Offset: 0x030 (R/W)  Comparator Register 1 */
@@ -2996,11 +2998,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  978:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_PCSAMPLENA_Pos            12U                                         /*!< DWT CTR
  979:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_PCSAMPLENA_Msk            (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)          /*!< DWT CTR
  980:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 51
+
+
  981:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_SYNCTAP_Pos               10U                                         /*!< DWT CTR
  982:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_SYNCTAP_Msk               (0x3UL << DWT_CTRL_SYNCTAP_Pos)             /*!< DWT CTR
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 51
-
-
  983:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
  984:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_CYCTAP_Pos                 9U                                         /*!< DWT CTR
  985:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_CTRL_CYCTAP_Msk                (0x1UL << DWT_CTRL_CYCTAP_Pos)              /*!< DWT CTR
@@ -3056,11 +3058,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1035:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1036:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_DATAVMATCH_Pos         8U                                         /*!< DWT FUN
 1037:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_DATAVMATCH_Msk        (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)      /*!< DWT FUN
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 52
+
+
 1038:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1039:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_CYCMATCH_Pos           7U                                         /*!< DWT FUN
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 52
-
-
 1040:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_CYCMATCH_Msk          (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)        /*!< DWT FUN
 1041:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1042:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_FUNCTION_EMITRANGE_Pos          5U                                         /*!< DWT FUN
@@ -3116,11 +3118,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1092:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1093:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ACPR_SWOSCALER_Pos              0U                                         /*!< TPI ACP
 1094:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_ACPR_SWOSCALER_Msk             (0xFFFFUL /*<< TPI_ACPR_SWOSCALER_Pos*/)    /*!< TPI ACP
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 53
+
+
 1095:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1096:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* TPI Selected Pin Protocol Register Definitions */
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 53
-
-
 1097:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_SPPR_TXMODE_Pos                 0U                                         /*!< TPI SPP
 1098:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_SPPR_TXMODE_Msk                (0x3UL /*<< TPI_SPPR_TXMODE_Pos*/)          /*!< TPI SPP
 1099:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -3176,11 +3178,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1149:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1150:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* TPI Integration ITM Data Register Definitions (FIFO1) */
 1151:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_FIFO1_ITM_ATVALID_Pos          29U                                         /*!< TPI FIF
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 54
+
+
 1152:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_FIFO1_ITM_ATVALID_Msk          (0x3UL << TPI_FIFO1_ITM_ATVALID_Pos)        /*!< TPI FIF
 1153:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 54
-
-
 1154:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_FIFO1_ITM_bytecount_Pos        27U                                         /*!< TPI FIF
 1155:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_FIFO1_ITM_bytecount_Msk        (0x3UL << TPI_FIFO1_ITM_bytecount_Pos)      /*!< TPI FIF
 1156:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -3236,11 +3238,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1206:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /*@}*/ /* end of group CMSIS_TPI */
 1207:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1208:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 55
+
+
 1209:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
 1210:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 55
-
-
 1211:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \ingroup  CMSIS_core_register
 1212:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \defgroup CMSIS_MPU     Memory Protection Unit (MPU)
 1213:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief    Type definitions for the Memory Protection Unit (MPU)
@@ -3296,11 +3298,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1263:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_ADDR_Msk                  (0x7FFFFFFUL << MPU_RBAR_ADDR_Pos)             /*!< MPU 
 1264:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1265:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_VALID_Pos                  4U                                            /*!< MPU 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 56
+
+
 1266:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_VALID_Msk                 (1UL << MPU_RBAR_VALID_Pos)                    /*!< MPU 
 1267:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 56
-
-
 1268:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_REGION_Pos                 0U                                            /*!< MPU 
 1269:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define MPU_RBAR_REGION_Msk                (0xFUL /*<< MPU_RBAR_REGION_Pos*/)             /*!< MPU 
 1270:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -3356,11 +3358,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1320:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FPCAR;                  /*!< Offset: 0x008 (R/W)  Floating-Point Context Address R
 1321:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IOM uint32_t FPDSCR;                 /*!< Offset: 0x00C (R/W)  Floating-Point Default Status Co
 1322:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IM  uint32_t MVFR0;                  /*!< Offset: 0x010 (R/ )  Media and FP Feature Register 0 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 57
+
+
 1323:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   __IM  uint32_t MVFR1;                  /*!< Offset: 0x014 (R/ )  Media and FP Feature Register 1 
 1324:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** } FPU_Type;
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 57
-
-
 1325:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1326:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* Floating-Point Context Control Register Definitions */
 1327:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_FPCCR_ASPEN_Pos                31U                                            /*!< FPCC
@@ -3416,11 +3418,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1377:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1378:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Square_root_Pos          20U                                            /*!< MVFR
 1379:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Square_root_Msk          (0xFUL << FPU_MVFR0_Square_root_Pos)           /*!< MVFR
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 58
+
+
 1380:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1381:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Divide_Pos               16U                                            /*!< MVFR
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 58
-
-
 1382:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_Divide_Msk               (0xFUL << FPU_MVFR0_Divide_Pos)                /*!< MVFR
 1383:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1384:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define FPU_MVFR0_FP_excep_trapping_Pos    12U                                            /*!< MVFR
@@ -3476,11 +3478,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1434:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_RESET_ST_Pos     25U                                            /*!< Core
 1435:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_RESET_ST_Msk     (1UL << CoreDebug_DHCSR_S_RESET_ST_Pos)        /*!< Core
 1436:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 59
+
+
 1437:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_RETIRE_ST_Pos    24U                                            /*!< Core
 1438:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_RETIRE_ST_Msk    (1UL << CoreDebug_DHCSR_S_RETIRE_ST_Pos)       /*!< Core
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 59
-
-
 1439:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1440:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_LOCKUP_Pos       19U                                            /*!< Core
 1441:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DHCSR_S_LOCKUP_Msk       (1UL << CoreDebug_DHCSR_S_LOCKUP_Pos)          /*!< Core
@@ -3536,11 +3538,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1491:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_HARDERR_Msk     (1UL << CoreDebug_DEMCR_VC_HARDERR_Pos)        /*!< Core
 1492:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1493:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_INTERR_Pos       9U                                            /*!< Core
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 60
+
+
 1494:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_INTERR_Msk      (1UL << CoreDebug_DEMCR_VC_INTERR_Pos)         /*!< Core
 1495:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 60
-
-
 1496:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_BUSERR_Pos       8U                                            /*!< Core
 1497:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_DEMCR_VC_BUSERR_Msk      (1UL << CoreDebug_DEMCR_VC_BUSERR_Pos)         /*!< Core
 1498:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -3596,11 +3598,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1548:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
 1549:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1550:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /* Memory mapping of Core Hardware */
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 61
+
+
 1551:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define SCS_BASE            (0xE000E000UL)                            /*!< System Control Space Bas
 1552:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define ITM_BASE            (0xE0000000UL)                            /*!< ITM Base Address */
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 61
-
-
 1553:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define DWT_BASE            (0xE0001000UL)                            /*!< DWT Base Address */
 1554:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define TPI_BASE            (0xE0040000UL)                            /*!< TPI Base Address */
 1555:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #define CoreDebug_BASE      (0xE000EDF0UL)                            /*!< Core Debug Base Address 
@@ -3656,11 +3658,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1605:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     #define CMSIS_NVIC_VIRTUAL_HEADER_FILE "cmsis_nvic_virtual.h"
 1606:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #endif
 1607:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #include CMSIS_NVIC_VIRTUAL_HEADER_FILE
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 62
+
+
 1608:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** #else
 1609:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #define NVIC_SetPriorityGrouping    __NVIC_SetPriorityGrouping
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 62
-
-
 1610:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #define NVIC_GetPriorityGrouping    __NVIC_GetPriorityGrouping
 1611:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #define NVIC_EnableIRQ              __NVIC_EnableIRQ
 1612:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   #define NVIC_GetEnableIRQ           __NVIC_GetEnableIRQ
@@ -3716,11 +3718,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1662:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \details Reads the priority grouping field from the NVIC Interrupt Controller.
 1663:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \return                Priority grouping field (SCB->AIRCR [10:8] PRIGROUP field).
 1664:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****  */
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 63
+
+
 1665:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetPriorityGrouping(void)
 1666:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** {
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 63
-
-
 1667:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   return ((uint32_t)((SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) >> SCB_AIRCR_PRIGROUP_Pos));
 1668:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** }
 1669:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
@@ -3776,11 +3778,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1719:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****     __ISB();
 1720:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   }
 1721:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** }
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 64
+
+
 1722:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
 1723:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 64
-
-
 1724:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h **** /**
 1725:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \brief   Get Pending Interrupt
 1726:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   \details Reads the NVIC pending register and returns the pending bit for the specified device spe
@@ -3836,11 +3838,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   73 002a 03F01F03 		and	r3, r3, #31
   74              	.LVL4:
   75 002e 0121     		movs	r1, #1
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 65
+
+
   76 0030 01FA03F3 		lsl	r3, r1, r3
   77 0034 6032     		adds	r2, r2, #96
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 65
-
-
   78 0036 0549     		ldr	r1, .L4+12
   79 0038 41F82230 		str	r3, [r1, r2, lsl #2]
   80              	.LVL5:
@@ -3866,12 +3868,12 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  100              		.type	Task_Bouton2, %function
  101              	Task_Bouton2:
  102              	.LFB562:
- 194:main_cm4.c    **** 
- 195:main_cm4.c    **** }
  196:main_cm4.c    **** 
- 197:main_cm4.c    **** 
- 198:main_cm4.c    **** void Task_Bouton2(void *arg){
- 103              		.loc 1 198 0
+ 197:main_cm4.c    **** }
+ 198:main_cm4.c    **** 
+ 199:main_cm4.c    **** 
+ 200:main_cm4.c    **** void Task_Bouton2(void *arg){
+ 103              		.loc 1 200 0
  104              		.cfi_startproc
  105              		@ args = 0, pretend = 0, frame = 8
  106              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -3881,48 +3883,48 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  110              		.cfi_offset 14, -4
  111 0002 83B0     		sub	sp, sp, #12
  112              		.cfi_def_cfa_offset 16
- 199:main_cm4.c    ****     
- 200:main_cm4.c    ****     touch_data_t currentTouch = NO_TOUCH;
- 113              		.loc 1 200 0
+ 201:main_cm4.c    ****     
+ 202:main_cm4.c    ****     touch_data_t currentTouch = NO_TOUCH;
+ 113              		.loc 1 202 0
  114 0004 0323     		movs	r3, #3
  115 0006 8DF80730 		strb	r3, [sp, #7]
  116              	.LVL7:
  117              	.L7:
- 201:main_cm4.c    ****     
- 202:main_cm4.c    ****     for(;;){
- 203:main_cm4.c    ****         
- 204:main_cm4.c    ****         if(xSemaphoreTake(bouton_semph, portMAX_DELAY) == pdTRUE){
- 118              		.loc 1 204 0
+ 203:main_cm4.c    ****     
+ 204:main_cm4.c    ****     for(;;){
+ 205:main_cm4.c    ****         
+ 206:main_cm4.c    ****         if(xSemaphoreTake(bouton_semph, portMAX_DELAY) == pdTRUE){
+ 118              		.loc 1 206 0
  119 000a 0C4B     		ldr	r3, .L10
  120 000c 1868     		ldr	r0, [r3]
  121 000e 4FF0FF31 		mov	r1, #-1
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 66
+
+
  122 0012 FFF7FEFF 		bl	xQueueSemaphoreTake
  123              	.LVL8:
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 66
-
-
  124 0016 0128     		cmp	r0, #1
  125 0018 F7D1     		bne	.L7
- 205:main_cm4.c    ****             
- 206:main_cm4.c    ****             currentTouch =  BUTTON2_TOUCHED;
- 126              		.loc 1 206 0
+ 207:main_cm4.c    ****             
+ 208:main_cm4.c    ****             currentTouch =  BUTTON2_TOUCHED;
+ 126              		.loc 1 208 0
  127 001a 02A9     		add	r1, sp, #8
  128 001c 0223     		movs	r3, #2
  129 001e 01F8013D 		strb	r3, [r1, #-1]!
- 207:main_cm4.c    ****             xQueueSend(touchDataQ, &currentTouch, ( TickType_t ) 0);
- 130              		.loc 1 207 0
+ 209:main_cm4.c    ****             xQueueSend(touchDataQ, &currentTouch, ( TickType_t ) 0);
+ 130              		.loc 1 209 0
  131 0022 0023     		movs	r3, #0
  132 0024 1A46     		mov	r2, r3
  133 0026 0648     		ldr	r0, .L10+4
  134 0028 0068     		ldr	r0, [r0]
  135 002a FFF7FEFF 		bl	xQueueGenericSend
  136              	.LVL9:
- 208:main_cm4.c    ****             currentTouch = NO_TOUCH;
- 137              		.loc 1 208 0
+ 210:main_cm4.c    ****             currentTouch = NO_TOUCH;
+ 137              		.loc 1 210 0
  138 002e 0323     		movs	r3, #3
  139 0030 8DF80730 		strb	r3, [sp, #7]
- 209:main_cm4.c    ****             vTaskDelay(pdMS_TO_TICKS(100));
- 140              		.loc 1 209 0
+ 211:main_cm4.c    ****             vTaskDelay(pdMS_TO_TICKS(100));
+ 140              		.loc 1 211 0
  141 0034 6420     		movs	r0, #100
  142 0036 FFF7FEFF 		bl	vTaskDelay
  143              	.LVL10:
@@ -3943,24 +3945,24 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  158              		.type	main, %function
  159              	main:
  160              	.LFB563:
- 210:main_cm4.c    ****             
- 211:main_cm4.c    ****             //vTaskDelay(pdMS_TO_TICKS(20));
- 212:main_cm4.c    ****         }
- 213:main_cm4.c    **** 
- 214:main_cm4.c    ****     }
- 215:main_cm4.c    **** }
- 216:main_cm4.c    **** 
- 217:main_cm4.c    **** 
+ 212:main_cm4.c    ****             
+ 213:main_cm4.c    ****             //vTaskDelay(pdMS_TO_TICKS(20));
+ 214:main_cm4.c    ****         }
+ 215:main_cm4.c    **** 
+ 216:main_cm4.c    ****     }
+ 217:main_cm4.c    **** }
  218:main_cm4.c    **** 
  219:main_cm4.c    **** 
  220:main_cm4.c    **** 
  221:main_cm4.c    **** 
- 222:main_cm4.c    **** int main(void)
- 223:main_cm4.c    **** {
- 161              		.loc 1 223 0
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 67
+ 222:main_cm4.c    **** 
+ 223:main_cm4.c    **** 
+ 224:main_cm4.c    **** int main(void)
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 67
 
 
+ 225:main_cm4.c    **** {
+ 161              		.loc 1 225 0
  162              		.cfi_startproc
  163              		@ Volatile: function does not return.
  164              		@ args = 0, pretend = 0, frame = 0
@@ -3970,8 +3972,8 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  168              		.cfi_offset 14, -4
  169 0002 83B0     		sub	sp, sp, #12
  170              		.cfi_def_cfa_offset 16
- 224:main_cm4.c    ****     bouton_semph = xSemaphoreCreateBinary();
- 171              		.loc 1 224 0
+ 226:main_cm4.c    ****     bouton_semph = xSemaphoreCreateBinary();
+ 171              		.loc 1 226 0
  172 0004 0322     		movs	r2, #3
  173 0006 0021     		movs	r1, #0
  174 0008 0120     		movs	r0, #1
@@ -4016,11 +4018,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   32:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
   34:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 68
+
+
   35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
   36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 68
-
-
   37:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
   38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
   39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
@@ -4076,11 +4078,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
   89:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 69
+
+
   92:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 69
-
-
   94:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
   95:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   96:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
@@ -4128,31 +4130,31 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  188              		.syntax unified
  189              	.LBE19:
  190              	.LBE18:
- 225:main_cm4.c    ****     
- 226:main_cm4.c    ****     
- 227:main_cm4.c    ****     __enable_irq(); /* Enable global interrupts. */
+ 227:main_cm4.c    ****     
  228:main_cm4.c    ****     
- 229:main_cm4.c    ****     DisplayInit();
- 191              		.loc 1 229 0
+ 229:main_cm4.c    ****     __enable_irq(); /* Enable global interrupts. */
+ 230:main_cm4.c    ****     
+ 231:main_cm4.c    ****     DisplayInit();
+ 191              		.loc 1 231 0
  192 0014 FFF7FEFF 		bl	DisplayInit
  193              	.LVL12:
- 230:main_cm4.c    ****     
- 231:main_cm4.c    **** 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 70
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 70
 
 
  232:main_cm4.c    ****     
- 233:main_cm4.c    ****     /* Initialisation de CapSense */
+ 233:main_cm4.c    **** 
  234:main_cm4.c    ****     
- 235:main_cm4.c    ****     //CapSense_Start();
- 236:main_cm4.c    ****     //CapSense_ScanAllWidgets();
- 237:main_cm4.c    ****     
- 238:main_cm4.c    ****     /* Initialisation des tasks */
- 239:main_cm4.c    ****         /* Create the queues. See the respective data-types for details of queue
- 240:main_cm4.c    ****        contents */
- 241:main_cm4.c    ****     
- 242:main_cm4.c    ****     touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
- 194              		.loc 1 242 0
+ 235:main_cm4.c    ****     /* Initialisation de CapSense */
+ 236:main_cm4.c    ****     
+ 237:main_cm4.c    ****     //CapSense_Start();
+ 238:main_cm4.c    ****     //CapSense_ScanAllWidgets();
+ 239:main_cm4.c    ****     
+ 240:main_cm4.c    ****     /* Initialisation des tasks */
+ 241:main_cm4.c    ****         /* Create the queues. See the respective data-types for details of queue
+ 242:main_cm4.c    ****        contents */
+ 243:main_cm4.c    ****     
+ 244:main_cm4.c    ****     touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
+ 194              		.loc 1 244 0
  195 0018 0022     		movs	r2, #0
  196 001a 0121     		movs	r1, #1
  197 001c 0A20     		movs	r0, #10
@@ -4160,17 +4162,17 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  199              	.LVL13:
  200 0022 254B     		ldr	r3, .L18+4
  201 0024 1860     		str	r0, [r3]
- 243:main_cm4.c    ****     
- 244:main_cm4.c    ****         
- 245:main_cm4.c    ****     Cy_SysInt_Init(&Bouton_ISR_cfg, isr_bouton);
- 202              		.loc 1 245 0
+ 245:main_cm4.c    ****     
+ 246:main_cm4.c    ****         
+ 247:main_cm4.c    ****     Cy_SysInt_Init(&Bouton_ISR_cfg, isr_bouton);
+ 202              		.loc 1 247 0
  203 0026 254C     		ldr	r4, .L18+8
  204 0028 2549     		ldr	r1, .L18+12
  205 002a 2046     		mov	r0, r4
  206 002c FFF7FEFF 		bl	Cy_SysInt_Init
  207              	.LVL14:
- 246:main_cm4.c    ****     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
- 208              		.loc 1 246 0
+ 248:main_cm4.c    ****     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
+ 208              		.loc 1 248 0
  209 0030 B4F90030 		ldrsh	r3, [r4]
  210              	.LVL15:
  211              	.LBB20:
@@ -4196,11 +4198,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
 1679:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   {
  230              		.loc 3 1679 0
  231 004a 002B     		cmp	r3, #0
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 71
+
+
  232 004c 08DB     		blt	.L14
 1681:Generated_Source\PSoC6\pdl\cmsis/include/core_cm4.h ****   }
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 71
-
-
  233              		.loc 3 1681 0
  234 004e 5909     		lsrs	r1, r3, #5
  235 0050 03F01F03 		and	r3, r3, #31
@@ -4213,13 +4215,13 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  242              	.LVL18:
  243              	.LBE23:
  244              	.LBE22:
- 247:main_cm4.c    ****     NVIC_EnableIRQ(Bouton_ISR_cfg.intrSrc);
- 248:main_cm4.c    ****     
- 249:main_cm4.c    ****          
- 250:main_cm4.c    ****     /* Create the user Tasks. See the respective Task definition for more
- 251:main_cm4.c    ****        details of these tasks */       
- 252:main_cm4.c    ****     xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
- 245              		.loc 1 252 0
+ 249:main_cm4.c    ****     NVIC_EnableIRQ(Bouton_ISR_cfg.intrSrc);
+ 250:main_cm4.c    ****     
+ 251:main_cm4.c    ****          
+ 252:main_cm4.c    ****     /* Create the user Tasks. See the respective Task definition for more
+ 253:main_cm4.c    ****        details of these tasks */       
+ 254:main_cm4.c    ****     xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
+ 245              		.loc 1 254 0
  246 0060 0024     		movs	r4, #0
  247 0062 0194     		str	r4, [sp, #4]
  248 0064 0A23     		movs	r3, #10
@@ -4230,9 +4232,9 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  253 006e 1748     		ldr	r0, .L18+24
  254 0070 FFF7FEFF 		bl	xTaskCreate
  255              	.LVL19:
- 253:main_cm4.c    **** 
- 254:main_cm4.c    ****     xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIO
- 256              		.loc 1 254 0
+ 255:main_cm4.c    **** 
+ 256:main_cm4.c    ****     xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIO
+ 256              		.loc 1 256 0
  257 0074 0194     		str	r4, [sp, #4]
  258 0076 0523     		movs	r3, #5
  259 0078 0093     		str	r3, [sp]
@@ -4242,9 +4244,9 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  263 0082 1448     		ldr	r0, .L18+32
  264 0084 FFF7FEFF 		bl	xTaskCreate
  265              	.LVL20:
- 255:main_cm4.c    ****     
- 256:main_cm4.c    ****     xTaskCreate(Task_Bouton2, "Task Bouton 2", TOUCH_TASK_STACK_SIZE, NULL, 4u, NULL);
- 266              		.loc 1 256 0
+ 257:main_cm4.c    ****     
+ 258:main_cm4.c    ****     xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, 
+ 266              		.loc 1 258 0
  267 0088 0194     		str	r4, [sp, #4]
  268 008a 0423     		movs	r3, #4
  269 008c 0093     		str	r3, [sp]
@@ -4254,73 +4256,73 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  273 0094 1148     		ldr	r0, .L18+40
  274 0096 FFF7FEFF 		bl	xTaskCreate
  275              	.LVL21:
- 257:main_cm4.c    ****     
- 258:main_cm4.c    ****     /* Initialize thread-safe debug message printing. See uart_debug.h header file
- 259:main_cm4.c    ****        to enable / disable this feature */
- 260:main_cm4.c    ****     //DebugPrintfInit();
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 72
+ 259:main_cm4.c    ****     
+ 260:main_cm4.c    ****     /* Initialize thread-safe debug message printing. See uart_debug.h header file
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 72
 
 
- 261:main_cm4.c    ****     
- 262:main_cm4.c    ****     /* Start the RTOS scheduler. This function should never return */
- 263:main_cm4.c    ****     vTaskStartScheduler();
- 276              		.loc 1 263 0
+ 261:main_cm4.c    ****        to enable / disable this feature */
+ 262:main_cm4.c    ****     //DebugPrintfInit();
+ 263:main_cm4.c    ****     
+ 264:main_cm4.c    ****     /* Start the RTOS scheduler. This function should never return */
+ 265:main_cm4.c    ****     vTaskStartScheduler();
+ 276              		.loc 1 265 0
  277 009a FFF7FEFF 		bl	vTaskStartScheduler
  278              	.LVL22:
- 264:main_cm4.c    ****     
- 265:main_cm4.c    ****     /* Should never get here! */ 
- 266:main_cm4.c    ****     //DebugPrintf("Error!   : RTOS - scheduler crashed \r\n");
- 267:main_cm4.c    **** 
- 268:main_cm4.c    ****     /* Halt the CPU if scheduler exits */
- 269:main_cm4.c    ****     CY_ASSERT(0);
- 279              		.loc 1 269 0
- 280 009e 40F20D11 		movw	r1, #269
+ 266:main_cm4.c    ****     
+ 267:main_cm4.c    ****     /* Should never get here! */ 
+ 268:main_cm4.c    ****     //DebugPrintf("Error!   : RTOS - scheduler crashed \r\n");
+ 269:main_cm4.c    **** 
+ 270:main_cm4.c    ****     /* Halt the CPU if scheduler exits */
+ 271:main_cm4.c    ****     CY_ASSERT(0);
+ 279              		.loc 1 271 0
+ 280 009e 40F20F11 		movw	r1, #271
  281 00a2 0F48     		ldr	r0, .L18+44
  282 00a4 FFF7FEFF 		bl	Cy_SysLib_AssertFailed
  283              	.LVL23:
  284              	.L15:
- 270:main_cm4.c    ****     
- 271:main_cm4.c    ****     
  272:main_cm4.c    ****     
  273:main_cm4.c    ****     
  274:main_cm4.c    ****     
  275:main_cm4.c    ****     
  276:main_cm4.c    ****     
- 277:main_cm4.c    **** 
+ 277:main_cm4.c    ****     
  278:main_cm4.c    ****     
- 279:main_cm4.c    ****     /*
+ 279:main_cm4.c    **** 
  280:main_cm4.c    ****     
- 281:main_cm4.c    ****     //Draw a rectangle
- 282:main_cm4.c    ****     GUI_DrawRect(1,1,263,175);
- 283:main_cm4.c    ****     
- 284:main_cm4.c    ****     //Draw a line
- 285:main_cm4.c    ****     GUI_SetPenSize(4);
- 286:main_cm4.c    ****     GUI_DrawLine(20,65,243,65);
- 287:main_cm4.c    ****     
- 288:main_cm4.c    ****     GUI_SetColor(GUI_BLACK);
- 289:main_cm4.c    ****     GUI_SetBkColor(GUI_WHITE);
- 290:main_cm4.c    ****     
- 291:main_cm4.c    ****    //Write a title and subtile	
- 292:main_cm4.c    ****     GUI_SetFont(GUI_FONT_32B_1);
- 293:main_cm4.c    ****     GUI_SetTextAlign(GUI_TA_CENTER);
- 294:main_cm4.c    ****     GUI_DispStringAt("GBM2100", 132, 30);
- 295:main_cm4.c    ****     GUI_SetFont(GUI_FONT_16_1);
- 296:main_cm4.c    ****     GUI_DispStringAt("Laboratoire 3", 132, 70);
- 297:main_cm4.c    ****     
- 298:main_cm4.c    ****     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+ 281:main_cm4.c    ****     /*
+ 282:main_cm4.c    ****     
+ 283:main_cm4.c    ****     //Draw a rectangle
+ 284:main_cm4.c    ****     GUI_DrawRect(1,1,263,175);
+ 285:main_cm4.c    ****     
+ 286:main_cm4.c    ****     //Draw a line
+ 287:main_cm4.c    ****     GUI_SetPenSize(4);
+ 288:main_cm4.c    ****     GUI_DrawLine(20,65,243,65);
+ 289:main_cm4.c    ****     
+ 290:main_cm4.c    ****     GUI_SetColor(GUI_BLACK);
+ 291:main_cm4.c    ****     GUI_SetBkColor(GUI_WHITE);
+ 292:main_cm4.c    ****     
+ 293:main_cm4.c    ****    //Write a title and subtile	
+ 294:main_cm4.c    ****     GUI_SetFont(GUI_FONT_32B_1);
+ 295:main_cm4.c    ****     GUI_SetTextAlign(GUI_TA_CENTER);
+ 296:main_cm4.c    ****     GUI_DispStringAt("GBM2100", 132, 30);
+ 297:main_cm4.c    ****     GUI_SetFont(GUI_FONT_16_1);
+ 298:main_cm4.c    ****     GUI_DispStringAt("Laboratoire 3", 132, 70);
  299:main_cm4.c    ****     
- 300:main_cm4.c    ****     */
- 301:main_cm4.c    ****     while(CapSense_IsBusy()); // ?? du CapSense Example
- 285              		.loc 1 301 0 discriminator 1
+ 300:main_cm4.c    ****     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+ 301:main_cm4.c    ****     
+ 302:main_cm4.c    ****     */
+ 303:main_cm4.c    ****     while(CapSense_IsBusy()); // ?? du CapSense Example
+ 285              		.loc 1 303 0 discriminator 1
  286 00a8 FFF7FEFF 		bl	CapSense_IsBusy
  287              	.LVL24:
  288 00ac 0028     		cmp	r0, #0
  289 00ae FBD1     		bne	.L15
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 73
+
+
  290              	.L16:
  291 00b0 FEE7     		b	.L16
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 73
-
-
  292              	.L19:
  293 00b2 00BF     		.align	2
  294              	.L18:
@@ -4376,11 +4378,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  336              		.file 15 "Generated_Source\\PSoC6\\pdl\\rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/portmacro.h"
  337              		.file 16 "Generated_Source\\PSoC6\\pdl\\rtos/FreeRTOS/10.0.1/Source/include/queue.h"
  338              		.file 17 "Generated_Source\\PSoC6\\pdl\\rtos/FreeRTOS/10.0.1/Source/include/semphr.h"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 74
+
+
  339              		.file 18 "touch_task.h"
  340              		.file 19 "Generated_Source\\PSoC6/cyfitter_sysint_cfg.h"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 74
-
-
  341              		.file 20 "Generated_Source\\PSoC6/CY_EINK_SPIM.h"
  342              		.file 21 "Generated_Source\\PSoC6/CY_EINK_Timer.h"
  343              		.file 22 "Generated_Source\\PSoC6\\pdl\\rtos/FreeRTOS/10.0.1/Source/include/task.h"
@@ -4436,11 +4438,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  393 0067 03       		.uleb128 0x3
  394 0068 C3160000 		.4byte	.LASF9
  395 006c 7F       		.sleb128 -1
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 75
+
+
  396 006d 04       		.uleb128 0x4
  397 006e 231B0000 		.4byte	.LASF10
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 75
-
-
  398 0072 00       		.byte	0
  399 0073 04       		.uleb128 0x4
  400 0074 21110000 		.4byte	.LASF11
@@ -4496,11 +4498,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  450 00d9 04       		.uleb128 0x4
  451 00da 04060000 		.4byte	.LASF28
  452 00de 12       		.byte	0x12
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 76
+
+
  453 00df 04       		.uleb128 0x4
  454 00e0 790E0000 		.4byte	.LASF29
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 76
-
-
  455 00e4 13       		.byte	0x13
  456 00e5 04       		.uleb128 0x4
  457 00e6 3E030000 		.4byte	.LASF30
@@ -4556,11 +4558,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  507 014b 04       		.uleb128 0x4
  508 014c F1140000 		.4byte	.LASF47
  509 0150 25       		.byte	0x25
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 77
+
+
  510 0151 04       		.uleb128 0x4
  511 0152 0F080000 		.4byte	.LASF48
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 77
-
-
  512 0156 26       		.byte	0x26
  513 0157 04       		.uleb128 0x4
  514 0158 1B190000 		.4byte	.LASF49
@@ -4616,11 +4618,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  564 01bd 04       		.uleb128 0x4
  565 01be 920B0000 		.4byte	.LASF66
  566 01c2 38       		.byte	0x38
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 78
+
+
  567 01c3 04       		.uleb128 0x4
  568 01c4 EC000000 		.4byte	.LASF67
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 78
-
-
  569 01c8 39       		.byte	0x39
  570 01c9 04       		.uleb128 0x4
  571 01ca 9C190000 		.4byte	.LASF68
@@ -4676,11 +4678,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  621 022f 04       		.uleb128 0x4
  622 0230 CB100000 		.4byte	.LASF85
  623 0234 4B       		.byte	0x4b
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 79
+
+
  624 0235 04       		.uleb128 0x4
  625 0236 7B110000 		.4byte	.LASF86
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 79
-
-
  626 023a 4C       		.byte	0x4c
  627 023b 04       		.uleb128 0x4
  628 023c 6A070000 		.4byte	.LASF87
@@ -4736,11 +4738,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  678 02a1 04       		.uleb128 0x4
  679 02a2 E1090000 		.4byte	.LASF104
  680 02a6 5E       		.byte	0x5e
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 80
+
+
  681 02a7 04       		.uleb128 0x4
  682 02a8 D31B0000 		.4byte	.LASF105
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 80
-
-
  683 02ac 5F       		.byte	0x5f
  684 02ad 04       		.uleb128 0x4
  685 02ae 98110000 		.4byte	.LASF106
@@ -4796,11 +4798,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  735 0313 04       		.uleb128 0x4
  736 0314 80000000 		.4byte	.LASF123
  737 0318 71       		.byte	0x71
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 81
+
+
  738 0319 04       		.uleb128 0x4
  739 031a 01130000 		.4byte	.LASF124
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 81
-
-
  740 031e 72       		.byte	0x72
  741 031f 04       		.uleb128 0x4
  742 0320 2F060000 		.4byte	.LASF125
@@ -4856,11 +4858,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  792 0385 04       		.uleb128 0x4
  793 0386 BE000000 		.4byte	.LASF142
  794 038a 84       		.byte	0x84
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 82
+
+
  795 038b 04       		.uleb128 0x4
  796 038c A1090000 		.4byte	.LASF143
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 82
-
-
  797 0390 85       		.byte	0x85
  798 0391 04       		.uleb128 0x4
  799 0392 AC160000 		.4byte	.LASF144
@@ -4916,11 +4918,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  849 03f4 25000000 		.4byte	0x25
  850 03f8 05       		.uleb128 0x5
  851 03f9 01       		.byte	0x1
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 83
+
+
  852 03fa 06       		.byte	0x6
  853 03fb D5190000 		.4byte	.LASF159
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 83
-
-
  854 03ff 06       		.uleb128 0x6
  855 0400 C0150000 		.4byte	.LASF161
  856 0404 06       		.byte	0x6
@@ -4976,11 +4978,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  906 0463 696E7400 		.ascii	"int\000"
  907 0467 05       		.uleb128 0x5
  908 0468 04       		.byte	0x4
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 84
+
+
  909 0469 07       		.byte	0x7
  910 046a 05020000 		.4byte	.LASF172
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 84
-
-
  911 046e 06       		.uleb128 0x6
  912 046f 170E0000 		.4byte	.LASF173
  913 0473 07       		.byte	0x7
@@ -5036,11 +5038,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  963 04de 82050000 		.4byte	0x582
  964 04e2 A0       		.byte	0xa0
  965 04e3 0A       		.uleb128 0xa
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 85
+
+
  966 04e4 BB1A0000 		.4byte	.LASF182
  967 04e8 03       		.byte	0x3
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 85
-
-
  968 04e9 9C01     		.2byte	0x19c
  969 04eb 97050000 		.4byte	0x597
  970 04ef 0001     		.2byte	0x100
@@ -5096,11 +5098,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1020 0561 0C       		.uleb128 0xc
  1021 0562 78050000 		.4byte	0x578
  1022 0566 71050000 		.4byte	0x571
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 86
+
+
  1023 056a 0D       		.uleb128 0xd
  1024 056b 71050000 		.4byte	0x571
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 86
-
-
  1025 056f 07       		.byte	0x7
  1026 0570 00       		.byte	0
  1027 0571 05       		.uleb128 0x5
@@ -5156,11 +5158,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1077 05e6 03       		.byte	0x3
  1078 05e7 A501     		.2byte	0x1a5
  1079 05e9 A5040000 		.4byte	0x4a5
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 87
+
+
  1080 05ed 11       		.uleb128 0x11
  1081 05ee 78050000 		.4byte	0x578
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 87
-
-
  1082 05f2 0C       		.uleb128 0xc
  1083 05f3 ED050000 		.4byte	0x5ed
  1084 05f7 02060000 		.4byte	0x602
@@ -5216,11 +5218,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1134 0658 78050000 		.4byte	0x578
  1135 065c 18       		.byte	0x18
  1136 065d 14       		.uleb128 0x14
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 88
+
+
  1137 065e 61160000 		.4byte	.LASF197
  1138 0662 08       		.byte	0x8
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 88
-
-
  1139 0663 2A       		.byte	0x2a
  1140 0664 ED050000 		.4byte	0x5ed
  1141 0668 1C       		.byte	0x1c
@@ -5276,11 +5278,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1191 06ca 3F1B0000 		.4byte	.LASF205
  1192 06ce 08       		.byte	0x8
  1193 06cf 33       		.byte	0x33
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 89
+
+
  1194 06d0 DB060000 		.4byte	0x6db
  1195 06d4 40       		.byte	0x40
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 89
-
-
  1196 06d5 00       		.byte	0
  1197 06d6 0E       		.uleb128 0xe
  1198 06d7 F2050000 		.4byte	0x5f2
@@ -5336,11 +5338,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1248 0742 450A0000 		.4byte	.LASF212
  1249 0746 08       		.byte	0x8
  1250 0747 40       		.byte	0x40
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 90
+
+
  1251 0748 78050000 		.4byte	0x578
  1252 074c 1440     		.2byte	0x4014
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 90
-
-
  1253 074e 16       		.uleb128 0x16
  1254 074f B8190000 		.4byte	.LASF213
  1255 0753 08       		.byte	0x8
@@ -5396,11 +5398,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1305 07bd 0A       		.byte	0xa
  1306 07be 37       		.byte	0x37
  1307 07bf 9A040000 		.4byte	0x49a
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 91
+
+
  1308 07c3 00       		.byte	0
  1309 07c4 14       		.uleb128 0x14
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 91
-
-
  1310 07c5 B0010000 		.4byte	.LASF221
  1311 07c9 0A       		.byte	0xa
  1312 07ca 38       		.byte	0x38
@@ -5456,11 +5458,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1362 082f 24       		.byte	0x24
  1363 0830 14       		.uleb128 0x14
  1364 0831 0D140000 		.4byte	.LASF230
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 92
+
+
  1365 0835 0A       		.byte	0xa
  1366 0836 43       		.byte	0x43
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 92
-
-
  1367 0837 6E040000 		.4byte	0x46e
  1368 083b 28       		.byte	0x28
  1369 083c 14       		.uleb128 0x14
@@ -5516,11 +5518,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1419 08a1 0A       		.byte	0xa
  1420 08a2 4E       		.byte	0x4e
  1421 08a3 6E040000 		.4byte	0x46e
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 93
+
+
  1422 08a7 31       		.byte	0x31
  1423 08a8 14       		.uleb128 0x14
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 93
-
-
  1424 08a9 0B1A0000 		.4byte	.LASF240
  1425 08ad 0A       		.byte	0xa
  1426 08ae 4F       		.byte	0x4f
@@ -5576,11 +5578,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1476 0913 3E       		.byte	0x3e
  1477 0914 14       		.uleb128 0x14
  1478 0915 B8080000 		.4byte	.LASF249
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 94
+
+
  1479 0919 0A       		.byte	0xa
  1480 091a 58       		.byte	0x58
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 94
-
-
  1481 091b 6E040000 		.4byte	0x46e
  1482 091f 3F       		.byte	0x3f
  1483 0920 14       		.uleb128 0x14
@@ -5636,11 +5638,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1533 0985 0A       		.byte	0xa
  1534 0986 61       		.byte	0x61
  1535 0987 6E040000 		.4byte	0x46e
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 95
+
+
  1536 098b 51       		.byte	0x51
  1537 098c 14       		.uleb128 0x14
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 95
-
-
  1538 098d BA070000 		.4byte	.LASF259
  1539 0991 0A       		.byte	0xa
  1540 0992 62       		.byte	0x62
@@ -5696,11 +5698,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1590 09f7 5A       		.byte	0x5a
  1591 09f8 14       		.uleb128 0x14
  1592 09f9 D0010000 		.4byte	.LASF268
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 96
+
+
  1593 09fd 0A       		.byte	0xa
  1594 09fe 6F       		.byte	0x6f
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 96
-
-
  1595 09ff 84040000 		.4byte	0x484
  1596 0a03 5C       		.byte	0x5c
  1597 0a04 14       		.uleb128 0x14
@@ -5756,11 +5758,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1647 0a69 0A       		.byte	0xa
  1648 0a6a 7B       		.byte	0x7b
  1649 0a6b 6E040000 		.4byte	0x46e
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 97
+
+
  1650 0a6f 70       		.byte	0x70
  1651 0a70 14       		.uleb128 0x14
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 97
-
-
  1652 0a71 BC050000 		.4byte	.LASF278
  1653 0a75 0A       		.byte	0xa
  1654 0a76 7C       		.byte	0x7c
@@ -5816,11 +5818,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1704 0adb 7D       		.byte	0x7d
  1705 0adc 14       		.uleb128 0x14
  1706 0add 57070000 		.4byte	.LASF287
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 98
+
+
  1707 0ae1 0A       		.byte	0xa
  1708 0ae2 88       		.byte	0x88
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 98
-
-
  1709 0ae3 6E040000 		.4byte	0x46e
  1710 0ae7 7E       		.byte	0x7e
  1711 0ae8 14       		.uleb128 0x14
@@ -5876,11 +5878,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1761 0b4d 0A       		.byte	0xa
  1762 0b4e 93       		.byte	0x93
  1763 0b4f 9A040000 		.4byte	0x49a
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 99
+
+
  1764 0b53 9C       		.byte	0x9c
  1765 0b54 14       		.uleb128 0x14
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 99
-
-
  1766 0b55 3D0B0000 		.4byte	.LASF297
  1767 0b59 0A       		.byte	0xa
  1768 0b5a 94       		.byte	0x94
@@ -5936,11 +5938,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1818 0bbf B4       		.byte	0xb4
  1819 0bc0 00       		.byte	0
  1820 0bc1 06       		.uleb128 0x6
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 100
+
+
  1821 0bc2 821A0000 		.4byte	.LASF306
  1822 0bc6 0A       		.byte	0xa
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 100
-
-
  1823 0bc7 9F       		.byte	0x9f
  1824 0bc8 B0070000 		.4byte	0x7b0
  1825 0bcc 10       		.uleb128 0x10
@@ -5996,11 +5998,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1875 0c2e 210A0000 		.4byte	.LASF315
  1876 0c32 19       		.uleb128 0x19
  1877 0c33 04       		.byte	0x4
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 101
+
+
  1878 0c34 380C0000 		.4byte	0xc38
  1879 0c38 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 101
-
-
  1880 0c39 430C0000 		.4byte	0xc43
  1881 0c3d 1B       		.uleb128 0x1b
  1882 0c3e 9A040000 		.4byte	0x49a
@@ -6056,11 +6058,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1932 0cab A5020000 		.4byte	.LASF323
  1933 0caf 0D       		.byte	0xd
  1934 0cb0 7F02     		.2byte	0x27f
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 102
+
+
  1935 0cb2 78050000 		.4byte	0x578
  1936 0cb6 18       		.byte	0x18
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 102
-
-
  1937 0cb7 09       		.uleb128 0x9
  1938 0cb8 0D0A0000 		.4byte	.LASF324
  1939 0cbc 0D       		.byte	0xd
@@ -6116,11 +6118,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  1989 0d21 9A040000 		.4byte	0x49a
  1990 0d25 10       		.byte	0x10
  1991 0d26 14       		.uleb128 0x14
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 103
+
+
  1992 0d27 EB040000 		.4byte	.LASF334
  1993 0d2b 0E       		.byte	0xe
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 103
-
-
  1994 0d2c 38       		.byte	0x38
  1995 0d2d 9A040000 		.4byte	0x49a
  1996 0d31 14       		.byte	0x14
@@ -6176,11 +6178,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2046 0d93 C4020000 		.4byte	.LASF343
  2047 0d97 0E       		.byte	0xe
  2048 0d98 45       		.byte	0x45
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 104
+
+
  2049 0d99 9A040000 		.4byte	0x49a
  2050 0d9d 38       		.byte	0x38
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 104
-
-
  2051 0d9e 14       		.uleb128 0x14
  2052 0d9f 9B000000 		.4byte	.LASF344
  2053 0da3 0E       		.byte	0xe
@@ -6236,11 +6238,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2103 0e08 290C0000 		.4byte	0xc29
  2104 0e0c 06       		.uleb128 0x6
  2105 0e0d 56140000 		.4byte	.LASF353
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 105
+
+
  2106 0e11 11       		.byte	0x11
  2107 0e12 25       		.byte	0x25
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 105
-
-
  2108 0e13 010E0000 		.4byte	0xe01
  2109 0e17 02       		.uleb128 0x2
  2110 0e18 01       		.byte	0x1
@@ -6296,11 +6298,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2160 0e82 9A040000 		.4byte	0x49a
  2161 0e86 00       		.byte	0
  2162 0e87 20       		.uleb128 0x20
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 106
+
+
  2163 0e88 AE1A0000 		.4byte	.LASF387
  2164 0e8c 04       		.byte	0x4
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 106
-
-
  2165 0e8d 81       		.byte	0x81
  2166 0e8e 03       		.byte	0x3
  2167 0e8f 1E       		.uleb128 0x1e
@@ -6318,7 +6320,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2179 0ea9 21       		.uleb128 0x21
  2180 0eaa EB020000 		.4byte	.LASF388
  2181 0eae 01       		.byte	0x1
- 2182 0eaf B8       		.byte	0xb8
+ 2182 0eaf BA       		.byte	0xba
  2183 0eb0 00000000 		.4byte	.LFB561
  2184 0eb4 50000000 		.4byte	.LFE561-.LFB561
  2185 0eb8 01       		.uleb128 0x1
@@ -6329,7 +6331,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2190 0ec3 14000000 		.4byte	.LBB14
  2191 0ec7 0A000000 		.4byte	.LBE14-.LBB14
  2192 0ecb 01       		.byte	0x1
- 2193 0ecc C0       		.byte	0xc0
+ 2193 0ecc C2       		.byte	0xc2
  2194 0ecd E40E0000 		.4byte	0xee4
  2195 0ed1 23       		.uleb128 0x23
  2196 0ed2 7A0E0000 		.4byte	0xe7a
@@ -6343,7 +6345,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2204 0ee9 24000000 		.4byte	.LBB16
  2205 0eed 2C000000 		.4byte	.LBE16-.LBB16
  2206 0ef1 01       		.byte	0x1
- 2207 0ef2 C1       		.byte	0xc1
+ 2207 0ef2 C3       		.byte	0xc3
  2208 0ef3 010F0000 		.4byte	0xf01
  2209 0ef7 23       		.uleb128 0x23
  2210 0ef8 540E0000 		.4byte	0xe54
@@ -6356,11 +6358,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2217 0f0e 25       		.uleb128 0x25
  2218 0f0f 01       		.uleb128 0x1
  2219 0f10 51       		.byte	0x51
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 107
+
+
  2220 0f11 01       		.uleb128 0x1
  2221 0f12 30       		.byte	0x30
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 107
-
-
  2222 0f13 00       		.byte	0
  2223 0f14 26       		.uleb128 0x26
  2224 0f15 14000000 		.4byte	.LVL1
@@ -6376,7 +6378,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2234 0f26 27       		.uleb128 0x27
  2235 0f27 DB140000 		.4byte	.LASF389
  2236 0f2b 01       		.byte	0x1
- 2237 0f2c C6       		.byte	0xc6
+ 2237 0f2c C8       		.byte	0xc8
  2238 0f2d 00000000 		.4byte	.LFB562
  2239 0f31 44000000 		.4byte	.LFE562-.LFB562
  2240 0f35 01       		.uleb128 0x1
@@ -6385,13 +6387,13 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2243 0f3b 28       		.uleb128 0x28
  2244 0f3c 61726700 		.ascii	"arg\000"
  2245 0f40 01       		.byte	0x1
- 2246 0f41 C6       		.byte	0xc6
+ 2246 0f41 C8       		.byte	0xc8
  2247 0f42 290C0000 		.4byte	0xc29
  2248 0f46 3F000000 		.4byte	.LLST3
  2249 0f4a 29       		.uleb128 0x29
  2250 0f4b 05160000 		.4byte	.LASF390
  2251 0f4f 01       		.byte	0x1
- 2252 0f50 C8       		.byte	0xc8
+ 2252 0f50 CA       		.byte	0xca
  2253 0f51 3C0E0000 		.4byte	0xe3c
  2254 0f55 02       		.uleb128 0x2
  2255 0f56 91       		.byte	0x91
@@ -6416,11 +6418,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2274 0f7b 51       		.byte	0x51
  2275 0f7c 02       		.uleb128 0x2
  2276 0f7d 91       		.byte	0x91
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 108
+
+
  2277 0f7e 77       		.sleb128 -9
  2278 0f7f 25       		.uleb128 0x25
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 108
-
-
  2279 0f80 01       		.uleb128 0x1
  2280 0f81 52       		.byte	0x52
  2281 0f82 01       		.uleb128 0x1
@@ -6445,7 +6447,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2300 0f9b 2A       		.uleb128 0x2a
  2301 0f9c 621A0000 		.4byte	.LASF391
  2302 0fa0 01       		.byte	0x1
- 2303 0fa1 DE       		.byte	0xde
+ 2303 0fa1 E0       		.byte	0xe0
  2304 0fa2 60040000 		.4byte	0x460
  2305 0fa6 00000000 		.4byte	.LFB563
  2306 0faa E4000000 		.4byte	.LFE563-.LFB563
@@ -6457,13 +6459,13 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2312 0fb9 12000000 		.4byte	.LBB18
  2313 0fbd 02000000 		.4byte	.LBE18-.LBB18
  2314 0fc1 01       		.byte	0x1
- 2315 0fc2 E3       		.byte	0xe3
+ 2315 0fc2 E5       		.byte	0xe5
  2316 0fc3 22       		.uleb128 0x22
  2317 0fc4 470E0000 		.4byte	0xe47
  2318 0fc8 34000000 		.4byte	.LBB20
  2319 0fcc 16000000 		.4byte	.LBE20-.LBB20
  2320 0fd0 01       		.byte	0x1
- 2321 0fd1 F6       		.byte	0xf6
+ 2321 0fd1 F8       		.byte	0xf8
  2322 0fd2 E00F0000 		.4byte	0xfe0
  2323 0fd6 23       		.uleb128 0x23
  2324 0fd7 540E0000 		.4byte	0xe54
@@ -6474,13 +6476,13 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2329 0fe5 4A000000 		.4byte	.LBB22
  2330 0fe9 16000000 		.4byte	.LBE22-.LBB22
  2331 0fed 01       		.byte	0x1
- 2332 0fee F7       		.byte	0xf7
+ 2332 0fee F9       		.byte	0xf9
  2333 0fef FD0F0000 		.4byte	0xffd
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 109
+
+
  2334 0ff3 23       		.uleb128 0x23
  2335 0ff4 9C0E0000 		.4byte	0xe9c
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 109
-
-
  2336 0ff8 73000000 		.4byte	.LLST5
  2337 0ffc 00       		.byte	0
  2338 0ffd 24       		.uleb128 0x24
@@ -6536,11 +6538,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2388 1050 02       		.uleb128 0x2
  2389 1051 74       		.byte	0x74
  2390 1052 00       		.sleb128 0
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 110
+
+
  2391 1053 25       		.uleb128 0x25
  2392 1054 01       		.uleb128 0x1
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 110
-
-
  2393 1055 51       		.byte	0x51
  2394 1056 05       		.uleb128 0x5
  2395 1057 03       		.byte	0x3
@@ -6596,11 +6598,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2445 10a4 01       		.uleb128 0x1
  2446 10a5 52       		.byte	0x52
  2447 10a6 03       		.uleb128 0x3
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 111
+
+
  2448 10a7 0A       		.byte	0xa
  2449 10a8 0004     		.2byte	0x400
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 111
-
-
  2450 10aa 25       		.uleb128 0x25
  2451 10ab 01       		.uleb128 0x1
  2452 10ac 53       		.byte	0x53
@@ -6656,11 +6658,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2502 10ed 01       		.uleb128 0x1
  2503 10ee 34       		.byte	0x34
  2504 10ef 25       		.uleb128 0x25
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 112
+
+
  2505 10f0 02       		.uleb128 0x2
  2506 10f1 7D       		.byte	0x7d
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 112
-
-
  2507 10f2 04       		.sleb128 4
  2508 10f3 02       		.uleb128 0x2
  2509 10f4 74       		.byte	0x74
@@ -6684,7 +6686,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2527 1118 51       		.byte	0x51
  2528 1119 03       		.uleb128 0x3
  2529 111a 0A       		.byte	0xa
- 2530 111b 0D01     		.2byte	0x10d
+ 2530 111b 0F01     		.2byte	0x10f
  2531 111d 00       		.byte	0
  2532 111e 2C       		.uleb128 0x2c
  2533 111f AC000000 		.4byte	.LVL24
@@ -6716,11 +6718,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2559 115b 1D0C0000 		.4byte	0xc1d
  2560 115f 2E       		.uleb128 0x2e
  2561 1160 24010000 		.4byte	.LASF368
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 113
+
+
  2562 1164 14       		.byte	0x14
  2563 1165 5E       		.byte	0x5e
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 113
-
-
  2564 1166 D20C0000 		.4byte	0xcd2
  2565 116a 2E       		.uleb128 0x2e
  2566 116b EF0E0000 		.4byte	.LASF369
@@ -6737,7 +6739,7 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2577 1185 2F       		.uleb128 0x2f
  2578 1186 D4090000 		.4byte	.LASF371
  2579 118a 01       		.byte	0x1
- 2580 118b 54       		.byte	0x54
+ 2580 118b 56       		.byte	0x56
  2581 118c 96110000 		.4byte	0x1196
  2582 1190 05       		.uleb128 0x5
  2583 1191 03       		.byte	0x3
@@ -6776,11 +6778,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2616 11e1 D605     		.2byte	0x5d6
  2617 11e3 31       		.uleb128 0x31
  2618 11e4 A8030000 		.4byte	.LASF378
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 114
+
+
  2619 11e8 A8030000 		.4byte	.LASF378
  2620 11ec 17       		.byte	0x17
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 114
-
-
  2621 11ed 49       		.byte	0x49
  2622 11ee 30       		.uleb128 0x30
  2623 11ef 39080000 		.4byte	.LASF379
@@ -6836,11 +6838,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2673 0017 0B       		.uleb128 0xb
  2674 0018 49       		.uleb128 0x49
  2675 0019 13       		.uleb128 0x13
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 115
+
+
  2676 001a 3A       		.uleb128 0x3a
  2677 001b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 115
-
-
  2678 001c 3B       		.uleb128 0x3b
  2679 001d 0B       		.uleb128 0xb
  2680 001e 01       		.uleb128 0x1
@@ -6896,11 +6898,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2730 0050 0B       		.uleb128 0xb
  2731 0051 3E       		.uleb128 0x3e
  2732 0052 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 116
+
+
  2733 0053 03       		.uleb128 0x3
  2734 0054 08       		.uleb128 0x8
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 116
-
-
  2735 0055 00       		.byte	0
  2736 0056 00       		.byte	0
  2737 0057 08       		.uleb128 0x8
@@ -6956,11 +6958,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2787 0089 3B       		.uleb128 0x3b
  2788 008a 05       		.uleb128 0x5
  2789 008b 49       		.uleb128 0x49
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 117
+
+
  2790 008c 13       		.uleb128 0x13
  2791 008d 38       		.uleb128 0x38
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 117
-
-
  2792 008e 05       		.uleb128 0x5
  2793 008f 00       		.byte	0
  2794 0090 00       		.byte	0
@@ -7016,11 +7018,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2844 00c2 00       		.byte	0
  2845 00c3 49       		.uleb128 0x49
  2846 00c4 13       		.uleb128 0x13
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 118
+
+
  2847 00c5 00       		.byte	0
  2848 00c6 00       		.byte	0
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 118
-
-
  2849 00c7 12       		.uleb128 0x12
  2850 00c8 13       		.uleb128 0x13
  2851 00c9 01       		.byte	0x1
@@ -7076,11 +7078,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2901 00fb 01       		.uleb128 0x1
  2902 00fc 13       		.uleb128 0x13
  2903 00fd 00       		.byte	0
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 119
+
+
  2904 00fe 00       		.byte	0
  2905 00ff 16       		.uleb128 0x16
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 119
-
-
  2906 0100 0D       		.uleb128 0xd
  2907 0101 00       		.byte	0
  2908 0102 03       		.uleb128 0x3
@@ -7136,11 +7138,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  2958 0134 1B       		.uleb128 0x1b
  2959 0135 05       		.uleb128 0x5
  2960 0136 00       		.byte	0
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 120
+
+
  2961 0137 49       		.uleb128 0x49
  2962 0138 13       		.uleb128 0x13
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 120
-
-
  2963 0139 00       		.byte	0
  2964 013a 00       		.byte	0
  2965 013b 1C       		.uleb128 0x1c
@@ -7196,11 +7198,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3015 016d 03       		.uleb128 0x3
  3016 016e 0E       		.uleb128 0xe
  3017 016f 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 121
+
+
  3018 0170 0B       		.uleb128 0xb
  3019 0171 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 121
-
-
  3020 0172 05       		.uleb128 0x5
  3021 0173 49       		.uleb128 0x49
  3022 0174 13       		.uleb128 0x13
@@ -7256,11 +7258,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3072 01a7 12       		.uleb128 0x12
  3073 01a8 06       		.uleb128 0x6
  3074 01a9 58       		.uleb128 0x58
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 122
+
+
  3075 01aa 0B       		.uleb128 0xb
  3076 01ab 59       		.uleb128 0x59
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 122
-
-
  3077 01ac 0B       		.uleb128 0xb
  3078 01ad 01       		.uleb128 0x1
  3079 01ae 13       		.uleb128 0x13
@@ -7316,11 +7318,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3129 01e7 3B       		.uleb128 0x3b
  3130 01e8 0B       		.uleb128 0xb
  3131 01e9 27       		.uleb128 0x27
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 123
+
+
  3132 01ea 19       		.uleb128 0x19
  3133 01eb 8701     		.uleb128 0x87
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 123
-
-
  3134 01ed 19       		.uleb128 0x19
  3135 01ee 11       		.uleb128 0x11
  3136 01ef 01       		.uleb128 0x1
@@ -7376,11 +7378,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3186 0222 3B       		.uleb128 0x3b
  3187 0223 0B       		.uleb128 0xb
  3188 0224 27       		.uleb128 0x27
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 124
+
+
  3189 0225 19       		.uleb128 0x19
  3190 0226 49       		.uleb128 0x49
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 124
-
-
  3191 0227 13       		.uleb128 0x13
  3192 0228 8701     		.uleb128 0x87
  3193 022a 19       		.uleb128 0x19
@@ -7436,11 +7438,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3243 025f 3C       		.uleb128 0x3c
  3244 0260 19       		.uleb128 0x19
  3245 0261 00       		.byte	0
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 125
+
+
  3246 0262 00       		.byte	0
  3247 0263 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 125
-
-
  3248 0264 34       		.uleb128 0x34
  3249 0265 00       		.byte	0
  3250 0266 03       		.uleb128 0x3
@@ -7496,11 +7498,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3300 0298 00       		.byte	0
  3301 0299 3F       		.uleb128 0x3f
  3302 029a 19       		.uleb128 0x19
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 126
+
+
  3303 029b 3C       		.uleb128 0x3c
  3304 029c 19       		.uleb128 0x19
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 126
-
-
  3305 029d 6E       		.uleb128 0x6e
  3306 029e 0E       		.uleb128 0xe
  3307 029f 03       		.uleb128 0x3
@@ -7556,11 +7558,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3357 0060 34000000 		.4byte	.LVL15
  3358 0064 4A000000 		.4byte	.LVL16
  3359 0068 0100     		.2byte	0x1
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 127
+
+
  3360 006a 53       		.byte	0x53
  3361 006b 00000000 		.4byte	0
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 127
-
-
  3362 006f 00000000 		.4byte	0
  3363              	.LLST5:
  3364 0073 4A000000 		.4byte	.LVL16
@@ -7616,11 +7618,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3406              	.LASF374:
  3407 0016 78517565 		.ascii	"xQueueSemaphoreTake\000"
  3407      75655365 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 128
+
+
  3407      6D617068 
  3407      6F726554 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 128
-
-
  3407      616B6500 
  3408              	.LASF203:
  3409 002a 52455345 		.ascii	"RESERVED\000"
@@ -7676,11 +7678,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3430              	.LASF290:
  3431 00d5 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
  3431      73436D30 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 129
+
+
  3431      436C6F63 
  3431      6B43746C 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 129
-
-
  3431      4F666673 
  3432              	.LASF67:
  3433 00ec 63707573 		.ascii	"cpuss_interrupts_dw0_7_IRQn\000"
@@ -7736,11 +7738,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3451 01b0 666C6173 		.ascii	"flashcBase\000"
  3451      68634261 
  3451      736500
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 130
+
+
  3452              	.LASF298:
  3453 01bb 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 130
-
-
  3453      73436D30 
  3453      4E6D6943 
  3453      746C4F66 
@@ -7796,11 +7798,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3473 0274 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
  3473      44697643 
  3473      6D645061 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 131
+
+
  3473      54797065 
  3473      53656C50 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 131
-
-
  3474              	.LASF115:
  3475 028b 74637077 		.ascii	"tcpwm_1_interrupts_7_IRQn\000"
  3475      6D5F315F 
@@ -7856,11 +7858,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3495      696F6E00 
  3496              	.LASF30:
  3497 033e 73727373 		.ascii	"srss_interrupt_mcwdt_1_IRQn\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 132
+
+
  3497      5F696E74 
  3497      65727275 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 132
-
-
  3497      70745F6D 
  3497      63776474 
  3498              	.LASF12:
@@ -7916,11 +7918,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3516              	.LASF276:
  3517 0423 70657269 		.ascii	"periTrGrSize\000"
  3517      54724772 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 133
+
+
  3517      53697A65 
  3517      00
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 133
-
-
  3518              	.LASF107:
  3519 0430 74637077 		.ascii	"tcpwm_0_interrupts_7_IRQn\000"
  3519      6D5F305F 
@@ -7976,11 +7978,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3538              	.LASF8:
  3539 04df 50656E64 		.ascii	"PendSV_IRQn\000"
  3539      53565F49 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 134
+
+
  3539      52516E00 
  3540              	.LASF334:
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 134
-
-
  3541 04eb 636F6D70 		.ascii	"compare0\000"
  3541      61726530 
  3541      00
@@ -8036,11 +8038,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3558      494E00
  3559              	.LASF28:
  3560 0604 7363625F 		.ascii	"scb_8_interrupt_IRQn\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 135
+
+
  3560      385F696E 
  3560      74657272 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 135
-
-
  3560      7570745F 
  3560      4952516E 
  3561              	.LASF3:
@@ -8096,11 +8098,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3578      00
  3579              	.LASF288:
  3580 06cf 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 136
+
+
  3580      50727443 
  3580      66674F75 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 136
-
-
  3580      744F6666 
  3580      73657400 
  3581              	.LASF178:
@@ -8156,11 +8158,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3606      74657272 
  3606      75707473 
  3606      5F647731 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 137
+
+
  3607              	.LASF154:
  3608 0787 7573625F 		.ascii	"usb_interrupt_med_IRQn\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 137
-
-
  3608      696E7465 
  3608      72727570 
  3608      745F6D65 
@@ -8216,11 +8218,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3627              	.LASF117:
  3628 0848 74637077 		.ascii	"tcpwm_1_interrupts_9_IRQn\000"
  3628      6D5F315F 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 138
+
+
  3628      696E7465 
  3628      72727570 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 138
-
-
  3628      74735F39 
  3629              	.LASF319:
  3630 0862 72784275 		.ascii	"rxBufSize\000"
@@ -8276,11 +8278,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3648      6770696F 
  3649              	.LASF120:
  3650 0918 74637077 		.ascii	"tcpwm_1_interrupts_12_IRQn\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 139
+
+
  3650      6D5F315F 
  3650      696E7465 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 139
-
-
  3650      72727570 
  3650      74735F31 
  3651              	.LASF43:
@@ -8336,11 +8338,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3672 09e1 74637077 		.ascii	"tcpwm_0_interrupts_4_IRQn\000"
  3672      6D5F305F 
  3672      696E7465 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 140
+
+
  3672      72727570 
  3672      74735F34 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 140
-
-
  3673              	.LASF258:
  3674 09fb 666C6173 		.ascii	"flashPipeRequired\000"
  3674      68506970 
@@ -8396,11 +8398,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3694      5F495251 
  3695              	.LASF61:
  3696 0aa0 63707573 		.ascii	"cpuss_interrupts_dw0_1_IRQn\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 141
+
+
  3696      735F696E 
  3696      74657272 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 141
-
-
  3696      75707473 
  3696      5F647730 
  3697              	.LASF150:
@@ -8456,11 +8458,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3714      00
  3715              	.LASF164:
  3716 0b7d 5F5F7569 		.ascii	"__uint16_t\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 142
+
+
  3716      6E743136 
  3716      5F7400
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 142
-
-
  3717              	.LASF196:
  3718 0b88 494E5452 		.ascii	"INTR_MASK\000"
  3718      5F4D4153 
@@ -8516,11 +8518,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3736 0c47 63707573 		.ascii	"cpuss_interrupts_dw1_7_IRQn\000"
  3736      735F696E 
  3736      74657272 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 143
+
+
  3736      75707473 
  3736      5F647731 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 143
-
-
  3737              	.LASF89:
  3738 0c63 63707573 		.ascii	"cpuss_interrupts_dw1_13_IRQn\000"
  3738      735F696E 
@@ -8576,11 +8578,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3756      72727570 
  3756      745F6C6F 
  3756      5F495251 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 144
+
+
  3757              	.LASF330:
  3758 0d29 636C6F63 		.ascii	"clockPrescaler\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 144
-
-
  3758      6B507265 
  3758      7363616C 
  3758      657200
@@ -8636,11 +8638,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3776              	.LASF145:
  3777 0e00 7564625F 		.ascii	"udb_interrupts_13_IRQn\000"
  3777      696E7465 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 145
+
+
  3777      72727570 
  3777      74735F31 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 145
-
-
  3777      335F4952 
  3778              	.LASF173:
  3779 0e17 75696E74 		.ascii	"uint8_t\000"
@@ -8696,11 +8698,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3799      74657272 
  3799      75707473 
  3799      5F697063 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 146
+
+
  3800              	.LASF377:
  3801 0edb 78517565 		.ascii	"xQueueGenericCreate\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 146
-
-
  3801      75654765 
  3801      6E657269 
  3801      63437265 
@@ -8756,11 +8758,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3821      355F696E 
  3821      74657272 
  3821      7570745F 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 147
+
+
  3821      4952516E 
  3822              	.LASF349:
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 147
-
-
  3823 0fa9 42617365 		.ascii	"BaseType_t\000"
  3823      54797065 
  3823      5F7400
@@ -8816,11 +8818,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3843      315F696E 
  3843      74657272 
  3843      7570745F 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 148
+
+
  3843      4952516E 
  3844              	.LASF119:
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 148
-
-
  3845 106c 74637077 		.ascii	"tcpwm_1_interrupts_11_IRQn\000"
  3845      6D5F315F 
  3845      696E7465 
@@ -8876,11 +8878,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3864              	.LASF184:
  3865 113d 49435052 		.ascii	"ICPR\000"
  3865      00
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 149
+
+
  3866              	.LASF72:
  3867 1142 63707573 		.ascii	"cpuss_interrupts_dw0_12_IRQn\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 149
-
-
  3867      735F696E 
  3867      74657272 
  3867      75707473 
@@ -8936,11 +8938,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3885      6E7400
  3886              	.LASF219:
  3887 1215 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 150
+
+
  3887      20646F75 
  3887      626C6500 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 150
-
-
  3888              	.LASF175:
  3889 1221 75696E74 		.ascii	"uint16_t\000"
  3889      31365F74 
@@ -8996,11 +8998,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3909      66726F6F 
  3909      7400
  3910              	.LASF348:
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 151
+
+
  3911 12d9 63795F73 		.ascii	"cy_stc_tcpwm_counter_config_t\000"
  3911      74635F74 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 151
-
-
  3911      6370776D 
  3911      5F636F75 
  3911      6E746572 
@@ -9056,11 +9058,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3933 138b 52455345 		.ascii	"RESERVED5\000"
  3933      52564544 
  3933      3500
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 152
+
+
  3934              	.LASF22:
  3935 1395 696F7373 		.ascii	"ioss_interrupts_gpio_12_IRQn\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 152
-
-
  3935      5F696E74 
  3935      65727275 
  3935      7074735F 
@@ -9116,11 +9118,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3955      61736B61 
  3955      626C6549 
  3955      6E745F49 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 153
+
+
  3955      52516E00 
  3956              	.LASF353:
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 153
-
-
  3957 1456 53656D61 		.ascii	"SemaphoreHandle_t\000"
  3957      70686F72 
  3957      6548616E 
@@ -9176,11 +9178,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3975      75707473 
  3975      5F697063 
  3976              	.LASF24:
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 154
+
+
  3977 150e 696F7373 		.ascii	"ioss_interrupts_gpio_14_IRQn\000"
  3977      5F696E74 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 154
-
-
  3977      65727275 
  3977      7074735F 
  3977      6770696F 
@@ -9236,11 +9238,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  3997 15df 4E564943 		.ascii	"NVIC_Type\000"
  3997      5F547970 
  3997      6500
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 155
+
+
  3998              	.LASF13:
  3999 15e9 696F7373 		.ascii	"ioss_interrupts_gpio_3_IRQn\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 155
-
-
  3999      5F696E74 
  3999      65727275 
  3999      7074735F 
@@ -9296,11 +9298,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4017      74735F31 
  4017      325F4952 
  4018              	.LASF9:
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 156
+
+
  4019 16c3 53797354 		.ascii	"SysTick_IRQn\000"
  4019      69636B5F 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 156
-
-
  4019      4952516E 
  4019      00
  4020              	.LASF235:
@@ -9356,11 +9358,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4039      6C657200 
  4040              	.LASF293:
  4041 1781 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 157
+
+
  4041      73436D30 
  4041      53746174 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 157
-
-
  4041      75734F66 
  4041      66736574 
  4042              	.LASF355:
@@ -9416,11 +9418,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4061      74617475 
  4061      734F6666 
  4061      73657400 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 158
+
+
  4062              	.LASF121:
  4063 184a 74637077 		.ascii	"tcpwm_1_interrupts_13_IRQn\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 158
-
-
  4063      6D5F315F 
  4063      696E7465 
  4063      72727570 
@@ -9476,11 +9478,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4085      5F696E74 
  4085      65727275 
  4085      70745F76 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 159
+
+
  4085      64645F49 
  4086              	.LASF49:
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 159
-
-
  4087 191b 63707573 		.ascii	"cpuss_interrupts_ipc_14_IRQn\000"
  4087      735F696E 
  4087      74657272 
@@ -9536,11 +9538,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4107      745F4952 
  4107      516E00
  4108              	.LASF159:
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 160
+
+
  4109 19d5 7369676E 		.ascii	"signed char\000"
  4109      65642063 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 160
-
-
  4109      68617200 
  4110              	.LASF329:
  4111 19e1 70657269 		.ascii	"period\000"
@@ -9596,11 +9598,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4131 1a92 63707573 		.ascii	"cpuss_interrupts_ipc_9_IRQn\000"
  4131      735F696E 
  4131      74657272 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 161
+
+
  4131      75707473 
  4131      5F697063 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 161
-
-
  4132              	.LASF387:
  4133 1aae 5F5F656E 		.ascii	"__enable_irq\000"
  4133      61626C65 
@@ -9656,11 +9658,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4155      74657272 
  4155      75707473 
  4155      5F647730 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 162
+
+
  4156              	.LASF241:
  4157 1b66 63707573 		.ascii	"cpussDwChNr\000"
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 162
-
-
  4157      73447743 
  4157      684E7200 
  4158              	.LASF17:
@@ -9716,11 +9718,11 @@ ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 1
  4176              	.LASF100:
  4177 1c44 74637077 		.ascii	"tcpwm_0_interrupts_0_IRQn\000"
  4177      6D5F305F 
+ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccJmkbRs.s 			page 163
+
+
  4177      696E7465 
  4177      72727570 
-ARM GAS  C:\Users\mihbs\AppData\Local\Temp\ccgj302v.s 			page 163
-
-
  4177      74735F30 
  4178              	.LASF82:
  4179 1c5e 63707573 		.ascii	"cpuss_interrupts_dw1_6_IRQn\000"
