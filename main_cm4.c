@@ -91,7 +91,7 @@ int main(void)
     
     for(;;)
     {
-        /*
+      /*  
         uint16_t bufferIndex=0;
         uint16_t halfbufferIndex=0;
         

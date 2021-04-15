@@ -45,6 +45,7 @@ uint8_t readRegistre(uint8_t adresse);
 void writeRegistre(uint8_t data, uint8_t adresse);
 void MAX30102_config();
 void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint16_t compteur);
-void changeLED (short int ledAmp);
+void changeLED_red (short int ledAmp_red);
+void changeLED_IR (short int ledAmp_IR);
 
 /* [] END OF FILE */

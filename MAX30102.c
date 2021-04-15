@@ -92,23 +92,30 @@ void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint16_t compteur){
     uint8_t i2c_data [6];
         
         readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
-        red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-        ir_LED[compteur]= (i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
+        red_LED[compteur]=(float32_t)((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
+        ir_LED[compteur]=(float32_t) ((i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]));
         
     
     
 }
 
-void changeLED (short int ledAmp)//ecq une données en chiffre genre 3.6 ou 0x0F
+void changeLED_red (short int ledAmp_red)
 {
-    ledAmp=ledAmp/0.2;
-    writeRegistre(REG_LED_AMP_1, ledAmp); 
-    writeRegistre(REG_LED_AMP_2, ledAmp); 
+    
+    writeRegistre(REG_LED_AMP_1, ledAmp_red); 
+  
     
 }
     
 
-
+void changeLED_IR (short int ledAmp_IR)
+{
+    
+    
+    writeRegistre(REG_LED_AMP_2, ledAmp_IR); 
+    
+}
+    
 
 
 /* [] END OF FILE */
