@@ -1,0 +1,4 @@
+C:/GBM2100.cydsn/CortexM0p/ARM_GCC_541/Debug/startup_psoc6_01_cm0plus.o : C:/GBM2100.cydsn/gcc/startup_psoc6_01_cm0plus.S 
+
+C:/GBM2100.cydsn/gcc/startup_psoc6_01_cm0plus.S : 
+
