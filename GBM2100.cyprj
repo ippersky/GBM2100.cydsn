@@ -3419,7 +3419,7 @@
 <GlobalPages>
 <name_val_pair name="General@Use Default PDL" v="True" />
 <name_val_pair name="General@Custom PDL" v="C:\Custom PDL\3.0.1" />
-<name_val_pair name="General@PDL Packages" v="Graphics::emWin::Core:5.46:nOSnTS:Segger; Graphics::emWin::LCD Driver:5.46:BitPlains:Segger; RTOS::FreeRTOS::Memory Management:10.0.1:heap_1:Real Time Engineers Ltd." />
+<name_val_pair name="General@PDL Packages" v="Graphics::emWin::Core:5.46:OSnTS:Segger; Graphics::emWin::LCD Driver:5.46:BitPlains:Segger; RTOS::FreeRTOS::Memory Management:10.0.1:heap_1:Real Time Engineers Ltd.; utilities::Retarget I/O:::1.20.0::" />
 </GlobalPages>
 </GlobalTools>
 <GlobalTools name="Target IDEs">

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
   27:Generated_Source\PSoC6/Status_SW2.c **** * Summary:
   28:Generated_Source\PSoC6/Status_SW2.c **** *  Reads the current value assigned to the Status Register.
   29:Generated_Source\PSoC6/Status_SW2.c **** *
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 2
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 2
 
 
   30:Generated_Source\PSoC6/Status_SW2.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
   54              		.loc 1 58 0
   55              		.cfi_startproc
   56              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 3
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 3
 
 
   57              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
   80:Generated_Source\PSoC6/Status_SW2.c **** void Status_SW2_InterruptDisable(void) 
   81:Generated_Source\PSoC6/Status_SW2.c **** {
   90              		.loc 1 81 0
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 4
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 4
 
 
   91              		.cfi_startproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  101:Generated_Source\PSoC6/Status_SW2.c **** *
  102:Generated_Source\PSoC6/Status_SW2.c **** *******************************************************************************/
  103:Generated_Source\PSoC6/Status_SW2.c **** void Status_SW2_WriteMask(uint8 mask) 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 5
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 5
 
 
  104:Generated_Source\PSoC6/Status_SW2.c **** {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  156              		@ args = 0, pretend = 0, frame = 0
  157              		@ frame_needed = 0, uses_anonymous_args = 0
  158              		@ link register save eliminated.
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 6
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 6
 
 
  128:Generated_Source\PSoC6/Status_SW2.c ****     return Status_SW2_Status_Mask;
@@ -328,21 +328,21 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  181 0006 00000000 		.4byte	.Ldebug_abbrev0
  182 000a 04       		.byte	0x4
  183 000b 01       		.uleb128 0x1
- 184 000c B1010000 		.4byte	.LASF30
+ 184 000c 0D020000 		.4byte	.LASF30
  185 0010 0C       		.byte	0xc
  186 0011 60000000 		.4byte	.LASF31
- 187 0015 93020000 		.4byte	.LASF32
+ 187 0015 84000000 		.4byte	.LASF32
  188 0019 00000000 		.4byte	.Ldebug_ranges0+0
  189 001d 00000000 		.4byte	0
  190 0021 00000000 		.4byte	.Ldebug_line0
  191 0025 02       		.uleb128 0x2
  192 0026 02       		.byte	0x2
  193 0027 05       		.byte	0x5
- 194 0028 8B010000 		.4byte	.LASF0
+ 194 0028 E7010000 		.4byte	.LASF0
  195 002c 02       		.uleb128 0x2
  196 002d 01       		.byte	0x1
  197 002e 06       		.byte	0x6
- 198 002f 87020000 		.4byte	.LASF1
+ 198 002f E3020000 		.4byte	.LASF1
  199 0033 03       		.uleb128 0x3
  200 0034 00000000 		.4byte	.LASF4
  201 0038 02       		.byte	0x2
@@ -351,14 +351,14 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  204 003e 02       		.uleb128 0x2
  205 003f 01       		.byte	0x1
  206 0040 08       		.byte	0x8
- 207 0041 8A000000 		.4byte	.LASF2
+ 207 0041 E6000000 		.4byte	.LASF2
  208 0045 02       		.uleb128 0x2
  209 0046 02       		.byte	0x2
  210 0047 07       		.byte	0x7
  211 0048 32000000 		.4byte	.LASF3
  212 004c 03       		.uleb128 0x3
  213 004d 0A000000 		.4byte	.LASF5
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 7
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 7
 
 
  214 0051 02       		.byte	0x2
@@ -367,24 +367,24 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  217 0057 02       		.uleb128 0x2
  218 0058 04       		.byte	0x4
  219 0059 05       		.byte	0x5
- 220 005a 6D020000 		.4byte	.LASF6
+ 220 005a C9020000 		.4byte	.LASF6
  221 005e 03       		.uleb128 0x3
- 222 005f EC000000 		.4byte	.LASF7
+ 222 005f 48010000 		.4byte	.LASF7
  223 0063 02       		.byte	0x2
  224 0064 41       		.byte	0x41
  225 0065 69000000 		.4byte	0x69
  226 0069 02       		.uleb128 0x2
  227 006a 04       		.byte	0x4
  228 006b 07       		.byte	0x7
- 229 006c AC000000 		.4byte	.LASF8
+ 229 006c 08010000 		.4byte	.LASF8
  230 0070 02       		.uleb128 0x2
  231 0071 08       		.byte	0x8
  232 0072 05       		.byte	0x5
- 233 0073 78010000 		.4byte	.LASF9
+ 233 0073 D4010000 		.4byte	.LASF9
  234 0077 02       		.uleb128 0x2
  235 0078 08       		.byte	0x8
  236 0079 07       		.byte	0x7
- 237 007a 33010000 		.4byte	.LASF10
+ 237 007a 8F010000 		.4byte	.LASF10
  238 007e 04       		.uleb128 0x4
  239 007f 04       		.byte	0x4
  240 0080 05       		.byte	0x5
@@ -392,59 +392,59 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  242 0085 02       		.uleb128 0x2
  243 0086 04       		.byte	0x4
  244 0087 07       		.byte	0x7
- 245 0088 26010000 		.4byte	.LASF11
+ 245 0088 82010000 		.4byte	.LASF11
  246 008c 03       		.uleb128 0x3
- 247 008d 4A010000 		.4byte	.LASF12
+ 247 008d A6010000 		.4byte	.LASF12
  248 0091 03       		.byte	0x3
  249 0092 18       		.byte	0x18
  250 0093 33000000 		.4byte	0x33
  251 0097 03       		.uleb128 0x3
- 252 0098 67010000 		.4byte	.LASF13
+ 252 0098 C3010000 		.4byte	.LASF13
  253 009c 03       		.byte	0x3
  254 009d 2C       		.byte	0x2c
  255 009e 4C000000 		.4byte	0x4c
  256 00a2 03       		.uleb128 0x3
- 257 00a3 64020000 		.4byte	.LASF14
+ 257 00a3 C0020000 		.4byte	.LASF14
  258 00a7 03       		.byte	0x3
  259 00a8 30       		.byte	0x30
  260 00a9 5E000000 		.4byte	0x5e
  261 00ad 02       		.uleb128 0x2
  262 00ae 04       		.byte	0x4
  263 00af 07       		.byte	0x7
- 264 00b0 6F010000 		.4byte	.LASF15
+ 264 00b0 CB010000 		.4byte	.LASF15
  265 00b4 05       		.uleb128 0x5
  266 00b5 8C000000 		.4byte	0x8c
  267 00b9 02       		.uleb128 0x2
  268 00ba 08       		.byte	0x8
  269 00bb 04       		.byte	0x4
- 270 00bc 7B020000 		.4byte	.LASF16
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 8
+ 270 00bc D7020000 		.4byte	.LASF16
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 8
 
 
  271 00c0 02       		.uleb128 0x2
  272 00c1 01       		.byte	0x1
  273 00c2 08       		.byte	0x8
- 274 00c3 76020000 		.4byte	.LASF17
+ 274 00c3 D2020000 		.4byte	.LASF17
  275 00c7 02       		.uleb128 0x2
  276 00c8 04       		.byte	0x4
  277 00c9 04       		.byte	0x4
- 278 00ca 84000000 		.4byte	.LASF18
+ 278 00ca E0000000 		.4byte	.LASF18
  279 00ce 02       		.uleb128 0x2
  280 00cf 08       		.byte	0x8
  281 00d0 04       		.byte	0x4
- 282 00d1 E5000000 		.4byte	.LASF19
+ 282 00d1 41010000 		.4byte	.LASF19
  283 00d5 06       		.uleb128 0x6
- 284 00d6 BE000000 		.4byte	.LASF20
+ 284 00d6 1A010000 		.4byte	.LASF20
  285 00da 04       		.byte	0x4
  286 00db EA03     		.2byte	0x3ea
  287 00dd 8C000000 		.4byte	0x8c
  288 00e1 06       		.uleb128 0x6
- 289 00e2 98000000 		.4byte	.LASF21
+ 289 00e2 F4000000 		.4byte	.LASF21
  290 00e6 04       		.byte	0x4
  291 00e7 F603     		.2byte	0x3f6
  292 00e9 B4000000 		.4byte	0xb4
  293 00ed 07       		.uleb128 0x7
- 294 00ee F7000000 		.4byte	.LASF26
+ 294 00ee 53010000 		.4byte	.LASF26
  295 00f2 01       		.byte	0x1
  296 00f3 25       		.byte	0x25
  297 00f4 D5000000 		.4byte	0xd5
@@ -462,7 +462,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  309 0112 9C       		.byte	0x9c
  310 0113 39010000 		.4byte	0x139
  311 0117 09       		.uleb128 0x9
- 312 0118 9D000000 		.4byte	.LASF24
+ 312 0118 F9000000 		.4byte	.LASF24
  313 011c 01       		.byte	0x1
  314 011d 3B       		.byte	0x3b
  315 011e D5000000 		.4byte	0xd5
@@ -475,10 +475,10 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  322 0134 C7010000 		.4byte	0x1c7
  323 0138 00       		.byte	0
  324 0139 08       		.uleb128 0x8
- 325 013a 95010000 		.4byte	.LASF23
+ 325 013a F1010000 		.4byte	.LASF23
  326 013e 01       		.byte	0x1
  327 013f 50       		.byte	0x50
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 9
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 9
 
 
  328 0140 00000000 		.4byte	.LFB134
@@ -487,7 +487,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  331 0149 9C       		.byte	0x9c
  332 014a 70010000 		.4byte	0x170
  333 014e 09       		.uleb128 0x9
- 334 014f 9D000000 		.4byte	.LASF24
+ 334 014f F9000000 		.4byte	.LASF24
  335 0153 01       		.byte	0x1
  336 0154 52       		.byte	0x52
  337 0155 D5000000 		.4byte	0xd5
@@ -500,7 +500,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  344 016b C7010000 		.4byte	0x1c7
  345 016f 00       		.byte	0
  346 0170 08       		.uleb128 0x8
- 347 0171 52010000 		.4byte	.LASF25
+ 347 0171 AE010000 		.4byte	.LASF25
  348 0175 01       		.byte	0x1
  349 0176 67       		.byte	0x67
  350 0177 00000000 		.4byte	.LFB135
@@ -509,14 +509,14 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  353 0180 9C       		.byte	0x9c
  354 0181 95010000 		.4byte	0x195
  355 0185 0B       		.uleb128 0xb
- 356 0186 86010000 		.4byte	.LASF33
+ 356 0186 E2010000 		.4byte	.LASF33
  357 018a 01       		.byte	0x1
  358 018b 67       		.byte	0x67
  359 018c D5000000 		.4byte	0xd5
  360 0190 26000000 		.4byte	.LLST2
  361 0194 00       		.byte	0
  362 0195 07       		.uleb128 0x7
- 363 0196 D1000000 		.4byte	.LASF27
+ 363 0196 2D010000 		.4byte	.LASF27
  364 019a 01       		.byte	0x1
  365 019b 7E       		.byte	0x7e
  366 019c D5000000 		.4byte	0xd5
@@ -525,20 +525,20 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  369 01a8 01       		.uleb128 0x1
  370 01a9 9C       		.byte	0x9c
  371 01aa 0C       		.uleb128 0xc
- 372 01ab C4000000 		.4byte	.LASF34
+ 372 01ab 20010000 		.4byte	.LASF34
  373 01af 05       		.byte	0x5
  374 01b0 0108     		.2byte	0x801
  375 01b2 B6010000 		.4byte	0x1b6
  376 01b6 05       		.uleb128 0x5
  377 01b7 97000000 		.4byte	0x97
  378 01bb 0D       		.uleb128 0xd
- 379 01bc 07010000 		.4byte	.LASF28
- 380 01c0 07010000 		.4byte	.LASF28
+ 379 01bc 63010000 		.4byte	.LASF28
+ 380 01c0 63010000 		.4byte	.LASF28
  381 01c4 04       		.byte	0x4
  382 01c5 B203     		.2byte	0x3b2
  383 01c7 0D       		.uleb128 0xd
  384 01c8 14000000 		.4byte	.LASF29
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 10
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 10
 
 
  385 01cc 14000000 		.4byte	.LASF29
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  439 0030 3E       		.uleb128 0x3e
  440 0031 0B       		.uleb128 0xb
  441 0032 03       		.uleb128 0x3
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 11
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 11
 
 
  442 0033 08       		.uleb128 0x8
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  496 006a 0E       		.uleb128 0xe
  497 006b 3A       		.uleb128 0x3a
  498 006c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 12
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 12
 
 
  499 006d 3B       		.uleb128 0x3b
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  553 00a6 00       		.byte	0
  554 00a7 0C       		.uleb128 0xc
  555 00a8 34       		.uleb128 0x34
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 13
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 13
 
 
  556 00a9 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  610 0031 04000000 		.4byte	.LVL5
  611 0035 10000000 		.4byte	.LFE135
  612 0039 0100     		.2byte	0x1
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 14
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 14
 
 
  613 003b 50       		.byte	0x50
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  658      79734C69 
  658      625F4578 
  658      69744372 
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 15
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 15
 
 
  658      69746963 
@@ -860,155 +860,160 @@ ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 1
  664      645F536F 
  664      75726365 
  664      5C50536F 
- 665              	.LASF18:
- 666 0084 666C6F61 		.ascii	"float\000"
- 666      7400
- 667              	.LASF2:
- 668 008a 756E7369 		.ascii	"unsigned char\000"
- 668      676E6564 
- 668      20636861 
- 668      7200
- 669              	.LASF21:
- 670 0098 72656738 		.ascii	"reg8\000"
- 670      00
- 671              	.LASF24:
- 672 009d 696E7465 		.ascii	"interruptState\000"
- 672      72727570 
- 672      74537461 
- 672      746500
- 673              	.LASF8:
- 674 00ac 6C6F6E67 		.ascii	"long unsigned int\000"
- 674      20756E73 
- 674      69676E65 
- 674      6420696E 
- 674      7400
- 675              	.LASF20:
- 676 00be 75696E74 		.ascii	"uint8\000"
- 676      3800
- 677              	.LASF34:
- 678 00c4 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 678      52784275 
- 678      66666572 
- 678      00
- 679              	.LASF27:
- 680 00d1 53746174 		.ascii	"Status_SW2_ReadMask\000"
- 680      75735F53 
- 680      57325F52 
- 680      6561644D 
- 680      61736B00 
- 681              	.LASF19:
- 682 00e5 646F7562 		.ascii	"double\000"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 16
+ 665              	.LASF32:
+ 666 0084 433A5C55 		.ascii	"C:\\Users\\marie\\Documents\\Polytechnique\\Session"
+ 666      73657273 
+ 666      5C6D6172 
+ 666      69655C44 
+ 666      6F63756D 
+ 667 00b2 20342028 		.ascii	" 4 (hiver 2021)\\GBM2100 Projets\\GBM2100.cydsn\000"
+ 667      68697665 
+ 667      72203230 
+ 667      3231295C 
+ 667      47424D32 
+ 668              	.LASF18:
+ 669 00e0 666C6F61 		.ascii	"float\000"
+ 669      7400
+ 670              	.LASF2:
+ 671 00e6 756E7369 		.ascii	"unsigned char\000"
+ 671      676E6564 
+ 671      20636861 
+ 671      7200
+ 672              	.LASF21:
+ 673 00f4 72656738 		.ascii	"reg8\000"
+ 673      00
+ 674              	.LASF24:
+ 675 00f9 696E7465 		.ascii	"interruptState\000"
+ 675      72727570 
+ 675      74537461 
+ 675      746500
+ 676              	.LASF8:
+ 677 0108 6C6F6E67 		.ascii	"long unsigned int\000"
+ 677      20756E73 
+ 677      69676E65 
+ 677      6420696E 
+ 677      7400
+ 678              	.LASF20:
+ 679 011a 75696E74 		.ascii	"uint8\000"
+ 679      3800
+ 680              	.LASF34:
+ 681 0120 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 16
 
 
- 682      6C6500
- 683              	.LASF7:
- 684 00ec 5F5F7569 		.ascii	"__uint32_t\000"
- 684      6E743332 
- 684      5F7400
- 685              	.LASF26:
- 686 00f7 53746174 		.ascii	"Status_SW2_Read\000"
- 686      75735F53 
- 686      57325F52 
- 686      65616400 
- 687              	.LASF28:
- 688 0107 43795F53 		.ascii	"Cy_SysLib_EnterCriticalSection\000"
- 688      79734C69 
- 688      625F456E 
- 688      74657243 
- 688      72697469 
- 689              	.LASF11:
- 690 0126 756E7369 		.ascii	"unsigned int\000"
- 690      676E6564 
- 690      20696E74 
- 690      00
- 691              	.LASF10:
- 692 0133 6C6F6E67 		.ascii	"long long unsigned int\000"
- 692      206C6F6E 
- 692      6720756E 
- 692      7369676E 
- 692      65642069 
- 693              	.LASF12:
- 694 014a 75696E74 		.ascii	"uint8_t\000"
- 694      385F7400 
- 695              	.LASF25:
- 696 0152 53746174 		.ascii	"Status_SW2_WriteMask\000"
- 696      75735F53 
- 696      57325F57 
- 696      72697465 
- 696      4D61736B 
- 697              	.LASF13:
- 698 0167 696E7433 		.ascii	"int32_t\000"
- 698      325F7400 
- 699              	.LASF15:
- 700 016f 73697A65 		.ascii	"sizetype\000"
- 700      74797065 
- 700      00
- 701              	.LASF9:
- 702 0178 6C6F6E67 		.ascii	"long long int\000"
- 702      206C6F6E 
- 702      6720696E 
- 702      7400
- 703              	.LASF33:
- 704 0186 6D61736B 		.ascii	"mask\000"
- 704      00
- 705              	.LASF0:
- 706 018b 73686F72 		.ascii	"short int\000"
- 706      7420696E 
- 706      7400
- 707              	.LASF23:
- 708 0195 53746174 		.ascii	"Status_SW2_InterruptDisable\000"
-ARM GAS  C:\Users\VALRIE~1\AppData\Local\Temp\ccRndpC5.s 			page 17
+ 681      52784275 
+ 681      66666572 
+ 681      00
+ 682              	.LASF27:
+ 683 012d 53746174 		.ascii	"Status_SW2_ReadMask\000"
+ 683      75735F53 
+ 683      57325F52 
+ 683      6561644D 
+ 683      61736B00 
+ 684              	.LASF19:
+ 685 0141 646F7562 		.ascii	"double\000"
+ 685      6C6500
+ 686              	.LASF7:
+ 687 0148 5F5F7569 		.ascii	"__uint32_t\000"
+ 687      6E743332 
+ 687      5F7400
+ 688              	.LASF26:
+ 689 0153 53746174 		.ascii	"Status_SW2_Read\000"
+ 689      75735F53 
+ 689      57325F52 
+ 689      65616400 
+ 690              	.LASF28:
+ 691 0163 43795F53 		.ascii	"Cy_SysLib_EnterCriticalSection\000"
+ 691      79734C69 
+ 691      625F456E 
+ 691      74657243 
+ 691      72697469 
+ 692              	.LASF11:
+ 693 0182 756E7369 		.ascii	"unsigned int\000"
+ 693      676E6564 
+ 693      20696E74 
+ 693      00
+ 694              	.LASF10:
+ 695 018f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 695      206C6F6E 
+ 695      6720756E 
+ 695      7369676E 
+ 695      65642069 
+ 696              	.LASF12:
+ 697 01a6 75696E74 		.ascii	"uint8_t\000"
+ 697      385F7400 
+ 698              	.LASF25:
+ 699 01ae 53746174 		.ascii	"Status_SW2_WriteMask\000"
+ 699      75735F53 
+ 699      57325F57 
+ 699      72697465 
+ 699      4D61736B 
+ 700              	.LASF13:
+ 701 01c3 696E7433 		.ascii	"int32_t\000"
+ 701      325F7400 
+ 702              	.LASF15:
+ 703 01cb 73697A65 		.ascii	"sizetype\000"
+ 703      74797065 
+ 703      00
+ 704              	.LASF9:
+ 705 01d4 6C6F6E67 		.ascii	"long long int\000"
+ 705      206C6F6E 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccuO5EQj.s 			page 17
 
 
- 708      75735F53 
- 708      57325F49 
- 708      6E746572 
- 708      72757074 
- 709              	.LASF30:
- 710 01b1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 710      43313120 
- 710      352E342E 
- 710      31203230 
- 710      31363036 
- 711 01e4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
- 711      20726576 
- 711      6973696F 
- 711      6E203233 
- 711      37373135 
- 712 0217 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
- 712      70202D6D 
- 712      6670753D 
- 712      66707634 
- 712      2D73702D 
- 713 024a 65637469 		.ascii	"ections -ffat-lto-objects\000"
- 713      6F6E7320 
- 713      2D666661 
- 713      742D6C74 
- 713      6F2D6F62 
- 714              	.LASF14:
- 715 0264 75696E74 		.ascii	"uint32_t\000"
- 715      33325F74 
- 715      00
- 716              	.LASF6:
- 717 026d 6C6F6E67 		.ascii	"long int\000"
- 717      20696E74 
- 717      00
- 718              	.LASF17:
- 719 0276 63686172 		.ascii	"char\000"
- 719      00
- 720              	.LASF16:
- 721 027b 6C6F6E67 		.ascii	"long double\000"
- 721      20646F75 
- 721      626C6500 
- 722              	.LASF1:
- 723 0287 7369676E 		.ascii	"signed char\000"
- 723      65642063 
- 723      68617200 
- 724              	.LASF32:
- 725 0293 433A5C47 		.ascii	"C:\\GBM2100.cydsn\000"
- 725      424D3231 
- 725      30302E63 
- 725      7964736E 
- 725      00
- 726              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 705      6720696E 
+ 705      7400
+ 706              	.LASF33:
+ 707 01e2 6D61736B 		.ascii	"mask\000"
+ 707      00
+ 708              	.LASF0:
+ 709 01e7 73686F72 		.ascii	"short int\000"
+ 709      7420696E 
+ 709      7400
+ 710              	.LASF23:
+ 711 01f1 53746174 		.ascii	"Status_SW2_InterruptDisable\000"
+ 711      75735F53 
+ 711      57325F49 
+ 711      6E746572 
+ 711      72757074 
+ 712              	.LASF30:
+ 713 020d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 713      43313120 
+ 713      352E342E 
+ 713      31203230 
+ 713      31363036 
+ 714 0240 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m4 -mfloat-abi=s"
+ 714      20726576 
+ 714      6973696F 
+ 714      6E203233 
+ 714      37373135 
+ 715 0273 6F667466 		.ascii	"oftfp -mfpu=fpv4-sp-d16 -mthumb -g -Og -ffunction-s"
+ 715      70202D6D 
+ 715      6670753D 
+ 715      66707634 
+ 715      2D73702D 
+ 716 02a6 65637469 		.ascii	"ections -ffat-lto-objects\000"
+ 716      6F6E7320 
+ 716      2D666661 
+ 716      742D6C74 
+ 716      6F2D6F62 
+ 717              	.LASF14:
+ 718 02c0 75696E74 		.ascii	"uint32_t\000"
+ 718      33325F74 
+ 718      00
+ 719              	.LASF6:
+ 720 02c9 6C6F6E67 		.ascii	"long int\000"
+ 720      20696E74 
+ 720      00
+ 721              	.LASF17:
+ 722 02d2 63686172 		.ascii	"char\000"
+ 722      00
+ 723              	.LASF16:
+ 724 02d7 6C6F6E67 		.ascii	"long double\000"
+ 724      20646F75 
+ 724      626C6500 
+ 725              	.LASF1:
+ 726 02e3 7369676E 		.ascii	"signed char\000"
+ 726      65642063 
+ 726      68617200 
+ 727              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
