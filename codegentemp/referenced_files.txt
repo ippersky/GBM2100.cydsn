@@ -20,12 +20,13 @@
     <Dir fileName="drivers/peripheral/syslib/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/syspm/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/systick/" buildType="OTHER;;;;" />
+    <Dir fileName="drivers/peripheral/tcpwm/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/trigmux/" buildType="OTHER;;;;" />
     <Dir fileName="drivers/peripheral/wdt/" buildType="OTHER;;;;" />
     <Dir fileName="middleware/" buildType="OTHER;;;;" />
     <Dir fileName="middleware/emWin/code/drivers/BitPlains/" buildType="OTHER;;;;" />
     <Dir fileName="middleware/emWin/code/include/" buildType="OTHER;;;;" />
-    <Dir fileName="middleware/emWin/code/include/nosnts_softfp/" buildType="OTHER;;;;" />
+    <Dir fileName="middleware/emWin/code/include/osnts_softfp/" buildType="OTHER;;;;" />
     <Dir fileName="rtos/FreeRTOS/10.0.1/Source/include/" buildType="OTHER;;;;" />
     <Dir fileName="rtos/FreeRTOS/10.0.1/Source/portable/GCC/CM4F/" buildType="OTHER;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;" />
     <Dir fileName="rtos/FreeRTOS/10.0.1/Source/portable/IAR/CM4F/" buildType="OTHER;;;e9305a93-d091-4da5-bdc7-2813049dcdbf;" />
@@ -37,8 +38,8 @@
     <Define>CY8C6347BZI_BLD53</Define>
   </Defines>
   <folder folderName=".">
-    <file fileName="GUIConf.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\include\nosnts_softfp\GUIConf.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="True" />
-    <file fileName="GUI_X.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\config\nos\GUI_X.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="True" />
+    <file fileName="GUIConf.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\include\osnts_softfp\GUIConf.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="True" />
+    <file fileName="GUI_X_RTOS.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\config\os\GUI_X_RTOS.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="True" />
     <file fileName="GUIConf.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\config\GUIConf.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="True" />
     <file fileName="LCDConf.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\drivers\BitPlains\config\LCDConf.h" buildType="OTHER;;;;" copyLocal="True" isTemplate="True" />
     <file fileName="LCDConf.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\code\drivers\BitPlains\config\LCDConf.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="True" />
@@ -155,6 +156,15 @@
           <folder folderName="systick">
             <file fileName="cy_systick.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\systick\cy_systick.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
             <file fileName="cy_systick.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\systick\cy_systick.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
+          </folder>
+          <folder folderName="tcpwm">
+            <file fileName="cy_tcpwm.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
+            <file fileName="cy_tcpwm_counter.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm_counter.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
+            <file fileName="cy_tcpwm_counter.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm_counter.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
+            <file fileName="cy_tcpwm_pwm.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm_pwm.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
+            <file fileName="cy_tcpwm_pwm.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm_pwm.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
+            <file fileName="cy_tcpwm_quaddec.h" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm_quaddec.h" buildType="HEADER;;;;" copyLocal="True" isTemplate="False" />
+            <file fileName="cy_tcpwm_quaddec.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\tcpwm\cy_tcpwm_quaddec.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
           </folder>
           <folder folderName="trigmux">
             <file fileName="cy_trigmux.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\drivers\peripheral\trigmux\cy_trigmux.c" buildType="SOURCE_C;;;;" copyLocal="True" isTemplate="False" />
@@ -273,13 +283,13 @@
           </folder>
           <folder folderName="libs">
             <folder folderName="GCC">
-              <file fileName="libemWin_nosnts_gcc.a" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\libs\GCC\libemWin_nosnts_gcc.a" buildType="LIBRARY;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;" copyLocal="True" isTemplate="False" />
+              <file fileName="libemWin_osnts_gcc.a" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\libs\GCC\libemWin_osnts_gcc.a" buildType="LIBRARY;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;" copyLocal="True" isTemplate="False" />
             </folder>
             <folder folderName="IAR">
-              <file fileName="libemWin_nosnts_iar.a" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\libs\IAR\libemWin_nosnts_iar.a" buildType="LIBRARY;;;e9305a93-d091-4da5-bdc7-2813049dcdbf;" copyLocal="True" isTemplate="False" />
+              <file fileName="libemWin_osnts_iar.a" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\libs\IAR\libemWin_osnts_iar.a" buildType="LIBRARY;;;e9305a93-d091-4da5-bdc7-2813049dcdbf;" copyLocal="True" isTemplate="False" />
             </folder>
             <folder folderName="MDK">
-              <file fileName="libemWin_nosnts_mdk.a" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\libs\MDK\libemWin_nosnts_mdk.a" buildType="LIBRARY;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;" copyLocal="True" isTemplate="False" />
+              <file fileName="libemWin_osnts_mdk.a" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\middleware\emWin\libs\MDK\libemWin_osnts_mdk.a" buildType="LIBRARY;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;" copyLocal="True" isTemplate="False" />
             </folder>
           </folder>
         </folder>
@@ -333,7 +343,7 @@
                   </folder>
                 </folder>
                 <folder folderName="MemMang">
-                  <file fileName="heap_4.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\rtos\FreeRTOS\10.0.1\Source\portable\MemMang\heap_4.c" buildType="SOURCE_C;CortexM4;;;" copyLocal="True" isTemplate="False" />
+                  <file fileName="heap_1.c" physicalFilePath="C:\Program Files (x86)\Cypress\PDL\3.1.3\rtos\FreeRTOS\10.0.1\Source\portable\MemMang\heap_1.c" buildType="SOURCE_C;CortexM4;;;" copyLocal="True" isTemplate="False" />
                 </folder>
               </folder>
             </folder>

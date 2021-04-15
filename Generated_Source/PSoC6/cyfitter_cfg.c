@@ -210,15 +210,21 @@ static void ClockInit(void)
 	Cy_SysLib_SetWaitStates(false, 100);
 
 	/* Configure peripheral clock dividers */
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB2_CLOCK, CY_SYSCLK_DIV_8_BIT, 1u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 12u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB3_CLOCK, CY_SYSCLK_DIV_8_BIT, 0u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 0u, 12u);
-	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 0u);
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB5_CLOCK, CY_SYSCLK_DIV_8_BIT, 2u);
-	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 71u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB2_CLOCK, CY_SYSCLK_DIV_8_BIT, 3u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 3u, 12u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 3u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB3_CLOCK, CY_SYSCLK_DIV_8_BIT, 2u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 2u, 12u);
 	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 2u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_SCB6_CLOCK, CY_SYSCLK_DIV_8_BIT, 1u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 1u, 0u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 1u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_TCPWM0_CLOCKS0, CY_SYSCLK_DIV_16_BIT, 0u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_16_BIT, 0u, 49999u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_16_BIT, 0u);
+	Cy_SysClk_PeriphAssignDivider(PCLK_CSD_CLOCK, CY_SYSCLK_DIV_8_BIT, 0u);
+	Cy_SysClk_PeriphSetDivider(CY_SYSCLK_DIV_8_BIT, 0u, 254u);
+	Cy_SysClk_PeriphEnableDivider(CY_SYSCLK_DIV_8_BIT, 0u);
 }
 
 
@@ -243,6 +249,10 @@ static void ClockInit(void)
 static void AnalogSetDefault(void);
 static void AnalogSetDefault(void)
 {
+	CY_SET_REG32(CYREG_HSIOM_AMUX_SPLIT_CTL2, 0x00000003u);
+	CY_SET_REG32(CYREG_HSIOM_AMUX_SPLIT_CTL4, 0x00000003u);
+	CY_SET_REG32(CYREG_CSD0_SW_BYP_SEL, 0x00001000u);
+	CY_SET_REG32(CYREG_PASS_AREF_AREF_CTRL, 0x80110001u);
 }
 
 
@@ -581,18 +591,52 @@ void Cy_SystemInit(void)
 		CY_SET_REG32((void *)0x40347900u, CY_GET_REG32((void *)0x40347900u) | 0x102u);
 	}
 
+	/* Port0 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port0_cfg =
+	    {
+	        .out        = 0x00000010u,
+	        .intrMask   = 0x00000010u,
+	        .intrCfg    = 0x00000300u,
+	        .cfg        = 0x000A0600u,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00000000u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT0, &port0_cfg);
+	}
+
+	/* Port1 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port1_cfg =
+	    {
+	        .out        = 0x00000001u,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x00000000u,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00000000u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT1, &port1_cfg);
+	}
+
 	/* Port5 configuration */
 	{
 	    const cy_stc_gpio_prt_config_t port5_cfg =
 	    {
-	        .out        = 0x00000003u,
+	        .out        = 0x00000000u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x00000068u,
+	        .cfg        = 0x06668600u,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
-	        .sel0Active = 0x00001212u,
+	        .sel0Active = 0x00000000u,
 	        .sel1Active = 0x00000000u,
 	    };
 	    (void)Cy_GPIO_Port_Init(GPIO_PRT5, &port5_cfg);
@@ -615,6 +659,40 @@ void Cy_SystemInit(void)
 	    (void)Cy_GPIO_Port_Init(GPIO_PRT6, &port6_cfg);
 	}
 
+	/* Port7 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port7_cfg =
+	    {
+	        .out        = 0x00000086u,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x00000000u,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00000000u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT7, &port7_cfg);
+	}
+
+	/* Port8 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port8_cfg =
+	    {
+	        .out        = 0x000000FEu,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x00000000u,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00040400u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT8, &port8_cfg);
+	}
+
 	/* Port9 configuration */
 	{
 	    const cy_stc_gpio_prt_config_t port9_cfg =
@@ -632,6 +710,23 @@ void Cy_SystemInit(void)
 	    (void)Cy_GPIO_Port_Init(GPIO_PRT9, &port9_cfg);
 	}
 
+	/* Port12 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port12_cfg =
+	    {
+	        .out        = 0x00000007u,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x00006686u,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00141414u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT12, &port12_cfg);
+	}
+
 	/* Port13 configuration */
 	{
 	    const cy_stc_gpio_prt_config_t port13_cfg =
@@ -639,7 +734,7 @@ void Cy_SystemInit(void)
 	        .out        = 0x00000000u,
 	        .intrMask   = 0x00000001u,
 	        .intrCfg    = 0x00000001u,
-	        .cfg        = 0x6000000Bu,
+	        .cfg        = 0x0000000Bu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
