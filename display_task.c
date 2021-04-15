@@ -33,8 +33,8 @@ size_t espacement = 3;
 int SPO2 = 35; 
 int BPM = 85;
 
-
-uint8_t courantLEDrouge = 225;
+// 0 a 255
+uint8_t courantLEDrouge = 31;
 uint8_t courantLEDir = 1;
 
 
@@ -335,12 +335,22 @@ void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
     uint8_t courantHEX = *ptrCourantLED;
     float courantDEC = ((float)courantHEX*51)/255;
     
-    char sCourantHEX[5];
-    itoa(courantHEX, sCourantHEX, 10);
-    GUI_DispStringAt(sCourantHEX, 90, 10+(3*font));
+    //char sCourantHEX[5];
+    //itoa(courantHEX, sCourantHEX, 10);
+    //GUI_DispStringAt(sCourantHEX, 90, 10+(3*font));
     
+    /*
+    char sCourantDEC[10];
+    int decpt;
+    int sgn;
+    fcvtbuf(courantDEC, 1, &decpt, &sgn, sCourantDEC);
+    GUI_DispStringAt(sCourantDEC, 90, 10+(3*font));
+    */
     
-
+    char sCourantDEC[10];
+    gcvt(courantDEC, 4, sCourantDEC);   // sprintf ?? Labo3 ??
+    GUI_DispStringAt(sCourantDEC, 90, 10+(3*font));
+    
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
 

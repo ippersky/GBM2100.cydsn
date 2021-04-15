@@ -20,7 +20,8 @@
 #include "cy_eink_library.h"
 #include "LCDConf.h"
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <unistd.h>
     
 #include "FreeRTOS.h"
 #include "queue.h"
