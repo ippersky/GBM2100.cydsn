@@ -22,6 +22,8 @@
       <Data key="0011ca31-6bd7-44b1-b50b-5d285037fbee/69c3b5e8-b094-4d65-b96b-9f4f3a9a8641" value="I2C_BMI_scl" />
       <Data key="11e17683-127f-423f-8dce-bf373d2e90f7" value="Pin_Acc_INT" />
       <Data key="53c729f9-69c1-4597-9947-5e20908822b6" value="LED_Red" />
+      <Data key="55a5741f-60af-4a2b-9f91-41785752579c/65f3af6c-759b-4ccb-8c66-5c95ba1f5f4f" value="UART_1_tx" />
+      <Data key="55a5741f-60af-4a2b-9f91-41785752579c/b7e8018e-1ef7-49c0-b5a5-61641a03e31c" value="UART_1_rx" />
       <Data key="91e3ec64-e061-4947-8cc6-62603662a05f/4db2e9d3-9f70-4f4e-a919-7eefada41863" value="CapSense_Cmod" />
       <Data key="91e3ec64-e061-4947-8cc6-62603662a05f/8ed50244-d239-4c9b-9207-b8e71ce193dc" value="CapSense_Tx" />
       <Data key="91e3ec64-e061-4947-8cc6-62603662a05f/77fd7f86-2082-41fa-a471-914d5f07502d" value="CapSense_Rx" />
@@ -757,6 +759,16 @@
     <Group key="53c729f9-69c1-4597-9947-5e20908822b6">
       <Group key="0">
         <Data key="Port Format" value="13,7" />
+      </Group>
+    </Group>
+    <Group key="55a5741f-60af-4a2b-9f91-41785752579c/65f3af6c-759b-4ccb-8c66-5c95ba1f5f4f">
+      <Group key="0">
+        <Data key="Port Format" value="5,1" />
+      </Group>
+    </Group>
+    <Group key="55a5741f-60af-4a2b-9f91-41785752579c/b7e8018e-1ef7-49c0-b5a5-61641a03e31c">
+      <Group key="0">
+        <Data key="Port Format" value="5,0" />
       </Group>
     </Group>
     <Group key="91e3ec64-e061-4947-8cc6-62603662a05f/4db2e9d3-9f70-4f4e-a919-7eefada41863">

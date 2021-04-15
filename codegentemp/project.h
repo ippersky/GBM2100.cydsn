@@ -124,10 +124,12 @@
 #include "CapSense_SmartSense_LL.h"
 #include "I2C_BMI.h"
 #include "I2C_MAX.h"
+#include "UART_1.h"
 #include "CY_EINK_SPIM_SCBCLK.h"
 #include "CapSense_ModClk.h"
 #include "I2C_BMI_SCBCLK.h"
 #include "I2C_MAX_SCBCLK.h"
+#include "UART_1_SCBCLK.h"
 
 /*[]*/
 
