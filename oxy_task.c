@@ -19,11 +19,11 @@ void vtraitement ()
 {
     
     uint16_t bufferIndex = 0;
-    uint16_t halfbufferFlag = 0; //Utiliser ou non?
-    uint16_t endbufferFlaf = 0; //Utiliser ou non?
     
     for(bufferIndex=0; bufferIndex<BUFFER_LENGTH;bufferIndex++)
     {
+        
+        
         readFIFO(redLED_buffer, irLED_buffer, bufferIndex);
         
         
@@ -32,7 +32,7 @@ void vtraitement ()
         {
             BPM=HeartRate(redLED_buffer,0,BUFFER_LENGTH/2);
             SPO2=calculSpO2(redLED_buffer,irLED_buffer,0,BUFFER_LENGTH/2);
-            
+            //afficherMenuPrincipal
         }
         
         if (bufferIndex==BUFFER_LENGTH)
@@ -40,9 +40,12 @@ void vtraitement ()
             BPM=HeartRate(redLED_buffer,BUFFER_LENGTH/2, BUFFER_LENGTH);
             SPO2=calculSpO2(redLED_buffer,irLED_buffer,BUFFER_LENGTH/2,BUFFER_LENGTH);
             bufferIndex=0;
+            //afficher menu pricipal
         }
         
     }
+    //priorité plus basse
+    
     
     
     
