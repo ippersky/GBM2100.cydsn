@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -51,6 +51,15 @@
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_fonts.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_library.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_library.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_psoc_interface.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_psoc_interface.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_configuration.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_hardware_driver.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_hardware_driver.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\algorithme.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\arm_math.h</v>
@@ -81,7 +90,6 @@
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\main_cm4.c</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\MAX30102.c</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\stdio_user.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\touch_task.c</v>
 <v>GBM2100-000\GBM2100\Shared Files</v>
 <v>GBM2100-000\GBM2100\Shared Files\GUI_X_RTOS.c</v>
@@ -94,27 +102,15 @@
 <v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\ARM IAR Generic\cy8c6xx7_cm0plus.icf</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\ARM MDK Generic\cy8c6xx7_cm0plus.scat</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Header Files</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Header Files\params.h</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\ARM GCC Generic</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\ARM GCC Generic\startup_psoc6_01_cm0plus.S</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\ARM IAR Generic</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\ARM IAR Generic\startup_psoc6_01_cm0plus.s</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\ARM MDK Generic\startup_psoc6_01_cm0plus.s</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\main_cm0p.c</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)\Source Files\system_psoc6_cm0plus.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM GCC Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_fonts.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_library.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_library.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_psoc_interface.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\cy_eink_psoc_interface.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_configuration.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_hardware_driver.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\eInk Library\pervasive_eink_hardware_driver.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\algorithme.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\arm_math.h</v>
@@ -124,6 +120,18 @@
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\core_cm4.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\debug.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\display_task.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\MAX30102.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\oxy_task.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\params.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\stdio_user.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\touch_task.h</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Images</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Images\Cypress Logo Full Color_PNG_1bpp.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -148,6 +156,16 @@
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSX_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
@@ -181,6 +199,7 @@
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_sysint_cfg.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\GUI_X_RTOS.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\GUIConf.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\I2C_BMI.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\I2C_MAX.lst</v>
@@ -189,6 +208,7 @@
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\retarget.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\startup_psoc6_01_cm0plus.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\system_psoc6_cm0plus.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\GBM2100.elf</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\GBM2100.hex</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\GBM2100.map</v>
@@ -199,10 +219,22 @@
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\algorithme.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\bmi160.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\bmi160_task.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSX_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\croutine.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cy_eink_library.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cy_eink_psoc_interface.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CY_EINK_SPIM.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\CY_EINK_Timer.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cy_flash.lst</v>
@@ -233,7 +265,9 @@
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cyfitter_sysint_cfg.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\Cypress Logo Full Color_PNG_1bpp.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\display_task.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\event_groups.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\GUI_X_RTOS.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\GUIConf.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\heap_1.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\I2C_BMI.lst</v>
@@ -242,6 +276,8 @@
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\list.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\main_cm4.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\MAX30102.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\oxy_task.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\pervasive_eink_hardware_driver.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\port.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\queue.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\retarget.lst</v>
@@ -251,6 +287,8 @@
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\system_psoc6_cm4.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\tasks.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\timers.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\touch_task.lst</v>
+<v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\GBM2100.elf</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\GBM2100.hex</v>
 <v>GBM2100-000\GBM2100\CortexM4\ARM_GCC_541\Debug\GBM2100.map</v>
@@ -261,6 +299,34 @@
 <VisibleNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
+<v>GBM2100-000\GBM2100\CortexM0p</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSX_LL.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ble_clk.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_device.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_efuse.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CY_EINK_SPIM.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\CY_EINK_Timer.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_flash.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_gpio.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_drv.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_pipe.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_ipc_sema.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_lvd.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_profile.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_prot.lst</v>
+<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cy_scb_common.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -283,6 +349,7 @@
 <v>GBM2100-000\GBM2100\SCB_I2C_PDL_v2_0</v>
 <v>GBM2100-000\GBM2100\SCB_I2C_PDL_v2_0\SCB_I2C_PDL_v2_0.pdf</v>
 <v>GBM2100-000\GBM2100\SCB_SPI_PDL_v2_0.pdf</v>
+<v>GBM2100-000\GBM2100\SCB_UART_PDL_v2_0.pdf</v>
 <v>GBM2100-000\GBM2100\SysClk_PDL_v1_0.pdf</v>
 <v>GBM2100-000\GBM2100\SysInt_PDL_v1_0</v>
 <v>GBM2100-000\GBM2100\SysInt_PDL_v1_0\SysInt_PDL_v1_0.pdf</v>
@@ -302,6 +369,7 @@
 <v>GBM2100-000\GBM2100\SCB_I2C_PDL_v2_0</v>
 <v>GBM2100-000\GBM2100\SCB_I2C_PDL_v2_0\SCB_I2C_PDL_v2_0.pdf</v>
 <v>GBM2100-000\GBM2100\SCB_SPI_PDL_v2_0.pdf</v>
+<v>GBM2100-000\GBM2100\SCB_UART_PDL_v2_0.pdf</v>
 <v>GBM2100-000\GBM2100\SysClk_PDL_v1_0.pdf</v>
 <v>GBM2100-000\GBM2100\SysInt_PDL_v1_0</v>
 <v>GBM2100-000\GBM2100\SysInt_PDL_v1_0\SysInt_PDL_v1_0.pdf</v>
@@ -321,6 +389,11 @@
 <name v=".\stdio_user.h" />
 <name v=".\touch_task.h" />
 <name v=".\main_cm4.c" />
+<name v=".\display_task.c" />
+<name v=".\LCDConf.h" />
+<name v=".\LCDConf.c" />
+<name v=".\oxy_task.h" />
+<name v=".\oxy_task.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -328,7 +401,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="962, 391" SelectedTabbedMdiWindow="73950e14-ceb9-4b50-8c01-54261f84159f"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="85c485fa-e7be-4d10-a4f5-c37adeac9399" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="984746cd-54df-4be7-ba2f-d13de7a4de85" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\GBM2100.cydwr" Guid="005b7a70-9045-466c-a83d-e1592fa06475" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\FreeRTOSConfig.h" Guid="a8e21412-fc6b-42d3-ba42-83fb35da10f0" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\stdio_user.h" Guid="8c3897d7-230e-466b-9b9c-63924be867be" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\touch_task.h" Guid="c2c9a763-fbc1-4b67-a674-7703071ef057" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\main_cm4.c" Guid="73950e14-ceb9-4b50-8c01-54261f84159f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="962, 391" SelectedTabbedMdiWindow="b5c83075-a40c-4dc1-bf56-220dd4530b16"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="85c485fa-e7be-4d10-a4f5-c37adeac9399" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="984746cd-54df-4be7-ba2f-d13de7a4de85" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\GBM2100.cydwr" Guid="005b7a70-9045-466c-a83d-e1592fa06475" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\FreeRTOSConfig.h" Guid="a8e21412-fc6b-42d3-ba42-83fb35da10f0" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\stdio_user.h" Guid="8c3897d7-230e-466b-9b9c-63924be867be" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\touch_task.h" Guid="c2c9a763-fbc1-4b67-a674-7703071ef057" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\main_cm4.c" Guid="73950e14-ceb9-4b50-8c01-54261f84159f" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\display_task.c" Guid="847ead3e-da98-48d8-9365-f84900159f07" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\LCDConf.h" Guid="f7cc3df4-01d3-4dbd-8fc3-b2c9b9fa0090" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\LCDConf.c" Guid="0f10f33c-2673-424e-8db9-c7bf03de4eb1" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\oxy_task.h" Guid="1e27f80e-1080-49c6-97bd-0ecfdda8bdaa" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\oxy_task.c" Guid="b5c83075-a40c-4dc1-bf56-220dd4530b16" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

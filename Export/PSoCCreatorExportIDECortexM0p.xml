@@ -56,6 +56,9 @@
       <Folder BuildType="STRICT" Path="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn">
         <Files Root="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn" />
       </Folder>
+      <Folder BuildType="STRICT" Path="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn">
+        <Files Root="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn" />
+      </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\Generated_Source\PSoC6">
         <Files Root="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\cyfitter_cfg.h</File>
@@ -111,6 +114,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\CapSense_ModClk.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\I2C_BMI_SCBCLK.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\I2C_MAX_SCBCLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\UART_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\UART_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC6\UART_1_SCBCLK.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\Generated_Source\PSoC6\pdl\cmsis\include">

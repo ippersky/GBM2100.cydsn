@@ -32,7 +32,7 @@ void vtraitement ()
         {
             BPM=HeartRate(redLED_buffer,0,BUFFER_LENGTH/2);
             SPO2=calculSpO2(redLED_buffer,irLED_buffer,0,BUFFER_LENGTH/2);
-            //afficherMenuPrincipal
+            //afficherMenuPrincipal()
         }
         
         if (bufferIndex==BUFFER_LENGTH)

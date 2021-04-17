@@ -45,6 +45,13 @@ Purpose     : Display driver configuration file
 #ifndef LCDCONF_H
 #define LCDCONF_H
 
+#include  "project.h"
+#include "GUI.h"
+    
+void LCD_CopyDisplayBuffer(uint8* destination, int count);
+U8* LCD_GetDisplayBuffer(void);
+
 #endif /* LCDCONF_H */
 
 /*************************** End of file ****************************/
+
