@@ -72,12 +72,12 @@ void WaitforSwitchPressAndRelease(void);
 
 void DisplayInit(void);
 
-void convertirVecteurEnInt16(int16_t* vConverti, int32_t* vData, size_t lData);
+void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData);
 void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement);
 void updateParametres(float32_t SPO2, float32_t BPM);
 
 
-void afficherMenuPrincipal(void);
+//void afficherMenuPrincipal(void);
 
 
 void afficherMenuSecondaire(uint8_t * ptrOptionPresent);

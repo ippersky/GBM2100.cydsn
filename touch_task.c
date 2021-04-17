@@ -50,7 +50,8 @@ void Task_Touch(void * arg)      // void ou void * arg ??
     
     touch_data_t currentTouch;  // à initialiser ailleurs? car interupt bouton 
                                 // a besoin de ça aussi...?
-    
+    static bool oldBTN0=false;
+    static bool oldBTN1=false;
     
     for(;;)
     {
@@ -60,21 +61,21 @@ void Task_Touch(void * arg)      // void ou void * arg ??
             currentTouch = NO_TOUCH;
 
             if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID)){
-                //bouton0++; //mettre dans une queue ou declencher un semaphore
-                //GUI_Clear();
-                //GUI_SetFont(GUI_FONT_20_1);
-                //GUI_DispStringAt("Boutton 0 reussi", 10, 10);
-                //UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-                currentTouch = BUTTON0_TOUCHED;
-                
+                if(!oldBTN0)
+                    currentTouch = BUTTON0_TOUCHED;                
+                oldBTN0 = true;
             }
-            else if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID)){
-                //bouton1++; //mettre dans une queue ou declencher un semaphore
-                //GUI_Clear();
-                //updateParametres(35,85);
-                currentTouch = BUTTON1_TOUCHED;
-                
+            else 
+                oldBTN0 = false;
+            
+            
+            if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID)){
+                if(!oldBTN1)
+                    currentTouch = BUTTON1_TOUCHED; 
+                oldBTN1 = true;
             }
+            else
+                oldBTN1 = false;
             
             if (currentTouch != NO_TOUCH){
                 xQueueSend( touchDataQ, &currentTouch, ( TickType_t ) 0 );            
