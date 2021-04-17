@@ -18,11 +18,18 @@ uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
 
  // vecteur de 160 elements, LED rouge 
-int32_t vecteurData[] = {205973,207305,206168,208001,206188,208050,206371,208225,206544,208577,206719,208501,206990,208473,207183,208417,207367,208379,207724,208151,207986,207993,208303,207802,208682,207622,208730,207587,209365,207455,209209,207541,209337,207549,209635,207806,209501,207957,209461,207996,209317,208103,209140,208491,209000,208672,208748,209006,208491,209357,208350,209326,208242,209947,208089,209826,208216,210028,208306,210395,208429,210203,208596,210292,208686,210169,208954,210055,209354,209987,209644,209821,210027,209660,210440,209483,210556,209554,211304,209484,211253,209696,211585,209817,211970,210011,211842,210178,211772,209972,211207,209606,210230,208954,209085,208043,207710,207263,206266,206439,205001,205392,203820,204970,202756,203955,202073,203512,201459,203377,201194,202759,200993,202713,201002,202459,201198,202302,201513,202188,201835,202108,202327,202081,202824,201965,203003,202176,203932,202267,203918,202500,204436,202777,204921,203032,204880,203312,205157,203520,205057,203810,205034,204221,204997,204527,204912,204994,204917,205416,204837,205671,204732,206338,204657,206251,204614,206460,204591,206662};
-int16_t vecteurConverti[160] = {};  
-int16_t vecteurAffichage[100] = {}; // a redefinir : taille = longueurData/espacement
-size_t longueurData = sizeof(vecteurData)/sizeof(int32_t); // 160
-size_t espacement = 3;
+uint32_t vecteurData[] = {205973,207305,206168,208001,206188,208050,206371,208225,206544,208577,206719,208501,206990,208473,207183,208417,207367,208379,207724,208151,207986,207993,208303,207802,208682,207622,208730,207587,209365,207455,209209,207541,209337,207549,209635,207806,209501,207957,209461,207996,209317,208103,209140,208491,209000,208672,208748,209006,208491,209357,208350,209326,208242,209947,208089,209826,208216,210028,208306,210395,208429,210203,208596,210292,208686,210169,208954,210055,209354,209987,209644,209821,210027,209660,210440,209483,210556,209554,211304,209484,211253,209696,211585,209817,211970,210011,211842,210178,211772,209972,211207,209606,210230,208954,209085,208043,207710,207263,206266,206439,205001,205392,203820,204970,202756,203955,202073,203512,201459,203377,201194,202759,200993,202713,201002,202459,201198,202302,201513,202188,201835,202108,202327,202081,202824,201965,203003,202176,203932,202267,203918,202500,204436,202777,204921,203032,204880,203312,205157,203520,205057,203810,205034,204221,204997,204527,204912,204994,204917,205416, //,204837,205671,204732,206338,204657,206251,204614,206460,204591,206662};
+                            205973,207305,206168,208001,206188,208050,206371,208225,206544,208577,206719,208501,206990,208473,207183,208417,207367,208379,207724,208151,207986,207993,208303,207802,208682,207622,208730,207587,209365,207455,209209,207541,209337,207549,209635,207806,209501,207957,209461,207996,209317,208103,209140,208491,209000,208672,208748,209006,208491,209357,208350,209326,208242,209947,208089,209826,208216,210028,208306,210395,208429,210203,208596,210292,208686,210169,208954,210055,209354,209987,209644,209821,210027,209660,210440,209483,210556,209554,211304,209484,211253,209696,211585,209817,211970,210011,211842,210178,211772,209972,211207,209606,210230,208954,209085,208043,207710,207263,206266,206439,205001,205392,203820,204970,202756,203955,202073,203512,201459,203377,201194,202759,200993,202713,201002,202459,201198,202302,201513,202188,201835,202108,202327,202081,202824,201965,203003,202176,203932,202267,203918,202500,204436,202777,204921,203032,204880,203312,205157,203520,205057,203810,205034,204221,204997,204527,204912,204994,204917,205416,
+                            205973,207305,206168,208001,206188,208050,206371,208225,206544,208577,206719,208501,206990,208473,207183,208417,207367,208379,207724,208151,207986,207993,208303,207802,208682,207622,208730,207587,209365,207455,209209,207541,209337,207549,209635,207806,209501,207957,209461,207996,209317,208103,209140,208491,209000,208672,208748,209006,208491,209357,208350,209326,208242,209947,208089,209826,208216,210028,208306,210395,208429,210203,208596,210292,208686,210169,208954,210055,209354,209987,209644,209821,210027,209660,210440,209483,210556,209554,211304,209484,211253,209696,211585,209817,211970,210011,211842,210178,211772,209972,211207,209606,210230,208954,209085,208043,207710,207263,206266,206439,205001,205392,203820,204970,202756,203955,202073,203512,201459,203377,201194,202759,200993,202713,201002,202459,201198,202302,201513,202188,201835,202108,202327,202081,202824,201965,203003,202176,203932,202267,203918,202500,204436,202777,204921,203032,204880,203312,205157,203520,205057,203810,205034,204221,204997,204527,204912,204994,204917,205416};
+uint32_t vecteurData2[] = {99513,98160,99413,98419,99319,98729,99145,99050,98949,99419,98798,99851,98679,99846,98657,100433,98597,100453,98713,100550,98880,100921,98942,100758,99148,100637,99243,100496,99426,100316,99677,100090,99871,99833,100155,99657,100544,99416,100533,99350,101127,99266,100986,99359,101151,99370,101493,99586,101282,99597,101251,99713,101027,99896,100926,100109,100625,100345,100369,100625,100180,100986,99983,101152,99930,101751,99809,101581,99950,101877,100112,102210,100251,102006,100391,102068,100506,101956,100783,101872,101092,101692,101296,101532,101733,101311,102054,101081,101967,100723,102263,100171,101478,99530,101051,98881,100564,98080,99478,97452,98752,96709,97796,96168,97009,95842,96177,95534,95551,95512,95055,95623,94635,95492,94373,96057,94212,95856,94325,96206,94439,96594,94606,96428,94889,96724,95093,96645,95436,96622,95818,96520,96042,96387,96551,96312,96959,96200,97075,96116,97747,96027,97625,96166,98102,96258,98464,96444,98339,96751, //,98615,96864,98429,97113,98280,97281,98005,97386,97811,97731};
+                            99513,98160,99413,98419,99319,98729,99145,99050,98949,99419,98798,99851,98679,99846,98657,100433,98597,100453,98713,100550,98880,100921,98942,100758,99148,100637,99243,100496,99426,100316,99677,100090,99871,99833,100155,99657,100544,99416,100533,99350,101127,99266,100986,99359,101151,99370,101493,99586,101282,99597,101251,99713,101027,99896,100926,100109,100625,100345,100369,100625,100180,100986,99983,101152,99930,101751,99809,101581,99950,101877,100112,102210,100251,102006,100391,102068,100506,101956,100783,101872,101092,101692,101296,101532,101733,101311,102054,101081,101967,100723,102263,100171,101478,99530,101051,98881,100564,98080,99478,97452,98752,96709,97796,96168,97009,95842,96177,95534,95551,95512,95055,95623,94635,95492,94373,96057,94212,95856,94325,96206,94439,96594,94606,96428,94889,96724,95093,96645,95436,96622,95818,96520,96042,96387,96551,96312,96959,96200,97075,96116,97747,96027,97625,96166,98102,96258,98464,96444,98339,96751,
+                            99513,98160,99413,98419,99319,98729,99145,99050,98949,99419,98798,99851,98679,99846,98657,100433,98597,100453,98713,100550,98880,100921,98942,100758,99148,100637,99243,100496,99426,100316,99677,100090,99871,99833,100155,99657,100544,99416,100533,99350,101127,99266,100986,99359,101151,99370,101493,99586,101282,99597,101251,99713,101027,99896,100926,100109,100625,100345,100369,100625,100180,100986,99983,101152,99930,101751,99809,101581,99950,101877,100112,102210,100251,102006,100391,102068,100506,101956,100783,101872,101092,101692,101296,101532,101733,101311,102054,101081,101967,100723,102263,100171,101478,99530,101051,98881,100564,98080,99478,97452,98752,96709,97796,96168,97009,95842,96177,95534,95551,95512,95055,95623,94635,95492,94373,96057,94212,95856,94325,96206,94439,96594,94606,96428,94889,96724,95093,96645,95436,96622,95818,96520,96042,96387,96551,96312,96959,96200,97075,96116,97747,96027,97625,96166,98102,96258,98464,96444,98339,96751};
+
+
+int16_t vecteurConverti[450] = {};  
+int16_t vecteurAffichage[150] = {}; // a redefinir : taille = longueurData/espacement
+size_t longueurData = sizeof(vecteurData)/sizeof(uint32_t); // 160
+size_t espacement = 4;      // longeurData/nbrePixelY ; 1000/264 = 3.79
     
 
     // quand je mets en argument qqch pour le task, ca ne marche plus
@@ -30,7 +37,7 @@ size_t espacement = 3;
 
     // quand je mets les 2 vecteurs vides dans task, meme le refresh s'arrete
 
-float32_t SPO2 = 35.51; 
+float32_t SPO2 = 95.51; 
 float32_t BPM = 120.5;
 
 // 0 a 255
@@ -38,7 +45,7 @@ uint8_t courantLEDrouge = 31;
 uint8_t courantLEDir = 1;
 
 uint8_t flagAlarmeBPM = ON;
-uint8_t flagAlarmeSPO2 = ON;
+uint8_t flagAlarmeAcclerometre = ON;
 
 float32_t borneMaxBPM = 130;
 float32_t borneMinBPM = 60;
@@ -87,7 +94,7 @@ void DisplayInit(void){
 
 
 
-void convertirVecteurEnInt16(int16_t* vConverti, int32_t* vData, size_t lData){
+void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData){
     for(int i =0; i < lData; i++){
         vConverti[i] = vData[i]/100;
     }
@@ -121,9 +128,31 @@ void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData
     int j = 0;
     for(int i=0; i < lData; i+=espacement){
         vAffichage[j] = (150*(vConverti[i]-min))/(max-min); // graphique : 150 pixels en y
-        j++;                                                      // probleme de convertion int-nbre a virgule? 
+        vAffichage[j] = (vAffichage[j]*-1)+150;             // INVERSION car (0,0) est en haut a gauche (pas en bas a gauche)
+                                                            // les + grandes valeurs sont donc affichees plus bas sur l'ecran
+        j++;                                                       
     }
 }
+
+
+
+void afficherMenuPrincipal(uint32_t * vData){
+    
+    // en argument : int16_t * vConverti, int16_t * vAffichage
+    //size_t longueurData = *ptrLongueurData;
+    
+    int longueurAffichage = longueurData/espacement;
+    GUI_Clear();
+    
+    convertirVecteurEnInt16(vecteurConverti, vData, longueurData);
+    creerVecteurAffichage(vecteurConverti, vecteurAffichage, longueurData, espacement);
+    GUI_DrawGraph(vecteurAffichage, longueurAffichage, 0, 0); 
+    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    
+    updateParametres(SPO2, BPM);
+
+}
+
 
 
 //////////////////UPDATE PARAMETRES////////////////////////
@@ -186,7 +215,6 @@ void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les 
         
         }
     
-    
     }
     
     
@@ -195,19 +223,7 @@ void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les 
 }
 
 
-void afficherMenuPrincipal(void){
 
-    int longueurAffichage = longueurData/espacement;
-    GUI_Clear();
-    
-    convertirVecteurEnInt16(vecteurConverti, vecteurData, longueurData);
-    creerVecteurAffichage(vecteurConverti, vecteurAffichage, longueurData, espacement);
-    GUI_DrawGraph(vecteurAffichage, longueurAffichage, 0, 0); 
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
-    updateParametres(SPO2, BPM);
-
-}
 
 
 
@@ -443,21 +459,21 @@ void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
     GUI_SetFont(GUI_FONT_20_1);
 
     if(*ptrOptionTertiaire == 1){
-        GUI_DispStringAt("Alarme Accelerometre :", 30, 10);   
+        GUI_DispStringAt("Alarme Accelerometre :", 20, 10);   
     }
     else if(*ptrOptionTertiaire == 2){
-        GUI_DispStringAt("Alarme BPM :", 30, 10); 
+        GUI_DispStringAt("Alarme BPM :", 20, 10); 
     }
     
     if(*ptrFlagAlarme == ON){
-        GUI_DispStringAt("Presentement ACTIVEE", 30, 10+font);
+        GUI_DispStringAt("Presentement ACTIVEE", 20, 10+font);
     }
     else if(*ptrFlagAlarme == OFF){
-        GUI_DispStringAt("Presentement DESACTIVEE", 30, 10+font);
+        GUI_DispStringAt("Presentement DESACTIVEE", 20, 10+font);
     }
     
     GUI_SetFont(GUI_FONT_20B_1);
-    GUI_DispStringAt("Activer", 30, 10+(4*font)); 
+    GUI_DispStringAt("Activer", 20, 10+(4*font)); 
     GUI_DispStringAt("Desactiver", 125, 10+(4*font));
     
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
@@ -492,8 +508,8 @@ void Task_AffichageGraphique(void *data){
     
     BaseType_t rtosApiResult; 
     
-    
-    afficherMenuPrincipal();
+    uint32_t * vData = vecteurData;
+    afficherMenuPrincipal(vData);
    
     
     for(;;){
@@ -556,7 +572,7 @@ void Task_AffichageGraphique(void *data){
                                               
                     case MENU_TERTIAIRE_3:
                         if (optionMenuTertiaire == 1){
-                            afficherMenuQuat3(&flagAlarmeSPO2, &optionMenuTertiaire);
+                            afficherMenuQuat3(&flagAlarmeAcclerometre, &optionMenuTertiaire);
                             currentPage = MENU_QUAT_3_1;    
                             break;
                         }
@@ -565,8 +581,21 @@ void Task_AffichageGraphique(void *data){
                             currentPage = MENU_QUAT_3_2;
                             break;
                         }
-                
+                                    
                     case MENU_TERTIAIRE_4:
+                        if (optionMenuTertiaire == 1){
+                            vData = vecteurData;
+                            afficherMenuPrincipal(vData);
+                            currentPage = MENU_PRINCIPAL;
+                            break;
+                        }
+                        else if (optionMenuTertiaire == 2){
+                            vData = vecteurData2;
+                            afficherMenuPrincipal(vData);
+                            currentPage = MENU_PRINCIPAL;
+                            break;
+                        }
+                        
                         break;
                     /////// menu quat 1 ///////
                         
@@ -583,7 +612,7 @@ void Task_AffichageGraphique(void *data){
                         else 
                             courantLEDir = 0;
                         afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);
-                    /////// Quat 2 /////
+                    /////// Quat 2 //////
                     case MENU_QUAT_2_1:
                         borneMaxBPM -= 5;
                         afficherMenuQuat2(&borneMaxBPM, &optionMenuTertiaire);
@@ -592,7 +621,15 @@ void Task_AffichageGraphique(void *data){
                         borneMinBPM -= 5;
                         afficherMenuQuat2(&borneMinBPM, &optionMenuTertiaire);
                         break;
-                        
+                    /////// Quat 3 ///////
+                    case MENU_QUAT_3_1:
+                        flagAlarmeAcclerometre = ON;
+                        afficherMenuQuat3(&flagAlarmeAcclerometre, &optionMenuTertiaire);
+                        break;
+                    case MENU_QUAT_3_2:
+                        flagAlarmeBPM = ON;
+                        afficherMenuQuat3(&flagAlarmeBPM, &optionMenuTertiaire);
+                        break;
                     default :
                         break;
                 
@@ -634,7 +671,15 @@ void Task_AffichageGraphique(void *data){
                     borneMinBPM += 5;
                     afficherMenuQuat2(&borneMinBPM, &optionMenuTertiaire);
                 }
-                
+                /////// Menu Quat 3 ///////
+                else if(currentPage == MENU_QUAT_3_1){
+                    flagAlarmeAcclerometre = OFF;
+                    afficherMenuQuat3(&flagAlarmeAcclerometre, &optionMenuTertiaire);
+                }
+                else if(currentPage == MENU_QUAT_3_2){
+                    flagAlarmeAcclerometre = OFF;
+                    afficherMenuQuat3(&flagAlarmeBPM, &optionMenuTertiaire);
+                }
                 
                 
             }
@@ -643,7 +688,7 @@ void Task_AffichageGraphique(void *data){
             else if(touchData == BUTTON2_TOUCHED){    // retourner en arriere
                 
                 if (currentPage == MENU_SECONDAIRE){
-                    afficherMenuPrincipal();
+                    afficherMenuPrincipal(vData);
                     currentPage = MENU_PRINCIPAL;
                 }
                 else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3 || currentPage == MENU_TERTIAIRE_4){
@@ -655,22 +700,26 @@ void Task_AffichageGraphique(void *data){
                 else if(currentPage == MENU_QUAT_1_1){        
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
-                    afficherMenuPrincipal();                    
+                    afficherMenuPrincipal(vData);                    
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
                 }
                 else if(currentPage == MENU_QUAT_1_2){
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
-                    afficherMenuPrincipal();                    
+                    afficherMenuPrincipal(vData);                    
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
                 }
                 
                 ///// Menu Quat 2 /////
                 else if(currentPage == MENU_QUAT_2_1 || currentPage == MENU_QUAT_2_2){
-                    afficherMenuPrincipal();
+                    afficherMenuPrincipal(vData);
                     currentPage = MENU_PRINCIPAL;                  
                 }
-                
+                ///// Menu Quat 3 /////
+                else if(currentPage == MENU_QUAT_3_1 || currentPage == MENU_QUAT_3_2){
+                    afficherMenuPrincipal(vData);
+                    currentPage = MENU_PRINCIPAL;                  
+                }
                 
                 
             }
