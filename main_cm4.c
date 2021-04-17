@@ -22,7 +22,7 @@
 
 #include "display_task.h"
 #include "touch_task.h"
-
+#include "oxy_task.h"
 
 
 /* Priorities of user tasks in this project */
@@ -32,7 +32,7 @@
 
 
 /* Stack sizes of user tasks in this project */
-#define DISPLAY_TASK_STACK_SIZE     (1024u)
+#define DISPLAY_TASK_STACK_SIZE     (128u)//1024 
 #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
 #define BOUTON_TASK_STACK_SIZE      (configMINIMAL_STACK_SIZE)
 
@@ -41,104 +41,12 @@
 
 volatile SemaphoreHandle_t bouton_semph;
 
-
-
-
-
-
 // Image buffer cache //
 //uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
 
 
-
-
-
-
-/*******************************************************************************
-* Function Name: void UpdateDisplay(void)
-********************************************************************************
-*
-* Summary: This function updates the display with the data in the display 
-*			buffer.  The function first transfers the content of the EmWin
-*			display buffer to the primary EInk display buffer.  Then it calls
-*			the Cy_EINK_ShowFrame function to update the display, and then
-*			it copies the EmWin display buffer to the Eink display cache buffer
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-* Side Effects:
-*  It takes about a second to refresh the display.  This is a blocking function
-*  and only returns after the display refresh
-*
-*******************************************************************************/
-
-
-/*******************************************************************************
-* Function Name: void ClearScreen(void)
-********************************************************************************
-*
-* Summary: This function clears the screen
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-*******************************************************************************/
-
-
-
-/*******************************************************************************
-* Function Name: void WaitforSwitchPressAndRelease(void)
-********************************************************************************
-*
-* Summary: This implements a simple "Wait for button press and release"
-*			function.  It first waits for the button to be pressed and then
-*			waits for the button to be released.
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-* Side Effects:
-*  This is a blocking function and exits only on a button press and release
-*
-*******************************************************************************/
-/*
-void WaitforSwitchPressAndRelease(void)
-{
-    // Wait for SW2 to be pressed 
-    while(Status_SW2_Read() != 0);
-    
-    // Wait for SW2 to be released
-    while(Status_SW2_Read() == 0);
-}
-*/
-
-/*******************************************************************************
-* Function Name: int main(void)
-********************************************************************************
-*
-* Summary: À Remplir
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-*******************************************************************************/
-
-
-
+/*************************************************************************/
 void isr_bouton(void){
     //touch_data_t currentTouch = BUTTON2_TOUCHED;
     //xQueueSendFromISR(touchDataQ, &currentTouch, NULL);
@@ -154,6 +62,8 @@ void isr_bouton(void){
 
 
 void Task_Bouton2(void *arg){
+    
+    (void) arg;
     
     touch_data_t currentTouch = NO_TOUCH;
     
@@ -172,7 +82,7 @@ void Task_Bouton2(void *arg){
     }
 }
 
-
+/*************************************************************************/
 
 
 
@@ -213,6 +123,8 @@ int main(void)
     
     xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
     
+    xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERREUR ICI
+    
     /* Initialize thread-safe debug message printing. See uart_debug.h header file
        to enable / disable this feature */
     //DebugPrintfInit();
@@ -229,33 +141,6 @@ int main(void)
     
     
     
-    
-    
-    
-
-    
-    /*
-    
-    //Draw a rectangle
-    GUI_DrawRect(1,1,263,175);
-    
-    //Draw a line
-    GUI_SetPenSize(4);
-    GUI_DrawLine(20,65,243,65);
-    
-    GUI_SetColor(GUI_BLACK);
-    GUI_SetBkColor(GUI_WHITE);
-    
-   //Write a title and subtile	
-    GUI_SetFont(GUI_FONT_32B_1);
-    GUI_SetTextAlign(GUI_TA_CENTER);
-    GUI_DispStringAt("GBM2100", 132, 30);
-    GUI_SetFont(GUI_FONT_16_1);
-    GUI_DispStringAt("Laboratoire 3", 132, 70);
-    
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
-    */
     while(CapSense_IsBusy()); // ?? du CapSense Example
     for(;;)
     {

@@ -19,5 +19,5 @@ float32_t SPO2;
 float32_t BPM;
 
 
-
+void vtraitement ();
 /* [] END OF FILE */
