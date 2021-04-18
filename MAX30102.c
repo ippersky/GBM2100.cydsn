@@ -93,7 +93,7 @@ void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint16_t compteur){
         
         readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
         red_LED[compteur]=(float)((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-        ir_LED[compteur]=(float)((i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]));
+        ir_LED[compteur]=(float)((0b00000011&i2c_data[3])<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
         //changer en uint32_t et (float)
     
     
