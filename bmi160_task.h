@@ -14,7 +14,7 @@
 
 #define MAXACCEL (32768/2)
 static struct bmi160_dev bmi160Sensor;
-TaskHandle_t xTaskHandleMotion;
+union bmi160_int_status bmi160Status;
 
 //TaskHandle_t xTaskHandleMotion;
 

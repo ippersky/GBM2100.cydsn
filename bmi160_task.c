@@ -32,7 +32,7 @@ static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *dat
     
     Cy_SCB_I2C_MasterSendStop(I2C_BMI_HW,0,&I2C_BMI_context);
     return 0;
-} // pk pas void
+} 
 
 static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
@@ -96,13 +96,23 @@ void get_accData ()
     while(1)
     {
         bmi160_get_sensor_data(BMI160_ACCEL_ONLY, &acc, NULL, &bmi160Sensor);
+        bmi160_get_int_status(BMI160_INT_STATUS_0,&bmi160Status,&bmi160Sensor);
         
         gx= (float)acc.x/MAXACCEL;
         gy= (float)acc.y/MAXACCEL;
         gz= (float)acc.z/MAXACCEL;
-        
+         if(bmi160Status.bit.anym==1)
+        {
+            printf("Interruption!\r\n");
+            bmi160Status.bit.anym=0;
+            vTaskDelay(pdMS_TO_TICKS(5000));
+            
+        }
+        else
+        {
         printf("x=%1.2f y=%1.2f z=%1.2f \r\n",gx,gy,gz);
         vTaskDelay(200);
+        }
         
     }
     
@@ -143,25 +153,9 @@ void anyMotionInt_set()
     
     resultat=bmi160_set_int_config(&int_config,&bmi160Sensor);
     
-    Cy_SysInt_Init(&SysInt_AccINT_cfg, anyMotion_Interrupt);
-    NVIC_EnableIRQ(SysInt_AccINT_cfg.intrSrc);
+   
     
     
-}
-
-void anyMotion_Interrupt ()
-{
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    
-    /* Clear any pending interrupts */
-    Cy_GPIO_ClearInterrupt(Pin_Acc_INT_PORT,Pin_Acc_INT_NUM);
-    NVIC_ClearPendingIRQ(SysInt_AccINT_cfg.intrSrc);
-    
-    printf("Ca bouge trop!");
-    
-    /* Resume Task_Motion*/
-    xHigherPriorityTaskWoken = xTaskResumeFromISR(xTaskHandleMotion);
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
  
@@ -170,7 +164,7 @@ void Task_Motion(void* pvParameters)
 {
     (void)pvParameters;
     
-    SemaphoreHandle_t xSemaphoreI2C= xSemaphoreCreateBinary();
+
     I2C_BMI_Start();
     bmi160Config();
     anyMotionInt_set();

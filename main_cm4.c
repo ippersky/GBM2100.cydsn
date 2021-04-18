@@ -26,28 +26,28 @@ int main(void)
     
     /*Variables*/
     
-    
+    /*
     float32_t red_LED_buffer [2000]; //pour 10 secondes d'acquisition
     float32_t ir_LED_buffer [2000];
     
     uint16_t compteur=0;
-    
+    */
     
     /*Start-up code*/
     
-    I2C_MAX_Start();
+    //I2C_MAX_Start();
     UART_1_Start();
-    //xTaskCreate(Task_Motion, "Motion task",400,0,1,0);
-    //vTaskStartScheduler();
+    xTaskCreate(Task_Motion, "Motion task",400,0,1,0);
+    vTaskStartScheduler();
     /*Configure I2C*/
-    MAX30102_config();
+    //MAX30102_config();
     
     
     
     
     for(;;)
     {
-        
+        /*
         uint16_t bufferIndex=0;
         uint16_t halfbufferIndex=0;
         
@@ -58,9 +58,9 @@ int main(void)
         {
             
             readFIFO(red_LED_buffer, ir_LED_buffer,bufferIndex);
-            printf("RED=%1.2f IR=%1.2f\r\n",red_LED_buffer[bufferIndex], ir_LED_buffer[bufferIndex]);
+            printf("%1.2f\r\n",ir_LED_buffer[bufferIndex]);
            
-            CyDelay(100);
+            CyDelay(5);
             
            
             if (bufferIndex == BUFFER_LENGTH-1){//vérifier
@@ -68,7 +68,7 @@ int main(void)
             }
             
         }
-        
+        */
     }
 }
 
