@@ -23,6 +23,7 @@
 #include "display_task.h"
 #include "touch_task.h"
 #include "oxy_task.h"
+#include "MAX30102.h"
 
 
 /* Priorities of user tasks in this project */
@@ -95,6 +96,8 @@ int main(void)
     __enable_irq(); /* Enable global interrupts. */
     
     DisplayInit();
+    I2C_MAX_Start();
+    MAX30102_config();
     
 
     
