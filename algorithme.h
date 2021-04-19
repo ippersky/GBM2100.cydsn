@@ -20,6 +20,6 @@ float32_t HeartRate(uint32_t *Signal, uint32_t temps1, uint32_t temps2);
 float32_t AC(uint32_t *Signal, uint32_t temps1, uint32_t temps2);
 float32_t DC(uint32_t *Signal, uint32_t temps1, uint32_t temps2);
 float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint32_t temps1, uint32_t temps2);
-uint32_t filtre(uint32_t *Signal, uint32_t *Output);
+void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2);
 
 /* [] END OF FILE */

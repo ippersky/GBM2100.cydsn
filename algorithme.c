@@ -29,23 +29,24 @@ float32_t firStateF32[LONGUEUR_ECH+FILTER_TAP_NUM-1];
 
 /*************************************************************************/
 
-uint32_t filtre(uint32_t *Signal, uint32_t *Output){  // uint32_t temps1, uint32_t temps2
+void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2){  // 
     
     //Filtrage le signal avec un filtre passe-bas
     
-    //uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
+    uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
     //uint32_t Output[LONGUEUR_ECH]; //initialiser le buffer output
-    //uint32_t i, compteur=0;
-    //for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
-    //    Input[compteur]=Signal[i];   
-    //    compteur++;
-    //    }
+    uint32_t i, compteur=0;
+    for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
+        Input[compteur]=Signal[i];   
+        compteur++;
+        }
     
        
     arm_fir_instance_f32 S;
     
     uint32_t *inputF32;
     uint32_t *outputF32;
+    
     inputF32 = &Signal[0];
     outputF32 = &Output[0];
     
@@ -54,13 +55,17 @@ uint32_t filtre(uint32_t *Signal, uint32_t *Output){  // uint32_t temps1, uint32
     arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
     arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
     
-    uint16_t i = 0;
-    for(i=0; i<LONGUEUR_ECH; i++){
+    uint16_t j = 0;
+    
+    UART_1_PutString("//////////////////////////////////////////////////////////////////");
+    for(j=0; j<LONGUEUR_ECH; j++){
+        //printf("%s \n\r", Output[j]);
         char cOutput[6];
-        itoa(Output[i], cOutput, 10);
+        itoa(Output[j], cOutput, 10);
         UART_1_PutString(cOutput);
-        if(i == 999){
-            i=0;
+        UART_1_PutString("\n\r");
+        if(j == 999){
+            j=0;
         }
     }
     
@@ -70,6 +75,8 @@ uint32_t filtre(uint32_t *Signal, uint32_t *Output){  // uint32_t temps1, uint32
 // le buffer rouge (ou infrarouge) et l'intervalle de temps qui nous interesse et retourne le BPM
 float32_t HeartRate(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
     
+    
+    /*
     //Filtrage le signal avec un filtre passe-bas
     uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
     uint32_t Output[LONGUEUR_ECH]; //initialiser le buffer output
@@ -91,23 +98,24 @@ float32_t HeartRate(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
     
     arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
     arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
+    */
 
     
     // Calcul de la frequence cardiaque
     
-    compteur = 0; // initialisation du nombre de maximums
-    
+    uint16_t compteur = 0; // initialisation du nombre de maximums
+    uint16_t i = 0;
     for (i=0; i<LONGUEUR_ECH; i++)
     {
-        if (Output[i-1]<Output[i] && Output[i+1]<Output[i]){
+        if (Signal[i-1]<Signal[i] && Signal[i+1]<Signal[i]){
          compteur++;
         }
     }
     
     float32_t secondes = SECONDES, minute = 60;
-    float32_t BPM = (float)compteur/secondes*minute;
+    float32_t BPM = (float32_t)compteur/secondes*minute;
     
-    return BPM;
+    
     
 }
 

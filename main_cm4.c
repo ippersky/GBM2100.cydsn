@@ -30,7 +30,7 @@
 #define TASK_DISPLAY_PRIORITY       (5u)
 #define TASK_BOUTON_PRIORITY        (4u)
 #define TASK_SAMPLE_PRIORITY        (5u)
-#define TASK_FILTER_PRIORITY        (5u)
+#define TASK_FILTER_PRIORITY        (4u)
 
 
 /* Stack sizes of user tasks in this project */
@@ -46,8 +46,8 @@ volatile SemaphoreHandle_t bouton_semph;
 volatile SemaphoreHandle_t active_task;
 uint32_t red[BUFFER_LENGTH];
 uint32_t ir[BUFFER_LENGTH];
-uint32_t filteredRED[BUFFER_LENGTH];
-uint32_t filteredIR[BUFFER_LENGTH];
+uint32_t filteredRED[BUFFER_LENGTH/2];
+uint32_t filteredIR[BUFFER_LENGTH/2];
 uint16_t indexBuffer = 0;
 
 
@@ -95,7 +95,7 @@ void Task_Bouton2(void *arg){
 void vSample_task(void *arg){
     
     (void) arg;
-    
+    for (;;){
     if(xSemaphoreTake(active_task, 0) == pdTRUE){
     
         for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
@@ -105,16 +105,15 @@ void vSample_task(void *arg){
             
             if(indexBuffer == 1999){
                 indexBuffer = 0;
+                xSemaphoreGive(active_task);
+                vTaskDelay(pdMS_TO_TICKS(1000));
             }
         }
+    }
     }
             
         
     //}
-        
-    xSemaphoreGive(active_task);
-    vTaskDelay(pdMS_TO_TICKS(500));
-    
     
     //}   
 }
@@ -124,16 +123,18 @@ void vSample_task(void *arg){
 
 void vFiltering_task(void *arg){
     (void) arg;
+    for(;;){
  
     if(xSemaphoreTake(active_task, 0) == pdTRUE){
         
         
-        filtre(red, filteredRED);
-        filtre(ir, filteredIR);
+        filtre(red, filteredRED, 0, 1000);
+        filtre(ir, filteredIR, 0, 1000);
         
         xSemaphoreGive(active_task);
         vTaskDelay(pdMS_TO_TICKS(500));
         
+    }
     }
     
 }
@@ -147,14 +148,14 @@ void vResults(void){
         float spo2; 
         float bpm;
         if(indexBuffer == 0){
-            spo2 = calculSpO2(filteredRED, filteredIR, 0, BUFFER_LENGTH);
+            spo2 = calculSpO2(red, filteredIR, 0, BUFFER_LENGTH);
             bpm = HeartRate(filteredRED, 0, BUFFER_LENGTH);
             char sSpo2[5];
             itoa(spo2, sSpo2, 10);
             UART_1_PutString(sSpo2);
         }
         else{
-            spo2 = calculSpO2(filteredRED, filteredIR, BUFFER_LENGTH/2, BUFFER_LENGTH);
+            spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
             bpm = HeartRate(filteredRED, BUFFER_LENGTH/2, BUFFER_LENGTH);
             char sSpo2[5];
             itoa(spo2, sSpo2, 10);
