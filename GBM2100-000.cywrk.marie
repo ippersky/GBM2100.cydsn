@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\touch_task.c">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -101,9 +101,6 @@
 <v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\MAX30102.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\oxy_task.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\stdio_user.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\touch_task.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Images</v>
@@ -131,6 +128,9 @@
 <v>GBM2100-000\GBM2100\Shared Files\GUIConf.h</v>
 <v>GBM2100-000\GBM2100\Shared Files\LCDConf.c</v>
 <v>GBM2100-000\GBM2100\Shared Files\LCDConf.h</v>
+<v>GBM2100-000\GBM2100\Shared Files\system_psoc6.h</v>
+<v>GBM2100-000\GBM2100\Generated_Source</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -391,6 +391,8 @@
 <name v=".\oxy_task.h" />
 <name v=".\MAX30102.h" />
 <name v=".\algorithme.h" />
+<name v=".\touch_task.c" />
+<name v=".\Generated_Source\PSoC6\pdl\rtos\FreeRTOS\10.0.1\Source\tasks.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -398,7 +400,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="962, 391" SelectedTabbedMdiWindow="6e5fa880-16b0-44b1-aa3f-38eee9eec5dc"><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\main_cm4.c" Guid="6e5fa880-16b0-44b1-aa3f-38eee9eec5dc" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\oxy_task.c" Guid="dbcd8ef5-a4f8-405a-bbe2-1dc4c0782653" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\display_task.c" Guid="bb92e98f-3e8f-4279-a3b4-4be1dfd85d4a" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\algorithme.c" Guid="bb3fb41e-3ad3-4e96-b493-a03031e675a6" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\BMI160_driver-master\bmi160.c" Guid="ad6fdbab-c449-45ec-a464-3af8697b0901" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.c" Guid="6bcc414b-2e23-4ec9-9bb5-763a78740ed9" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\oxy_task.h" Guid="7ea92845-5901-4d95-aa06-dea215966464" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.h" Guid="661c6143-c2f2-4563-b3e3-eafb5a1ad252" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\algorithme.h" Guid="0b67dae0-f8c5-420f-89a8-5259cd1465a7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="962, 391" SelectedTabbedMdiWindow="6e5fa880-16b0-44b1-aa3f-38eee9eec5dc"><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\main_cm4.c" Guid="6e5fa880-16b0-44b1-aa3f-38eee9eec5dc" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\oxy_task.c" Guid="dbcd8ef5-a4f8-405a-bbe2-1dc4c0782653" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\display_task.c" Guid="bb92e98f-3e8f-4279-a3b4-4be1dfd85d4a" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\algorithme.c" Guid="bb3fb41e-3ad3-4e96-b493-a03031e675a6" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\BMI160_driver-master\bmi160.c" Guid="ad6fdbab-c449-45ec-a464-3af8697b0901" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.c" Guid="6bcc414b-2e23-4ec9-9bb5-763a78740ed9" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\oxy_task.h" Guid="7ea92845-5901-4d95-aa06-dea215966464" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.h" Guid="661c6143-c2f2-4563-b3e3-eafb5a1ad252" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\algorithme.h" Guid="0b67dae0-f8c5-420f-89a8-5259cd1465a7" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\touch_task.c" Guid="8ef0fb05-b845-44b8-90ef-9e3e903f7b0c" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\Generated_Source\PSoC6\pdl\rtos\FreeRTOS\10.0.1\Source\tasks.c" Guid="dd3fe5f6-e3aa-40c1-ad2c-65f13eedf796" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="85c485fa-e7be-4d10-a4f5-c37adeac9399" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

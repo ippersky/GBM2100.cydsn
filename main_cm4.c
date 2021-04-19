@@ -18,9 +18,6 @@
 #include "task.h"     
 #include "semphr.h"
 
-
-
-
 #include "display_task.h"
 #include "touch_task.h"
 #include "oxy_task.h"
@@ -32,6 +29,8 @@
 #define TASK_TOUCH_PRIORITY         (10u)
 #define TASK_DISPLAY_PRIORITY       (5u)
 #define TASK_BOUTON_PRIORITY        (4u)
+#define TASK_SAMPLE_PRIORITY        (5u)
+#define TASK_FILTER_PRIORITY        (5u)
 
 
 /* Stack sizes of user tasks in this project */
@@ -41,8 +40,16 @@
 
 
 
+/* Variables globales*/
 
 volatile SemaphoreHandle_t bouton_semph;
+volatile SemaphoreHandle_t active_task;
+uint32_t red[BUFFER_LENGTH];
+uint32_t ir[BUFFER_LENGTH];
+uint32_t filteredRED[BUFFER_LENGTH];
+uint32_t filteredIR[BUFFER_LENGTH];
+uint16_t indexBuffer = 0;
+
 
 // Image buffer cache //
 //uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
@@ -84,51 +91,84 @@ void Task_Bouton2(void *arg){
 
     }
 }
-
-uint32_t red[BUFFER_LENGTH];
-uint32_t ir[BUFFER_LENGTH];
-uint16_t indexBuffer = 0;
-
 /*************************************************************************/
-void vTask_sample(){
+void vSample_task(void *arg){
     
+    (void) arg;
     
+    if(xSemaphoreTake(active_task, 0) == pdTRUE){
     
-    for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
-    {
+        for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
+        {
         
-        readFIFO(red, ir, indexBuffer);
-        
-        uint16_t i = 0;
-        for(i=0; i<2000; i++){
-            char cRed[6];
-            itoa(red[i], cRed, 2);
-            UART_1_PutString(cRed);
+            readFIFO(red, ir, indexBuffer);
+            
+            if(indexBuffer == 1999){
+                indexBuffer = 0;
+            }
         }
     }
+            
+        
+    //}
+        
+    xSemaphoreGive(active_task);
+    vTaskDelay(pdMS_TO_TICKS(500));
     
-    vTaskDelay(pdMS_TO_TICKS(100));
+    
+    //}   
 }
 
-void vTraitement(){
+
+/*********************************************************************/
+
+void vFiltering_task(void *arg){
+    (void) arg;
+ 
+    if(xSemaphoreTake(active_task, 0) == pdTRUE){
+        
+        
+        filtre(red, filteredRED);
+        filtre(ir, filteredIR);
+        
+        xSemaphoreGive(active_task);
+        vTaskDelay(pdMS_TO_TICKS(500));
+        
+    }
     
-    float spo2; 
-    float bpm;
-    if(indexBuffer == 0){
-        spo2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
-        bpm = HeartRate(red, 0, BUFFER_LENGTH);
-        char sSpo2[5];
-        itoa(spo2, sSpo2, 10);
-        UART_1_PutString(sSpo2);
-    }
-    else{
-        spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
-        bpm = HeartRate(red, BUFFER_LENGTH/2, BUFFER_LENGTH);
-        char sSpo2[5];
-        itoa(spo2, sSpo2, 10);
-        UART_1_PutString(sSpo2);
-    }
 }
+
+/************************************************************************/
+
+void vResults(void){
+    
+    if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+    
+        float spo2; 
+        float bpm;
+        if(indexBuffer == 0){
+            spo2 = calculSpO2(filteredRED, filteredIR, 0, BUFFER_LENGTH);
+            bpm = HeartRate(filteredRED, 0, BUFFER_LENGTH);
+            char sSpo2[5];
+            itoa(spo2, sSpo2, 10);
+            UART_1_PutString(sSpo2);
+        }
+        else{
+            spo2 = calculSpO2(filteredRED, filteredIR, BUFFER_LENGTH/2, BUFFER_LENGTH);
+            bpm = HeartRate(filteredRED, BUFFER_LENGTH/2, BUFFER_LENGTH);
+            char sSpo2[5];
+            itoa(spo2, sSpo2, 10);
+            UART_1_PutString(sSpo2);
+        }
+    }
+    xSemaphoreGive(active_task);
+}
+
+
+/*************************************************************************/
+
+
+
 
 
 
@@ -136,6 +176,8 @@ void vTraitement(){
 int main(void)
 {
     bouton_semph = xSemaphoreCreateBinary();
+    active_task = xSemaphoreCreateBinary();
+    xSemaphoreGive(active_task);
     
     
     __enable_irq(); /* Enable global interrupts. */
@@ -173,7 +215,9 @@ int main(void)
     
     //xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERREUR ICI
     
-    xTaskCreate(vTask_sample, "Acquisition",5000,NULL, TASK_DISPLAY_PRIORITY,NULL);
+    xTaskCreate(vSample_task, "Acquisition",1024,NULL, TASK_SAMPLE_PRIORITY,NULL);
+    
+    xTaskCreate(vFiltering_task, "Filtrage", 1024, NULL, TASK_FILTER_PRIORITY, NULL);
     
     //xTaskCreate(vTraitement, "Traitement", 1024, NULL, TASK_DISPLAY_PRIORITY, NULL);
     

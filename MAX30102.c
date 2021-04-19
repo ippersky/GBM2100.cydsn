@@ -94,7 +94,14 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
     readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
     red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
     ir_LED[compteur]=((i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]));
-    //changement en uint32_t et enlever le cast en (float)   
+    //changement en uint32_t et enlever le cast en (float)
+    
+    // vérification bonnes données
+    char cRed[6];
+    itoa(red_LED[compteur], cRed, 10);
+    UART_1_PutString(cRed);
+    UART_1_PutString("\n\r");
+    
     
 }
 
