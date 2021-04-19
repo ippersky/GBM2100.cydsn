@@ -91,11 +91,10 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
     //ou remplacer par tableau
     uint8_t i2c_data [6];
         
-        readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
-        red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-        ir_LED[compteur]=((i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]));
-        //changement en uint32_t et enlever le cast en (float)
-    
+    readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
+    red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
+    ir_LED[compteur]=((i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]));
+    //changement en uint32_t et enlever le cast en (float)   
     
 }
 

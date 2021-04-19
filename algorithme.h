@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <core_cm4.h>
 #include <arm_math.h>
-#include <params.h>
+
 
 float32_t HeartRate(uint32_t *Signal, uint32_t temps1, uint32_t temps2);
 float32_t AC(uint32_t *Signal, uint32_t temps1, uint32_t temps2);

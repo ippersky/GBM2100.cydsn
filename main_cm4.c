@@ -8,6 +8,7 @@
 #include "cy_eink_library.h"
 #include "LCDConf.h"
 #include <stdlib.h>
+#include "algorithme.h"
 
 //#include <stdio.h>  //?
 //#include <unistd.h> //?
@@ -16,7 +17,7 @@
 #include "queue.h"
 #include "task.h"     
 #include "semphr.h"
-#include "params.h"
+
 
 
 
@@ -24,6 +25,7 @@
 #include "touch_task.h"
 #include "oxy_task.h"
 #include "MAX30102.h"
+//#include "sample_task.h"
 
 
 /* Priorities of user tasks in this project */
@@ -33,7 +35,7 @@
 
 
 /* Stack sizes of user tasks in this project */
-#define DISPLAY_TASK_STACK_SIZE     (128u)//1024 
+#define DISPLAY_TASK_STACK_SIZE     (1024u)//1024 
 #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
 #define BOUTON_TASK_STACK_SIZE      (configMINIMAL_STACK_SIZE)
 
@@ -83,7 +85,50 @@ void Task_Bouton2(void *arg){
     }
 }
 
+uint32_t red[BUFFER_LENGTH];
+uint32_t ir[BUFFER_LENGTH];
+uint16_t indexBuffer = 0;
+
 /*************************************************************************/
+void vTask_sample(){
+    
+    
+    
+    for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
+    {
+        
+        readFIFO(red, ir, indexBuffer);
+        
+        uint16_t i = 0;
+        for(i=0; i<2000; i++){
+            char cRed[6];
+            itoa(red[i], cRed, 2);
+            UART_1_PutString(cRed);
+        }
+    }
+    
+    vTaskDelay(pdMS_TO_TICKS(100));
+}
+
+void vTraitement(){
+    
+    float spo2; 
+    float bpm;
+    if(indexBuffer == 0){
+        spo2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
+        bpm = HeartRate(red, 0, BUFFER_LENGTH);
+        char sSpo2[5];
+        itoa(spo2, sSpo2, 10);
+        UART_1_PutString(sSpo2);
+    }
+    else{
+        spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
+        bpm = HeartRate(red, BUFFER_LENGTH/2, BUFFER_LENGTH);
+        char sSpo2[5];
+        itoa(spo2, sSpo2, 10);
+        UART_1_PutString(sSpo2);
+    }
+}
 
 
 
@@ -98,7 +143,7 @@ int main(void)
     DisplayInit();
     I2C_MAX_Start();
     MAX30102_config();
-    
+    UART_1_Start();
 
     
     /* Initialisation de CapSense */
@@ -120,13 +165,17 @@ int main(void)
          
     /* Create the user Tasks. See the respective Task definition for more
        details of these tasks */       
-    xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
+    //xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
 
-    xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
+    //xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
-    xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
+    //xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
     
-    xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERREUR ICI
+    //xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERREUR ICI
+    
+    xTaskCreate(vTask_sample, "Acquisition",5000,NULL, TASK_DISPLAY_PRIORITY,NULL);
+    
+    //xTaskCreate(vTraitement, "Traitement", 1024, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
     /* Initialize thread-safe debug message printing. See uart_debug.h header file
        to enable / disable this feature */

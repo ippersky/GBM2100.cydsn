@@ -43,7 +43,17 @@ void vtraitement ()
             //afficher menu pricipal
         }
         
+        //char cBPM[5];
+        //itoa(BPM, cBPM, 10);
+        
+        char cSPO2[5];
+        itoa(SPO2, cSPO2, 10);
+        
+        UART_1_PutString(cSPO2);
+        
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
+    
     //priorité plus basse
     
     
