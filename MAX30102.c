@@ -18,7 +18,7 @@ void MAX30102_config()
 {
 CyDelay(100);    
     
-writeRegistre(REG_INTR_ENABLE_1, 0xd0); //enable ...
+writeRegistre(REG_INTR_ENABLE_1, 0x40); //enable ...
         
 writeRegistre(REG_INTR_ENABLE_2, 0x00);
 
@@ -28,11 +28,11 @@ writeRegistre(REG_OVFLOW_COUNTER, 0x00);
 
 writeRegistre(REG_FIFO_RD,0x00);
         
-writeRegistre(REG_FIFO_CONFIG, 0x1f); //no smp averaging, fifo rollover on, fifo fill = 15 empty data sample;
+writeRegistre(REG_FIFO_CONFIG, 0x1e); //
         
 writeRegistre(REG_MODE_CONFIG, 0x03); //SPO2 Mode (Red and IR)
        
-writeRegistre(REG_SPO2_CONFIG, 0x29); //ADC Range control=4096nA, Sample rate=200Hz, Pulse width =118microsec
+writeRegistre(REG_SPO2_CONFIG, 0x69); //ADC Range control=4096nA, Sample rate=200Hz, Pulse width =118microsec
 
 writeRegistre(REG_LED_AMP_1, 0x1f); //6.2 mA
 

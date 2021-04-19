@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/18/2021 at 16:02
+// 04/19/2021 at 10:08
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -703,7 +703,6 @@ endmodule
 module top ;
 
           wire  Net_551;
-          wire  Net_549;
           wire  Net_543;
           wire  Net_542;
           wire  Net_541;
@@ -746,41 +745,6 @@ module top ;
         .scl_b(Net_541),
         .scl_trig(Net_542),
         .sda_b(Net_543));
-
-	wire [0:0] tmpFB_0__Pin_1_net;
-	electrical [0:0] tmpSIOVREF__Pin_1_net;
-
-	cy_mxs40_gpio_v1_0
-		#(.id("3bebfee8-790b-4297-b73a-27818bdce71c"),
-		  .width(1),
-		  .sio_grp_cnt(0),
-		  .drive_mode("6"),
-		  .ibuf_enabled("1"),
-		  .init_dr_st("1"),
-		  .input_sync("0"),
-		  .intr_mode("0"),
-		  .io_voltage(""),
-		  .output_conn("0"),
-		  .oe_conn("0"),
-		  .output_sync("0"),
-		  .oe_sync("0"),
-		  .drive_strength("0"),
-		  .max_frequency("100"),
-		  .i2c_mode("0"),
-		  .output_current_cap("8"),
-		  .pin_aliases(""),
-		  .pin_mode("B"),
-		  .slew_rate("0"),
-		  .vtrip("0"),
-		  .use_annotation("0"),
-		  .hotswap_needed("0"))
-		Pin_1
-		 (.oe({1'b1}),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__Pin_1_net[0:0]}),
-		  .io({Net_549}),
-		  .siovref(tmpSIOVREF__Pin_1_net));
-
 
 	wire [0:0] tmpIO_0__Pin_Acc_INT_net;
 	electrical [0:0] tmpSIOVREF__Pin_Acc_INT_net;

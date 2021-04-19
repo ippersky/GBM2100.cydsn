@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2021-04-18T20:03:11Z")
+ (DATE "2021-04-19T14:09:18Z")
  (DESIGN "GBM2100")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -39,7 +39,6 @@
     (INTERCONNECT \\UART_1\:rx\(0\)_PAD\\ \\UART_1\:rx\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_BMI\:scl\(0\)_PAD\\ \\I2C_BMI\:scl\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_BMI\:sda\(0\)_PAD\\ \\I2C_BMI\:sda\(0\)\\.pad_in (0.000:0.000:0.000))
-    (INTERCONNECT Pin_1\(0\)_PAD Pin_1\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Pin_Acc_INT\(0\)_PAD Pin_Acc_INT\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT redLED\(0\)_PAD redLED\(0\).pad_in (0.000:0.000:0.000))
    )

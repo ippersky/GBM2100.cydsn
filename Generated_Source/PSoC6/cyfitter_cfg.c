@@ -581,6 +581,23 @@ void Cy_SystemInit(void)
 		CY_SET_REG32((void *)0x40347900u, CY_GET_REG32((void *)0x40347900u) | 0x102u);
 	}
 
+	/* Port0 configuration */
+	{
+	    const cy_stc_gpio_prt_config_t port0_cfg =
+	    {
+	        .out        = 0x00000000u,
+	        .intrMask   = 0x00000000u,
+	        .intrCfg    = 0x00000000u,
+	        .cfg        = 0x00000006u,
+	        .cfgIn      = 0x00000000u,
+	        .cfgOut     = 0x00000000u,
+	        .cfgSIO     = 0x00000000u,
+	        .sel0Active = 0x00000000u,
+	        .sel1Active = 0x00000000u,
+	    };
+	    (void)Cy_GPIO_Port_Init(GPIO_PRT0, &port0_cfg);
+	}
+
 	/* Port5 configuration */
 	{
 	    const cy_stc_gpio_prt_config_t port5_cfg =
@@ -619,10 +636,10 @@ void Cy_SystemInit(void)
 	{
 	    const cy_stc_gpio_prt_config_t port9_cfg =
 	    {
-	        .out        = 0x00000007u,
+	        .out        = 0x00000003u,
 	        .intrMask   = 0x00000000u,
 	        .intrCfg    = 0x00000000u,
-	        .cfg        = 0x00000ECCu,
+	        .cfg        = 0x000000CCu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
@@ -639,7 +656,7 @@ void Cy_SystemInit(void)
 	        .out        = 0x00000000u,
 	        .intrMask   = 0x00000001u,
 	        .intrCfg    = 0x00000001u,
-	        .cfg        = 0x6000000Bu,
+	        .cfg        = 0x0000000Bu,
 	        .cfgIn      = 0x00000000u,
 	        .cfgOut     = 0x00000000u,
 	        .cfgSIO     = 0x00000000u,
