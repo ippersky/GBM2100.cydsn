@@ -11,7 +11,7 @@
 */
 
 #include "display_task.h"
-#include "variables.h"
+
 
 uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
@@ -215,10 +215,28 @@ void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les 
             UpdateDisplay(CY_EINK_FULL_4STAGE, true);
         
         }
+        
+        
     
     }
     
-    
+    if(flagAlarmeAcclerometre == ON){
+        
+        if(flagMOUVEMENT == ON){
+            uint8_t font = 16;
+            GUI_SetFont(GUI_FONT_16_1);
+            
+            GUI_Clear();
+            GUI_DispStringAt("ATTENTION", 10, 10);
+            GUI_DispStringAt("Mesure invalide!", 10, 10+font);
+            GUI_DispStringAt("Veuillez garder votre doigt", 10, 10+(2*font));
+            GUI_DispStringAt("immobile lors de l'acquisition", 10, 10+(3*font));
+            
+            
+            flagMOUVEMENT = OFF;
+            UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+        }
+    }
     
     
 }
@@ -516,8 +534,12 @@ void Task_AffichageGraphique(void *data){
     for(;;){
     
         rtosApiResult = xQueueReceive(touchDataQ, &touchData, portMAX_DELAY);
+                
         if (rtosApiResult == pdTRUE)
         {
+            vTaskSuspend(xSample);
+            
+            
     
             if(touchData == BUTTON0_TOUCHED){   //aller a la prochaine page
                 switch(currentPage){
@@ -587,12 +609,15 @@ void Task_AffichageGraphique(void *data){
                         if (optionMenuTertiaire == 1){
                             vData = filteredRED;
                             afficherMenuPrincipal(vData);
+                            vTaskResume(xSample);
                             currentPage = MENU_PRINCIPAL;
                             break;
                         }
                         else if (optionMenuTertiaire == 2){
                             vData = filteredIR;
+                            
                             afficherMenuPrincipal(vData);
+                            vTaskResume(xSample);
                             currentPage = MENU_PRINCIPAL;
                             break;
                         }
@@ -686,10 +711,18 @@ void Task_AffichageGraphique(void *data){
             }
             
             
+            
+            
             else if(touchData == BUTTON2_TOUCHED){    // retourner en arriere
                 
-                if (currentPage == MENU_SECONDAIRE){
+                if(currentPage == MENU_PRINCIPAL){
                     afficherMenuPrincipal(vData);
+                    vTaskResume(xSample);
+                }
+                if (currentPage == MENU_SECONDAIRE){
+                    
+                    afficherMenuPrincipal(vData);
+                    vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;
                 }
                 else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3 || currentPage == MENU_TERTIAIRE_4){
@@ -701,24 +734,28 @@ void Task_AffichageGraphique(void *data){
                 else if(currentPage == MENU_QUAT_1_1){        
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
-                    afficherMenuPrincipal(vData);                    
+                    afficherMenuPrincipal(vData);
+                    vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
                 }
                 else if(currentPage == MENU_QUAT_1_2){
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
-                    afficherMenuPrincipal(vData);                    
+                    afficherMenuPrincipal(vData);
+                    vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
                 }
                 
                 ///// Menu Quat 2 /////
                 else if(currentPage == MENU_QUAT_2_1 || currentPage == MENU_QUAT_2_2){
                     afficherMenuPrincipal(vData);
+                    vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;                  
                 }
                 ///// Menu Quat 3 /////
                 else if(currentPage == MENU_QUAT_3_1 || currentPage == MENU_QUAT_3_2){
                     afficherMenuPrincipal(vData);
+                    vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;                  
                 }
                 

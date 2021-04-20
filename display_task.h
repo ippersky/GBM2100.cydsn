@@ -28,7 +28,8 @@
 #include "task.h"     
 #include "semphr.h"
 //#include "params.h"
-    
+
+#include "variables.h"   
 #include "touch_task.h"     // pour avoir access a la queue et MACROs de touch_data_t
     
 
@@ -59,8 +60,6 @@ typedef enum
     
 }   page_data_t; 
 
-#define ON      0u
-#define OFF     1u
 
 char *gcvt(double val, int precision, char *buf);
 char *gcvtf(float val, int precision, char *buf);
@@ -89,7 +88,7 @@ void afficherMenuTertiaire2(uint8_t * ptrOptionPresent);
 void afficherMenuTertiaire3(uint8_t * ptrOptionPresent);
 void afficherMenuTertiaire4(uint8_t * ptrOptionPresent);
 void updateMenuTertiaire(uint8_t * ptrOptionPresent);
-
+void afficherMenuPrincipal(uint32_t *vData);
 
 
 

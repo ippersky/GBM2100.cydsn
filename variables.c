@@ -21,5 +21,10 @@ uint16_t indexBuffer = 0;
 float32_t BPM;
 float32_t SPO2;
 
+TaskHandle_t xSample;
+TaskHandle_t xFiltering;
+TaskHandle_t xResults;
+uint8_t flagMOUVEMENT;
+
 /* [] END OF FILE */
 

@@ -48,9 +48,7 @@
 
 volatile SemaphoreHandle_t bouton_semph;
 volatile SemaphoreHandle_t active_task;
-TaskHandle_t xSample;
-TaskHandle_t xFiltering;
-TaskHandle_t xResults;
+
 
 
 
@@ -165,21 +163,23 @@ void vResults(void *arg){
     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
     
         if(indexBuffer == 0){
-            SPO2 = calculSpO2(red, ir, 50, BUFFER_LENGTH);
-            BPM = HeartRate(filteredIR, 50, BUFFER_LENGTH);
+            SPO2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
+            BPM = HeartRate(filteredIR, 0, BUFFER_LENGTH);
             char sSpo2[5];
             itoa(SPO2, sSpo2, 10);
             UART_1_PutString("spo2 \n\r");
             UART_1_PutString(sSpo2);
             char sBpm[5];
             itoa(BPM, sBpm, 10);
+            UART_1_PutString("\n\r");
             UART_1_PutString("bpm \n\r");
             UART_1_PutString(sBpm);
             UART_1_PutString("///////////////////////////////////////////////////////////////////////// \n\r");
         }
         vTaskDelay(pdMS_TO_TICKS(500));
-        vTaskResume(xSample);
+        //vTaskResume(xSample);
         vTaskSuspend(xResults);
+        //afficherMenuPrincipal(filteredRED);
     }
         
         /*
@@ -249,6 +249,7 @@ int main(void)
     
     vTaskSuspend(xFiltering);
     vTaskSuspend(xResults);
+    // vTaskSuspend(xSample) --> but : doit peser sur le bouton pour que le graphique s'actualise, besoin de tasksuspend?
     
     
     

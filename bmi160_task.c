@@ -17,6 +17,7 @@
 #include "bmi160.h"
 #include <stdio.h>
 #include "semphr.h"
+#include "variables.h"
 
 
 
@@ -99,7 +100,7 @@ void get_accData ()
         {
             printf("Interruption!\r\n");
             bmi160Status.bit.anym=0;
-            CyDelay(5000);
+            flagMOUVEMENT = ON;
             
             
         }
