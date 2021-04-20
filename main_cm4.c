@@ -96,20 +96,21 @@ void vSample_task(void *arg){
     
     (void) arg;
     for (;;){
-    if(xSemaphoreTake(active_task, 0) == pdTRUE){
     
-        for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
-        {
         
-            readFIFO(red, ir, indexBuffer);
-            
+        if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+    
+            for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
+            {
+                readFIFO(red, ir, indexBuffer);
+                   
+            }
             if(indexBuffer == 1999){
                 indexBuffer = 0;
                 xSemaphoreGive(active_task);
                 vTaskDelay(pdMS_TO_TICKS(1000));
             }
         }
-    }
     }
             
         
@@ -125,7 +126,7 @@ void vFiltering_task(void *arg){
     (void) arg;
     for(;;){
  
-    if(xSemaphoreTake(active_task, 0) == pdTRUE){
+    if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
         
         
         filtre(red, filteredRED, 0, 1000);
