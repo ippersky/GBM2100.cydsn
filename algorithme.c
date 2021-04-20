@@ -10,7 +10,7 @@
  * ========================================
 */
 #include "algorithme.h"
-
+#include "variables.h"
 
 #define LONGUEUR_ECH 1000 // longueur totale des donnees
 #define BLOCK_SIZE 200 // nombre de donnees par seconde
@@ -29,7 +29,7 @@ float32_t firStateF32[LONGUEUR_ECH+FILTER_TAP_NUM-1];
 
 /*************************************************************************/
 
-void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2){  // 
+void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2){  // 
     
     //Filtrage le signal avec un filtre passe-bas
     
@@ -55,8 +55,9 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2
     arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
     arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
     
-    uint16_t j = 0;
+    //uint16_t j = 0;
     
+    /*
     UART_1_PutString("//////////////////////////////////////////////////////////////////");
     for(j=0; j<LONGUEUR_ECH; j++){
         //printf("%s \n\r", Output[j]);
@@ -66,15 +67,17 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2
         UART_1_PutString("\n\r");
         
     }
-    if(j == 1000){
-            j=0;
-        }
+    */
+    
+    //if(j == 1000){
+    //        j=0;
+    //    }
     
 }
 
 // Cette fonction calcule la frequence cardiaque. Elle prend en parametre
 // le buffer rouge (ou infrarouge) et l'intervalle de temps qui nous interesse et retourne le BPM
-float32_t HeartRate(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
+float32_t HeartRate(uint32_t *Signal, uint16_t temps1, uint16_t temps2){
     
     
     /*
@@ -114,7 +117,9 @@ float32_t HeartRate(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
     }
     
     float32_t secondes = SECONDES, minute = 60;
-    float32_t BPM = (float32_t)compteur/secondes*minute;
+    float32_t bpm = (float32_t)compteur/secondes*minute;
+    
+    return bpm;
     
     
     
@@ -179,7 +184,7 @@ float32_t DC(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
 // Elle prend en parametres les signaux rouge et infrarouge ainsi que le temps1 et le temps2,\
 // soient 0 ou 1000 pour traiter la premiere moitié du buffer ou 1000 et 2000 pour traiter
 // la deuxieme moitié du buffer. Elle retourne le SpO2 pour 5 secondes
-float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint32_t temps1, uint32_t temps2){
+float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint16_t temps1, uint16_t temps2){
     
     // Coefficients de calibration
     float32_t a = 1.5958422;

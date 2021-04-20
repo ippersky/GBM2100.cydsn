@@ -9,15 +9,17 @@
  *
  * ========================================
 */
+
 #include "project.h"
+#include "variables.h"
 
-#define BUFFER_LENGTH 1000
-
-uint32_t redLED_buffer [BUFFER_LENGTH];
-uint32_t irLED_buffer [BUFFER_LENGTH];
-float32_t SPO2;
+uint32_t red[BUFFER_LENGTH];
+uint32_t ir[BUFFER_LENGTH];
+uint32_t filteredRED[BUFFER_LENGTH];
+uint32_t filteredIR[BUFFER_LENGTH];
+uint16_t indexBuffer = 0;
 float32_t BPM;
+float32_t SPO2;
 
-
-void vtraitement ();
 /* [] END OF FILE */
+

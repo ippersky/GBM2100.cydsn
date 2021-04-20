@@ -11,7 +11,7 @@
 */
 
 #include "display_task.h"
-#include "oxy_task.h"
+#include "variables.h"
 
 uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
@@ -38,14 +38,14 @@ size_t espacement = 4;      // longeurData/nbrePixelY ; 1000/264 = 3.79
 
     // quand je mets les 2 vecteurs vides dans task, meme le refresh s'arrete
 
-float32_t SPO2 = 95.51; 
-float32_t BPM = 120.5;
+//float32_t SPO2 = 95.51; 
+//float32_t BPM = 120.5;
 
 // 0 a 255
 uint8_t courantLEDrouge = 31;
 uint8_t courantLEDir = 1;
 
-uint8_t flagAlarmeBPM = ON;
+uint8_t flagAlarmeBPM = OFF;
 uint8_t flagAlarmeAcclerometre = ON;
 
 float32_t borneMaxBPM = 130;
@@ -509,7 +509,7 @@ void Task_AffichageGraphique(void *data){
     
     BaseType_t rtosApiResult; 
     
-    uint32_t * vData = redLED_buffer;
+    uint32_t * vData = red;
     afficherMenuPrincipal(vData);
    
     
@@ -585,13 +585,13 @@ void Task_AffichageGraphique(void *data){
                                     
                     case MENU_TERTIAIRE_4:
                         if (optionMenuTertiaire == 1){
-                            vData = redLED_buffer;
+                            vData = red;
                             afficherMenuPrincipal(vData);
                             currentPage = MENU_PRINCIPAL;
                             break;
                         }
                         else if (optionMenuTertiaire == 2){
-                            vData = irLED_buffer;
+                            vData = ir;
                             afficherMenuPrincipal(vData);
                             currentPage = MENU_PRINCIPAL;
                             break;
@@ -678,7 +678,7 @@ void Task_AffichageGraphique(void *data){
                     afficherMenuQuat3(&flagAlarmeAcclerometre, &optionMenuTertiaire);
                 }
                 else if(currentPage == MENU_QUAT_3_2){
-                    flagAlarmeAcclerometre = OFF;
+                    flagAlarmeBPM = OFF;
                     afficherMenuQuat3(&flagAlarmeBPM, &optionMenuTertiaire);
                 }
                 

@@ -34,9 +34,9 @@ writeRegistre(REG_MODE_CONFIG, 0x03); //SPO2 Mode (Red and IR)
        
 writeRegistre(REG_SPO2_CONFIG, 0x29); //ADC Range control=4096nA, Sample rate=200Hz, Pulse width =118microsec
 
-writeRegistre(REG_LED_AMP_1, 0x1f); //6.2 mA
+writeRegistre(REG_LED_AMP_1, 0x1f); //6.2 mA -- 7f = 25,4
 
-writeRegistre(REG_LED_AMP_2, 0x1f); //6.2 mA
+writeRegistre(REG_LED_AMP_2, 0x1f); //6.2 mA -- 
 
 
 
@@ -93,7 +93,7 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
         
     readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
     red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-    ir_LED[compteur]=((i2c_data[3]<<16)+(i2c_data[4]<<8)+(i2c_data[5]));
+    ir_LED[compteur]=((0b00000011&i2c_data[3])<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
     //changement en uint32_t et enlever le cast en (float)
     
     // vérification bonnes données
