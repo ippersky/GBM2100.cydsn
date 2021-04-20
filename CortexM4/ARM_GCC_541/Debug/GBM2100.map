@@ -7305,70 +7305,70 @@ OUTPUT(C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Pro
  .comment       0x000000dc       0x6f Generated_Source\PSoC6\pdl\middleware\emWin\libs\GCC\libemWin_osnts_gcc.a(GUI__CompactPixelIndices.o)
  .comment       0x000000dc       0x6f Generated_Source\PSoC6\pdl\middleware\emWin\libs\GCC\libemWin_osnts_gcc.a(GUIDEV_GetDataPtr.o)
 
-.debug_line     0x00000000    0x12951
+.debug_line     0x00000000    0x12953
  .debug_line    0x00000000       0x8e .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o
- .debug_line    0x0000008e      0x72f .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
- .debug_line    0x000007bd      0x423 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
- .debug_line    0x00000be0      0x532 .\CortexM4\ARM_GCC_541\Debug\algorithme.o
- .debug_line    0x00001112      0x480 .\CortexM4\ARM_GCC_541\Debug\bmi160_task.o
- .debug_line    0x00001592      0x7ca .\CortexM4\ARM_GCC_541\Debug\display_task.o
- .debug_line    0x00001d5c      0x49a .\CortexM4\ARM_GCC_541\Debug\MAX30102.o
- .debug_line    0x000021f6      0x38e .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
- .debug_line    0x00002584      0x420 .\CortexM4\ARM_GCC_541\Debug\touch_task.o
- .debug_line    0x000029a4     0x12d3 .\CortexM4\ARM_GCC_541\Debug\bmi160.o
- .debug_line    0x00003c77      0x32c .\CortexM4\ARM_GCC_541\Debug\variables.o
- .debug_line    0x00003fa3      0x3f7 .\CortexM4\ARM_GCC_541\Debug\cy_eink_library.o
- .debug_line    0x0000439a      0x5e4 .\CortexM4\ARM_GCC_541\Debug\cy_eink_psoc_interface.o
- .debug_line    0x0000497e      0x97f .\CortexM4\ARM_GCC_541\Debug\pervasive_eink_hardware_driver.o
- .debug_line    0x000052fd      0x22d .\CortexM4\ARM_GCC_541\Debug\LCDConf.o
- .debug_line    0x0000552a       0x8c .\CortexM4\ARM_GCC_541\Debug\GUIConf.o
- .debug_line    0x000055b6      0x2bd .\CortexM4\ARM_GCC_541\Debug\GUI_X_RTOS.o
- .debug_line    0x00005873      0x23d .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
- .debug_line    0x00005ab0      0x141 .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00005bf1      0x37e .\CortexM4\ARM_GCC_541\Debug\CY_EINK_SPIM.o
- .debug_line    0x00005f6f      0x265 .\CortexM4\ARM_GCC_541\Debug\CY_EINK_Timer.o
- .debug_line    0x000061d4      0x7c0 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
- .debug_line    0x00006994      0x4e6 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
- .debug_line    0x00006e7a      0x32a .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
- .debug_line    0x000071a4      0x3f3 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
- .debug_line    0x00007597      0x56a .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
- .debug_line    0x00007b01      0x4c5 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
- .debug_line    0x00007fc6     0x1114 .\CortexM4\ARM_GCC_541\Debug\cy_scb_i2c.o
- .debug_line    0x000090da      0x7ff .\CortexM4\ARM_GCC_541\Debug\cy_scb_spi.o
- .debug_line    0x000098d9      0xa4b .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
- .debug_line    0x0000a324      0x2c9 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
- .debug_line    0x0000a5ed      0x46e .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
- .debug_line    0x0000aa5b       0x89 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
- .debug_line    0x0000aae4      0xa46 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
- .debug_line    0x0000b52a      0x29b .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_counter.o
- .debug_line    0x0000b7c5      0x17e .\CortexM4\ARM_GCC_541\Debug\cy_device.o
- .debug_line    0x0000b943      0x29b .\CortexM4\ARM_GCC_541\Debug\list.o
- .debug_line    0x0000bbde      0x983 .\CortexM4\ARM_GCC_541\Debug\queue.o
- .debug_line    0x0000c561      0xdc5 .\CortexM4\ARM_GCC_541\Debug\tasks.o
- .debug_line    0x0000d326      0x510 .\CortexM4\ARM_GCC_541\Debug\timers.o
- .debug_line    0x0000d836      0x3ed .\CortexM4\ARM_GCC_541\Debug\port.o
- .debug_line    0x0000dc23      0x315 .\CortexM4\ARM_GCC_541\Debug\heap_1.o
- .debug_line    0x0000df38      0x332 .\CortexM4\ARM_GCC_541\Debug\retarget.o
- .debug_line    0x0000e26a      0x48d .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
- .debug_line    0x0000e6f7      0x581 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
- .debug_line    0x0000ec78      0x3d1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
- .debug_line    0x0000f049      0x2c6 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
- .debug_line    0x0000f30f      0x39f .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
- .debug_line    0x0000f6ae      0x974 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
- .debug_line    0x00010022      0x37a .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
- .debug_line    0x0001039c      0x7db .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
- .debug_line    0x00010b77      0x754 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
- .debug_line    0x000112cb      0x28a .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
- .debug_line    0x00011555      0x328 .\CortexM4\ARM_GCC_541\Debug\I2C_BMI.o
- .debug_line    0x0001187d      0x328 .\CortexM4\ARM_GCC_541\Debug\I2C_MAX.o
- .debug_line    0x00011ba5      0x324 .\CortexM4\ARM_GCC_541\Debug\UART_1.o
- .debug_line    0x00011ec9       0x95 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
- .debug_line    0x00011f5e       0xdd C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
- .debug_line    0x0001203b      0x173 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_min_f32.o)
- .debug_line    0x000121ae      0x167 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_mean_f32.o)
- .debug_line    0x00012315      0x173 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_max_f32.o)
- .debug_line    0x00012488      0x157 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
- .debug_line    0x000125df      0x372 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
+ .debug_line    0x0000008e      0x731 .\CortexM4\ARM_GCC_541\Debug\main_cm4.o
+ .debug_line    0x000007bf      0x423 .\CortexM4\ARM_GCC_541\Debug\system_psoc6_cm4.o
+ .debug_line    0x00000be2      0x532 .\CortexM4\ARM_GCC_541\Debug\algorithme.o
+ .debug_line    0x00001114      0x480 .\CortexM4\ARM_GCC_541\Debug\bmi160_task.o
+ .debug_line    0x00001594      0x7ca .\CortexM4\ARM_GCC_541\Debug\display_task.o
+ .debug_line    0x00001d5e      0x49a .\CortexM4\ARM_GCC_541\Debug\MAX30102.o
+ .debug_line    0x000021f8      0x38e .\CortexM4\ARM_GCC_541\Debug\stdio_user.o
+ .debug_line    0x00002586      0x420 .\CortexM4\ARM_GCC_541\Debug\touch_task.o
+ .debug_line    0x000029a6     0x12d3 .\CortexM4\ARM_GCC_541\Debug\bmi160.o
+ .debug_line    0x00003c79      0x32c .\CortexM4\ARM_GCC_541\Debug\variables.o
+ .debug_line    0x00003fa5      0x3f7 .\CortexM4\ARM_GCC_541\Debug\cy_eink_library.o
+ .debug_line    0x0000439c      0x5e4 .\CortexM4\ARM_GCC_541\Debug\cy_eink_psoc_interface.o
+ .debug_line    0x00004980      0x97f .\CortexM4\ARM_GCC_541\Debug\pervasive_eink_hardware_driver.o
+ .debug_line    0x000052ff      0x22d .\CortexM4\ARM_GCC_541\Debug\LCDConf.o
+ .debug_line    0x0000552c       0x8c .\CortexM4\ARM_GCC_541\Debug\GUIConf.o
+ .debug_line    0x000055b8      0x2bd .\CortexM4\ARM_GCC_541\Debug\GUI_X_RTOS.o
+ .debug_line    0x00005875      0x23d .\CortexM4\ARM_GCC_541\Debug\cyfitter_sysint_cfg.o
+ .debug_line    0x00005ab2      0x141 .\CortexM4\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00005bf3      0x37e .\CortexM4\ARM_GCC_541\Debug\CY_EINK_SPIM.o
+ .debug_line    0x00005f71      0x265 .\CortexM4\ARM_GCC_541\Debug\CY_EINK_Timer.o
+ .debug_line    0x000061d6      0x7c0 .\CortexM4\ARM_GCC_541\Debug\cy_flash.o
+ .debug_line    0x00006996      0x4e6 .\CortexM4\ARM_GCC_541\Debug\cy_gpio.o
+ .debug_line    0x00006e7c      0x32a .\CortexM4\ARM_GCC_541\Debug\cy_ipc_drv.o
+ .debug_line    0x000071a6      0x3f3 .\CortexM4\ARM_GCC_541\Debug\cy_ipc_sema.o
+ .debug_line    0x00007599      0x56a .\CortexM4\ARM_GCC_541\Debug\cy_ipc_pipe.o
+ .debug_line    0x00007b03      0x4c5 .\CortexM4\ARM_GCC_541\Debug\cy_scb_common.o
+ .debug_line    0x00007fc8     0x1114 .\CortexM4\ARM_GCC_541\Debug\cy_scb_i2c.o
+ .debug_line    0x000090dc      0x7ff .\CortexM4\ARM_GCC_541\Debug\cy_scb_spi.o
+ .debug_line    0x000098db      0xa4b .\CortexM4\ARM_GCC_541\Debug\cy_scb_uart.o
+ .debug_line    0x0000a326      0x2c9 .\CortexM4\ARM_GCC_541\Debug\cy_sysint.o
+ .debug_line    0x0000a5ef      0x46e .\CortexM4\ARM_GCC_541\Debug\cy_syslib.o
+ .debug_line    0x0000aa5d       0x89 .\CortexM4\ARM_GCC_541\Debug\cy_syslib_gcc.o
+ .debug_line    0x0000aae6      0xa46 .\CortexM4\ARM_GCC_541\Debug\cy_syspm.o
+ .debug_line    0x0000b52c      0x29b .\CortexM4\ARM_GCC_541\Debug\cy_tcpwm_counter.o
+ .debug_line    0x0000b7c7      0x17e .\CortexM4\ARM_GCC_541\Debug\cy_device.o
+ .debug_line    0x0000b945      0x29b .\CortexM4\ARM_GCC_541\Debug\list.o
+ .debug_line    0x0000bbe0      0x983 .\CortexM4\ARM_GCC_541\Debug\queue.o
+ .debug_line    0x0000c563      0xdc5 .\CortexM4\ARM_GCC_541\Debug\tasks.o
+ .debug_line    0x0000d328      0x510 .\CortexM4\ARM_GCC_541\Debug\timers.o
+ .debug_line    0x0000d838      0x3ed .\CortexM4\ARM_GCC_541\Debug\port.o
+ .debug_line    0x0000dc25      0x315 .\CortexM4\ARM_GCC_541\Debug\heap_1.o
+ .debug_line    0x0000df3a      0x332 .\CortexM4\ARM_GCC_541\Debug\retarget.o
+ .debug_line    0x0000e26c      0x48d .\CortexM4\ARM_GCC_541\Debug\CapSense_Control.o
+ .debug_line    0x0000e6f9      0x581 .\CortexM4\ARM_GCC_541\Debug\CapSense_Processing.o
+ .debug_line    0x0000ec7a      0x3d1 .\CortexM4\ARM_GCC_541\Debug\CapSense_Structure.o
+ .debug_line    0x0000f04b      0x2c6 .\CortexM4\ARM_GCC_541\Debug\CapSense_Tuner.o
+ .debug_line    0x0000f311      0x39f .\CortexM4\ARM_GCC_541\Debug\CapSense_Filter.o
+ .debug_line    0x0000f6b0      0x974 .\CortexM4\ARM_GCC_541\Debug\CapSense_Sensing.o
+ .debug_line    0x00010024      0x37a .\CortexM4\ARM_GCC_541\Debug\CapSense_INT.o
+ .debug_line    0x0001039e      0x7db .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o
+ .debug_line    0x00010b79      0x754 .\CortexM4\ARM_GCC_541\Debug\CapSense_SensingCSX_LL.o
+ .debug_line    0x000112cd      0x28a .\CortexM4\ARM_GCC_541\Debug\CapSense_Centroid_LL.o
+ .debug_line    0x00011557      0x328 .\CortexM4\ARM_GCC_541\Debug\I2C_BMI.o
+ .debug_line    0x0001187f      0x328 .\CortexM4\ARM_GCC_541\Debug\I2C_MAX.o
+ .debug_line    0x00011ba7      0x324 .\CortexM4\ARM_GCC_541\Debug\UART_1.o
+ .debug_line    0x00011ecb       0x95 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_LL.o)
+ .debug_line    0x00011f60       0xdd C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_v3_0\Library\CapSense_Library_GCC_M4.a(CapSense_SmartSense_SL.o)
+ .debug_line    0x0001203d      0x173 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_min_f32.o)
+ .debug_line    0x000121b0      0x167 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_mean_f32.o)
+ .debug_line    0x00012317      0x173 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_max_f32.o)
+ .debug_line    0x0001248a      0x157 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_init_f32.o)
+ .debug_line    0x000125e1      0x372 .\CMSIS\Lib\GCC\libarm_cortexM4l_math.a(arm_fir_f32.o)
 
 .debug_info     0x00000000    0x558c1
  .debug_info    0x00000000       0x9f .\CortexM4\ARM_GCC_541\Debug\startup_psoc6_01_cm4.o

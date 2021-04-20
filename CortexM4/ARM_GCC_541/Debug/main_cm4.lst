@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   27:main_cm4.c    **** #include "bmi160_defs.h"
   28:main_cm4.c    **** //#include "sample_task.h"
   29:main_cm4.c    **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 2
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 2
 
 
   30:main_cm4.c    **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   42              	.LVL0:
   71:main_cm4.c    ****     CyDelay(1000);      // more or less ??
   43              		.loc 1 71 0
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 3
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 3
 
 
   44 000c 4FF47A70 		mov	r0, #1000
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   49:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    This allows the pin to connect to signal sources/sinks throughout the device,
   50:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    as defined by the pin HSIOM selection options (en_hsiom_sel_t).
   51:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * 2. All pins are initialized to High-Z drive mode with HSIOM connected to CPU (SW
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 4
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 4
 
 
   52:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *    control digital pin only) at Power-On-Reset(POR).
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  106:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  107:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \section group_gpio_changelog Changelog
  108:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * <table class="doxtable">
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 5
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 5
 
 
  109:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *   <tr><th>Version</th><th>Changes</th><th>Reason for Change</th></tr>
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  163:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  164:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include <stddef.h>
  165:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_device.h"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 6
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 6
 
 
  166:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #include "cy_device_headers.h"
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  220:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** typedef enum
  221:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
  222:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUXBUSA,       /**< AMuxBus A */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 7
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 7
 
 
  223:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_GPIO_AMUXBUSB        /**< AMuxBus B */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  277:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  278:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /* General Constants */
  279:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_HALF                       (4UL)      /**< Half-way point of a GPIO port */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 8
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 8
 
 
  280:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_DEINIT                     (0UL)      /**< De-init value for port registers */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  334:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****                                                 GPIO_PRT_INTR_CFG_FLT_SEL_Msk)
  335:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_INT_MASK_MASK              (0x0000001FFUL)
  336:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_PRT_SEL_ACTIVE_MASK            (0x1FFFFFFFUL)
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 9
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 9
 
 
  337:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  391:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  392:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  393:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /***************************************
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 10
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 10
 
 
  394:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *        Function Constants
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  448:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_1_4                      (0x02UL) /**< 1/4 drive strength: 1/4 drive current 
  449:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_GPIO_DRIVE_1_8                      (0x03UL) /**< 1/8 drive strength: 1/8 drive current 
  450:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 11
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 11
 
 
  451:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  505:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \{
  506:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Constants to be used for setting the Voh and input buffer trip-point of an SIO pair
  507:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 12
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 12
 
 
  508:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** #define CY_SIO_VOH_1_00                        (0x00UL) /**< Voh = 1 x Reference */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  562:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetSlewRate(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
  563:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetSlewRate(GPIO_PRT_Type* base, uint32_t pinNum);
  564:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value);
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 13
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 13
 
 
  565:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetDriveSel(GPIO_PRT_Type* base, uint32_t pinNum);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  619:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  620:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Configures the HSIOM connection to the pin.
  621:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 14
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 14
 
 
  622:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Connects the specified High-Speed Input Output Multiplexer (HSIOM) selection
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  676:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  677:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
  678:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 15
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 15
 
 
  679:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  733:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     GPIO_PRT_Type* portBase;
  734:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     
  735:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     if(portNum < (uint32_t)IOSS_GPIO_GPIO_PORT_NR)
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 16
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 16
 
 
  736:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  790:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * any effect on peripheral driven pins.
  791:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
  792:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 17
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 17
 
 
  793:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  847:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  848:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
  849:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 18
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 18
 
 
  850:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_Set
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  904:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Function Name: Cy_GPIO_Inv
  905:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** ****************************************************************************//**
  906:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 19
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 19
 
 
  907:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Set a pin output logic state to the inverse of the current output
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  961:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     uint32_t tempReg;
  962:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     uint32_t pinLoc;
  963:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 20
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 20
 
 
  964:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     CY_ASSERT_L2(CY_GPIO_IS_PIN_VALID(pinNum));
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1018:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1019:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \funcusage
 1020:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_SetVtrip
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 21
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 21
 
 
 1021:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1075:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
 1076:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
 1077:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 22
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 22
 
 
 1078:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param value
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1132:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Configures the pin output buffer drive strength.
 1133:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1134:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 23
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 23
 
 
 1135:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1189:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****             & CY_GPIO_CFG_OUT_DRIVE_SEL_MASK);
 1190:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
 1191:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 24
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 24
 
 
 1192:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /** \} group_gpio_functions_gpio */
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1246:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param base
 1247:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
 1248:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 25
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 25
 
 
 1249:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1303:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** }
 1304:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
 1305:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 26
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 26
 
 
 1306:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** /*******************************************************************************
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1360:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE void Cy_GPIO_SetVtripSel(GPIO_PRT_Type* base, uint32_t pinNum, uint32_t value)
 1361:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** {
 1362:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     uint32_t tempReg;
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 27
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 27
 
 
 1363:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h ****     uint32_t pinLoc;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1417:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param value
 1418:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * SIO pair reference voltage. Options are detailed in \ref group_gpio_sioVref macros
 1419:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 28
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 28
 
 
 1420:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \note 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1474:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1475:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Configures the regulated output reference multiplier for the SIO pin pair.
 1476:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 29
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 29
 
 
 1477:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * The regulated output reference controls both the output level of digital output
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1531:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \snippet gpio/gpio_v1_10_sut_01.cydsn/main_cm4.c snippet_Cy_GPIO_SetVohSel
 1532:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1533:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *******************************************************************************/
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 30
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 30
 
 
 1534:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** __STATIC_INLINE uint32_t Cy_GPIO_GetVohSel(GPIO_PRT_Type* base, uint32_t pinNum)
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1588:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Pointer to the pin's port register base address
 1589:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** *
 1590:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * \param pinNum
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 31
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 31
 
 
 1591:Generated_Source\PSoC6\pdl\drivers/peripheral/gpio/cy_gpio.h **** * Position of the pin bit-field within the port register
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   17:.\CMSIS\Core\Include/core_cm4.h ****  *
   18:.\CMSIS\Core\Include/core_cm4.h ****  * Unless required by applicable law or agreed to in writing, software
   19:.\CMSIS\Core\Include/core_cm4.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 32
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 32
 
 
   20:.\CMSIS\Core\Include/core_cm4.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   74:.\CMSIS\Core\Include/core_cm4.h ****     For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and fun
   75:.\CMSIS\Core\Include/core_cm4.h **** */
   76:.\CMSIS\Core\Include/core_cm4.h **** #if defined ( __CC_ARM )
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 33
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 33
 
 
   77:.\CMSIS\Core\Include/core_cm4.h ****   #if defined __TARGET_FPU_VFP
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  131:.\CMSIS\Core\Include/core_cm4.h ****     #endif
  132:.\CMSIS\Core\Include/core_cm4.h ****   #else
  133:.\CMSIS\Core\Include/core_cm4.h ****     #define __FPU_USED         0U
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 34
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 34
 
 
  134:.\CMSIS\Core\Include/core_cm4.h ****   #endif
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  188:.\CMSIS\Core\Include/core_cm4.h ****     #define __FPU_PRESENT             0U
  189:.\CMSIS\Core\Include/core_cm4.h ****     #warning "__FPU_PRESENT not defined in device header file; using default!"
  190:.\CMSIS\Core\Include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 35
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 35
 
 
  191:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  245:.\CMSIS\Core\Include/core_cm4.h ****   \defgroup CMSIS_core_register Defines and Type Definitions
  246:.\CMSIS\Core\Include/core_cm4.h ****   \brief Type definitions and defines for Cortex-M processor based devices.
  247:.\CMSIS\Core\Include/core_cm4.h **** */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 36
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 36
 
 
  248:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  302:.\CMSIS\Core\Include/core_cm4.h ****     uint32_t ISR:9;                      /*!< bit:  0.. 8  Exception number */
  303:.\CMSIS\Core\Include/core_cm4.h ****     uint32_t _reserved0:23;              /*!< bit:  9..31  Reserved */
  304:.\CMSIS\Core\Include/core_cm4.h ****   } b;                                   /*!< Structure used for bit  access */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 37
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 37
 
 
  305:.\CMSIS\Core\Include/core_cm4.h ****   uint32_t w;                            /*!< Type      used for word access */
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  359:.\CMSIS\Core\Include/core_cm4.h **** #define xPSR_GE_Msk                        (0xFUL << xPSR_GE_Pos)                         /*!< xPSR
  360:.\CMSIS\Core\Include/core_cm4.h **** 
  361:.\CMSIS\Core\Include/core_cm4.h **** #define xPSR_ICI_IT_1_Pos                  10U                                            /*!< xPSR
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 38
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 38
 
 
  362:.\CMSIS\Core\Include/core_cm4.h **** #define xPSR_ICI_IT_1_Msk                  (0x3FUL << xPSR_ICI_IT_1_Pos)                  /*!< xPSR
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  416:.\CMSIS\Core\Include/core_cm4.h ****   __IOM uint32_t IABR[8U];               /*!< Offset: 0x200 (R/W)  Interrupt Active bit Register */
  417:.\CMSIS\Core\Include/core_cm4.h ****         uint32_t RESERVED4[56U];
  418:.\CMSIS\Core\Include/core_cm4.h ****   __IOM uint8_t  IP[240U];               /*!< Offset: 0x300 (R/W)  Interrupt Priority Register (8Bi
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 39
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 39
 
 
  419:.\CMSIS\Core\Include/core_cm4.h ****         uint32_t RESERVED5[644U];
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  473:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_CPUID_ARCHITECTURE_Msk         (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)          /*!< SCB 
  474:.\CMSIS\Core\Include/core_cm4.h **** 
  475:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_CPUID_PARTNO_Pos                4U                                            /*!< SCB 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 40
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 40
 
 
  476:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_CPUID_PARTNO_Msk               (0xFFFUL << SCB_CPUID_PARTNO_Pos)              /*!< SCB 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  530:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_AIRCR_SYSRESETREQ_Msk          (1UL << SCB_AIRCR_SYSRESETREQ_Pos)             /*!< SCB 
  531:.\CMSIS\Core\Include/core_cm4.h **** 
  532:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_AIRCR_VECTCLRACTIVE_Pos         1U                                            /*!< SCB 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 41
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 41
 
 
  533:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_AIRCR_VECTCLRACTIVE_Msk        (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)           /*!< SCB 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  587:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_SHCSR_USGFAULTPENDED_Msk       (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)          /*!< SCB 
  588:.\CMSIS\Core\Include/core_cm4.h **** 
  589:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_SHCSR_SYSTICKACT_Pos           11U                                            /*!< SCB 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 42
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 42
 
 
  590:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_SHCSR_SYSTICKACT_Msk           (1UL << SCB_SHCSR_SYSTICKACT_Pos)              /*!< SCB 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  644:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_CFSR_LSPERR_Msk               (1UL << SCB_CFSR_LSPERR_Pos)                    /*!< SCB 
  645:.\CMSIS\Core\Include/core_cm4.h **** 
  646:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_CFSR_STKERR_Pos               (SCB_CFSR_BUSFAULTSR_Pos + 4U)                  /*!< SCB 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 43
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 43
 
 
  647:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_CFSR_STKERR_Msk               (1UL << SCB_CFSR_STKERR_Pos)                    /*!< SCB 
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  701:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_DFSR_BKPT_Msk                  (1UL << SCB_DFSR_BKPT_Pos)                     /*!< SCB 
  702:.\CMSIS\Core\Include/core_cm4.h **** 
  703:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_DFSR_HALTED_Pos                 0U                                            /*!< SCB 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 44
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 44
 
 
  704:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_DFSR_HALTED_Msk                (1UL /*<< SCB_DFSR_HALTED_Pos*/)               /*!< SCB 
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  758:.\CMSIS\Core\Include/core_cm4.h ****  */
  759:.\CMSIS\Core\Include/core_cm4.h **** typedef struct
  760:.\CMSIS\Core\Include/core_cm4.h **** {
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 45
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 45
 
 
  761:.\CMSIS\Core\Include/core_cm4.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x000 (R/W)  SysTick Control and Status Regis
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  815:.\CMSIS\Core\Include/core_cm4.h ****     __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
  816:.\CMSIS\Core\Include/core_cm4.h ****     __OM  uint16_t   u16;                /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 16-bit */
  817:.\CMSIS\Core\Include/core_cm4.h ****     __OM  uint32_t   u32;                /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 32-bit */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 46
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 46
 
 
  818:.\CMSIS\Core\Include/core_cm4.h ****   }  PORT [32U];                         /*!< Offset: 0x000 ( /W)  ITM Stimulus Port Registers */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  872:.\CMSIS\Core\Include/core_cm4.h **** 
  873:.\CMSIS\Core\Include/core_cm4.h **** #define ITM_TCR_TSENA_Pos                   1U                                            /*!< ITM 
  874:.\CMSIS\Core\Include/core_cm4.h **** #define ITM_TCR_TSENA_Msk                  (1UL << ITM_TCR_TSENA_Pos)                     /*!< ITM 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 47
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 47
 
 
  875:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  929:.\CMSIS\Core\Include/core_cm4.h ****   __IOM uint32_t MASK1;                  /*!< Offset: 0x034 (R/W)  Mask Register 1 */
  930:.\CMSIS\Core\Include/core_cm4.h ****   __IOM uint32_t FUNCTION1;              /*!< Offset: 0x038 (R/W)  Function Register 1 */
  931:.\CMSIS\Core\Include/core_cm4.h ****         uint32_t RESERVED1[1U];
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 48
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 48
 
 
  932:.\CMSIS\Core\Include/core_cm4.h ****   __IOM uint32_t COMP2;                  /*!< Offset: 0x040 (R/W)  Comparator Register 2 */
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  986:.\CMSIS\Core\Include/core_cm4.h **** 
  987:.\CMSIS\Core\Include/core_cm4.h **** #define DWT_CTRL_POSTINIT_Pos               5U                                         /*!< DWT CTR
  988:.\CMSIS\Core\Include/core_cm4.h **** #define DWT_CTRL_POSTINIT_Msk              (0xFUL << DWT_CTRL_POSTINIT_Pos)            /*!< DWT CTR
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 49
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 49
 
 
  989:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1043:.\CMSIS\Core\Include/core_cm4.h **** #define DWT_FUNCTION_EMITRANGE_Msk         (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)       /*!< DWT FUN
 1044:.\CMSIS\Core\Include/core_cm4.h **** 
 1045:.\CMSIS\Core\Include/core_cm4.h **** #define DWT_FUNCTION_FUNCTION_Pos           0U                                         /*!< DWT FUN
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 50
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 50
 
 
 1046:.\CMSIS\Core\Include/core_cm4.h **** #define DWT_FUNCTION_FUNCTION_Msk          (0xFUL /*<< DWT_FUNCTION_FUNCTION_Pos*/)    /*!< DWT FUN
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1100:.\CMSIS\Core\Include/core_cm4.h **** /* TPI Formatter and Flush Status Register Definitions */
 1101:.\CMSIS\Core\Include/core_cm4.h **** #define TPI_FFSR_FtNonStop_Pos              3U                                         /*!< TPI FFS
 1102:.\CMSIS\Core\Include/core_cm4.h **** #define TPI_FFSR_FtNonStop_Msk             (0x1UL << TPI_FFSR_FtNonStop_Pos)           /*!< TPI FFS
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 51
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 51
 
 
 1103:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1157:.\CMSIS\Core\Include/core_cm4.h **** #define TPI_FIFO1_ETM_ATVALID_Pos          26U                                         /*!< TPI FIF
 1158:.\CMSIS\Core\Include/core_cm4.h **** #define TPI_FIFO1_ETM_ATVALID_Msk          (0x3UL << TPI_FIFO1_ETM_ATVALID_Pos)        /*!< TPI FIF
 1159:.\CMSIS\Core\Include/core_cm4.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 52
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 52
 
 
 1160:.\CMSIS\Core\Include/core_cm4.h **** #define TPI_FIFO1_ETM_bytecount_Pos        24U                                         /*!< TPI FIF
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1214:.\CMSIS\Core\Include/core_cm4.h ****   @{
 1215:.\CMSIS\Core\Include/core_cm4.h ****  */
 1216:.\CMSIS\Core\Include/core_cm4.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 53
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 53
 
 
 1217:.\CMSIS\Core\Include/core_cm4.h **** /**
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1271:.\CMSIS\Core\Include/core_cm4.h **** /* MPU Region Attribute and Size Register Definitions */
 1272:.\CMSIS\Core\Include/core_cm4.h **** #define MPU_RASR_ATTRS_Pos                 16U                                            /*!< MPU 
 1273:.\CMSIS\Core\Include/core_cm4.h **** #define MPU_RASR_ATTRS_Msk                 (0xFFFFUL << MPU_RASR_ATTRS_Pos)               /*!< MPU 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 54
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 54
 
 
 1274:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1328:.\CMSIS\Core\Include/core_cm4.h **** #define FPU_FPCCR_ASPEN_Msk                (1UL << FPU_FPCCR_ASPEN_Pos)                   /*!< FPCC
 1329:.\CMSIS\Core\Include/core_cm4.h **** 
 1330:.\CMSIS\Core\Include/core_cm4.h **** #define FPU_FPCCR_LSPEN_Pos                30U                                            /*!< FPCC
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 55
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 55
 
 
 1331:.\CMSIS\Core\Include/core_cm4.h **** #define FPU_FPCCR_LSPEN_Msk                (1UL << FPU_FPCCR_LSPEN_Pos)                   /*!< FPCC
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1385:.\CMSIS\Core\Include/core_cm4.h **** #define FPU_MVFR0_FP_excep_trapping_Msk    (0xFUL << FPU_MVFR0_FP_excep_trapping_Pos)     /*!< MVFR
 1386:.\CMSIS\Core\Include/core_cm4.h **** 
 1387:.\CMSIS\Core\Include/core_cm4.h **** #define FPU_MVFR0_Double_precision_Pos      8U                                            /*!< MVFR
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 56
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 56
 
 
 1388:.\CMSIS\Core\Include/core_cm4.h **** #define FPU_MVFR0_Double_precision_Msk     (0xFUL << FPU_MVFR0_Double_precision_Pos)      /*!< MVFR
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1442:.\CMSIS\Core\Include/core_cm4.h **** 
 1443:.\CMSIS\Core\Include/core_cm4.h **** #define CoreDebug_DHCSR_S_SLEEP_Pos        18U                                            /*!< Core
 1444:.\CMSIS\Core\Include/core_cm4.h **** #define CoreDebug_DHCSR_S_SLEEP_Msk        (1UL << CoreDebug_DHCSR_S_SLEEP_Pos)           /*!< Core
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 57
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 57
 
 
 1445:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1499:.\CMSIS\Core\Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_STATERR_Pos      7U                                            /*!< Core
 1500:.\CMSIS\Core\Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_STATERR_Msk     (1UL << CoreDebug_DEMCR_VC_STATERR_Pos)        /*!< Core
 1501:.\CMSIS\Core\Include/core_cm4.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 58
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 58
 
 
 1502:.\CMSIS\Core\Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_CHKERR_Pos       6U                                            /*!< Core
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1556:.\CMSIS\Core\Include/core_cm4.h **** #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
 1557:.\CMSIS\Core\Include/core_cm4.h **** #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
 1558:.\CMSIS\Core\Include/core_cm4.h **** #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Bas
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 59
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 59
 
 
 1559:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1613:.\CMSIS\Core\Include/core_cm4.h ****   #define NVIC_DisableIRQ             __NVIC_DisableIRQ
 1614:.\CMSIS\Core\Include/core_cm4.h ****   #define NVIC_GetPendingIRQ          __NVIC_GetPendingIRQ
 1615:.\CMSIS\Core\Include/core_cm4.h ****   #define NVIC_SetPendingIRQ          __NVIC_SetPendingIRQ
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 60
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 60
 
 
 1616:.\CMSIS\Core\Include/core_cm4.h ****   #define NVIC_ClearPendingIRQ        __NVIC_ClearPendingIRQ
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1670:.\CMSIS\Core\Include/core_cm4.h ****   \details Reads the priority grouping field from the NVIC Interrupt Controller.
 1671:.\CMSIS\Core\Include/core_cm4.h ****   \return                Priority grouping field (SCB->AIRCR [10:8] PRIGROUP field).
 1672:.\CMSIS\Core\Include/core_cm4.h ****  */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 61
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 61
 
 
 1673:.\CMSIS\Core\Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetPriorityGrouping(void)
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1727:.\CMSIS\Core\Include/core_cm4.h ****     __ISB();
 1728:.\CMSIS\Core\Include/core_cm4.h ****   }
 1729:.\CMSIS\Core\Include/core_cm4.h **** }
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 62
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 62
 
 
 1730:.\CMSIS\Core\Include/core_cm4.h **** 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   73 002a 03F01F03 		and	r3, r3, #31
   74              	.LVL4:
   75 002e 0121     		movs	r1, #1
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 63
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 63
 
 
   76 0030 01FA03F3 		lsl	r3, r1, r3
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   86:main_cm4.c    ****         if(xSemaphoreTake(bouton_semph, portMAX_DELAY) == pdTRUE){
  118              		.loc 1 86 0
  119 000a 0C4B     		ldr	r3, .L10
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 64
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 64
 
 
  120 000c 1868     		ldr	r0, [r3]
@@ -3838,44 +3838,47 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  100:main_cm4.c    ****     
  101:main_cm4.c    ****     (void) arg;
  102:main_cm4.c    ****     for (;;){
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 65
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 65
 
 
  103:main_cm4.c    ****     
- 104:main_cm4.c    ****         
- 105:main_cm4.c    ****         //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
- 106:main_cm4.c    ****     
- 107:main_cm4.c    ****             for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
- 108:main_cm4.c    ****             {
- 109:main_cm4.c    ****                 get_accData ();
- 110:main_cm4.c    ****                 readFIFO(red, ir, indexBuffer);
- 111:main_cm4.c    ****                 vTaskDelay(pdMS_TO_TICKS(3));
- 112:main_cm4.c    ****                    
- 113:main_cm4.c    ****             }
- 114:main_cm4.c    ****             if(indexBuffer == BUFFER_LENGTH){
- 115:main_cm4.c    ****                 indexBuffer = 0;
- 116:main_cm4.c    ****                 UART_1_PutString("/////////////////////////////////////////////////////////////////
- 117:main_cm4.c    ****                 //xSemaphoreGive(active_task);
- 118:main_cm4.c    ****                 vTaskDelay(pdMS_TO_TICKS(500));
- 119:main_cm4.c    ****                 //vTaskPrioritySet(vSample_task, TASK_FILTER_PRIORITY);
- 120:main_cm4.c    ****                 vTaskResume(xFiltering);
- 121:main_cm4.c    ****                 vTaskSuspend(xSample);
- 122:main_cm4.c    ****             //} 
- 123:main_cm4.c    ****             }
- 124:main_cm4.c    ****     
- 125:main_cm4.c    ****     }
- 126:main_cm4.c    ****             
- 127:main_cm4.c    ****         
- 128:main_cm4.c    ****     //}
- 129:main_cm4.c    ****     
- 130:main_cm4.c    ****     //}   
- 131:main_cm4.c    **** }
- 132:main_cm4.c    **** 
- 133:main_cm4.c    **** 
- 134:main_cm4.c    **** /*********************************************************************/
+ 104:main_cm4.c    ****         // Note : pourrait ajouter un message : acquisition en cours, veullez attendre 10 sec. Voic
+ 105:main_cm4.c    ****         //                                      après 10 secondes, veuillez peser sur le boutons 2
+ 106:main_cm4.c    ****         //                                      ou reprendre une nouvelle acquisition. Ou juste men
+ 107:main_cm4.c    ****         
+ 108:main_cm4.c    ****         //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+ 109:main_cm4.c    ****     
+ 110:main_cm4.c    ****             for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
+ 111:main_cm4.c    ****             {
+ 112:main_cm4.c    ****                 get_accData ();
+ 113:main_cm4.c    ****                 readFIFO(red, ir, indexBuffer);
+ 114:main_cm4.c    ****                 vTaskDelay(pdMS_TO_TICKS(3));
+ 115:main_cm4.c    ****                    
+ 116:main_cm4.c    ****             }
+ 117:main_cm4.c    ****             if(indexBuffer == BUFFER_LENGTH){
+ 118:main_cm4.c    ****                 indexBuffer = 0;
+ 119:main_cm4.c    ****                 UART_1_PutString("/////////////////////////////////////////////////////////////////
+ 120:main_cm4.c    ****                 //xSemaphoreGive(active_task);
+ 121:main_cm4.c    ****                 vTaskDelay(pdMS_TO_TICKS(500));
+ 122:main_cm4.c    ****                 //vTaskPrioritySet(vSample_task, TASK_FILTER_PRIORITY);
+ 123:main_cm4.c    ****                 vTaskResume(xFiltering);
+ 124:main_cm4.c    ****                 vTaskSuspend(xSample);
+ 125:main_cm4.c    ****             //} 
+ 126:main_cm4.c    ****             }
+ 127:main_cm4.c    ****     
+ 128:main_cm4.c    ****     }
+ 129:main_cm4.c    ****             
+ 130:main_cm4.c    ****         
+ 131:main_cm4.c    ****     //}
+ 132:main_cm4.c    ****     
+ 133:main_cm4.c    ****     //}   
+ 134:main_cm4.c    **** }
  135:main_cm4.c    **** 
- 136:main_cm4.c    **** void vFiltering_task(void *arg){
- 161              		.loc 1 136 0
+ 136:main_cm4.c    **** 
+ 137:main_cm4.c    **** /*********************************************************************/
+ 138:main_cm4.c    **** 
+ 139:main_cm4.c    **** void vFiltering_task(void *arg){
+ 161              		.loc 1 139 0
  162              		.cfi_startproc
  163              		@ Volatile: function does not return.
  164              		@ args = 0, pretend = 0, frame = 0
@@ -3887,48 +3890,48 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  170              		.cfi_offset 14, -4
  171              	.LVL12:
  172              	.L13:
- 137:main_cm4.c    ****     (void) arg;
- 138:main_cm4.c    ****     for(;;){
- 139:main_cm4.c    ****  
- 140:main_cm4.c    ****     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
- 141:main_cm4.c    ****         
- 142:main_cm4.c    ****         
- 143:main_cm4.c    ****         filtre(red, filteredRED, 0, BUFFER_LENGTH);
- 173              		.loc 1 143 0 discriminator 1
+ 140:main_cm4.c    ****     (void) arg;
+ 141:main_cm4.c    ****     for(;;){
+ 142:main_cm4.c    ****  
+ 143:main_cm4.c    ****     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+ 144:main_cm4.c    ****         
+ 145:main_cm4.c    ****         
+ 146:main_cm4.c    ****         filtre(red, filteredRED, 0, BUFFER_LENGTH);
+ 173              		.loc 1 146 0 discriminator 1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 66
+
+
  174 0002 4FF47A73 		mov	r3, #1000
  175 0006 0022     		movs	r2, #0
  176 0008 0B49     		ldr	r1, .L15
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 66
-
-
  177 000a 0C48     		ldr	r0, .L15+4
  178 000c FFF7FEFF 		bl	filtre
  179              	.LVL13:
- 144:main_cm4.c    ****         filtre(ir, filteredIR, 0, BUFFER_LENGTH);
- 180              		.loc 1 144 0 discriminator 1
+ 147:main_cm4.c    ****         filtre(ir, filteredIR, 0, BUFFER_LENGTH);
+ 180              		.loc 1 147 0 discriminator 1
  181 0010 4FF47A73 		mov	r3, #1000
  182 0014 0022     		movs	r2, #0
  183 0016 0A49     		ldr	r1, .L15+8
  184 0018 0A48     		ldr	r0, .L15+12
  185 001a FFF7FEFF 		bl	filtre
  186              	.LVL14:
- 145:main_cm4.c    ****         
- 146:main_cm4.c    ****         //xSemaphoreGive(active_task);
- 147:main_cm4.c    ****         vTaskDelay(pdMS_TO_TICKS(500));
- 187              		.loc 1 147 0 discriminator 1
+ 148:main_cm4.c    ****         
+ 149:main_cm4.c    ****         //xSemaphoreGive(active_task);
+ 150:main_cm4.c    ****         vTaskDelay(pdMS_TO_TICKS(500));
+ 187              		.loc 1 150 0 discriminator 1
  188 001e 4FF4FA70 		mov	r0, #500
  189 0022 FFF7FEFF 		bl	vTaskDelay
  190              	.LVL15:
- 148:main_cm4.c    ****         
- 149:main_cm4.c    ****         
- 150:main_cm4.c    ****         vTaskResume(xResults);
- 191              		.loc 1 150 0 discriminator 1
+ 151:main_cm4.c    ****         
+ 152:main_cm4.c    ****         
+ 153:main_cm4.c    ****         vTaskResume(xResults);
+ 191              		.loc 1 153 0 discriminator 1
  192 0026 084B     		ldr	r3, .L15+16
  193 0028 1868     		ldr	r0, [r3]
  194 002a FFF7FEFF 		bl	vTaskResume
  195              	.LVL16:
- 151:main_cm4.c    ****         vTaskSuspend(xFiltering);
- 196              		.loc 1 151 0 discriminator 1
+ 154:main_cm4.c    ****         vTaskSuspend(xFiltering);
+ 196              		.loc 1 154 0 discriminator 1
  197 002e 074B     		ldr	r3, .L15+20
  198 0030 1868     		ldr	r0, [r3]
  199 0032 FFF7FEFF 		bl	vTaskSuspend
@@ -3955,12 +3958,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  220              	vSample_task:
  221              	.LFB695:
   99:main_cm4.c    ****     
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 67
+
+
  222              		.loc 1 99 0
  223              		.cfi_startproc
  224              		@ Volatile: function does not return.
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 67
-
-
  225              		@ args = 0, pretend = 0, frame = 0
  226              		@ frame_needed = 0, uses_anonymous_args = 0
  227              	.LVL18:
@@ -3970,57 +3973,57 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  231              		.cfi_offset 14, -4
  232              	.LVL19:
  233              	.L20:
- 107:main_cm4.c    ****             {
- 234              		.loc 1 107 0
+ 110:main_cm4.c    ****             {
+ 234              		.loc 1 110 0
  235 0002 0022     		movs	r2, #0
  236 0004 154B     		ldr	r3, .L23
  237 0006 1A80     		strh	r2, [r3]	@ movhi
  238 0008 0DE0     		b	.L18
  239              	.L19:
- 109:main_cm4.c    ****                 readFIFO(red, ir, indexBuffer);
- 240              		.loc 1 109 0 discriminator 3
+ 112:main_cm4.c    ****                 readFIFO(red, ir, indexBuffer);
+ 240              		.loc 1 112 0 discriminator 3
  241 000a FFF7FEFF 		bl	get_accData
  242              	.LVL20:
- 110:main_cm4.c    ****                 vTaskDelay(pdMS_TO_TICKS(3));
- 243              		.loc 1 110 0 discriminator 3
+ 113:main_cm4.c    ****                 vTaskDelay(pdMS_TO_TICKS(3));
+ 243              		.loc 1 113 0 discriminator 3
  244 000e 134C     		ldr	r4, .L23
  245 0010 2288     		ldrh	r2, [r4]
  246 0012 1349     		ldr	r1, .L23+4
  247 0014 1348     		ldr	r0, .L23+8
  248 0016 FFF7FEFF 		bl	readFIFO
  249              	.LVL21:
- 111:main_cm4.c    ****                    
- 250              		.loc 1 111 0 discriminator 3
+ 114:main_cm4.c    ****                    
+ 250              		.loc 1 114 0 discriminator 3
  251 001a 0320     		movs	r0, #3
  252 001c FFF7FEFF 		bl	vTaskDelay
  253              	.LVL22:
- 107:main_cm4.c    ****             {
- 254              		.loc 1 107 0 discriminator 3
+ 110:main_cm4.c    ****             {
+ 254              		.loc 1 110 0 discriminator 3
  255 0020 2388     		ldrh	r3, [r4]
  256 0022 0133     		adds	r3, r3, #1
  257 0024 2380     		strh	r3, [r4]	@ movhi
  258              	.L18:
- 107:main_cm4.c    ****             {
- 259              		.loc 1 107 0 is_stmt 0 discriminator 1
+ 110:main_cm4.c    ****             {
+ 259              		.loc 1 110 0 is_stmt 0 discriminator 1
  260 0026 0D4B     		ldr	r3, .L23
  261 0028 1B88     		ldrh	r3, [r3]
  262 002a B3F57A7F 		cmp	r3, #1000
  263 002e ECD3     		bcc	.L19
- 114:main_cm4.c    ****                 indexBuffer = 0;
- 264              		.loc 1 114 0 is_stmt 1
+ 117:main_cm4.c    ****                 indexBuffer = 0;
+ 264              		.loc 1 117 0 is_stmt 1
  265 0030 E7D1     		bne	.L20
- 115:main_cm4.c    ****                 UART_1_PutString("/////////////////////////////////////////////////////////////////
- 266              		.loc 1 115 0
+ 118:main_cm4.c    ****                 UART_1_PutString("/////////////////////////////////////////////////////////////////
+ 266              		.loc 1 118 0
  267 0032 0022     		movs	r2, #0
  268 0034 094B     		ldr	r3, .L23
  269 0036 1A80     		strh	r2, [r3]	@ movhi
  270              	.LVL23:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 68
+
+
  271              	.LBB37:
  272              	.LBB38:
  273              	.LBB39:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 68
-
-
  274              		.file 4 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/scb/cy_scb_uart.h"
    1:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /***************************************************************************//**
    2:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \file cy_scb_uart.h
@@ -4075,12 +4078,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   51:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
   52:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** ********************************************************************************
   53:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \section group_scb_uart_configuration Configuration Considerations
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 69
+
+
   54:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** ********************************************************************************
   55:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * The UART driver configuration can be divided to number of sequential
   56:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * steps listed below:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 69
-
-
   57:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * * \ref group_scb_uart_config
   58:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * * \ref group_scb_uart_pins
   59:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * * \ref group_scb_uart_clock
@@ -4135,12 +4138,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  108:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * within one UART bit-time.
  109:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
  110:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \snippet SCB_CompDatasheet_sut_01_revA.cydsn\uart_snippets.c UART_CFG_DATA_RATE
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 70
+
+
  111:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
  112:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * <b>Refer to the technical reference manual (TRM) section UART sub-section
  113:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * Clocking and Oversampling to get information about how to configure the UART to run with
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 70
-
-
  114:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * desired baud rate.</b>
  115:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
  116:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** ********************************************************************************
@@ -4195,12 +4198,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  165:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   These statuses remain set until an event is true. Therefore, after the clear
  166:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   operation, the status is cleared but then it is restored (if event is still
  167:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   true).
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 71
+
+
  168:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   Also, the following functions can be used for polling as well
  169:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   \ref Cy_SCB_UART_IsTxComplete, \ref Cy_SCB_UART_GetNumInRxFifo and
  170:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   \ref Cy_SCB_UART_GetNumInTxFifo.
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 71
-
-
  171:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
  172:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \snippet SCB_CompDatasheet_sut_01_revA.cydsn\uart_snippets.c UART_TRANSMIT_DATA_LL
  173:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
@@ -4255,12 +4258,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  222:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   <em>For example, the TX FIFO has 0 data elements (empty) and the TX FIFO level
  223:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   is 7. The TX trigger signal is active until DMA loads TX FIFO
  224:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   with 8 data elements (note that after the first TX load operation, the data 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 72
+
+
  225:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   element goes to the shift register and TX FIFO is empty).</em>
  226:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
  227:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * To route SCB TX or RX trigger signals to DMA controller use \ref group_trigmux
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 72
-
-
  228:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * driver API.
  229:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
  230:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \note
@@ -4315,12 +4318,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  279:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <th>Rule Description</th>
  280:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <th>Description of Deviation(s)</th>
  281:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   </tr>
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 73
+
+
  282:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   <tr>
  283:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>11.4</td>
  284:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>A</td>
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 73
-
-
  285:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>A cast should not be performed between a pointer to object type and
  286:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *         a different pointer to object type.</td>
  287:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>
@@ -4375,12 +4378,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  336:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>SCB I2C driver updated.</td>
  337:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   </tr>
  338:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   <tr>
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 74
+
+
  339:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td rowspan="5">2.0</td>
  340:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>Added parameters validation for public API.</td>
  341:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td></td>
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 74
-
-
  342:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   </tr>
  343:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *   <tr>
  344:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *     <td>Replaced variables that have limited range of values with enumerated
@@ -4435,12 +4438,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  393:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /***************************************
  394:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *          Enumerated Types
  395:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** ***************************************/
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 75
+
+
  396:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  397:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
  398:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \addtogroup group_scb_uart_enums
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 75
-
-
  399:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \{
  400:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** */
  401:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
@@ -4495,12 +4498,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  450:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** UART Polarity */
  451:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** typedef enum
  452:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** {
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 76
+
+
  453:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     CY_SCB_UART_ACTIVE_LOW  = 0U,   /**< Signal is active low */
  454:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     CY_SCB_UART_ACTIVE_HIGH = 1U,   /**< Signal is active high */
  455:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** } cy_en_scb_uart_polarity_t;
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 76
-
-
  456:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** \} group_scb_uart_enums */
  457:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  458:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
@@ -4555,12 +4558,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  507:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     cy_en_scb_uart_parity_t    parity;
  508:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  509:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     /**
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 77
+
+
  510:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     * Enables a digital 3-tap median filter (2 out of 3 voting) to be applied 
  511:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     * to the input of the RX FIFO to filter glitches on the line (for IrDA, 
  512:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     * this parameter is ignored)
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 77
-
-
  513:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     *
  514:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     */
  515:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     bool        enableInputFilter;
@@ -4615,12 +4618,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  564:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  565:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     /**
  566:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     * Enables retransmission of the frame placed in the TX FIFO when
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 78
+
+
  567:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     * NACK is received in SmartCard mode (for Standard and IrDA , this parameter
  568:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     * is ignored)
  569:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 78
-
-
  570:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     bool        smartCardRetryOnNack;
  571:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  572:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     /**
@@ -4675,12 +4678,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  621:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  622:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** UART context structure.
  623:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * All fields for the context structure are internal. Firmware never reads or
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 79
+
+
  624:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * writes these values. Firmware allocates the structure and provides the
  625:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * address of the structure to the driver in function calls. Firmware must
  626:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * ensure that the defined instance of this structure remains in scope
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 79
-
-
  627:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * while the drive is in use.
  628:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** */
  629:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** typedef struct cy_stc_scb_uart_context
@@ -4735,12 +4738,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  678:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE uint32_t Cy_SCB_UART_GetRtsFifoLevel(CySCB_Type const *base);
  679:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  680:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE void Cy_SCB_UART_EnableSkipStart (CySCB_Type *base);
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 80
+
+
  681:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE void Cy_SCB_UART_DisableSkipStart(CySCB_Type *base);
  682:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** \} group_scb_uart_general_functions */
  683:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 80
-
-
  684:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
  685:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \addtogroup group_scb_uart_high_level_functions
  686:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \{
@@ -4795,12 +4798,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  735:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  736:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
  737:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \addtogroup group_scb_uart_interrupt_functions
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 81
+
+
  738:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \{
  739:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** */
  740:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** void Cy_SCB_UART_Interrupt(CySCB_Type *base, cy_stc_scb_uart_context_t *context);
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 81
-
-
  741:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  742:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE void Cy_SCB_UART_RegisterCallback(CySCB_Type const *base, cy_cb_scb_uart_handle_eve
  743:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****                                                   cy_stc_scb_uart_context_t *context);
@@ -4855,12 +4858,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  792:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_RX_NOT_EMPTY       (SCB_INTR_RX_NOT_EMPTY_Msk)
  793:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  794:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 82
+
+
  795:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * The RX FIFO is full, there is no more space for additional data, and
  796:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * any additional data will be dropped
  797:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** */
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 82
-
-
  798:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_RX_FULL            (SCB_INTR_RX_FULL_Msk)
  799:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  800:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
@@ -4915,12 +4918,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  849:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_TX_NACK        (SCB_INTR_TX_UART_NACK_Msk)
  850:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  851:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** SmartCard only: the transmitter lost arbitration */
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 83
+
+
  852:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_TX_ARB_LOST    (SCB_INTR_TX_UART_ARB_LOST_Msk)
  853:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** \} group_scb_uart_macros_tx_fifo_status */
  854:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 83
-
-
  855:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
  856:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \defgroup group_scb_uart_macros_receive_status UART Receive Statuses
  857:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \{
@@ -4975,12 +4978,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  906:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_TRANSMIT_ARB_LOST  (SCB_INTR_TX_UART_ARB_LOST_Msk)
  907:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** \} group_scb_uart_macros_transmit_status */
  908:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 84
+
+
  909:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
  910:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \defgroup group_scb_uart_macros_callback_events UART Callback Events
  911:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \{
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 84
-
-
  912:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * Macros to check UART events passed by \ref cy_cb_scb_uart_handle_events_t callback.
  913:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * Note that only single event is notified by the callback when it is called.
  914:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** */
@@ -5035,12 +5038,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  963:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_RX_INTR_MASK    (CY_SCB_UART_RX_TRIGGER    | CY_SCB_UART_RX_NOT_EMPTY | CY_SCB_
  964:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****                                      CY_SCB_UART_RX_OVERFLOW   | CY_SCB_UART_RX_UNDERFLOW | CY_SCB_
  965:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****                                      CY_SCB_UART_RX_ERR_PARITY | CY_SCB_UART_RX_BREAK_DETECT)
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 85
+
+
  966:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
  967:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_TX_INTR        (CY_SCB_TX_INTR_LEVEL | CY_SCB_TX_INTR_UART_NACK | CY_SCB_TX_INT
  968:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 85
-
-
  969:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** #define CY_SCB_UART_RX_INTR        (CY_SCB_RX_INTR_LEVEL | CY_SCB_RX_INTR_OVERFLOW | CY_SCB_RX_INTR
  970:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****                                     CY_SCB_RX_INTR_UART_PARITY_ERROR | CY_SCB_RX_INTR_UART_BREAK_DE
  971:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
@@ -5095,12 +5098,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1020:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1021:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /** \} group_scb_uart_macros */
 1022:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 86
+
+
 1023:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1024:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /*******************************************************************************
 1025:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *                    In-line Function Implementation
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 86
-
-
 1026:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *******************************************************************************/
 1027:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1028:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /**
@@ -5155,12 +5158,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1077:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE void Cy_SCB_UART_DisableCts(CySCB_Type *base)
 1078:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** {
 1079:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     SCB_UART_FLOW_CTRL(base) &= (uint32_t) ~SCB_UART_FLOW_CTRL_CTS_ENABLED_Msk;
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 87
+
+
 1080:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** }
 1081:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1082:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 87
-
-
 1083:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /*******************************************************************************
 1084:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * Function Name: Cy_SCB_UART_SetRtsFifoLevel
 1085:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** ****************************************************************************//**
@@ -5215,12 +5218,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1134:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * falling edge is used to wake the device through a GPIO interrupt.
 1135:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1136:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \param base
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 88
+
+
 1137:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * The pointer to the UART SCB instance.
 1138:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1139:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \note
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 88
-
-
 1140:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * When skip start-bit feature is enabled, it is applied (UART synchronizes 
 1141:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * to the first rising edge after start bit) whenever the SCB is enabled. 
 1142:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * This can cause incorrect UART synchronization and data reception when 
@@ -5275,12 +5278,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1191:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1192:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *******************************************************************************/
 1193:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE uint32_t Cy_SCB_UART_Get(CySCB_Type const *base)
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 89
+
+
 1194:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** {
 1195:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     return Cy_SCB_ReadRxFifo(base);
 1196:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** }
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 89
-
-
 1197:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1198:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1199:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /*******************************************************************************
@@ -5335,12 +5338,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1248:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1249:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *******************************************************************************/
 1250:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE void Cy_SCB_UART_GetArrayBlocking(CySCB_Type const *base, void *buffer, uint32_t si
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 90
+
+
 1251:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** {
 1252:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     CY_ASSERT_L1(CY_SCB_IS_BUFFER_VALID(buffer, size));
 1253:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 90
-
-
 1254:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     Cy_SCB_ReadArrayBlocking(base, buffer, size);
 1255:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** }
 1256:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
@@ -5395,12 +5398,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1305:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1306:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /*******************************************************************************
 1307:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * Function Name: Cy_SCB_UART_GetNumInRxFifo
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 91
+
+
 1308:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** ****************************************************************************//**
 1309:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1310:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * Returns the number of data elements in the UART RX FIFO.
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 91
-
-
 1311:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1312:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * \param base
 1313:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** * The pointer to the UART SCB instance.
@@ -5455,12 +5458,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1362:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1363:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *******************************************************************************/
 1364:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE uint32_t Cy_SCB_UART_Put(CySCB_Type *base, uint32_t data)
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 92
+
+
 1365:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** {
 1366:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     return Cy_SCB_Write(base, data);
 1367:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** }
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 92
-
-
 1368:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1369:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
 1370:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** /*******************************************************************************
@@ -5515,12 +5518,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
 1419:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *
 1420:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** *******************************************************************************/
 1421:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** __STATIC_INLINE void Cy_SCB_UART_PutArrayBlocking(CySCB_Type *base, void *buffer, uint32_t size)
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 93
+
+
 1422:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** {
 1423:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     CY_ASSERT_L1(CY_SCB_IS_BUFFER_VALID(buffer, size));
 1424:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 93
-
-
 1425:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h ****     Cy_SCB_WriteArrayBlocking(base, buffer, size);
 1426:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** }
 1427:Generated_Source\PSoC6\pdl\drivers/peripheral/scb/cy_scb_uart.h **** 
@@ -5552,19 +5555,19 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  280              	.LBE39:
  281              	.LBE38:
  282              	.LBE37:
- 118:main_cm4.c    ****                 //vTaskPrioritySet(vSample_task, TASK_FILTER_PRIORITY);
- 283              		.loc 1 118 0
+ 121:main_cm4.c    ****                 //vTaskPrioritySet(vSample_task, TASK_FILTER_PRIORITY);
+ 283              		.loc 1 121 0
  284 0040 4FF4FA70 		mov	r0, #500
  285 0044 FFF7FEFF 		bl	vTaskDelay
  286              	.LVL25:
- 120:main_cm4.c    ****                 vTaskSuspend(xSample);
- 287              		.loc 1 120 0
+ 123:main_cm4.c    ****                 vTaskSuspend(xSample);
+ 287              		.loc 1 123 0
  288 0048 094B     		ldr	r3, .L23+20
  289 004a 1868     		ldr	r0, [r3]
  290 004c FFF7FEFF 		bl	vTaskResume
  291              	.LVL26:
- 121:main_cm4.c    ****             //} 
- 292              		.loc 1 121 0
+ 124:main_cm4.c    ****             //} 
+ 292              		.loc 1 124 0
  293 0050 084B     		ldr	r3, .L23+24
  294 0052 1868     		ldr	r0, [r3]
  295 0054 FFF7FEFF 		bl	vTaskSuspend
@@ -5575,12 +5578,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  300              	.L23:
  301 005c 00000000 		.word	indexBuffer
  302 0060 00000000 		.word	ir
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 94
+
+
  303 0064 00000000 		.word	red
  304 0068 00000000 		.word	.LC0
  305 006c 00006640 		.word	1080426496
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 94
-
-
  306 0070 00000000 		.word	xFiltering
  307 0074 00000000 		.word	xSample
  308              		.cfi_endproc
@@ -5594,16 +5597,16 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  316              		.type	vResults, %function
  317              	vResults:
  318              	.LFB697:
- 152:main_cm4.c    ****         
- 153:main_cm4.c    ****     //}
- 154:main_cm4.c    ****     }
- 155:main_cm4.c    ****     
- 156:main_cm4.c    **** }
- 157:main_cm4.c    **** 
- 158:main_cm4.c    **** /************************************************************************/
- 159:main_cm4.c    **** 
- 160:main_cm4.c    **** void vResults(void *arg){
- 319              		.loc 1 160 0
+ 155:main_cm4.c    ****         
+ 156:main_cm4.c    ****     //}
+ 157:main_cm4.c    ****     }
+ 158:main_cm4.c    ****     
+ 159:main_cm4.c    **** }
+ 160:main_cm4.c    **** 
+ 161:main_cm4.c    **** /************************************************************************/
+ 162:main_cm4.c    **** 
+ 163:main_cm4.c    **** void vResults(void *arg){
+ 319              		.loc 1 163 0
  320              		.cfi_startproc
  321              		@ args = 0, pretend = 0, frame = 16
  322              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -5617,32 +5620,32 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  330              		.cfi_def_cfa_offset 32
  331              	.LVL29:
  332              	.L27:
- 161:main_cm4.c    ****     (void) arg;
- 162:main_cm4.c    ****     for(;;){
- 163:main_cm4.c    ****     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
- 164:main_cm4.c    ****     
- 165:main_cm4.c    ****         if(indexBuffer == 0){
- 333              		.loc 1 165 0
+ 164:main_cm4.c    ****     (void) arg;
+ 165:main_cm4.c    ****     for(;;){
+ 166:main_cm4.c    ****     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+ 167:main_cm4.c    ****     
+ 168:main_cm4.c    ****         if(indexBuffer == 0){
+ 333              		.loc 1 168 0
  334 0004 254B     		ldr	r3, .L29
  335 0006 1B88     		ldrh	r3, [r3]
  336 0008 002B     		cmp	r3, #0
  337 000a 3DD1     		bne	.L26
  338              	.LBB65:
- 166:main_cm4.c    ****             SPO2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
- 339              		.loc 1 166 0
+ 169:main_cm4.c    ****             SPO2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
+ 339              		.loc 1 169 0
  340 000c 4FF47A73 		mov	r3, #1000
  341 0010 0022     		movs	r2, #0
  342 0012 2349     		ldr	r1, .L29+4
  343 0014 2348     		ldr	r0, .L29+8
  344 0016 FFF7FEFF 		bl	calculSpO2
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 95
+
+
  345              	.LVL30:
  346 001a 234C     		ldr	r4, .L29+12
  347 001c 2060     		str	r0, [r4]	@ float
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 95
-
-
- 167:main_cm4.c    ****             BPM = HeartRate(filteredIR, 0, BUFFER_LENGTH);
- 348              		.loc 1 167 0
+ 170:main_cm4.c    ****             BPM = HeartRate(filteredIR, 0, BUFFER_LENGTH);
+ 348              		.loc 1 170 0
  349 001e 4FF47A72 		mov	r2, #1000
  350 0022 0021     		movs	r1, #0
  351 0024 2148     		ldr	r0, .L29+16
@@ -5650,9 +5653,9 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  353              	.LVL31:
  354 002a 214D     		ldr	r5, .L29+20
  355 002c 2860     		str	r0, [r5]	@ float
- 168:main_cm4.c    ****             char sSpo2[5];
- 169:main_cm4.c    ****             itoa(SPO2, sSpo2, 10);
- 356              		.loc 1 169 0
+ 171:main_cm4.c    ****             char sSpo2[5];
+ 172:main_cm4.c    ****             itoa(SPO2, sSpo2, 10);
+ 356              		.loc 1 172 0
  357 002e D4ED007A 		vldr.32	s15, [r4]
  358 0032 0A22     		movs	r2, #10
  359 0034 6946     		mov	r1, sp
@@ -5682,11 +5685,11 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  383              	.LBE71:
  384              	.LBE70:
  385              	.LBE69:
- 170:main_cm4.c    ****             UART_1_PutString("spo2 \n\r");
- 171:main_cm4.c    ****             UART_1_PutString(sSpo2);
- 172:main_cm4.c    ****             char sBpm[5];
- 173:main_cm4.c    ****             itoa(BPM, sBpm, 10);
- 386              		.loc 1 173 0
+ 173:main_cm4.c    ****             UART_1_PutString("spo2 \n\r");
+ 174:main_cm4.c    ****             UART_1_PutString(sSpo2);
+ 175:main_cm4.c    ****             char sBpm[5];
+ 176:main_cm4.c    ****             itoa(BPM, sBpm, 10);
+ 386              		.loc 1 176 0
  387 0054 D5ED007A 		vldr.32	s15, [r5]
  388 0058 0A22     		movs	r2, #10
  389 005a 02A9     		add	r1, sp, #8
@@ -5695,12 +5698,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  392 0064 FFF7FEFF 		bl	itoa
  393              	.LVL35:
  394              	.LBB72:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 96
+
+
  395              	.LBB73:
  396              	.LBB74:
  397              		.loc 4 1447 0
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 96
-
-
  398 0068 1449     		ldr	r1, .L29+32
  399 006a 2046     		mov	r0, r4
  400 006c FFF7FEFF 		bl	Cy_SCB_WriteString
@@ -5741,29 +5744,29 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  435              	.LBE82:
  436              	.LBE81:
  437              	.LBE65:
- 174:main_cm4.c    ****             UART_1_PutString("\n\r");
- 175:main_cm4.c    ****             UART_1_PutString("bpm \n\r");
- 176:main_cm4.c    ****             UART_1_PutString(sBpm);
- 177:main_cm4.c    ****             UART_1_PutString("/////////////////////////////////////////////////////////////////////
- 178:main_cm4.c    ****         }
- 179:main_cm4.c    ****         vTaskDelay(pdMS_TO_TICKS(500));
- 438              		.loc 1 179 0
+ 177:main_cm4.c    ****             UART_1_PutString("\n\r");
+ 178:main_cm4.c    ****             UART_1_PutString("bpm \n\r");
+ 179:main_cm4.c    ****             UART_1_PutString(sBpm);
+ 180:main_cm4.c    ****             UART_1_PutString("/////////////////////////////////////////////////////////////////////
+ 181:main_cm4.c    ****         }
+ 182:main_cm4.c    ****         vTaskDelay(pdMS_TO_TICKS(500));
+ 438              		.loc 1 182 0
  439 0088 4FF4FA70 		mov	r0, #500
  440 008c FFF7FEFF 		bl	vTaskDelay
  441              	.LVL41:
- 180:main_cm4.c    ****         //vTaskResume(xSample);
- 181:main_cm4.c    ****         vTaskSuspend(xResults);
- 442              		.loc 1 181 0
+ 183:main_cm4.c    ****         //vTaskResume(xSample);
+ 184:main_cm4.c    ****         vTaskSuspend(xResults);
+ 442              		.loc 1 184 0
  443 0090 0D4B     		ldr	r3, .L29+44
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 97
+
+
  444 0092 1868     		ldr	r0, [r3]
  445 0094 FFF7FEFF 		bl	vTaskSuspend
  446              	.LVL42:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 97
-
-
- 182:main_cm4.c    ****         //afficherMenuPrincipal(filteredRED);
- 183:main_cm4.c    ****     }
- 447              		.loc 1 183 0
+ 185:main_cm4.c    ****         //afficherMenuPrincipal(filteredRED);
+ 186:main_cm4.c    ****     }
+ 447              		.loc 1 186 0
  448 0098 B4E7     		b	.L27
  449              	.L30:
  450 009a 00BF     		.align	2
@@ -5791,41 +5794,41 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  472              		.type	main, %function
  473              	main:
  474              	.LFB698:
- 184:main_cm4.c    ****         
- 185:main_cm4.c    ****         /*
- 186:main_cm4.c    ****         else{
- 187:main_cm4.c    ****             spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
- 188:main_cm4.c    ****             bpm = HeartRate(filteredRED, BUFFER_LENGTH/2, BUFFER_LENGTH);
- 189:main_cm4.c    ****             char sSpo2[5];
- 190:main_cm4.c    ****             itoa(spo2, sSpo2, 10);
- 191:main_cm4.c    ****             UART_1_PutString(sSpo2);
- 192:main_cm4.c    ****         }
- 193:main_cm4.c    ****         */
- 194:main_cm4.c    ****     //}
- 195:main_cm4.c    ****     //xSemaphoreGive(active_task);
- 196:main_cm4.c    **** }
- 197:main_cm4.c    **** 
- 198:main_cm4.c    **** 
- 199:main_cm4.c    **** /*************************************************************************/
+ 187:main_cm4.c    ****         
+ 188:main_cm4.c    ****         /*
+ 189:main_cm4.c    ****         else{
+ 190:main_cm4.c    ****             spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
+ 191:main_cm4.c    ****             bpm = HeartRate(filteredRED, BUFFER_LENGTH/2, BUFFER_LENGTH);
+ 192:main_cm4.c    ****             char sSpo2[5];
+ 193:main_cm4.c    ****             itoa(spo2, sSpo2, 10);
+ 194:main_cm4.c    ****             UART_1_PutString(sSpo2);
+ 195:main_cm4.c    ****         }
+ 196:main_cm4.c    ****         */
+ 197:main_cm4.c    ****     //}
+ 198:main_cm4.c    ****     //xSemaphoreGive(active_task);
+ 199:main_cm4.c    **** }
  200:main_cm4.c    **** 
- 201:main_cm4.c    **** int main(void)
- 202:main_cm4.c    **** {
- 475              		.loc 1 202 0
+ 201:main_cm4.c    **** 
+ 202:main_cm4.c    **** /*************************************************************************/
+ 203:main_cm4.c    **** 
+ 204:main_cm4.c    **** int main(void)
+ 205:main_cm4.c    **** {
+ 475              		.loc 1 205 0
  476              		.cfi_startproc
  477              		@ Volatile: function does not return.
  478              		@ args = 0, pretend = 0, frame = 0
  479              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 98
+
+
  480 0000 80B5     		push	{r7, lr}
  481              		.cfi_def_cfa_offset 8
  482              		.cfi_offset 7, -8
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 98
-
-
  483              		.cfi_offset 14, -4
  484 0002 82B0     		sub	sp, sp, #8
  485              		.cfi_def_cfa_offset 16
- 203:main_cm4.c    ****     bouton_semph = xSemaphoreCreateBinary();
- 486              		.loc 1 203 0
+ 206:main_cm4.c    ****     bouton_semph = xSemaphoreCreateBinary();
+ 486              		.loc 1 206 0
  487 0004 0322     		movs	r2, #3
  488 0006 0021     		movs	r1, #0
  489 0008 0120     		movs	r0, #1
@@ -5875,12 +5878,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   37:.\CMSIS\Core\Include/cmsis_gcc.h **** #endif
   38:.\CMSIS\Core\Include/cmsis_gcc.h **** 
   39:.\CMSIS\Core\Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 99
+
+
   40:.\CMSIS\Core\Include/cmsis_gcc.h **** #ifndef   __ASM
   41:.\CMSIS\Core\Include/cmsis_gcc.h ****   #define __ASM                                  __asm
   42:.\CMSIS\Core\Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 99
-
-
   43:.\CMSIS\Core\Include/cmsis_gcc.h **** #ifndef   __INLINE
   44:.\CMSIS\Core\Include/cmsis_gcc.h ****   #define __INLINE                               inline
   45:.\CMSIS\Core\Include/cmsis_gcc.h **** #endif
@@ -5935,12 +5938,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
   94:.\CMSIS\Core\Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
   95:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   96:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 100
+
+
   97:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   98:.\CMSIS\Core\Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
   99:.\CMSIS\Core\Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 100
-
-
  100:.\CMSIS\Core\Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
  101:.\CMSIS\Core\Include/cmsis_gcc.h **** #endif
  102:.\CMSIS\Core\Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
@@ -5982,48 +5985,48 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  503              		.syntax unified
  504              	.LBE85:
  505              	.LBE84:
- 204:main_cm4.c    ****     //active_task = xSemaphoreCreateBinary();
- 205:main_cm4.c    ****     //xSemaphoreGive(active_task);
- 206:main_cm4.c    ****     
- 207:main_cm4.c    ****     
- 208:main_cm4.c    ****     __enable_irq(); /* Enable global interrupts. */
+ 207:main_cm4.c    ****     //active_task = xSemaphoreCreateBinary();
+ 208:main_cm4.c    ****     //xSemaphoreGive(active_task);
  209:main_cm4.c    ****     
- 210:main_cm4.c    ****     DisplayInit();
- 506              		.loc 1 210 0
+ 210:main_cm4.c    ****     
+ 211:main_cm4.c    ****     __enable_irq(); /* Enable global interrupts. */
+ 212:main_cm4.c    ****     
+ 213:main_cm4.c    ****     DisplayInit();
+ 506              		.loc 1 213 0
  507 0014 FFF7FEFF 		bl	DisplayInit
  508              	.LVL44:
- 211:main_cm4.c    ****     I2C_MAX_Start();
- 509              		.loc 1 211 0
+ 214:main_cm4.c    ****     I2C_MAX_Start();
+ 509              		.loc 1 214 0
  510 0018 FFF7FEFF 		bl	I2C_MAX_Start
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 101
+
+
  511              	.LVL45:
- 212:main_cm4.c    ****     MAX30102_config();
- 512              		.loc 1 212 0
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 101
-
-
+ 215:main_cm4.c    ****     MAX30102_config();
+ 512              		.loc 1 215 0
  513 001c FFF7FEFF 		bl	MAX30102_config
  514              	.LVL46:
- 213:main_cm4.c    ****     UART_1_Start();
- 515              		.loc 1 213 0
+ 216:main_cm4.c    ****     UART_1_Start();
+ 515              		.loc 1 216 0
  516 0020 FFF7FEFF 		bl	UART_1_Start
  517              	.LVL47:
- 214:main_cm4.c    ****     Task_Motion();
- 518              		.loc 1 214 0
+ 217:main_cm4.c    ****     Task_Motion();
+ 518              		.loc 1 217 0
  519 0024 FFF7FEFF 		bl	Task_Motion
  520              	.LVL48:
- 215:main_cm4.c    ****     
- 216:main_cm4.c    ****     
- 217:main_cm4.c    ****     /* Initialisation de CapSense */
  218:main_cm4.c    ****     
- 219:main_cm4.c    ****     //CapSense_Start();
- 220:main_cm4.c    ****     //CapSense_ScanAllWidgets();
+ 219:main_cm4.c    ****     
+ 220:main_cm4.c    ****     /* Initialisation de CapSense */
  221:main_cm4.c    ****     
- 222:main_cm4.c    ****     /* Initialisation des tasks */
- 223:main_cm4.c    ****         /* Create the queues. See the respective data-types for details of queue
- 224:main_cm4.c    ****        contents */
- 225:main_cm4.c    ****     
- 226:main_cm4.c    ****     touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
- 521              		.loc 1 226 0
+ 222:main_cm4.c    ****     //CapSense_Start();
+ 223:main_cm4.c    ****     //CapSense_ScanAllWidgets();
+ 224:main_cm4.c    ****     
+ 225:main_cm4.c    ****     /* Initialisation des tasks */
+ 226:main_cm4.c    ****         /* Create the queues. See the respective data-types for details of queue
+ 227:main_cm4.c    ****        contents */
+ 228:main_cm4.c    ****     
+ 229:main_cm4.c    ****     touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
+ 521              		.loc 1 229 0
  522 0028 0022     		movs	r2, #0
  523 002a 0121     		movs	r1, #1
  524 002c 0A20     		movs	r0, #10
@@ -6031,17 +6034,17 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  526              	.LVL49:
  527 0032 374B     		ldr	r3, .L37+4
  528 0034 1860     		str	r0, [r3]
- 227:main_cm4.c    ****     
- 228:main_cm4.c    ****         
- 229:main_cm4.c    ****     Cy_SysInt_Init(&Bouton_ISR_cfg, isr_bouton);
- 529              		.loc 1 229 0
+ 230:main_cm4.c    ****     
+ 231:main_cm4.c    ****         
+ 232:main_cm4.c    ****     Cy_SysInt_Init(&Bouton_ISR_cfg, isr_bouton);
+ 529              		.loc 1 232 0
  530 0036 374C     		ldr	r4, .L37+8
  531 0038 3749     		ldr	r1, .L37+12
  532 003a 2046     		mov	r0, r4
  533 003c FFF7FEFF 		bl	Cy_SysInt_Init
  534              	.LVL50:
- 230:main_cm4.c    ****     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
- 535              		.loc 1 230 0
+ 233:main_cm4.c    ****     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
+ 535              		.loc 1 233 0
  536 0040 B4F90030 		ldrsh	r3, [r4]
  537              	.LVL51:
  538              	.LBB86:
@@ -6055,12 +6058,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  545 004a 03F01F00 		and	r0, r3, #31
  546 004e 0121     		movs	r1, #1
  547 0050 8140     		lsls	r1, r1, r0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 102
+
+
  548 0052 6032     		adds	r2, r2, #96
  549 0054 3148     		ldr	r0, .L37+16
  550 0056 40F82210 		str	r1, [r0, r2, lsl #2]
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 102
-
-
  551              	.L32:
  552              	.LVL52:
  553              	.LBE87:
@@ -6084,13 +6087,13 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  569              	.LVL54:
  570              	.LBE89:
  571              	.LBE88:
- 231:main_cm4.c    ****     NVIC_EnableIRQ(Bouton_ISR_cfg.intrSrc);
- 232:main_cm4.c    ****     
- 233:main_cm4.c    ****          
- 234:main_cm4.c    ****     /* Create the user Tasks. See the respective Task definition for more
- 235:main_cm4.c    ****        details of these tasks */       
- 236:main_cm4.c    ****     xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
- 572              		.loc 1 236 0
+ 234:main_cm4.c    ****     NVIC_EnableIRQ(Bouton_ISR_cfg.intrSrc);
+ 235:main_cm4.c    ****     
+ 236:main_cm4.c    ****          
+ 237:main_cm4.c    ****     /* Create the user Tasks. See the respective Task definition for more
+ 238:main_cm4.c    ****        details of these tasks */       
+ 239:main_cm4.c    ****     xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
+ 572              		.loc 1 239 0
  573 0070 0024     		movs	r4, #0
  574 0072 0194     		str	r4, [sp, #4]
  575 0074 0A23     		movs	r3, #10
@@ -6101,9 +6104,9 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  580 007e 2948     		ldr	r0, .L37+24
  581 0080 FFF7FEFF 		bl	xTaskCreate
  582              	.LVL55:
- 237:main_cm4.c    **** 
- 238:main_cm4.c    ****     xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIO
- 583              		.loc 1 238 0
+ 240:main_cm4.c    **** 
+ 241:main_cm4.c    ****     xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIO
+ 583              		.loc 1 241 0
  584 0084 0194     		str	r4, [sp, #4]
  585 0086 0523     		movs	r3, #5
  586 0088 0093     		str	r3, [sp]
@@ -6113,14 +6116,14 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  590 0092 2648     		ldr	r0, .L37+32
  591 0094 FFF7FEFF 		bl	xTaskCreate
  592              	.LVL56:
- 239:main_cm4.c    ****     
- 240:main_cm4.c    ****     xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, 
- 593              		.loc 1 240 0
+ 242:main_cm4.c    ****     
+ 243:main_cm4.c    ****     xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 103
+
+
+ 593              		.loc 1 243 0
  594 0098 0194     		str	r4, [sp, #4]
  595 009a 0425     		movs	r5, #4
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 103
-
-
  596 009c 0095     		str	r5, [sp]
  597 009e 2346     		mov	r3, r4
  598 00a0 8022     		movs	r2, #128
@@ -6128,11 +6131,11 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  600 00a4 2348     		ldr	r0, .L37+40
  601 00a6 FFF7FEFF 		bl	xTaskCreate
  602              	.LVL57:
- 241:main_cm4.c    ****     
- 242:main_cm4.c    ****     //xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERRE
- 243:main_cm4.c    ****     
- 244:main_cm4.c    ****     xTaskCreate(vSample_task, "Acquisition",1024,NULL, TASK_SAMPLE_PRIORITY,&xSample);
- 603              		.loc 1 244 0
+ 244:main_cm4.c    ****     
+ 245:main_cm4.c    ****     //xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERRE
+ 246:main_cm4.c    ****     
+ 247:main_cm4.c    ****     xTaskCreate(vSample_task, "Acquisition",1024,NULL, TASK_SAMPLE_PRIORITY,&xSample);
+ 603              		.loc 1 247 0
  604 00aa 234B     		ldr	r3, .L37+44
  605 00ac 0193     		str	r3, [sp, #4]
  606 00ae 0095     		str	r5, [sp]
@@ -6142,9 +6145,9 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  610 00b8 2148     		ldr	r0, .L37+52
  611 00ba FFF7FEFF 		bl	xTaskCreate
  612              	.LVL58:
- 245:main_cm4.c    ****     
- 246:main_cm4.c    ****     xTaskCreate(vFiltering_task, "Filtrage", 1024, NULL, TASK_FILTER_PRIORITY, &xFiltering);
- 613              		.loc 1 246 0
+ 248:main_cm4.c    ****     
+ 249:main_cm4.c    ****     xTaskCreate(vFiltering_task, "Filtrage", 1024, NULL, TASK_FILTER_PRIORITY, &xFiltering);
+ 613              		.loc 1 249 0
  614 00be 214F     		ldr	r7, .L37+56
  615 00c0 0197     		str	r7, [sp, #4]
  616 00c2 0095     		str	r5, [sp]
@@ -6154,9 +6157,9 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  620 00cc 1F48     		ldr	r0, .L37+64
  621 00ce FFF7FEFF 		bl	xTaskCreate
  622              	.LVL59:
- 247:main_cm4.c    ****     
- 248:main_cm4.c    ****     xTaskCreate(vResults, "Resultat", 1024, NULL, TASK_RESULT_PROIRITY, &xResults);
- 623              		.loc 1 248 0
+ 250:main_cm4.c    ****     
+ 251:main_cm4.c    ****     xTaskCreate(vResults, "Resultat", 1024, NULL, TASK_RESULT_PROIRITY, &xResults);
+ 623              		.loc 1 251 0
  624 00d2 1F4E     		ldr	r6, .L37+68
  625 00d4 0196     		str	r6, [sp, #4]
  626 00d6 0095     		str	r5, [sp]
@@ -6166,51 +6169,51 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  630 00e0 1D48     		ldr	r0, .L37+76
  631 00e2 FFF7FEFF 		bl	xTaskCreate
  632              	.LVL60:
- 249:main_cm4.c    ****     
- 250:main_cm4.c    ****     vTaskSuspend(xFiltering);
- 633              		.loc 1 250 0
+ 252:main_cm4.c    ****     
+ 253:main_cm4.c    ****     vTaskSuspend(xFiltering);
+ 633              		.loc 1 253 0
  634 00e6 3868     		ldr	r0, [r7]
  635 00e8 FFF7FEFF 		bl	vTaskSuspend
  636              	.LVL61:
- 251:main_cm4.c    ****     vTaskSuspend(xResults);
- 637              		.loc 1 251 0
+ 254:main_cm4.c    ****     vTaskSuspend(xResults);
+ 637              		.loc 1 254 0
  638 00ec 3068     		ldr	r0, [r6]
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 104
+
+
  639 00ee FFF7FEFF 		bl	vTaskSuspend
  640              	.LVL62:
- 252:main_cm4.c    ****     // vTaskSuspend(xSample) --> but : doit peser sur le bouton pour que le graphique s'actualise, 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 104
-
-
- 253:main_cm4.c    ****     
- 254:main_cm4.c    ****     
- 255:main_cm4.c    ****     
- 256:main_cm4.c    ****     /* Initialize thread-safe debug message printing. See uart_debug.h header file
- 257:main_cm4.c    ****        to enable / disable this feature */
- 258:main_cm4.c    ****     //DebugPrintfInit();
- 259:main_cm4.c    ****     
- 260:main_cm4.c    ****     /* Start the RTOS scheduler. This function should never return */
- 261:main_cm4.c    ****     vTaskStartScheduler();
- 641              		.loc 1 261 0
+ 255:main_cm4.c    ****     // vTaskSuspend(xSample) --> but : doit peser sur le bouton pour que le graphique s'actualise, 
+ 256:main_cm4.c    ****     
+ 257:main_cm4.c    ****     
+ 258:main_cm4.c    ****     
+ 259:main_cm4.c    ****     /* Initialize thread-safe debug message printing. See uart_debug.h header file
+ 260:main_cm4.c    ****        to enable / disable this feature */
+ 261:main_cm4.c    ****     //DebugPrintfInit();
+ 262:main_cm4.c    ****     
+ 263:main_cm4.c    ****     /* Start the RTOS scheduler. This function should never return */
+ 264:main_cm4.c    ****     vTaskStartScheduler();
+ 641              		.loc 1 264 0
  642 00f2 FFF7FEFF 		bl	vTaskStartScheduler
  643              	.LVL63:
- 262:main_cm4.c    ****     
- 263:main_cm4.c    ****     /* Should never get here! */ 
- 264:main_cm4.c    ****     //DebugPrintf("Error!   : RTOS - scheduler crashed \r\n");
- 265:main_cm4.c    **** 
- 266:main_cm4.c    ****     /* Halt the CPU if scheduler exits */
- 267:main_cm4.c    ****     CY_ASSERT(0);
- 644              		.loc 1 267 0
- 645 00f6 40F20B11 		movw	r1, #267
+ 265:main_cm4.c    ****     
+ 266:main_cm4.c    ****     /* Should never get here! */ 
+ 267:main_cm4.c    ****     //DebugPrintf("Error!   : RTOS - scheduler crashed \r\n");
+ 268:main_cm4.c    **** 
+ 269:main_cm4.c    ****     /* Halt the CPU if scheduler exits */
+ 270:main_cm4.c    ****     CY_ASSERT(0);
+ 644              		.loc 1 270 0
+ 645 00f6 4FF48771 		mov	r1, #270
  646 00fa 1848     		ldr	r0, .L37+80
  647 00fc FFF7FEFF 		bl	Cy_SysLib_AssertFailed
  648              	.LVL64:
  649              	.L34:
- 268:main_cm4.c    ****     
- 269:main_cm4.c    ****     
- 270:main_cm4.c    ****     
  271:main_cm4.c    ****     
- 272:main_cm4.c    ****     while(CapSense_IsBusy()); // ?? du CapSense Example
- 650              		.loc 1 272 0 discriminator 1
+ 272:main_cm4.c    ****     
+ 273:main_cm4.c    ****     
+ 274:main_cm4.c    ****     
+ 275:main_cm4.c    ****     while(CapSense_IsBusy()); // ?? du CapSense Example
+ 650              		.loc 1 275 0 discriminator 1
  651 0100 FFF7FEFF 		bl	CapSense_IsBusy
  652              	.LVL65:
  653 0104 0028     		cmp	r0, #0
@@ -6235,12 +6238,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  672 013c D0000000 		.word	.LC8
  673 0140 00000000 		.word	vSample_task
  674 0144 00000000 		.word	xFiltering
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 105
+
+
  675 0148 DC000000 		.word	.LC9
  676 014c 00000000 		.word	vFiltering_task
  677 0150 00000000 		.word	xResults
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 105
-
-
  678 0154 E8000000 		.word	.LC10
  679 0158 00000000 		.word	vResults
  680 015c F4000000 		.word	.LC11
@@ -6295,12 +6298,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  709 00b8 5461736B 		.ascii	"Task A\000"
  709      204100
  710 00bf 00       		.space	1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 106
+
+
  711              	.LC7:
  712 00c0 5461736B 		.ascii	"Task Bouton 2\000"
  712      20426F75 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 106
-
-
  712      746F6E20 
  712      3200
  713 00ce 0000     		.space	2
@@ -6355,12 +6358,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  754              		.file 34 "MAX30102.h"
  755              		.file 35 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4
  756              		.file 36 "display_task.h"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 107
+
+
  757              		.file 37 "Generated_Source\\PSoC6/CapSense_Sensing.h"
  758              		.section	.debug_info,"",%progbits
  759              	.Ldebug_info0:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 107
-
-
  760 0000 01230000 		.4byte	0x2301
  761 0004 0400     		.2byte	0x4
  762 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -6415,12 +6418,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  811 0073 04       		.uleb128 0x4
  812 0074 87240000 		.4byte	.LASF11
  813 0078 01       		.byte	0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 108
+
+
  814 0079 04       		.uleb128 0x4
  815 007a C7210000 		.4byte	.LASF12
  816 007e 02       		.byte	0x2
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 108
-
-
  817 007f 04       		.uleb128 0x4
  818 0080 63120000 		.4byte	.LASF13
  819 0084 03       		.byte	0x3
@@ -6475,12 +6478,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  868 00e5 04       		.uleb128 0x4
  869 00e6 4A180000 		.4byte	.LASF30
  870 00ea 14       		.byte	0x14
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 109
+
+
  871 00eb 04       		.uleb128 0x4
  872 00ec 92250000 		.4byte	.LASF31
  873 00f0 15       		.byte	0x15
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 109
-
-
  874 00f1 04       		.uleb128 0x4
  875 00f2 C2200000 		.4byte	.LASF32
  876 00f6 16       		.byte	0x16
@@ -6535,12 +6538,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  925 0157 04       		.uleb128 0x4
  926 0158 B10C0000 		.4byte	.LASF49
  927 015c 27       		.byte	0x27
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 110
+
+
  928 015d 04       		.uleb128 0x4
  929 015e 67250000 		.4byte	.LASF50
  930 0162 28       		.byte	0x28
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 110
-
-
  931 0163 04       		.uleb128 0x4
  932 0164 EC0A0000 		.4byte	.LASF51
  933 0168 29       		.byte	0x29
@@ -6595,12 +6598,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  982 01c9 04       		.uleb128 0x4
  983 01ca 33220000 		.4byte	.LASF68
  984 01ce 3A       		.byte	0x3a
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 111
+
+
  985 01cf 04       		.uleb128 0x4
  986 01d0 0C130000 		.4byte	.LASF69
  987 01d4 3B       		.byte	0x3b
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 111
-
-
  988 01d5 04       		.uleb128 0x4
  989 01d6 0C110000 		.4byte	.LASF70
  990 01da 3C       		.byte	0x3c
@@ -6655,12 +6658,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1039 023b 04       		.uleb128 0x4
  1040 023c 440B0000 		.4byte	.LASF87
  1041 0240 4D       		.byte	0x4d
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 112
+
+
  1042 0241 04       		.uleb128 0x4
  1043 0242 9E230000 		.4byte	.LASF88
  1044 0246 4E       		.byte	0x4e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 112
-
-
  1045 0247 04       		.uleb128 0x4
  1046 0248 10060000 		.4byte	.LASF89
  1047 024c 4F       		.byte	0x4f
@@ -6715,12 +6718,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1096 02ad 04       		.uleb128 0x4
  1097 02ae D0030000 		.4byte	.LASF106
  1098 02b2 60       		.byte	0x60
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 113
+
+
  1099 02b3 04       		.uleb128 0x4
  1100 02b4 44010000 		.4byte	.LASF107
  1101 02b8 61       		.byte	0x61
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 113
-
-
  1102 02b9 04       		.uleb128 0x4
  1103 02ba 8F0F0000 		.4byte	.LASF108
  1104 02be 62       		.byte	0x62
@@ -6775,12 +6778,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1153 031f 04       		.uleb128 0x4
  1154 0320 57090000 		.4byte	.LASF125
  1155 0324 73       		.byte	0x73
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 114
+
+
  1156 0325 04       		.uleb128 0x4
  1157 0326 E3210000 		.4byte	.LASF126
  1158 032a 74       		.byte	0x74
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 114
-
-
  1159 032b 04       		.uleb128 0x4
  1160 032c 8B120000 		.4byte	.LASF127
  1161 0330 75       		.byte	0x75
@@ -6835,12 +6838,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1210 0391 04       		.uleb128 0x4
  1211 0392 25100000 		.4byte	.LASF144
  1212 0396 86       		.byte	0x86
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 115
+
+
  1213 0397 04       		.uleb128 0x4
  1214 0398 CB010000 		.4byte	.LASF145
  1215 039c 87       		.byte	0x87
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 115
-
-
  1216 039d 04       		.uleb128 0x4
  1217 039e 051C0000 		.4byte	.LASF146
  1218 03a2 88       		.byte	0x88
@@ -6895,12 +6898,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1267 0403 05       		.uleb128 0x5
  1268 0404 01       		.byte	0x1
  1269 0405 06       		.byte	0x6
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 116
+
+
  1270 0406 F0060000 		.4byte	.LASF161
  1271 040a 06       		.uleb128 0x6
  1272 040b 63040000 		.4byte	.LASF162
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 116
-
-
  1273 040f 07       		.byte	0x7
  1274 0410 1D       		.byte	0x1d
  1275 0411 15040000 		.4byte	0x415
@@ -6955,12 +6958,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1324 0472 05       		.uleb128 0x5
  1325 0473 04       		.byte	0x4
  1326 0474 07       		.byte	0x7
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 117
+
+
  1327 0475 D5140000 		.4byte	.LASF173
  1328 0479 06       		.uleb128 0x6
  1329 047a 2C000000 		.4byte	.LASF174
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 117
-
-
  1330 047e 08       		.byte	0x8
  1331 047f 14       		.byte	0x14
  1332 0480 F8030000 		.4byte	0x3f8
@@ -7015,12 +7018,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1381 04ec 09       		.uleb128 0x9
  1382 04ed 00000000 		.4byte	.LASF183
  1383 04f1 03       		.byte	0x3
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 118
+
+
  1384 04f2 9B01     		.2byte	0x19b
  1385 04f4 98050000 		.4byte	0x598
  1386 04f8 A0       		.byte	0xa0
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 118
-
-
  1387 04f9 0A       		.uleb128 0xa
  1388 04fa 000C0000 		.4byte	.LASF184
  1389 04fe 03       		.byte	0x3
@@ -7075,12 +7078,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1438 056e A401     		.2byte	0x1a4
  1439 0570 8E050000 		.4byte	0x58e
  1440 0574 000E     		.2byte	0xe00
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 119
+
+
  1441 0576 00       		.byte	0
  1442 0577 0C       		.uleb128 0xc
  1443 0578 8E050000 		.4byte	0x58e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 119
-
-
  1444 057c 87050000 		.4byte	0x587
  1445 0580 0D       		.uleb128 0xd
  1446 0581 87050000 		.4byte	0x587
@@ -7135,12 +7138,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1495 05f4 8302     		.2byte	0x283
  1496 05f6 00       		.byte	0
  1497 05f7 10       		.uleb128 0x10
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 120
+
+
  1498 05f8 C4190000 		.4byte	.LASF193
  1499 05fc 03       		.byte	0x3
  1500 05fd A501     		.2byte	0x1a5
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 120
-
-
  1501 05ff BB040000 		.4byte	0x4bb
  1502 0603 11       		.uleb128 0x11
  1503 0604 8E050000 		.4byte	0x58e
@@ -7195,12 +7198,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1552 0677 00       		.byte	0
  1553 0678 0C       		.uleb128 0xc
  1554 0679 03060000 		.4byte	0x603
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 121
+
+
  1555 067d 88060000 		.4byte	0x688
  1556 0681 0D       		.uleb128 0xd
  1557 0682 87050000 		.4byte	0x587
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 121
-
-
  1558 0686 0B       		.byte	0xb
  1559 0687 00       		.byte	0
  1560 0688 0C       		.uleb128 0xc
@@ -7255,12 +7258,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1609 06e8 11030000 		.4byte	.LASF198
  1610 06ec 09       		.byte	0x9
  1611 06ed 29       		.byte	0x29
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 122
+
+
  1612 06ee 8E050000 		.4byte	0x58e
  1613 06f2 18       		.byte	0x18
  1614 06f3 14       		.uleb128 0x14
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 122
-
-
  1615 06f4 E7180000 		.4byte	.LASF199
  1616 06f8 09       		.byte	0x9
  1617 06f9 2A       		.byte	0x2a
@@ -7315,12 +7318,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1666 075a 8E050000 		.4byte	0x58e
  1667 075e 3C       		.byte	0x3c
  1668 075f 14       		.uleb128 0x14
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 123
+
+
  1669 0760 CF070000 		.4byte	.LASF207
  1670 0764 09       		.byte	0x9
  1671 0765 33       		.byte	0x33
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 123
-
-
  1672 0766 71070000 		.4byte	0x771
  1673 076a 40       		.byte	0x40
  1674 076b 00       		.byte	0
@@ -7375,12 +7378,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1723 07d1 03060000 		.4byte	0x603
  1724 07d5 1040     		.2byte	0x4010
  1725 07d7 16       		.uleb128 0x16
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 124
+
+
  1726 07d8 A7170000 		.4byte	.LASF214
  1727 07dc 09       		.byte	0x9
  1728 07dd 40       		.byte	0x40
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 124
-
-
  1729 07de 8E050000 		.4byte	0x58e
  1730 07e2 1440     		.2byte	0x4014
  1731 07e4 16       		.uleb128 0x16
@@ -7435,12 +7438,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1780 0851 87050000 		.4byte	0x587
  1781 0855 2D       		.byte	0x2d
  1782 0856 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 125
+
+
  1783 0857 0C       		.uleb128 0xc
  1784 0858 8E050000 		.4byte	0x58e
  1785 085c 68080000 		.4byte	0x868
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 125
-
-
  1786 0860 0F       		.uleb128 0xf
  1787 0861 87050000 		.4byte	0x587
  1788 0865 FF01     		.2byte	0x1ff
@@ -7495,12 +7498,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1837 08c8 20       		.byte	0x20
  1838 08c9 14       		.uleb128 0x14
  1839 08ca 81140000 		.4byte	.LASF224
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 126
+
+
  1840 08ce 0A       		.byte	0xa
  1841 08cf 28       		.byte	0x28
  1842 08d0 03060000 		.4byte	0x603
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 126
-
-
  1843 08d4 24       		.byte	0x24
  1844 08d5 14       		.uleb128 0x14
  1845 08d6 CF070000 		.4byte	.LASF207
@@ -7555,12 +7558,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1894 093a 0A       		.byte	0xa
  1895 093b 31       		.byte	0x31
  1896 093c 03060000 		.4byte	0x603
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 127
+
+
  1897 0940 64       		.byte	0x64
  1898 0941 14       		.uleb128 0x14
  1899 0942 9F060000 		.4byte	.LASF232
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 127
-
-
  1900 0946 0A       		.byte	0xa
  1901 0947 32       		.byte	0x32
  1902 0948 8E050000 		.4byte	0x58e
@@ -7615,12 +7618,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  1951 09b0 4002     		.2byte	0x240
  1952 09b2 16       		.uleb128 0x16
  1953 09b3 FC070000 		.4byte	.LASF190
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 128
+
+
  1954 09b7 0A       		.byte	0xa
  1955 09b8 3B       		.byte	0x3b
  1956 09b9 190C0000 		.4byte	0xc19
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 128
-
-
  1957 09bd 4402     		.2byte	0x244
  1958 09bf 16       		.uleb128 0x16
  1959 09c0 E0040000 		.4byte	.LASF239
@@ -7675,12 +7678,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2008 0a2c 0A       		.byte	0xa
  2009 0a2d 44       		.byte	0x44
  2010 0a2e 2D0C0000 		.4byte	0xc2d
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 129
+
+
  2011 0a32 4803     		.2byte	0x348
  2012 0a34 16       		.uleb128 0x16
  2013 0a35 15120000 		.4byte	.LASF248
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 129
-
-
  2014 0a39 0A       		.byte	0xa
  2015 0a3a 45       		.byte	0x45
  2016 0a3b 320C0000 		.4byte	0xc32
@@ -7735,12 +7738,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2065 0aa7 900E     		.2byte	0xe90
  2066 0aa9 16       		.uleb128 0x16
  2067 0aaa A9180000 		.4byte	.LASF257
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 130
+
+
  2068 0aae 0A       		.byte	0xa
  2069 0aaf 4E       		.byte	0x4e
  2070 0ab0 8E050000 		.4byte	0x58e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 130
-
-
  2071 0ab4 C00E     		.2byte	0xec0
  2072 0ab6 16       		.uleb128 0x16
  2073 0ab7 1C1B0000 		.4byte	.LASF258
@@ -7795,12 +7798,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2122 0b23 0A       		.byte	0xa
  2123 0b24 57       		.byte	0x57
  2124 0b25 640C0000 		.4byte	0xc64
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 131
+
+
  2125 0b29 100F     		.2byte	0xf10
  2126 0b2b 16       		.uleb128 0x16
  2127 0b2c DB090000 		.4byte	.LASF267
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 131
-
-
  2128 0b30 0A       		.byte	0xa
  2129 0b31 58       		.byte	0x58
  2130 0b32 8E050000 		.4byte	0x58e
@@ -7855,12 +7858,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2179 0b9e 8C0F     		.2byte	0xf8c
  2180 0ba0 16       		.uleb128 0x16
  2181 0ba1 481B0000 		.4byte	.LASF276
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 132
+
+
  2182 0ba5 0A       		.byte	0xa
  2183 0ba6 61       		.byte	0x61
  2184 0ba7 780C0000 		.4byte	0xc78
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 132
-
-
  2185 0bab 900F     		.2byte	0xf90
  2186 0bad 16       		.uleb128 0x16
  2187 0bae 47030000 		.4byte	.LASF277
@@ -7915,12 +7918,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2236 0c1f 27080000 		.4byte	0x827
  2237 0c23 11       		.uleb128 0x11
  2238 0c24 1E0C0000 		.4byte	0xc1e
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 133
+
+
  2239 0c28 0E       		.uleb128 0xe
  2240 0c29 47080000 		.4byte	0x847
  2241 0c2d 11       		.uleb128 0x11
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 133
-
-
  2242 0c2e 280C0000 		.4byte	0xc28
  2243 0c32 0E       		.uleb128 0xe
  2244 0c33 57080000 		.4byte	0x857
@@ -7975,12 +7978,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2293 0cac 05       		.uleb128 0x5
  2294 0cad 08       		.byte	0x8
  2295 0cae 04       		.byte	0x4
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 134
+
+
  2296 0caf 3E180000 		.4byte	.LASF285
  2297 0cb3 12       		.uleb128 0x12
  2298 0cb4 B8       		.byte	0xb8
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 134
-
-
  2299 0cb5 0C       		.byte	0xc
  2300 0cb6 34       		.byte	0x34
  2301 0cb7 C4100000 		.4byte	0x10c4
@@ -8035,12 +8038,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2350 0d1b 14       		.uleb128 0x14
  2351 0d1c 84230000 		.4byte	.LASF294
  2352 0d20 0C       		.byte	0xc
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 135
+
+
  2353 0d21 3F       		.byte	0x3f
  2354 0d22 B0040000 		.4byte	0x4b0
  2355 0d26 20       		.byte	0x20
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 135
-
-
  2356 0d27 14       		.uleb128 0x14
  2357 0d28 33000000 		.4byte	.LASF295
  2358 0d2c 0C       		.byte	0xc
@@ -8095,12 +8098,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2407 0d8d 4A       		.byte	0x4a
  2408 0d8e 84040000 		.4byte	0x484
  2409 0d92 2F       		.byte	0x2f
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 136
+
+
  2410 0d93 14       		.uleb128 0x14
  2411 0d94 BA1E0000 		.4byte	.LASF304
  2412 0d98 0C       		.byte	0xc
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 136
-
-
  2413 0d99 4B       		.byte	0x4b
  2414 0d9a 84040000 		.4byte	0x484
  2415 0d9e 30       		.byte	0x30
@@ -8155,12 +8158,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2464 0dff 14       		.uleb128 0x14
  2465 0e00 770F0000 		.4byte	.LASF313
  2466 0e04 0C       		.byte	0xc
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 137
+
+
  2467 0e05 56       		.byte	0x56
  2468 0e06 84040000 		.4byte	0x484
  2469 0e0a 3D       		.byte	0x3d
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 137
-
-
  2470 0e0b 14       		.uleb128 0x14
  2471 0e0c 65020000 		.4byte	.LASF314
  2472 0e10 0C       		.byte	0xc
@@ -8215,12 +8218,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2521 0e71 5F       		.byte	0x5f
  2522 0e72 B0040000 		.4byte	0x4b0
  2523 0e76 4C       		.byte	0x4c
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 138
+
+
  2524 0e77 14       		.uleb128 0x14
  2525 0e78 BC130000 		.4byte	.LASF323
  2526 0e7c 0C       		.byte	0xc
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 138
-
-
  2527 0e7d 60       		.byte	0x60
  2528 0e7e 84040000 		.4byte	0x484
  2529 0e82 50       		.byte	0x50
@@ -8275,12 +8278,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2578 0ee3 14       		.uleb128 0x14
  2579 0ee4 9C0D0000 		.4byte	.LASF332
  2580 0ee8 0C       		.byte	0xc
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 139
+
+
  2581 0ee9 69       		.byte	0x69
  2582 0eea 84040000 		.4byte	0x484
  2583 0eee 59       		.byte	0x59
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 139
-
-
  2584 0eef 14       		.uleb128 0x14
  2585 0ef0 94260000 		.4byte	.LASF333
  2586 0ef4 0C       		.byte	0xc
@@ -8335,12 +8338,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2635 0f55 78       		.byte	0x78
  2636 0f56 9A040000 		.4byte	0x49a
  2637 0f5a 6C       		.byte	0x6c
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 140
+
+
  2638 0f5b 14       		.uleb128 0x14
  2639 0f5c ED050000 		.4byte	.LASF342
  2640 0f60 0C       		.byte	0xc
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 140
-
-
  2641 0f61 79       		.byte	0x79
  2642 0f62 9A040000 		.4byte	0x49a
  2643 0f66 6E       		.byte	0x6e
@@ -8395,12 +8398,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2692 0fc7 14       		.uleb128 0x14
  2693 0fc8 F0150000 		.4byte	.LASF351
  2694 0fcc 0C       		.byte	0xc
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 141
+
+
  2695 0fcd 86       		.byte	0x86
  2696 0fce 84040000 		.4byte	0x484
  2697 0fd2 7C       		.byte	0x7c
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 141
-
-
  2698 0fd3 14       		.uleb128 0x14
  2699 0fd4 33020000 		.4byte	.LASF352
  2700 0fd8 0C       		.byte	0xc
@@ -8455,12 +8458,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2749 1039 91       		.byte	0x91
  2750 103a B0040000 		.4byte	0x4b0
  2751 103e 94       		.byte	0x94
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 142
+
+
  2752 103f 14       		.uleb128 0x14
  2753 1040 B0080000 		.4byte	.LASF361
  2754 1044 0C       		.byte	0xc
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 142
-
-
  2755 1045 92       		.byte	0x92
  2756 1046 B0040000 		.4byte	0x4b0
  2757 104a 98       		.byte	0x98
@@ -8515,12 +8518,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2806 10ab 14       		.uleb128 0x14
  2807 10ac A3240000 		.4byte	.LASF370
  2808 10b0 0C       		.byte	0xc
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 143
+
+
  2809 10b1 9D       		.byte	0x9d
  2810 10b2 9A040000 		.4byte	0x49a
  2811 10b6 B0       		.byte	0xb0
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 143
-
-
  2812 10b7 14       		.uleb128 0x14
  2813 10b8 7A0C0000 		.4byte	.LASF371
  2814 10bc 0C       		.byte	0xc
@@ -8575,12 +8578,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2863 111f 00       		.byte	0
  2864 1120 10       		.uleb128 0x10
  2865 1121 D30C0000 		.4byte	.LASF380
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 144
+
+
  2866 1125 0E       		.byte	0xe
  2867 1126 3301     		.2byte	0x133
  2868 1128 FC100000 		.4byte	0x10fc
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 144
-
-
  2869 112c 18       		.uleb128 0x18
  2870 112d 04       		.byte	0x4
  2871 112e 05       		.uleb128 0x5
@@ -8635,12 +8638,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2920 1199 1E       		.uleb128 0x1e
  2921 119a 0F260000 		.4byte	.LASF410
  2922 119e 4C       		.byte	0x4c
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 145
+
+
  2923 119f 0F       		.byte	0xf
  2924 11a0 C302     		.2byte	0x2c3
  2925 11a2 B8120000 		.4byte	0x12b8
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 145
-
-
  2926 11a6 09       		.uleb128 0x9
  2927 11a7 CC040000 		.4byte	.LASF387
  2928 11ab 0F       		.byte	0xf
@@ -8695,12 +8698,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  2977 1214 D102     		.2byte	0x2d1
  2978 1216 8E050000 		.4byte	0x58e
  2979 121a 18       		.byte	0x18
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 146
+
+
  2980 121b 09       		.uleb128 0x9
  2981 121c CD120000 		.4byte	.LASF396
  2982 1220 0F       		.byte	0xf
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 146
-
-
  2983 1221 D202     		.2byte	0x2d2
  2984 1223 8E050000 		.4byte	0x58e
  2985 1227 1C       		.byte	0x1c
@@ -8755,12 +8758,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3034 1290 09       		.uleb128 0x9
  3035 1291 F9230000 		.4byte	.LASF405
  3036 1295 0F       		.byte	0xf
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 147
+
+
  3037 1296 DE02     		.2byte	0x2de
  3038 1298 8E050000 		.4byte	0x58e
  3039 129c 40       		.byte	0x40
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 147
-
-
  3040 129d 09       		.uleb128 0x9
  3041 129e 910E0000 		.4byte	.LASF406
  3042 12a2 0F       		.byte	0xf
@@ -8815,12 +8818,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3091 130e 08       		.byte	0x8
  3092 130f 09       		.uleb128 0x9
  3093 1310 18140000 		.4byte	.LASF415
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 148
+
+
  3094 1314 10       		.byte	0x10
  3095 1315 7B02     		.2byte	0x27b
  3096 1317 8E050000 		.4byte	0x58e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 148
-
-
  3097 131b 0C       		.byte	0xc
  3098 131c 09       		.uleb128 0x9
  3099 131d AA1B0000 		.4byte	.LASF416
@@ -8875,12 +8878,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3148 1389 7802     		.2byte	0x278
  3149 138b 8E050000 		.4byte	0x58e
  3150 138f 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 149
+
+
  3151 1390 09       		.uleb128 0x9
  3152 1391 601E0000 		.4byte	.LASF424
  3153 1395 04       		.byte	0x4
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 149
-
-
  3154 1396 7902     		.2byte	0x279
  3155 1398 8E050000 		.4byte	0x58e
  3156 139c 04       		.byte	0x4
@@ -8935,12 +8938,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3205 1405 09       		.uleb128 0x9
  3206 1406 D6040000 		.4byte	.LASF417
  3207 140a 04       		.byte	0x4
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 150
+
+
  3208 140b 8502     		.2byte	0x285
  3209 140d B0040000 		.4byte	0x4b0
  3210 1411 28       		.byte	0x28
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 150
-
-
  3211 1412 09       		.uleb128 0x9
  3212 1413 D6180000 		.4byte	.LASF429
  3213 1417 04       		.byte	0x4
@@ -8995,12 +8998,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3262 147c 35       		.byte	0x35
  3263 147d B0040000 		.4byte	0x4b0
  3264 1481 0C       		.byte	0xc
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 151
+
+
  3265 1482 14       		.uleb128 0x14
  3266 1483 89220000 		.4byte	.LASF436
  3267 1487 11       		.byte	0x11
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 151
-
-
  3268 1488 37       		.byte	0x37
  3269 1489 B0040000 		.4byte	0x4b0
  3270 148d 10       		.byte	0x10
@@ -9055,12 +9058,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3319 14ee 14       		.uleb128 0x14
  3320 14ef 511E0000 		.4byte	.LASF445
  3321 14f3 11       		.byte	0x11
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 152
+
+
  3322 14f4 43       		.byte	0x43
  3323 14f5 B0040000 		.4byte	0x4b0
  3324 14f9 34       		.byte	0x34
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 152
-
-
  3325 14fa 14       		.uleb128 0x14
  3326 14fb 3F260000 		.4byte	.LASF446
  3327 14ff 11       		.byte	0x11
@@ -9115,12 +9118,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3376 1563 12       		.byte	0x12
  3377 1564 3F       		.byte	0x3f
  3378 1565 B0040000 		.4byte	0x4b0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 153
+
+
  3379 1569 06       		.uleb128 0x6
  3380 156a E2060000 		.4byte	.LASF455
  3381 156e 13       		.byte	0x13
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 153
-
-
  3382 156f 2E       		.byte	0x2e
  3383 1570 2C110000 		.4byte	0x112c
  3384 1574 06       		.uleb128 0x6
@@ -9175,12 +9178,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3433 15df 1C       		.uleb128 0x1c
  3434 15e0 B8120000 		.4byte	0x12b8
  3435 15e4 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 154
+
+
  3436 15e5 9A040000 		.4byte	0x49a
  3437 15e9 00       		.byte	0
  3438 15ea 10       		.uleb128 0x10
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 154
-
-
  3439 15eb DD080000 		.4byte	.LASF464
  3440 15ef 17       		.byte	0x17
  3441 15f0 C602     		.2byte	0x2c6
@@ -9235,12 +9238,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3490 165d 17       		.byte	0x17
  3491 165e E703     		.2byte	0x3e7
  3492 1660 84040000 		.4byte	0x484
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 155
+
+
  3493 1664 02       		.byte	0x2
  3494 1665 24       		.uleb128 0x24
  3495 1666 627700   		.ascii	"bw\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 155
-
-
  3496 1669 17       		.byte	0x17
  3497 166a EA03     		.2byte	0x3ea
  3498 166c 84040000 		.4byte	0x484
@@ -9295,12 +9298,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3547 16c7 84040000 		.4byte	0x484
  3548 16cb 01       		.byte	0x1
  3549 16cc 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 156
+
+
  3550 16cd 26       		.uleb128 0x26
  3551 16ce 8F110000 		.4byte	.LASF569
  3552 16d2 01       		.byte	0x1
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 156
-
-
  3553 16d3 03040000 		.4byte	0x403
  3554 16d7 17       		.byte	0x17
  3555 16d8 4104     		.2byte	0x441
@@ -9355,12 +9358,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3604 1740 BB030000 		.4byte	.LASF484
  3605 1744 17       		.byte	0x17
  3606 1745 4306     		.2byte	0x643
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 157
+
+
  3607 1747 9A040000 		.4byte	0x49a
  3608 174b 0A       		.byte	0xa
  3609 174c 09       		.uleb128 0x9
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 157
-
-
  3610 174d 76040000 		.4byte	.LASF485
  3611 1751 17       		.byte	0x17
  3612 1752 4606     		.2byte	0x646
@@ -9415,12 +9418,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3661 17ba 5F06     		.2byte	0x65f
  3662 17bc CD160000 		.4byte	0x16cd
  3663 17c0 03       		.byte	0x3
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 158
+
+
  3664 17c1 09       		.uleb128 0x9
  3665 17c2 6E1A0000 		.4byte	.LASF493
  3666 17c6 17       		.byte	0x17
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 158
-
-
  3667 17c7 6206     		.2byte	0x662
  3668 17c9 31160000 		.4byte	0x1631
  3669 17cd 04       		.byte	0x4
@@ -9475,12 +9478,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3718 1836 09       		.uleb128 0x9
  3719 1837 95130000 		.4byte	.LASF502
  3720 183b 17       		.byte	0x17
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 159
+
+
  3721 183c 8306     		.2byte	0x683
  3722 183e F6150000 		.4byte	0x15f6
  3723 1842 24       		.byte	0x24
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 159
-
-
  3724 1843 09       		.uleb128 0x9
  3725 1844 AE1F0000 		.4byte	.LASF503
  3726 1848 17       		.byte	0x17
@@ -9535,12 +9538,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3775 18b1 1A       		.uleb128 0x1a
  3776 18b2 04       		.byte	0x4
  3777 18b3 B7180000 		.4byte	0x18b7
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 160
+
+
  3778 18b7 11       		.uleb128 0x11
  3779 18b8 CF100000 		.4byte	0x10cf
  3780 18bc 29       		.uleb128 0x29
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 160
-
-
  3781 18bd FE210000 		.4byte	.LASF570
  3782 18c1 05       		.byte	0x5
  3783 18c2 81       		.byte	0x81
@@ -9595,12 +9598,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3832 1937 0C000000 		.4byte	.LVL0
  3833 193b E5210000 		.4byte	0x21e5
  3834 193f 49190000 		.4byte	0x1949
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 161
+
+
  3835 1943 2E       		.uleb128 0x2e
  3836 1944 01       		.uleb128 0x1
  3837 1945 51       		.byte	0x51
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 161
-
-
  3838 1946 01       		.uleb128 0x1
  3839 1947 30       		.byte	0x30
  3840 1948 00       		.byte	0
@@ -9655,12 +9658,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3889 19aa BF190000 		.4byte	0x19bf
  3890 19ae 2E       		.uleb128 0x2e
  3891 19af 01       		.uleb128 0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 162
+
+
  3892 19b0 51       		.byte	0x51
  3893 19b1 02       		.uleb128 0x2
  3894 19b2 91       		.byte	0x91
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 162
-
-
  3895 19b3 77       		.sleb128 -9
  3896 19b4 2E       		.uleb128 0x2e
  3897 19b5 01       		.uleb128 0x1
@@ -9687,7 +9690,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3918 19d0 30       		.uleb128 0x30
  3919 19d1 2D090000 		.4byte	.LASF513
  3920 19d5 01       		.byte	0x1
- 3921 19d6 88       		.byte	0x88
+ 3921 19d6 8B       		.byte	0x8b
  3922 19d7 00000000 		.4byte	.LFB696
  3923 19db 50000000 		.4byte	.LFE696-.LFB696
  3924 19df 01       		.uleb128 0x1
@@ -9696,7 +9699,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3927 19e5 31       		.uleb128 0x31
  3928 19e6 61726700 		.ascii	"arg\000"
  3929 19ea 01       		.byte	0x1
- 3930 19eb 88       		.byte	0x88
+ 3930 19eb 8B       		.byte	0x8b
  3931 19ec 2C110000 		.4byte	0x112c
  3932 19f0 60000000 		.4byte	.LLST4
  3933 19f4 2D       		.uleb128 0x2d
@@ -9715,12 +9718,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  3946 1a0a 0A       		.byte	0xa
  3947 1a0b E803     		.2byte	0x3e8
  3948 1a0d 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 163
+
+
  3949 1a0e 2D       		.uleb128 0x2d
  3950 1a0f 1E000000 		.4byte	.LVL14
  3951 1a13 21220000 		.4byte	0x2221
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 163
-
-
  3952 1a17 281A0000 		.4byte	0x1a28
  3953 1a1b 2E       		.uleb128 0x2e
  3954 1a1c 01       		.uleb128 0x1
@@ -9775,12 +9778,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4003 1a7c 30       		.uleb128 0x30
  4004 1a7d 92030000 		.4byte	.LASF515
  4005 1a81 01       		.byte	0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 164
+
+
  4006 1a82 63       		.byte	0x63
  4007 1a83 00000000 		.4byte	.LFB695
  4008 1a87 78000000 		.4byte	.LFE695-.LFB695
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 164
-
-
  4009 1a8b 01       		.uleb128 0x1
  4010 1a8c 9C       		.byte	0x9c
  4011 1a8d 491B0000 		.4byte	0x1b49
@@ -9795,7 +9798,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4020 1aa5 38000000 		.4byte	.LBB37
  4021 1aa9 08000000 		.4byte	.LBE37-.LBB37
  4022 1aad 01       		.byte	0x1
- 4023 1aae 74       		.byte	0x74
+ 4023 1aae 77       		.byte	0x77
  4024 1aaf FC1A0000 		.4byte	0x1afc
  4025 1ab3 2C       		.uleb128 0x2c
  4026 1ab4 A4180000 		.4byte	0x18a4
@@ -9835,12 +9838,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4060 1b01 4F220000 		.4byte	0x224f
  4061 1b05 33       		.uleb128 0x33
  4062 1b06 1A000000 		.4byte	.LVL21
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 165
+
+
  4063 1b0a 5A220000 		.4byte	0x225a
  4064 1b0e 2D       		.uleb128 0x2d
  4065 1b0f 20000000 		.4byte	.LVL22
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 165
-
-
  4066 1b13 15220000 		.4byte	0x2215
  4067 1b17 211B0000 		.4byte	0x1b21
  4068 1b1b 2E       		.uleb128 0x2e
@@ -9870,7 +9873,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4092 1b49 30       		.uleb128 0x30
  4093 1b4a 89030000 		.4byte	.LASF516
  4094 1b4e 01       		.byte	0x1
- 4095 1b4f A0       		.byte	0xa0
+ 4095 1b4f A3       		.byte	0xa3
  4096 1b50 00000000 		.4byte	.LFB697
  4097 1b54 CC000000 		.4byte	.LFE697-.LFB697
  4098 1b58 01       		.uleb128 0x1
@@ -9879,7 +9882,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4101 1b5e 31       		.uleb128 0x31
  4102 1b5f 61726700 		.ascii	"arg\000"
  4103 1b63 01       		.byte	0x1
- 4104 1b64 A0       		.byte	0xa0
+ 4104 1b64 A3       		.byte	0xa3
  4105 1b65 2C110000 		.4byte	0x112c
  4106 1b69 D2000000 		.4byte	.LLST9
  4107 1b6d 35       		.uleb128 0x35
@@ -9889,18 +9892,18 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4111 1b7a 32       		.uleb128 0x32
  4112 1b7b 47080000 		.4byte	.LASF518
  4113 1b7f 01       		.byte	0x1
- 4114 1b80 A8       		.byte	0xa8
+ 4114 1b80 AB       		.byte	0xab
  4115 1b81 281E0000 		.4byte	0x1e28
  4116 1b85 02       		.uleb128 0x2
  4117 1b86 91       		.byte	0x91
  4118 1b87 60       		.sleb128 -32
  4119 1b88 32       		.uleb128 0x32
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 166
+
+
  4120 1b89 C8120000 		.4byte	.LASF519
  4121 1b8d 01       		.byte	0x1
- 4122 1b8e AC       		.byte	0xac
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 166
-
-
+ 4122 1b8e AF       		.byte	0xaf
  4123 1b8f 281E0000 		.4byte	0x1e28
  4124 1b93 02       		.uleb128 0x2
  4125 1b94 91       		.byte	0x91
@@ -9910,7 +9913,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4129 1b9b 42000000 		.4byte	.LBB66
  4130 1b9f 0A000000 		.4byte	.LBE66-.LBB66
  4131 1ba3 01       		.byte	0x1
- 4132 1ba4 AA       		.byte	0xaa
+ 4132 1ba4 AD       		.byte	0xad
  4133 1ba5 EF1B0000 		.4byte	0x1bef
  4134 1ba9 2C       		.uleb128 0x2c
  4135 1baa A4180000 		.4byte	0x18a4
@@ -9950,17 +9953,17 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4169 1bf4 4C000000 		.4byte	.LBB69
  4170 1bf8 08000000 		.4byte	.LBE69-.LBB69
  4171 1bfc 01       		.byte	0x1
- 4172 1bfd AB       		.byte	0xab
+ 4172 1bfd AE       		.byte	0xae
  4173 1bfe 451C0000 		.4byte	0x1c45
  4174 1c02 2C       		.uleb128 0x2c
  4175 1c03 A4180000 		.4byte	0x18a4
  4176 1c07 23010000 		.4byte	.LLST13
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 167
+
+
  4177 1c0b 34       		.uleb128 0x34
  4178 1c0c 501A0000 		.4byte	0x1a50
  4179 1c10 4C000000 		.4byte	.LBB70
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 167
-
-
  4180 1c14 08000000 		.4byte	.LBE70-.LBB70
  4181 1c18 18       		.byte	0x18
  4182 1c19 BC01     		.2byte	0x1bc
@@ -9993,7 +9996,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4209 1c4a 68000000 		.4byte	.LBB72
  4210 1c4e 08000000 		.4byte	.LBE72-.LBB72
  4211 1c52 01       		.byte	0x1
- 4212 1c53 AE       		.byte	0xae
+ 4212 1c53 B1       		.byte	0xb1
  4213 1c54 9E1C0000 		.4byte	0x1c9e
  4214 1c58 2C       		.uleb128 0x2c
  4215 1c59 A4180000 		.4byte	0x18a4
@@ -10015,12 +10018,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4231 1c88 44220000 		.4byte	0x2244
  4232 1c8c 2E       		.uleb128 0x2e
  4233 1c8d 01       		.uleb128 0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 168
+
+
  4234 1c8e 50       		.byte	0x50
  4235 1c8f 02       		.uleb128 0x2
  4236 1c90 74       		.byte	0x74
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 168
-
-
  4237 1c91 00       		.sleb128 0
  4238 1c92 2E       		.uleb128 0x2e
  4239 1c93 01       		.uleb128 0x1
@@ -10036,7 +10039,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4249 1ca3 70000000 		.4byte	.LBB75
  4250 1ca7 08000000 		.4byte	.LBE75-.LBB75
  4251 1cab 01       		.byte	0x1
- 4252 1cac AF       		.byte	0xaf
+ 4252 1cac B2       		.byte	0xb2
  4253 1cad F71C0000 		.4byte	0x1cf7
  4254 1cb1 2C       		.uleb128 0x2c
  4255 1cb2 A4180000 		.4byte	0x18a4
@@ -10075,12 +10078,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4288 1cf8 97180000 		.4byte	0x1897
  4289 1cfc 78000000 		.4byte	.LBB78
  4290 1d00 08000000 		.4byte	.LBE78-.LBB78
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 169
+
+
  4291 1d04 01       		.byte	0x1
- 4292 1d05 B0       		.byte	0xb0
+ 4292 1d05 B3       		.byte	0xb3
  4293 1d06 4D1D0000 		.4byte	0x1d4d
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 169
-
-
  4294 1d0a 2C       		.uleb128 0x2c
  4295 1d0b A4180000 		.4byte	0x18a4
  4296 1d0f AE010000 		.4byte	.LLST22
@@ -10119,7 +10122,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4329 1d52 80000000 		.4byte	.LBB81
  4330 1d56 08000000 		.4byte	.LBE81-.LBB81
  4331 1d5a 01       		.byte	0x1
- 4332 1d5b B1       		.byte	0xb1
+ 4332 1d5b B4       		.byte	0xb4
  4333 1d5c A61D0000 		.4byte	0x1da6
  4334 1d60 2C       		.uleb128 0x2c
  4335 1d61 A4180000 		.4byte	0x18a4
@@ -10135,12 +10138,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4345 1d7e F3010000 		.4byte	.LLST25
  4346 1d82 2C       		.uleb128 0x2c
  4347 1d83 5D1A0000 		.4byte	0x1a5d
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 170
+
+
  4348 1d87 0B020000 		.4byte	.LLST27
  4349 1d8b 2F       		.uleb128 0x2f
  4350 1d8c 88000000 		.4byte	.LVL40
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 170
-
-
  4351 1d90 44220000 		.4byte	0x2244
  4352 1d94 2E       		.uleb128 0x2e
  4353 1d95 01       		.uleb128 0x1
@@ -10195,12 +10198,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4402 1de3 F31D0000 		.4byte	0x1df3
  4403 1de7 2E       		.uleb128 0x2e
  4404 1de8 01       		.uleb128 0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 171
+
+
  4405 1de9 51       		.byte	0x51
  4406 1dea 02       		.uleb128 0x2
  4407 1deb 7D       		.byte	0x7d
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 171
-
-
  4408 1dec 00       		.sleb128 0
  4409 1ded 2E       		.uleb128 0x2e
  4410 1dee 01       		.uleb128 0x1
@@ -10249,28 +10252,28 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4453 1e38 36       		.uleb128 0x36
  4454 1e39 C5050000 		.4byte	.LASF572
  4455 1e3d 01       		.byte	0x1
- 4456 1e3e C9       		.byte	0xc9
+ 4456 1e3e CC       		.byte	0xcc
  4457 1e3f 6B040000 		.4byte	0x46b
  4458 1e43 00000000 		.4byte	.LFB698
  4459 1e47 60010000 		.4byte	.LFE698-.LFB698
  4460 1e4b 01       		.uleb128 0x1
  4461 1e4c 9C       		.byte	0x9c
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 172
+
+
  4462 1e4d A6200000 		.4byte	0x20a6
  4463 1e51 37       		.uleb128 0x37
  4464 1e52 BC180000 		.4byte	0x18bc
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 172
-
-
  4465 1e56 12000000 		.4byte	.LBB84
  4466 1e5a 02000000 		.4byte	.LBE84-.LBB84
  4467 1e5e 01       		.byte	0x1
- 4468 1e5f D0       		.byte	0xd0
+ 4468 1e5f D3       		.byte	0xd3
  4469 1e60 2B       		.uleb128 0x2b
  4470 1e61 57180000 		.4byte	0x1857
  4471 1e65 44000000 		.4byte	.LBB86
  4472 1e69 16000000 		.4byte	.LBE86-.LBB86
  4473 1e6d 01       		.byte	0x1
- 4474 1e6e E6       		.byte	0xe6
+ 4474 1e6e E9       		.byte	0xe9
  4475 1e6f 7D1E0000 		.4byte	0x1e7d
  4476 1e73 2C       		.uleb128 0x2c
  4477 1e74 64180000 		.4byte	0x1864
@@ -10281,7 +10284,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4482 1e82 5A000000 		.4byte	.LBB88
  4483 1e86 16000000 		.4byte	.LBE88-.LBB88
  4484 1e8a 01       		.byte	0x1
- 4485 1e8b E7       		.byte	0xe7
+ 4485 1e8b EA       		.byte	0xea
  4486 1e8c 9A1E0000 		.4byte	0x1e9a
  4487 1e90 2C       		.uleb128 0x2c
  4488 1e91 D1180000 		.4byte	0x18d1
@@ -10315,12 +10318,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4516 1ec5 9D220000 		.4byte	0x229d
  4517 1ec9 33       		.uleb128 0x33
  4518 1eca 20000000 		.4byte	.LVL46
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 173
+
+
  4519 1ece A8220000 		.4byte	0x22a8
  4520 1ed2 33       		.uleb128 0x33
  4521 1ed3 24000000 		.4byte	.LVL47
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 173
-
-
  4522 1ed7 B3220000 		.4byte	0x22b3
  4523 1edb 33       		.uleb128 0x33
  4524 1edc 28000000 		.4byte	.LVL48
@@ -10375,12 +10378,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4573 1f34 2E       		.uleb128 0x2e
  4574 1f35 01       		.uleb128 0x1
  4575 1f36 52       		.byte	0x52
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 174
+
+
  4576 1f37 02       		.uleb128 0x2
  4577 1f38 08       		.byte	0x8
  4578 1f39 80       		.byte	0x80
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 174
-
-
  4579 1f3a 2E       		.uleb128 0x2e
  4580 1f3b 01       		.uleb128 0x1
  4581 1f3c 53       		.byte	0x53
@@ -10435,12 +10438,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4630 1f7a 04       		.sleb128 4
  4631 1f7b 02       		.uleb128 0x2
  4632 1f7c 74       		.byte	0x74
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 175
+
+
  4633 1f7d 00       		.sleb128 0
  4634 1f7e 00       		.byte	0
  4635 1f7f 2D       		.uleb128 0x2d
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 175
-
-
  4636 1f80 AA000000 		.4byte	.LVL57
  4637 1f84 D5220000 		.4byte	0x22d5
  4638 1f88 B91F0000 		.4byte	0x1fb9
@@ -10495,12 +10498,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4687 1fcb 00000000 		.4byte	vSample_task
  4688 1fcf 2E       		.uleb128 0x2e
  4689 1fd0 01       		.uleb128 0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 176
+
+
  4690 1fd1 51       		.byte	0x51
  4691 1fd2 05       		.uleb128 0x5
  4692 1fd3 03       		.byte	0x3
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 176
-
-
  4693 1fd4 D0000000 		.4byte	.LC8
  4694 1fd8 2E       		.uleb128 0x2e
  4695 1fd9 01       		.uleb128 0x1
@@ -10555,12 +10558,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4744 201b 7D       		.byte	0x7d
  4745 201c 00       		.sleb128 0
  4746 201d 02       		.uleb128 0x2
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 177
+
+
  4747 201e 75       		.byte	0x75
  4748 201f 00       		.sleb128 0
  4749 2020 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 177
-
-
  4750 2021 02       		.uleb128 0x2
  4751 2022 7D       		.byte	0x7d
  4752 2023 04       		.sleb128 4
@@ -10615,12 +10618,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4801 2064 EC000000 		.4byte	.LVL61
  4802 2068 38220000 		.4byte	0x2238
  4803 206c 33       		.uleb128 0x33
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 178
+
+
  4804 206d F2000000 		.4byte	.LVL62
  4805 2071 38220000 		.4byte	0x2238
  4806 2075 33       		.uleb128 0x33
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 178
-
-
  4807 2076 F6000000 		.4byte	.LVL63
  4808 207a E1220000 		.4byte	0x22e1
  4809 207e 2D       		.uleb128 0x2d
@@ -10638,7 +10641,7 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4821 2096 51       		.byte	0x51
  4822 2097 03       		.uleb128 0x3
  4823 2098 0A       		.byte	0xa
- 4824 2099 0B01     		.2byte	0x10b
+ 4824 2099 0E01     		.2byte	0x10e
  4825 209b 00       		.byte	0
  4826 209c 33       		.uleb128 0x33
  4827 209d 04010000 		.4byte	.LVL65
@@ -10675,12 +10678,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4858 20e4 20110000 		.4byte	0x1120
  4859 20e8 3A       		.uleb128 0x3a
  4860 20e9 04070000 		.4byte	.LASF523
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 179
+
+
  4861 20ed 1A       		.byte	0x1a
  4862 20ee 5E       		.byte	0x5e
  4863 20ef 5E130000 		.4byte	0x135e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 179
-
-
  4864 20f3 3A       		.uleb128 0x3a
  4865 20f4 0A240000 		.4byte	.LASF524
  4866 20f8 1B       		.byte	0x1b
@@ -10735,12 +10738,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4915 2165 1E       		.byte	0x1e
  4916 2166 1A       		.byte	0x1a
  4917 2167 9A040000 		.4byte	0x49a
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 180
+
+
  4918 216b 3B       		.uleb128 0x3b
  4919 216c 42504D00 		.ascii	"BPM\000"
  4920 2170 1E       		.byte	0x1e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 180
-
-
  4921 2171 1B       		.byte	0x1b
  4922 2172 E2100000 		.4byte	0x10e2
  4923 2176 3A       		.uleb128 0x3a
@@ -10795,12 +10798,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  4972 21e0 03       		.byte	0x3
  4973 21e1 00000000 		.4byte	active_task
  4974 21e5 3D       		.uleb128 0x3d
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 181
+
+
  4975 21e6 62210000 		.4byte	.LASF539
  4976 21ea 62210000 		.4byte	.LASF539
  4977 21ee 13       		.byte	0x13
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 181
-
-
  4978 21ef 0E05     		.2byte	0x50e
  4979 21f1 3D       		.uleb128 0x3d
  4980 21f2 9F260000 		.4byte	.LASF540
@@ -10855,12 +10858,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5029 2265 3E       		.uleb128 0x3e
  5030 2266 110B0000 		.4byte	.LASF550
  5031 226a 110B0000 		.4byte	.LASF550
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 182
+
+
  5032 226e 20       		.byte	0x20
  5033 226f 16       		.byte	0x16
  5034 2270 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 182
-
-
  5035 2271 0B220000 		.4byte	.LASF551
  5036 2275 0B220000 		.4byte	.LASF551
  5037 2279 20       		.byte	0x20
@@ -10915,12 +10918,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5086 22e6 790D0000 		.4byte	.LASF561
  5087 22ea 14       		.byte	0x14
  5088 22eb 8E04     		.2byte	0x48e
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 183
+
+
  5089 22ed 3D       		.uleb128 0x3d
  5090 22ee FE090000 		.4byte	.LASF562
  5091 22f2 FE090000 		.4byte	.LASF562
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 183
-
-
  5092 22f6 0D       		.byte	0xd
  5093 22f7 9203     		.2byte	0x392
  5094 22f9 3E       		.uleb128 0x3e
@@ -10975,12 +10978,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5143 0029 00       		.byte	0
  5144 002a 00       		.byte	0
  5145 002b 04       		.uleb128 0x4
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 184
+
+
  5146 002c 28       		.uleb128 0x28
  5147 002d 00       		.byte	0
  5148 002e 03       		.uleb128 0x3
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 184
-
-
  5149 002f 0E       		.uleb128 0xe
  5150 0030 1C       		.uleb128 0x1c
  5151 0031 0B       		.uleb128 0xb
@@ -11035,12 +11038,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5200 0062 00       		.byte	0
  5201 0063 00       		.byte	0
  5202 0064 09       		.uleb128 0x9
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 185
+
+
  5203 0065 0D       		.uleb128 0xd
  5204 0066 00       		.byte	0
  5205 0067 03       		.uleb128 0x3
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 185
-
-
  5206 0068 0E       		.uleb128 0xe
  5207 0069 3A       		.uleb128 0x3a
  5208 006a 0B       		.uleb128 0xb
@@ -11095,12 +11098,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5257 009b 21       		.uleb128 0x21
  5258 009c 00       		.byte	0
  5259 009d 49       		.uleb128 0x49
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 186
+
+
  5260 009e 13       		.uleb128 0x13
  5261 009f 2F       		.uleb128 0x2f
  5262 00a0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 186
-
-
  5263 00a1 00       		.byte	0
  5264 00a2 00       		.byte	0
  5265 00a3 0E       		.uleb128 0xe
@@ -11155,12 +11158,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5314 00d4 13       		.uleb128 0x13
  5315 00d5 0D       		.uleb128 0xd
  5316 00d6 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 187
+
+
  5317 00d7 03       		.uleb128 0x3
  5318 00d8 08       		.uleb128 0x8
  5319 00d9 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 187
-
-
  5320 00da 0B       		.uleb128 0xb
  5321 00db 3B       		.uleb128 0x3b
  5322 00dc 0B       		.uleb128 0xb
@@ -11215,12 +11218,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5371 010d 00       		.byte	0
  5372 010e 17       		.uleb128 0x17
  5373 010f 13       		.uleb128 0x13
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 188
+
+
  5374 0110 01       		.byte	0x1
  5375 0111 0B       		.uleb128 0xb
  5376 0112 0B       		.uleb128 0xb
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 188
-
-
  5377 0113 3A       		.uleb128 0x3a
  5378 0114 0B       		.uleb128 0xb
  5379 0115 3B       		.uleb128 0x3b
@@ -11275,12 +11278,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5428 0146 49       		.uleb128 0x49
  5429 0147 13       		.uleb128 0x13
  5430 0148 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 189
+
+
  5431 0149 00       		.byte	0
  5432 014a 1D       		.uleb128 0x1d
  5433 014b 15       		.uleb128 0x15
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 189
-
-
  5434 014c 01       		.byte	0x1
  5435 014d 27       		.uleb128 0x27
  5436 014e 19       		.uleb128 0x19
@@ -11335,12 +11338,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5485 017f 00       		.byte	0
  5486 0180 21       		.uleb128 0x21
  5487 0181 17       		.uleb128 0x17
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 190
+
+
  5488 0182 01       		.byte	0x1
  5489 0183 03       		.uleb128 0x3
  5490 0184 0E       		.uleb128 0xe
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 190
-
-
  5491 0185 0B       		.uleb128 0xb
  5492 0186 0B       		.uleb128 0xb
  5493 0187 3A       		.uleb128 0x3a
@@ -11395,12 +11398,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5542 01b8 25       		.uleb128 0x25
  5543 01b9 0D       		.uleb128 0xd
  5544 01ba 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 191
+
+
  5545 01bb 03       		.uleb128 0x3
  5546 01bc 0E       		.uleb128 0xe
  5547 01bd 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 191
-
-
  5548 01be 0B       		.uleb128 0xb
  5549 01bf 3B       		.uleb128 0x3b
  5550 01c0 05       		.uleb128 0x5
@@ -11455,12 +11458,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5599 01f1 00       		.byte	0
  5600 01f2 03       		.uleb128 0x3
  5601 01f3 0E       		.uleb128 0xe
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 192
+
+
  5602 01f4 3A       		.uleb128 0x3a
  5603 01f5 0B       		.uleb128 0xb
  5604 01f6 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 192
-
-
  5605 01f7 05       		.uleb128 0x5
  5606 01f8 49       		.uleb128 0x49
  5607 01f9 13       		.uleb128 0x13
@@ -11515,12 +11518,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5656 022b 01       		.uleb128 0x1
  5657 022c 12       		.uleb128 0x12
  5658 022d 06       		.uleb128 0x6
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 193
+
+
  5659 022e 58       		.uleb128 0x58
  5660 022f 0B       		.uleb128 0xb
  5661 0230 59       		.uleb128 0x59
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 193
-
-
  5662 0231 0B       		.uleb128 0xb
  5663 0232 01       		.uleb128 0x1
  5664 0233 13       		.uleb128 0x13
@@ -11575,12 +11578,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5713 026b 0B       		.uleb128 0xb
  5714 026c 3B       		.uleb128 0x3b
  5715 026d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 194
+
+
  5716 026e 27       		.uleb128 0x27
  5717 026f 19       		.uleb128 0x19
  5718 0270 8701     		.uleb128 0x87
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 194
-
-
  5719 0272 19       		.uleb128 0x19
  5720 0273 11       		.uleb128 0x11
  5721 0274 01       		.uleb128 0x1
@@ -11635,12 +11638,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5770 02a8 00       		.byte	0
  5771 02a9 34       		.uleb128 0x34
  5772 02aa 1D       		.uleb128 0x1d
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 195
+
+
  5773 02ab 01       		.byte	0x1
  5774 02ac 31       		.uleb128 0x31
  5775 02ad 13       		.uleb128 0x13
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 195
-
-
  5776 02ae 11       		.uleb128 0x11
  5777 02af 01       		.uleb128 0x1
  5778 02b0 12       		.uleb128 0x12
@@ -11695,12 +11698,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5827 02e3 1D       		.uleb128 0x1d
  5828 02e4 00       		.byte	0
  5829 02e5 31       		.uleb128 0x31
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 196
+
+
  5830 02e6 13       		.uleb128 0x13
  5831 02e7 11       		.uleb128 0x11
  5832 02e8 01       		.uleb128 0x1
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 196
-
-
  5833 02e9 12       		.uleb128 0x12
  5834 02ea 06       		.uleb128 0x6
  5835 02eb 58       		.uleb128 0x58
@@ -11755,12 +11758,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5884 031c 3C       		.uleb128 0x3c
  5885 031d 19       		.uleb128 0x19
  5886 031e 00       		.byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 197
+
+
  5887 031f 00       		.byte	0
  5888 0320 3B       		.uleb128 0x3b
  5889 0321 34       		.uleb128 0x34
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 197
-
-
  5890 0322 00       		.byte	0
  5891 0323 03       		.uleb128 0x3
  5892 0324 08       		.uleb128 0x8
@@ -11815,12 +11818,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5941 0355 00       		.byte	0
  5942 0356 3F       		.uleb128 0x3f
  5943 0357 19       		.uleb128 0x19
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 198
+
+
  5944 0358 3C       		.uleb128 0x3c
  5945 0359 19       		.uleb128 0x19
  5946 035a 6E       		.uleb128 0x6e
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 198
-
-
  5947 035b 0E       		.uleb128 0xe
  5948 035c 03       		.uleb128 0x3
  5949 035d 0E       		.uleb128 0xe
@@ -11875,12 +11878,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  5998 0060 00000000 		.4byte	.LVL11
  5999 0064 02000000 		.4byte	.LVL12
  6000 0068 0100     		.2byte	0x1
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 199
+
+
  6001 006a 50       		.byte	0x50
  6002 006b 02000000 		.4byte	.LVL12
  6003 006f 50000000 		.4byte	.LFE696
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 199
-
-
  6004 0073 0400     		.2byte	0x4
  6005 0075 F3       		.byte	0xf3
  6006 0076 01       		.uleb128 0x1
@@ -11935,12 +11938,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6055 00eb 00000000 		.4byte	0
  6056 00ef 00000000 		.4byte	0
  6057              	.LLST10:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 200
+
+
  6058 00f3 42000000 		.4byte	.LVL32
  6059 00f7 4C000000 		.4byte	.LVL33
  6060 00fb 0600     		.2byte	0x6
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 200
-
-
  6061 00fd 03       		.byte	0x3
  6062 00fe 48000000 		.4byte	.LC1
  6063 0102 9F       		.byte	0x9f
@@ -11995,12 +11998,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6112 0186 0600     		.2byte	0x6
  6113 0188 03       		.byte	0x3
  6114 0189 54000000 		.4byte	.LC3
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 201
+
+
  6115 018d 9F       		.byte	0x9f
  6116 018e 00000000 		.4byte	0
  6117 0192 00000000 		.4byte	0
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 201
-
-
  6118              	.LLST21:
  6119 0196 70000000 		.4byte	.LVL36
  6120 019a 78000000 		.4byte	.LVL37
@@ -12055,12 +12058,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6169 0216 00006640 		.4byte	0x40660000
  6170 021a 9F       		.byte	0x9f
  6171 021b 00000000 		.4byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 202
+
+
  6172 021f 00000000 		.4byte	0
  6173              	.LLST28:
  6174 0223 44000000 		.4byte	.LVL51
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 202
-
-
  6175 0227 5A000000 		.4byte	.LVL52
  6176 022b 0100     		.2byte	0x1
  6177 022d 53       		.byte	0x53
@@ -12115,13 +12118,13 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6226 0028 00000000 		.4byte	.LFB698
  6227 002c 60010000 		.4byte	.LFE698
  6228 0030 00000000 		.4byte	0
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 203
+
+
  6229 0034 00000000 		.4byte	0
  6230              		.section	.debug_line,"",%progbits
  6231              	.Ldebug_line0:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 203
-
-
- 6232 0000 2B070000 		.section	.debug_str,"MS",%progbits,1
+ 6232 0000 2D070000 		.section	.debug_str,"MS",%progbits,1
  6232      02000F06 
  6232      00000201 
  6232      FB0E0D00 
@@ -12175,12 +12178,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6252      7074735F 
  6252      6770696F 
  6253              	.LASF469:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 204
+
+
  6254 009a 72616E67 		.ascii	"range\000"
  6254      6500
  6255              	.LASF250:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 204
-
-
  6256 00a0 494E5452 		.ascii	"INTR_CAUSE\000"
  6256      5F434155 
  6256      534500
@@ -12235,12 +12238,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6277              	.LASF107:
  6278 0144 74637077 		.ascii	"tcpwm_0_interrupts_7_IRQn\000"
  6278      6D5F305F 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 205
+
+
  6278      696E7465 
  6278      72727570 
  6278      74735F37 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 205
-
-
  6279              	.LASF15:
  6280 015e 696F7373 		.ascii	"ioss_interrupts_gpio_5_IRQn\000"
  6280      5F696E74 
@@ -12295,12 +12298,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6300 020d 63707573 		.ascii	"cpuss_interrupt_fm_IRQn\000"
  6300      735F696E 
  6300      74657272 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 206
+
+
  6300      7570745F 
  6300      666D5F49 
  6301              	.LASF389:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 206
-
-
  6302 0225 73746174 		.ascii	"state\000"
  6302      6500
  6303              	.LASF195:
@@ -12355,12 +12358,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6324      74657272 
  6324      75707473 
  6324      5F647730 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 207
+
+
  6325              	.LASF528:
  6326 02d6 66696C74 		.ascii	"filteredRED\000"
  6326      65726564 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 207
-
-
  6326      52454400 
  6327              	.LASF152:
  6328 02e2 736D6966 		.ascii	"smif_interrupt_IRQn\000"
@@ -12415,12 +12418,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6348      756C7473 
  6348      00
  6349              	.LASF515:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 208
+
+
  6350 0392 7653616D 		.ascii	"vSample_task\000"
  6350      706C655F 
  6350      7461736B 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 208
-
-
  6350      00
  6351              	.LASF38:
  6352 039f 63707573 		.ascii	"cpuss_interrupts_ipc_3_IRQn\000"
@@ -12475,12 +12478,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6369              	.LASF299:
  6370 0455 666C6173 		.ascii	"flashcVersion\000"
  6370      68635665 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 209
+
+
  6370      7273696F 
  6370      6E00
  6371              	.LASF162:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 209
-
-
  6372 0463 5F5F7569 		.ascii	"__uint8_t\000"
  6372      6E74385F 
  6372      7400
@@ -12535,12 +12538,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6396      00
  6397              	.LASF209:
  6398 04f6 494E5452 		.ascii	"INTR_CAUSE0\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 210
+
+
  6398      5F434155 
  6398      53453000 
  6399              	.LASF210:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 210
-
-
  6400 0502 494E5452 		.ascii	"INTR_CAUSE1\000"
  6400      5F434155 
  6400      53453100 
@@ -12595,12 +12598,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6420      7075744D 
  6420      6F646500 
  6421              	.LASF272:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 211
+
+
  6422 05ab 494E5452 		.ascii	"INTR_TX\000"
  6422      5F545800 
  6423              	.LASF347:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 211
-
-
  6424 05b3 70657269 		.ascii	"periDiv8CtlOffset\000"
  6424      44697638 
  6424      43746C4F 
@@ -12655,12 +12658,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6444      00
  6445              	.LASF278:
  6446 065c 494E5452 		.ascii	"INTR_RX_SET\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 212
+
+
  6446      5F52585F 
  6446      53455400 
  6447              	.LASF78:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 212
-
-
  6448 0668 63707573 		.ascii	"cpuss_interrupts_dw1_2_IRQn\000"
  6448      735F696E 
  6448      74657272 
@@ -12715,12 +12718,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6468      5F636F6E 
  6468      74657874 
  6469              	.LASF345:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 213
+
+
  6470 0719 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
  6470      44697643 
  6470      6D645061 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 213
-
-
  6470      44697653 
  6470      656C506F 
  6471              	.LASF366:
@@ -12775,12 +12778,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6490      52564544 
  6490      3100
  6491              	.LASF548:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 214
+
+
  6492 07d9 6765745F 		.ascii	"get_accData\000"
  6492      61636344 
  6492      61746100 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 214
-
-
  6493              	.LASF274:
  6494 07e5 494E5452 		.ascii	"INTR_TX_MASK\000"
  6494      5F54585F 
@@ -12835,12 +12838,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6517              	.LASF155:
  6518 0877 7573625F 		.ascii	"usb_interrupt_lo_IRQn\000"
  6518      696E7465 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 215
+
+
  6518      72727570 
  6518      745F6C6F 
  6518      5F495251 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 215
-
-
  6519              	.LASF494:
  6520 088d 70726576 		.ascii	"prev_accel_cfg\000"
  6520      5F616363 
@@ -12895,12 +12898,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6538      6E675F74 
  6538      61736B00 
  6539              	.LASF187:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 216
+
+
  6540 093d 52455345 		.ascii	"RESERVED3\000"
  6540      52564544 
  6540      3300
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 216
-
-
  6541              	.LASF5:
  6542 0947 55736167 		.ascii	"UsageFault_IRQn\000"
  6542      65466175 
@@ -12955,12 +12958,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6561              	.LASF562:
  6562 09fe 43795F53 		.ascii	"Cy_SysLib_AssertFailed\000"
  6562      79734C69 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 217
+
+
  6562      625F4173 
  6562      73657274 
  6562      4661696C 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 217
-
-
  6563              	.LASF544:
  6564 0a15 66696C74 		.ascii	"filtre\000"
  6564      726500
@@ -13015,12 +13018,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6584      7363616C 
  6584      657200
  6585              	.LASF185:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 218
+
+
  6586 0ac6 52455345 		.ascii	"RESERVED2\000"
  6586      52564544 
  6586      3200
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 218
-
-
  6587              	.LASF82:
  6588 0ad0 63707573 		.ascii	"cpuss_interrupts_dw1_6_IRQn\000"
  6588      735F696E 
@@ -13075,12 +13078,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6608      7566456D 
  6608      70747900 
  6609              	.LASF571:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 219
+
+
  6610 0b8d 6973725F 		.ascii	"isr_bouton\000"
  6610      626F7574 
  6610      6F6E00
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 219
-
-
  6611              	.LASF289:
  6612 0b98 75646242 		.ascii	"udbBase\000"
  6612      61736500 
@@ -13135,12 +13138,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6631              	.LASF341:
  6632 0c4f 70657269 		.ascii	"periTrGrOffset\000"
  6632      54724772 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 220
+
+
  6632      4F666673 
  6632      657400
  6633              	.LASF529:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 220
-
-
  6634 0c5e 66696C74 		.ascii	"filteredIR\000"
  6634      65726564 
  6634      495200
@@ -13195,12 +13198,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6652      74735F32 
  6653              	.LASF156:
  6654 0d15 70617373 		.ascii	"pass_interrupt_dacs_IRQn\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 221
+
+
  6654      5F696E74 
  6654      65727275 
  6654      70745F64 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 221
-
-
  6654      6163735F 
  6655              	.LASF495:
  6656 0d2e 6779726F 		.ascii	"gyro_cfg\000"
@@ -13255,12 +13258,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6674 0dd9 76546173 		.ascii	"vTaskResume\000"
  6674      6B526573 
  6674      756D6500 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 222
+
+
  6675              	.LASF311:
  6676 0de5 63707573 		.ascii	"cpussNotConnectedIrq\000"
  6676      734E6F74 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 222
-
-
  6676      436F6E6E 
  6676      65637465 
  6676      64497271 
@@ -13315,12 +13318,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6695              	.LASF406:
  6696 0e91 63624576 		.ascii	"cbEvents\000"
  6696      656E7473 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 223
+
+
  6696      00
  6697              	.LASF566:
  6698 0e9a 433A5C55 		.ascii	"C:\\Users\\marie\\Documents\\Polytechnique\\Session"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 223
-
-
  6698      73657273 
  6698      5C6D6172 
  6698      69655C44 
@@ -13375,12 +13378,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6718              	.LASF313:
  6719 0f77 73727373 		.ascii	"srssNumPll\000"
  6719      4E756D50 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 224
+
+
  6719      6C6C00
  6720              	.LASF296:
  6721 0f82 63707573 		.ascii	"cpussVersion\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 224
-
-
  6721      73566572 
  6721      73696F6E 
  6721      00
@@ -13435,12 +13438,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6740              	.LASF113:
  6741 103c 74637077 		.ascii	"tcpwm_1_interrupts_5_IRQn\000"
  6741      6D5F315F 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 225
+
+
  6741      696E7465 
  6741      72727570 
  6741      74735F35 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 225
-
-
  6742              	.LASF44:
  6743 1056 63707573 		.ascii	"cpuss_interrupts_ipc_9_IRQn\000"
  6743      735F696E 
@@ -13495,12 +13498,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6759      5F647730 
  6760              	.LASF363:
  6761 1129 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 226
+
+
  6761      73537973 
  6761      5469636B 
  6761      43746C4F 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 226
-
-
  6761      66667365 
  6762              	.LASF440:
  6763 113f 696E7465 		.ascii	"interruptSources\000"
@@ -13555,12 +13558,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6781      74657272 
  6781      75707473 
  6781      5F647730 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 227
+
+
  6782              	.LASF462:
  6783 11fd 746F7563 		.ascii	"touch_data_t\000"
  6783      685F6461 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 227
-
-
  6783      74615F74 
  6783      00
  6784              	.LASF169:
@@ -13615,12 +13618,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6804              	.LASF519:
  6805 12c8 7342706D 		.ascii	"sBpm\000"
  6805      00
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 228
+
+
  6806              	.LASF396:
  6807 12cd 6D617374 		.ascii	"masterNumBytes\000"
  6807      65724E75 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 228
-
-
  6807      6D427974 
  6807      657300
  6808              	.LASF488:
@@ -13675,12 +13678,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6828              	.LASF527:
  6829 1386 55415254 		.ascii	"UART_1_context\000"
  6829      5F315F63 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 229
+
+
  6829      6F6E7465 
  6829      787400
  6830              	.LASF502:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 229
-
-
  6831 1395 64656C61 		.ascii	"delay_ms\000"
  6831      795F6D73 
  6831      00
@@ -13735,12 +13738,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6849      75707473 
  6849      5F647731 
  6850              	.LASF520:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 230
+
+
  6851 1453 49544D5F 		.ascii	"ITM_RxBuffer\000"
  6851      52784275 
  6851      66666572 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 230
-
-
  6851      00
  6852              	.LASF120:
  6853 1460 74637077 		.ascii	"tcpwm_1_interrupts_12_IRQn\000"
@@ -13795,12 +13798,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6875      74657272 
  6875      75707473 
  6875      5F697063 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 231
+
+
  6876              	.LASF564:
  6877 150f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  6877      43313120 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 231
-
-
  6877      352E342E 
  6877      31203230 
  6877      31363036 
@@ -13855,12 +13858,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6893              	.LASF450:
  6894 1631 636F756E 		.ascii	"countInput\000"
  6894      74496E70 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 232
+
+
  6894      757400
  6895              	.LASF130:
  6896 163c 74637077 		.ascii	"tcpwm_1_interrupts_22_IRQn\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 232
-
-
  6896      6D5F315F 
  6896      696E7465 
  6896      72727570 
@@ -13915,12 +13918,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6916      20636861 
  6916      7200
  6917              	.LASF147:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 233
+
+
  6918 16e9 7564625F 		.ascii	"udb_interrupts_15_IRQn\000"
  6918      696E7465 
  6918      72727570 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 233
-
-
  6918      74735F31 
  6918      355F4952 
  6919              	.LASF385:
@@ -13975,12 +13978,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6938      4952516E 
  6939              	.LASF214:
  6940 17a7 5644445F 		.ascii	"VDD_INTR\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 234
+
+
  6940      494E5452 
  6940      00
  6941              	.LASF259:
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 234
-
-
  6942 17b0 494E5452 		.ascii	"INTR_SPI_EC_MASK\000"
  6942      5F535049 
  6942      5F45435F 
@@ -14035,12 +14038,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6960      00
  6961              	.LASF270:
  6962 1873 494E5452 		.ascii	"INTR_S_MASKED\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 235
+
+
  6962      5F535F4D 
  6962      41534B45 
  6962      4400
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 235
-
-
  6963              	.LASF509:
  6964 1881 55415254 		.ascii	"UART_1_PutString\000"
  6964      5F315F50 
@@ -14095,12 +14098,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  6984      5F696E74 
  6984      65727275 
  6984      7074735F 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 236
+
+
  6984      6770696F 
  6985              	.LASF150:
  6986 1945 61756469 		.ascii	"audioss_interrupt_pdm_IRQn\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 236
-
-
  6986      6F73735F 
  6986      696E7465 
  6986      72727570 
@@ -14155,12 +14158,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7006      6D5F315F 
  7006      696E7465 
  7006      72727570 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 237
+
+
  7006      74735F31 
  7007              	.LASF115:
  7008 1a06 74637077 		.ascii	"tcpwm_1_interrupts_7_IRQn\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 237
-
-
  7008      6D5F315F 
  7008      696E7465 
  7008      72727570 
@@ -14215,12 +14218,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7030      42617365 
  7030      00
  7031              	.LASF208:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 238
+
+
  7032 1ab7 4750494F 		.ascii	"GPIO_PRT_V1_Type\000"
  7032      5F505254 
  7032      5F56315F 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 238
-
-
  7032      54797065 
  7032      00
  7033              	.LASF534:
@@ -14275,12 +14278,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7056      425F5631 
  7056      5F547970 
  7056      6500
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 239
+
+
  7057              	.LASF453:
  7058 1b61 55426173 		.ascii	"UBaseType_t\000"
  7058      65547970 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 239
-
-
  7058      655F7400 
  7059              	.LASF273:
  7060 1b6d 494E5452 		.ascii	"INTR_TX_SET\000"
@@ -14335,12 +14338,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7080      345F4952 
  7081              	.LASF178:
  7082 1c1c 696E7433 		.ascii	"int32_t\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 240
+
+
  7082      325F7400 
  7083              	.LASF217:
  7084 1c24 5644445F 		.ascii	"VDD_INTR_SET\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 240
-
-
  7084      494E5452 
  7084      5F534554 
  7084      00
@@ -14395,12 +14398,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7104      74735F33 
  7105              	.LASF473:
  7106 1cde 6175785F 		.ascii	"aux_rd_burst_len\000"
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 241
+
+
  7106      72645F62 
  7106      75727374 
  7106      5F6C656E 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 241
-
-
  7106      00
  7107              	.LASF94:
  7108 1cef 63707573 		.ascii	"cpuss_interrupt_crypto_IRQn\000"
@@ -14455,12 +14458,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7127              	.LASF133:
  7128 1dac 7564625F 		.ascii	"udb_interrupts_1_IRQn\000"
  7128      696E7465 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 242
+
+
  7128      72727570 
  7128      74735F31 
  7128      5F495251 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 242
-
-
  7129              	.LASF269:
  7130 1dc2 494E5452 		.ascii	"INTR_S_MASK\000"
  7130      5F535F4D 
@@ -14515,12 +14518,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7150 1e51 73746172 		.ascii	"startInputMode\000"
  7150      74496E70 
  7150      75744D6F 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 243
+
+
  7150      646500
  7151              	.LASF424:
  7152 1e60 72785374 		.ascii	"rxStatus\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 243
-
-
  7152      61747573 
  7152      00
  7153              	.LASF393:
@@ -14575,12 +14578,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7174      7420696E 
  7174      7400
  7175              	.LASF96:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 244
+
+
  7176 1f12 63707573 		.ascii	"cpuss_interrupts_cm0_cti_0_IRQn\000"
  7176      735F696E 
  7176      74657272 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 244
-
-
  7176      75707473 
  7176      5F636D30 
  7177              	.LASF567:
@@ -14635,12 +14638,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7196      6843746C 
  7196      4D61696E 
  7196      57733146 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 245
+
+
  7196      72657100 
  7197              	.LASF19:
  7198 1fed 696F7373 		.ascii	"ioss_interrupts_gpio_9_IRQn\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 245
-
-
  7198      5F696E74 
  7198      65727275 
  7198      7074735F 
@@ -14695,12 +14698,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7216      72745F68 
  7216      616E646C 
  7217              	.LASF32:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 246
+
+
  7218 20c2 73727373 		.ascii	"srss_interrupt_IRQn\000"
  7218      5F696E74 
  7218      65727275 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 246
-
-
  7218      70745F49 
  7218      52516E00 
  7219              	.LASF508:
@@ -14755,12 +14758,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7238      75707473 
  7238      5F647730 
  7239              	.LASF36:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 247
+
+
  7240 2191 63707573 		.ascii	"cpuss_interrupts_ipc_1_IRQn\000"
  7240      735F696E 
  7240      74657272 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 247
-
-
  7240      75707473 
  7240      5F697063 
  7241              	.LASF104:
@@ -14815,12 +14818,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7259              	.LASF26:
  7260 2266 696F7373 		.ascii	"ioss_interrupt_vdd_IRQn\000"
  7260      5F696E74 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 248
+
+
  7260      65727275 
  7260      70745F76 
  7260      64645F49 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 248
-
-
  7261              	.LASF231:
  7262 227e 4932435F 		.ascii	"I2C_STATUS\000"
  7262      53544154 
@@ -14875,12 +14878,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7280      53525F63 
  7280      666700
  7281              	.LASF391:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 249
+
+
  7282 2321 6D617374 		.ascii	"masterPause\000"
  7282      65725061 
  7282      75736500 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 249
-
-
  7283              	.LASF83:
  7284 232d 63707573 		.ascii	"cpuss_interrupts_dw1_7_IRQn\000"
  7284      735F696E 
@@ -14935,12 +14938,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7303              	.LASF61:
  7304 23d8 63707573 		.ascii	"cpuss_interrupts_dw0_1_IRQn\000"
  7304      735F696E 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 250
+
+
  7304      74657272 
  7304      75707473 
  7304      5F647730 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 250
-
-
  7305              	.LASF507:
  7306 23f4 62617365 		.ascii	"base\000"
  7306      00
@@ -14995,12 +14998,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7324      74727563 
  7324      7453697A 
  7324      6500
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 251
+
+
  7325              	.LASF514:
  7326 24b1 43795F53 		.ascii	"Cy_SCB_UART_PutString\000"
  7326      43425F55 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 251
-
-
  7326      4152545F 
  7326      50757453 
  7326      7472696E 
@@ -15055,12 +15058,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7346      75707473 
  7346      5F697063 
  7347              	.LASF428:
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 252
+
+
  7348 2584 72785269 		.ascii	"rxRingBufTail\000"
  7348      6E674275 
  7348      66546169 
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 252
-
-
  7348      6C00
  7349              	.LASF31:
  7350 2592 73727373 		.ascii	"srss_interrupt_backup_IRQn\000"
@@ -15115,12 +15118,12 @@ ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 1
  7369              	.LASF446:
  7370 263f 73746172 		.ascii	"startInput\000"
  7370      74496E70 
+ARM GAS  C:\Users\marie\AppData\Local\Temp\ccsvPw10.s 			page 253
+
+
  7370      757400
  7371              	.LASF530:
  7372 264a 696E6465 		.ascii	"indexBuffer\000"
-ARM GAS  C:\Users\marie\AppData\Local\Temp\cc4a5mlr.s 			page 253
-
-
  7372      78427566 
  7372      66657200 
  7373              	.LASF328:
