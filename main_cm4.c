@@ -22,6 +22,9 @@
 #include "touch_task.h"
 #include "MAX30102.h"
 #include "variables.h"
+#include "bmi160_task.h"
+#include "bmi160.h"
+#include "bmi160_defs.h"
 //#include "sample_task.h"
 
 
@@ -48,6 +51,7 @@ volatile SemaphoreHandle_t active_task;
 TaskHandle_t xSample;
 TaskHandle_t xFiltering;
 TaskHandle_t xResults;
+
 
 
 
@@ -104,6 +108,7 @@ void vSample_task(void *arg){
     
             for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
             {
+                get_accData ();
                 readFIFO(red, ir, indexBuffer);
                 vTaskDelay(pdMS_TO_TICKS(3));
                    
@@ -160,8 +165,8 @@ void vResults(void *arg){
     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
     
         if(indexBuffer == 0){
-            SPO2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
-            BPM = HeartRate(filteredRED, 0, BUFFER_LENGTH);
+            SPO2 = calculSpO2(red, ir, 50, BUFFER_LENGTH);
+            BPM = HeartRate(filteredIR, 50, BUFFER_LENGTH);
             char sSpo2[5];
             itoa(SPO2, sSpo2, 10);
             UART_1_PutString("spo2 \n\r");
@@ -206,7 +211,8 @@ int main(void)
     I2C_MAX_Start();
     MAX30102_config();
     UART_1_Start();
-
+    Task_Motion();
+    
     
     /* Initialisation de CapSense */
     

@@ -509,7 +509,7 @@ void Task_AffichageGraphique(void *data){
     
     BaseType_t rtosApiResult; 
     
-    uint32_t * vData = red;
+    uint32_t * vData = filteredIR;
     afficherMenuPrincipal(vData);
    
     
@@ -585,13 +585,13 @@ void Task_AffichageGraphique(void *data){
                                     
                     case MENU_TERTIAIRE_4:
                         if (optionMenuTertiaire == 1){
-                            vData = red;
+                            vData = filteredRED;
                             afficherMenuPrincipal(vData);
                             currentPage = MENU_PRINCIPAL;
                             break;
                         }
                         else if (optionMenuTertiaire == 2){
-                            vData = ir;
+                            vData = filteredIR;
                             afficherMenuPrincipal(vData);
                             currentPage = MENU_PRINCIPAL;
                             break;

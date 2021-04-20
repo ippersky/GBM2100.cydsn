@@ -14,16 +14,14 @@
 
 #define MAXACCEL (32768/2)
 static struct bmi160_dev bmi160Sensor;
-TaskHandle_t xTaskHandleMotion;
-
-//TaskHandle_t xTaskHandleMotion;
+union bmi160_int_status bmi160Status; 
 
 
-static void bmi160Config ();
+
 static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
 static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
 static void bmi160Config ();
 void get_accData ();
 void anyMotionInt_set();
 void anyMotion_Interrupt ();
-void Task_Motion(void* pvParameters);
+void Task_Motion();

@@ -20,7 +20,6 @@
 
 
 
-
 static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
     Cy_SCB_I2C_MasterSendStart(I2C_BMI_HW,dev_adresse,CY_SCB_I2C_WRITE_XFER,0,&I2C_BMI_context);
@@ -32,7 +31,7 @@ static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *dat
     
     Cy_SCB_I2C_MasterSendStop(I2C_BMI_HW,0,&I2C_BMI_context);
     return 0;
-} // pk pas void
+} 
 
 static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
@@ -54,12 +53,12 @@ static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data
 
 static void bmi160Config ()
 {
-    vTaskDelay(100); //guess
+    CyDelay(100); //guess
     /*BMI160*/
 
     bmi160Sensor.read       = (bmi160_read_fptr_t)bmi160Read;
     bmi160Sensor.write      = (bmi160_write_fptr_t)bmi160Write;
-    bmi160Sensor.delay_ms   = (bmi160_delay_fptr_t)vTaskDelay;
+    bmi160Sensor.delay_ms   = (bmi160_delay_fptr_t)CyDelay;
     bmi160Sensor.id         = BMI160_I2C_ADDR; //I2C device address
     
     bmi160_init(&bmi160Sensor);// initialize the device
@@ -82,6 +81,7 @@ static void bmi160Config ()
 }
 
 
+
 void get_accData ()
 {
     
@@ -90,25 +90,22 @@ void get_accData ()
     //I2C_BMI_Start();
     //bmi160Config();
     
-    struct bmi160_sensor_data acc;
-    float gx, gy, gz;
     
-    while(1)
-    {
-        bmi160_get_sensor_data(BMI160_ACCEL_ONLY, &acc, NULL, &bmi160Sensor);
         
-        gx= (float)acc.x/MAXACCEL;
-        gy= (float)acc.y/MAXACCEL;
-        gz= (float)acc.z/MAXACCEL;
+        bmi160_get_int_status(BMI160_INT_STATUS_0,&bmi160Status,&bmi160Sensor);
         
-        printf("x=%1.2f y=%1.2f z=%1.2f \r\n",gx,gy,gz);
-        vTaskDelay(200);
         
-    }
-    
-    
-    
-    
+         if(bmi160Status.bit.anym==1)
+        {
+            printf("Interruption!\r\n");
+            bmi160Status.bit.anym=0;
+            CyDelay(5000);
+            
+            
+        }
+        
+        
+ 
 }
 
 void anyMotionInt_set()
@@ -143,38 +140,19 @@ void anyMotionInt_set()
     
     resultat=bmi160_set_int_config(&int_config,&bmi160Sensor);
     
-    Cy_SysInt_Init(&SysInt_AccINT_cfg, anyMotion_Interrupt);
-    NVIC_EnableIRQ(SysInt_AccINT_cfg.intrSrc);
+   
     
     
 }
 
-void anyMotion_Interrupt ()
+void Task_Motion()
 {
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    
-    /* Clear any pending interrupts */
-    Cy_GPIO_ClearInterrupt(Pin_Acc_INT_PORT,Pin_Acc_INT_NUM);
-    NVIC_ClearPendingIRQ(SysInt_AccINT_cfg.intrSrc);
-    
-    printf("Ca bouge trop!");
-    
-    /* Resume Task_Motion*/
-    xHigherPriorityTaskWoken = xTaskResumeFromISR(xTaskHandleMotion);
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-}
+       
 
- 
-    
-void Task_Motion(void* pvParameters)
-{
-    (void)pvParameters;
-    
-    SemaphoreHandle_t xSemaphoreI2C= xSemaphoreCreateBinary();
     I2C_BMI_Start();
     bmi160Config();
     anyMotionInt_set();
-    get_accData();
+    
 
     
 }

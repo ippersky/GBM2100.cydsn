@@ -55,9 +55,9 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
     arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
     
-    //uint16_t j = 0;
+    uint16_t j = 0;
     
-    /*
+    
     UART_1_PutString("//////////////////////////////////////////////////////////////////");
     for(j=0; j<LONGUEUR_ECH; j++){
         //printf("%s \n\r", Output[j]);
@@ -67,11 +67,11 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
         UART_1_PutString("\n\r");
         
     }
-    */
     
-    //if(j == 1000){
-    //        j=0;
-    //    }
+    
+    if(j == 1000){
+            j=0;
+        }
     
 }
 
