@@ -103,6 +103,7 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
     UART_1_PutString("\n\r");
     
     
+    
 }
 
 void changeLED_red (short int ledAmp_red)

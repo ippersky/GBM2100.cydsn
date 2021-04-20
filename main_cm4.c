@@ -31,6 +31,7 @@
 #define TASK_BOUTON_PRIORITY        (4u)
 #define TASK_SAMPLE_PRIORITY        (5u)
 #define TASK_FILTER_PRIORITY        (4u)
+#define TASK_RESULT_PROIRITY        (4u)
 
 
 /* Stack sizes of user tasks in this project */
@@ -46,9 +47,11 @@ volatile SemaphoreHandle_t bouton_semph;
 volatile SemaphoreHandle_t active_task;
 uint32_t red[BUFFER_LENGTH];
 uint32_t ir[BUFFER_LENGTH];
-uint32_t filteredRED[BUFFER_LENGTH/2];
-uint32_t filteredIR[BUFFER_LENGTH/2];
+uint32_t filteredRED[BUFFER_LENGTH];
+uint32_t filteredIR[BUFFER_LENGTH];
 uint16_t indexBuffer = 0;
+float32_t BPM;
+float32_t SPO2;
 
 
 // Image buffer cache //
@@ -98,18 +101,20 @@ void vSample_task(void *arg){
     for (;;){
     
         
-        if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+        //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
     
             for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
             {
                 readFIFO(red, ir, indexBuffer);
                    
             }
-            if(indexBuffer == 1999){
+            if(indexBuffer == BUFFER_LENGTH){
                 indexBuffer = 0;
-                xSemaphoreGive(active_task);
+                UART_1_PutString("////////////////////////////////////////////////////////////////////");
+                //xSemaphoreGive(active_task);
                 vTaskDelay(pdMS_TO_TICKS(1000));
-            }
+                //vTaskPrioritySet(vSample_task, TASK_FILTER_PRIORITY);
+            //} 
         }
     }
             
@@ -126,35 +131,44 @@ void vFiltering_task(void *arg){
     (void) arg;
     for(;;){
  
-    if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
+    //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
         
         
-        filtre(red, filteredRED, 0, 1000);
-        filtre(ir, filteredIR, 0, 1000);
+        filtre(red, filteredRED, 0, BUFFER_LENGTH);
+        filtre(ir, filteredIR, 0, BUFFER_LENGTH);
         
-        xSemaphoreGive(active_task);
+        //xSemaphoreGive(active_task);
         vTaskDelay(pdMS_TO_TICKS(500));
         
-    }
+    //}
     }
     
 }
 
 /************************************************************************/
 
-void vResults(void){
+void vResults(void *arg){
+    (void) arg;
+    for(;;){
+    //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
     
-    if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
-    
-        float spo2; 
-        float bpm;
         if(indexBuffer == 0){
-            spo2 = calculSpO2(red, filteredIR, 0, BUFFER_LENGTH);
-            bpm = HeartRate(filteredRED, 0, BUFFER_LENGTH);
+            SPO2 = calculSpO2(red, filteredIR, 0, BUFFER_LENGTH);
+            BPM = HeartRate(filteredRED, 0, BUFFER_LENGTH);
             char sSpo2[5];
-            itoa(spo2, sSpo2, 10);
+            itoa(SPO2, sSpo2, 10);
+            UART_1_PutString("spo2 \n\r");
             UART_1_PutString(sSpo2);
+            char sBpm[5];
+            itoa(BPM, sBpm, 10);
+            UART_1_PutString("bpm \n\r");
+            UART_1_PutString(sBpm);
+            UART_1_PutString("///////////////////////////////////////////////////////////////////////// \n\r");
         }
+        vTaskDelay(pdMS_TO_TICKS(500));
+    }
+        
+        /*
         else{
             spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
             bpm = HeartRate(filteredRED, BUFFER_LENGTH/2, BUFFER_LENGTH);
@@ -162,8 +176,9 @@ void vResults(void){
             itoa(spo2, sSpo2, 10);
             UART_1_PutString(sSpo2);
         }
-    }
-    xSemaphoreGive(active_task);
+        */
+    //}
+    //xSemaphoreGive(active_task);
 }
 
 
@@ -209,11 +224,11 @@ int main(void)
          
     /* Create the user Tasks. See the respective Task definition for more
        details of these tasks */       
-    //xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
+    xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
 
-    //xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
+    xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
-    //xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
+    xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
     
     //xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERREUR ICI
     
@@ -221,7 +236,9 @@ int main(void)
     
     xTaskCreate(vFiltering_task, "Filtrage", 1024, NULL, TASK_FILTER_PRIORITY, NULL);
     
-    //xTaskCreate(vTraitement, "Traitement", 1024, NULL, TASK_DISPLAY_PRIORITY, NULL);
+    xTaskCreate(vResults, "Résultat", 1024, NULL, TASK_RESULT_PROIRITY, NULL);
+    
+    
     
     /* Initialize thread-safe debug message printing. See uart_debug.h header file
        to enable / disable this feature */

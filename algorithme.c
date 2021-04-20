@@ -64,10 +64,11 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2
         itoa(Output[j], cOutput, 10);
         UART_1_PutString(cOutput);
         UART_1_PutString("\n\r");
-        if(j == 999){
+        
+    }
+    if(j == 1000){
             j=0;
         }
-    }
     
 }
 
