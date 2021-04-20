@@ -62,36 +62,25 @@ typedef enum
 #define ON      0u
 #define OFF     1u
 
+#define RED     0u
+#define IR      1u
+
 char *gcvt(double val, int precision, char *buf);
 char *gcvtf(float val, int precision, char *buf);
 
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle);
 void ClearScreen(void);
-void WaitforSwitchPressAndRelease(void);
+//void WaitforSwitchPressAndRelease(void);
 
 void DisplayInit(void);
 
 void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData);
 void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement);
-void updateParametres(float32_t SPO2, float32_t BPM);
+void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe);
 
 
 //void afficherMenuPrincipal(void);
-
-
-void afficherMenuSecondaire(uint8_t * ptrOptionPresent);
-void updateMenuSecondaire(uint8_t * ptrOptionPresent);
-
-
-void afficherMenuTertiaire1(uint8_t * ptrOptionPresent);
-void afficherMenuTertiaire2(uint8_t * ptrOptionPresent);
-void afficherMenuTertiaire3(uint8_t * ptrOptionPresent);
-void afficherMenuTertiaire4(uint8_t * ptrOptionPresent);
-void updateMenuTertiaire(uint8_t * ptrOptionPresent);
-
-
-
 
 
 void Task_AffichageGraphique(void *data);
