@@ -101,6 +101,9 @@ void vSample_task(void *arg){
     (void) arg;
     for (;;){
     
+        // Note : pourrait ajouter un message : acquisition en cours, veullez attendre 10 sec. Voici le graphique de l'acquisition précédente.
+        //                                      après 10 secondes, veuillez peser sur le boutons 2 pour voir le graphique de l'acquisition prise. 
+        //                                      ou reprendre une nouvelle acquisition. Ou juste mentionner dans le mode d'utilisation.
         
         //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
     
@@ -201,8 +204,8 @@ void vResults(void *arg){
 int main(void)
 {
     bouton_semph = xSemaphoreCreateBinary();
-    active_task = xSemaphoreCreateBinary();
-    xSemaphoreGive(active_task);
+    //active_task = xSemaphoreCreateBinary();
+    //xSemaphoreGive(active_task);
     
     
     __enable_irq(); /* Enable global interrupts. */
