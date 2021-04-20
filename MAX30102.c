@@ -34,9 +34,9 @@ writeRegistre(REG_MODE_CONFIG, 0x03); //SPO2 Mode (Red and IR)
        
 writeRegistre(REG_SPO2_CONFIG, 0x29); //ADC Range control=4096nA, Sample rate=200Hz, Pulse width =118microsec
 
-writeRegistre(REG_LED_AMP_1, 0x1f); //6.2 mA
+writeRegistre(REG_LED_AMP_1, 0x32); //6.2 mA = 0x1f?? 0x32 = 50 mA
 
-writeRegistre(REG_LED_AMP_2, 0x1f); //6.2 mA
+writeRegistre(REG_LED_AMP_2, 0x32); //6.2 mA = 0x1f??
 
 
 

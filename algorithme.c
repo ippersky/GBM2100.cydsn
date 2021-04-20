@@ -29,19 +29,19 @@ float32_t firStateF32[LONGUEUR_ECH+FILTER_TAP_NUM-1];
 
 /*************************************************************************/
 
-void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2){  // 
+void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2){  // 
     
     //Filtrage le signal avec un filtre passe-bas
     
-    uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
+    //uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
     //uint32_t Output[LONGUEUR_ECH]; //initialiser le buffer output
-    uint32_t i, compteur=0;
-    for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
-        Input[compteur]=Signal[i];   
-        compteur++;
-        }
+    //uint32_t i, compteur=0;
+    //for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
+    //    Input[compteur]=Signal[i];   
+    //    compteur++;
+    //    }
     
-       
+    
     arm_fir_instance_f32 S;
     
     uint32_t *inputF32;
@@ -53,21 +53,7 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint32_t temps1, uint32_t temps2
     uint32_t longueur = LONGUEUR_ECH;
     
     arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
-    arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
-    
-    uint16_t j = 0;
-    
-    UART_1_PutString("//////////////////////////////////////////////////////////////////");
-    for(j=0; j<LONGUEUR_ECH; j++){
-        //printf("%s \n\r", Output[j]);
-        char cOutput[6];
-        itoa(Output[j], cOutput, 10);
-        UART_1_PutString(cOutput);
-        UART_1_PutString("\n\r");
-        if(j == 999){
-            j=0;
-        }
-    }
+    arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);   
     
 }
 

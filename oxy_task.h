@@ -11,7 +11,7 @@
 */
 #include "project.h"
 
-#define BUFFER_LENGTH 2000
+#define BUFFER_LENGTH 1000
 
 uint32_t redLED_buffer [BUFFER_LENGTH];
 uint32_t irLED_buffer [BUFFER_LENGTH];
