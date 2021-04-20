@@ -19,7 +19,19 @@
 #include "semphr.h"
 
 
-
+/*!
+ * @ Résumé Cette fonction permet de lire la valeur contenue
+ * dans un registre du BMI160.
+ *
+ * @param[in] dev_adresse  : adresse fixe du capteur
+ * @param[in] reg_adresse  : adresse du registre dans lequel il faut écrire
+ * @param[in] data         : tableau où les données contenant les valeurs à écrire
+ * @param[in] length       : nombre de bits à écrire
+ * 
+ *
+ * @return 0
+ * 
+ */
 
 static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
@@ -33,6 +45,20 @@ static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *dat
     Cy_SCB_I2C_MasterSendStop(I2C_BMI_HW,0,&I2C_BMI_context);
     return 0;
 } 
+
+/*!
+ * @ Résumé Cette fonction permet de lire la valeur contenue
+ * dans un registre du BMI160.
+ *
+ * @param[in] dev_adresse  : adresse fixe du capteur.
+ * @param[in] reg_adresse  : adresse du registre à lire.
+ * @param[in] data         : tableau où les données lues sont stockées
+ * @param[in] length       : nombre de bits à lire
+ * 
+ *
+ * @return 0
+ * 
+ */
 
 static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
@@ -52,6 +78,16 @@ static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data
 }
 
 
+/*!
+ * @ Résumé Cette fonction permet de configurer la capteur BMI160
+ * 
+ *
+ * @param[in] None
+ * 
+ *
+ * @return None
+ * 
+ */
 static void bmi160Config ()
 {
     vTaskDelay(100); //guess
@@ -120,6 +156,16 @@ void get_accData ()
     
     
 }
+
+/*!
+ * @ Résumé Cette fonction permet d'initialiser l'interruption
+ *
+ * @param[in] None
+ * 
+ *
+ * @return None
+ * 
+ */
 
 void anyMotionInt_set()
 {

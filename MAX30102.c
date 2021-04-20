@@ -13,7 +13,14 @@
 #include "project.h"
 
 
-
+/*!
+ * @Résumé Cette fonction permet de configurer les
+ * différentes registres du capteur MAX30102.
+ *
+ * @param[in] None
+ *
+ * @return None
+ */
 void MAX30102_config()
 {
 CyDelay(100);    
@@ -40,7 +47,18 @@ writeRegistre(REG_LED_AMP_2, 0x1f); //6.2 mA
 
 
 
-}    
+}
+
+/*!
+ * @ Résumé Cette fonction permet de lire la valeur contenue
+ * dans un registre du MAX30102.
+ *
+ * @param[in] adresse  : adresse du registre à lire.
+ * 
+ *
+ * @return regValue : la valeur contenue dans le registre
+ * 
+ */
 uint8_t readRegistre (uint8_t adresse){
     cy_en_scb_i2c_status_t status;
     uint8_t regValue = 0;
@@ -60,6 +78,17 @@ uint8_t readRegistre (uint8_t adresse){
     return regValue;
 }
 
+/*!
+ * @ Résumé Cette fonction permet d'écrire une valeur dans
+ * un registre en particulier du capteur MAX30102
+ *
+ * @param[in] adresse  : adresse du registre dans lequel on écrit
+ * @param[in] data     : valeur à écrire dans le registre
+ *
+ * @return None
+ * 
+ */
+
 void writeRegistre(uint8_t adresse, uint8_t data){ 
     
     cy_en_scb_i2c_status_t status;
@@ -74,6 +103,18 @@ void writeRegistre(uint8_t adresse, uint8_t data){
     
 } 
 
+/*!
+ * @ Résumé Cette fonction permet de lire plusieurs bits 
+ * dans un même registre
+ *
+ * @param[in] baseAddress : Adresse du registre dans lequel les valeurs sont lues
+ * @param[in] buffer      : Tableau dans lequel les valeurs lues sont stockées
+ * @param[in] length      : Nombre de bits que l'on veut lire
+ *
+ * @return None
+ * 
+ */
+
 void readMultipleBytes(uint8_t baseAddress, uint8_t *buffer, uint8_t length)
 {
         I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT); 
@@ -87,6 +128,20 @@ void readMultipleBytes(uint8_t baseAddress, uint8_t *buffer, uint8_t length)
         I2C_MAX_MasterSendStop(I2C_TIMEOUT); 
 }
 
+/*!
+ * @ Résumé Cette fonction permet de lire les données
+ * d'absorption de la LED rouge et infrarouge contenues dans
+ * le registre FIFO_DATA. Elle stock les 18 premiers bits lus
+ * dans le buffer rouge et les 18 prochains dans le buffer infrarouge
+ *
+ * @param[in] red_LEd  : Tableau dans lequel les valeurs d'absorption de rouge sont stockées
+ * @param[in] ir_LED   : Tableau dans lequel les valeurs d'absorption d'infrarouge sont stockées
+ * @param[in] compteur : Valeur qui permet d'incrémenter les cases des deux buffers.
+ *
+ * @return None
+ * 
+ */
+
 void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint16_t compteur){
     //ou remplacer par tableau
     uint8_t i2c_data [6];
@@ -99,6 +154,16 @@ void readFIFO(float32_t *red_LED, float32_t *ir_LED, uint16_t compteur){
     
 }
 
+/*!
+ * @ Résumé Cette fonction permet de changer la valeur 
+ * d'intensité de la LED rouge
+ *
+ * @param[in] ledAmp_red  : Valeur d'intensité de le LED rouge
+ * 
+ * @return None
+ * 
+ */
+
 void changeLED_red (short int ledAmp_red)
 {
     
@@ -107,6 +172,16 @@ void changeLED_red (short int ledAmp_red)
     
 }
     
+
+/*!
+ * @ Résumé Cette fonction permet de changer la valeur 
+ * d'intensité de la LED infrarouge
+ *
+ * @param[in] ledAmp_red  : Valeur d'intensité de le LED infrarouge
+ * 
+ * @return None
+ * 
+ */
 
 void changeLED_IR (short int ledAmp_IR)
 {
