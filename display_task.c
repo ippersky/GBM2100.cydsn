@@ -141,6 +141,8 @@ void afficherMenuPrincipal(uint32_t * vData){
     // en argument : int16_t * vConverti, int16_t * vAffichage
     //size_t longueurData = *ptrLongueurData;
     
+    
+    //if(xSemaphoreTake == TRUE)
     int longueurAffichage = longueurData/espacement;
     GUI_Clear();
     
@@ -153,6 +155,9 @@ void afficherMenuPrincipal(uint32_t * vData){
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
     
+    //GiveSemaphore
+    //}
+   
 
 }
 
@@ -222,6 +227,18 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // 
         }
     
     }
+    if(flagAlarmeAcclerometre == ON){
+        // and if Interrupt == TRUE
+        uint8_t font = 16;
+        GUI_SetFont(GUI_FONT_16_1);
+        
+        GUI_Clear();
+        GUI_DispStringAt("ATTENTION", 10, 10);
+        GUI_DispStringAt("Vous bougez trop", 10, 10+font);
+        
+        UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    }
+    
     
 }
 
