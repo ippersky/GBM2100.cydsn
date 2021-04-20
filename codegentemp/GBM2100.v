@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/19/2021 at 10:08
+// 04/20/2021 at 11:56
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -702,6 +702,7 @@ endmodule
 // top
 module top ;
 
+          wire  Net_556;
           wire  Net_551;
           wire  Net_543;
           wire  Net_542;
@@ -789,17 +790,16 @@ module top ;
 		 (.int_signal(Net_551));
 
 
-	wire [0:0] tmpFB_0__redLED_net;
-	wire [0:0] tmpIO_0__redLED_net;
-	electrical [0:0] tmpSIOVREF__redLED_net;
+	wire [0:0] tmpFB_0__Pin_1_net;
+	electrical [0:0] tmpSIOVREF__Pin_1_net;
 
 	cy_mxs40_gpio_v1_0
-		#(.id("a61270bc-07ec-447d-ac9e-34cfe85c30e9"),
+		#(.id("3bebfee8-790b-4297-b73a-27818bdce71c"),
 		  .width(1),
 		  .sio_grp_cnt(0),
 		  .drive_mode("6"),
-		  .ibuf_enabled("0"),
-		  .init_dr_st("0"),
+		  .ibuf_enabled("1"),
+		  .init_dr_st("1"),
 		  .input_sync("0"),
 		  .intr_mode("0"),
 		  .io_voltage(""),
@@ -812,17 +812,17 @@ module top ;
 		  .i2c_mode("0"),
 		  .output_current_cap("8"),
 		  .pin_aliases(""),
-		  .pin_mode("O"),
+		  .pin_mode("B"),
 		  .slew_rate("0"),
 		  .vtrip("0"),
 		  .use_annotation("0"),
 		  .hotswap_needed("0"))
-		redLED
+		Pin_1
 		 (.oe({1'b1}),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__redLED_net[0:0]}),
-		  .io({tmpIO_0__redLED_net[0:0]}),
-		  .siovref(tmpSIOVREF__redLED_net));
+		  .fb({tmpFB_0__Pin_1_net[0:0]}),
+		  .io({Net_556}),
+		  .siovref(tmpSIOVREF__Pin_1_net));
 
 
 
