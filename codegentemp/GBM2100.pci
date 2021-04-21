@@ -1,5 +1,5 @@
 # GBM2100
-# 2021-04-20 15:56:46Z
+# 2021-04-21 20:44:37Z
 
 dont_use_location p4usbcell -1 -1 0
 dont_use_location USB -1 -1 0
@@ -13,5 +13,4 @@ set_io "\UART_1:tx(0)\" iocell 5 1
 set_io "\UART_1:rx(0)\" iocell 5 0
 set_io "\I2C_BMI:scl(0)\" iocell 6 0
 set_io "\I2C_BMI:sda(0)\" iocell 6 1
-set_io "Pin_Acc_INT(0)" iocell 13 0
 set_io "Pin_1(0)" iocell 9 2

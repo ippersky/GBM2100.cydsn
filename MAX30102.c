@@ -25,7 +25,7 @@ void MAX30102_config()
 {
 CyDelay(100);    
     
-writeRegistre(REG_INTR_ENABLE_1, 0x40); //enable ... //0x40
+writeRegistre(REG_INTR_ENABLE_1, 0x00); //enable ... //0x40
         
 writeRegistre(REG_INTR_ENABLE_2, 0x00);
 
