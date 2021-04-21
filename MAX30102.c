@@ -40,7 +40,7 @@ writeRegistre(REG_MODE_CONFIG, 0x03);          //SPO2 Mode (Red and IR)
        
 writeRegistre(REG_SPO2_CONFIG, 0x6B);          // LSB SIZE = 62.5 pA and FULL SCALE = 16384 nA ; Sample Rate = 200Hz ; Pulse width = 411 micosec and ADC resolution = 18 bits
 
-writeRegistre(REG_LED_AMP_1, 0xAF);            //35 mA
+writeRegistre(REG_LED_AMP_1, 0xAF);            //35mA
 
 writeRegistre(REG_LED_AMP_2, 0xAF);            //35mA
 
@@ -168,7 +168,7 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
  * @return None
  * 
  */
-void changeLED_red (short int ledAmp_red)
+void changeLED_red (uint8_t ledAmp_red)
 {
     
     writeRegistre(REG_LED_AMP_1, ledAmp_red); 
@@ -186,7 +186,7 @@ void changeLED_red (short int ledAmp_red)
  * @return None
  * 
  */
-void changeLED_IR (short int ledAmp_IR)
+void changeLED_IR (uint8_t ledAmp_IR)
 {
     
     

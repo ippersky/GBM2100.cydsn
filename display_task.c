@@ -11,7 +11,7 @@
 */
 
 #include "display_task.h"
-
+#include "MAX30102.h"
 
 uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
@@ -42,8 +42,8 @@ size_t espacement = 3;      // longeurData/nbrePixelY ; 1000/264 = 3.79
 //float32_t BPM = 120.5;
 
 // 0 a 255
-uint8_t courantLEDrouge = 31;
-uint8_t courantLEDir = 1;
+uint8_t courantLEDrouge = 175;
+uint8_t courantLEDir = 175;
 
 uint8_t flagAlarmeBPM = OFF;
 uint8_t flagAlarmeAcclerometre = ON;
@@ -414,7 +414,7 @@ void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
     }
 
     GUI_DispStringAt("Bonds de 5 mA", 40, 10+(6*font));
-    GUI_DispStringAt("Intervalle : 0 a 51 mA", 40, 10+(7*font));
+    GUI_DispStringAt("Intervalle : 0 a 51 mA", 40, 10+(7*font)); // à changer ir pour 40mA
     
     GUI_DispStringAt("-", 40, 10+(3*font));
     GUI_DispStringAt("+", 140, 10+(3*font));
@@ -682,10 +682,10 @@ void Task_AffichageGraphique(void *data){
                     afficherMenuQuat1(&courantLEDrouge, &optionMenuTertiaire);
                 }
                 else if(currentPage == MENU_QUAT_1_2){
-                    if(courantLEDir <= 255-25)
+                    if(courantLEDir <= 200-25)      //Max permis car sinon saturation
                         courantLEDir += 25;
                     else
-                        courantLEDir = 255;
+                        courantLEDir = 200;
                     afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);                
                 }
                 /////// Menu Quat 2 ///////
@@ -734,6 +734,7 @@ void Task_AffichageGraphique(void *data){
                 else if(currentPage == MENU_QUAT_1_1){        
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
+                    changeLED_red(courantLEDrouge);
                     afficherMenuPrincipal(vData);
                     vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
@@ -741,6 +742,7 @@ void Task_AffichageGraphique(void *data){
                 else if(currentPage == MENU_QUAT_1_2){
                     // appel fonction qui ecrit dans le registre LED rouge 
                     // OU lever flag
+                    changeLED_IR(courantLEDir);
                     afficherMenuPrincipal(vData);
                     vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
