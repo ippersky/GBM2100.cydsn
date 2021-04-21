@@ -24,7 +24,7 @@ void MAX30102_config()
 {
 CyDelay(100);    
     
-writeRegistre(REG_INTR_ENABLE_1, 0x00);         //New FIFO Data Ready : ON //40
+writeRegistre(REG_INTR_ENABLE_1, 0x40);         //New FIFO Data Ready : ON //40
         
 writeRegistre(REG_INTR_ENABLE_2, 0x00); 
 
@@ -38,11 +38,11 @@ writeRegistre(REG_FIFO_CONFIG, 0x00);          //No sample averaging ; FIFO_ROLL
         
 writeRegistre(REG_MODE_CONFIG, 0x03);          //SPO2 Mode (Red and IR)
        
-writeRegistre(REG_SPO2_CONFIG, 0x6B);          // LSB SIZE = 62.5 pA and FULL SCALE = 16384 nA ; Sample Rate = 200Hz ; Pulse width = 411 micosec and ADC resolution = 18 bits
+writeRegistre(REG_SPO2_CONFIG, 0x6b);          // LSB SIZE = 62.5 pA and FULL SCALE = 16384 nA ; Sample Rate = 200Hz ; Pulse width = 411 micosec and ADC resolution = 18 bits
 
-writeRegistre(REG_LED_AMP_1, 0xAF);            //35mA
+writeRegistre(REG_LED_AMP_1, 0xaf);            //35mA
 
-writeRegistre(REG_LED_AMP_2, 0xAF);            //35mA
+writeRegistre(REG_LED_AMP_2, 0xaf);            //35mA
 
 
 }    
