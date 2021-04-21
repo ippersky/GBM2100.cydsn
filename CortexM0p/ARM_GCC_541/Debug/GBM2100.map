@@ -462,7 +462,7 @@ Discarded input sections
                 0x00000000       0x20 .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
  .debug_ranges  0x00000000       0x10 .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
  .debug_line    0x00000000       0x8d .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
- .debug_str     0x00000000      0x3ea .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
+ .debug_str     0x00000000      0x413 .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
  .comment       0x00000000       0x6f .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
  .debug_frame   0x00000000       0x2c .\CortexM0p\ARM_GCC_541\Debug\GUIConf.o
  .ARM.attributes

@@ -143,8 +143,8 @@ void vFiltering_task(void *arg){
     //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
         
         
-        filtre(red, filteredRED, 0, BUFFER_LENGTH);
-        filtre(ir, filteredIR, 0, BUFFER_LENGTH);
+        filtre(red, filteredRED);
+        filtre(ir, filteredIR);
         
         //xSemaphoreGive(active_task);
         vTaskDelay(pdMS_TO_TICKS(500));

@@ -20,16 +20,18 @@
 
 // 2 Hz avec matlab
 float32_t filter_taps[FILTER_TAP_NUM] = {
-0.002009,0.002183,0.002558,0.003148,0.003964,0.005011,0.006288,0.007788,0.009499,0.011401,0.013471,0.015679,0.017993,0.020373,0.022780,0.025171,0.027503,0.029733,0.031817,0.033715,0.035391,0.036810,0.037945,0.038773,0.039276,0.039445,0.039276,0.038773,0.037945,0.036810,0.035391,0.033715,0.031817,0.029733,0.027503,0.025171,0.022780,0.020373,0.017993,0.015679,0.013471,0.011401,0.009499,0.007788,0.006288,0.005011,0.003964,0.003148,0.002558,0.002183
+0.002085,0.002268,0.002666,0.003295,0.004166,0.005282,0.006642,0.008237,0.010050,0.012062,0.014244,0.016564,0.018984,0.021463,0.023957,0.026419,0.028804,0.031063,0.033154,0.035033,0.036662,0.038008,0.039043,0.039746,0.040101,0.040101,0.039746,0.039043,0.038008,0.036662,0.035033,0.033154,0.031063,0.028804,0.026419,0.023957,0.021463,0.018984,0.016564,0.014244,0.012062,0.010050,0.008237,0.006642,0.005282,0.004166,0.003295,0.002666,0.002268,0.002085
 
 };
 
 
-float32_t firStateF32[LONGUEUR_ECH+FILTER_TAP_NUM-1];
+float32_t firStateF32[LONGUEUR_ECH + FILTER_TAP_NUM - 1];
+uint16_t numBlocks = LONGUEUR_ECH/BLOCK_SIZE;
+uint16_t blockSize = BLOCK_SIZE;
 
 /*************************************************************************/
 
-void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2){  // 
+void filtre(uint32_t *Signal, uint32_t *Output){  // 
     
     //Filtrage le signal avec un filtre passe-bas
     
@@ -43,17 +45,26 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     
        
     arm_fir_instance_f32 S;
+    //arm_status status;
     
     uint32_t *inputF32;
     uint32_t *outputF32;
     
-    inputF32 = Signal;
-    outputF32 = Output;
+    inputF32 = &Signal[0];
+    outputF32 = &Output[0];
     
-    uint32_t longueur = LONGUEUR_ECH;
+    //uint32_t longueur = LONGUEUR_ECH;
     
-    arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
-    arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
+    arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],blockSize);
+    
+    uint16_t i;
+    uint16_t k;
+    
+    for(k = 0; k < 100; k++){
+        for(i=0; i < numBlocks; i++){
+        arm_fir_f32(&S,(float32_t*)inputF32 + (i*blockSize),(float32_t*)outputF32 + (i*blockSize),blockSize);
+        }
+    }
     
     uint16_t j = 0;
     

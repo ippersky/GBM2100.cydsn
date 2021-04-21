@@ -2,7 +2,7 @@
 --	Conversion of GBM2100.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Apr 21 11:10:34 2021
+--	Wed Apr 21 14:31:58 2021
 --
 
 USE cypress.cypress.all;

@@ -24,7 +24,7 @@ void MAX30102_config()
 {
 CyDelay(100);    
     
-writeRegistre(REG_INTR_ENABLE_1, 0x00);         //New FIFO Data Ready : ON //40
+writeRegistre(REG_INTR_ENABLE_1, 0x40);         //New FIFO Data Ready : ON //40
         
 writeRegistre(REG_INTR_ENABLE_2, 0x00); 
 
