@@ -20,7 +20,7 @@
 
 // 2 Hz avec matlab
 float32_t filter_taps[FILTER_TAP_NUM] = {
-0.002333,0.002496,0.002881,0.003498,0.004348,0.005432,0.006741,0.008263,0.009982,0.011876,0.013918,0.016077,0.018321,0.020614,0.022917,0.025190,0.027395,0.029493,0.031445,0.033217,0.034776,0.036093,0.037144,0.037909,0.038374,0.038530,0.038374,0.037909,0.037144,0.036093,0.034776,0.033217,0.031445,0.029493,0.027395,0.025190,0.022917,0.020614,0.018321,0.016077,0.013918,0.011876,0.009982,0.008263,0.006741,0.005432,0.004348,0.003498,0.002881,0.002496
+0.002009,0.002183,0.002558,0.003148,0.003964,0.005011,0.006288,0.007788,0.009499,0.011401,0.013471,0.015679,0.017993,0.020373,0.022780,0.025171,0.027503,0.029733,0.031817,0.033715,0.035391,0.036810,0.037945,0.038773,0.039276,0.039445,0.039276,0.038773,0.037945,0.036810,0.035391,0.033715,0.031817,0.029733,0.027503,0.025171,0.022780,0.020373,0.017993,0.015679,0.013471,0.011401,0.009499,0.007788,0.006288,0.005011,0.003964,0.003148,0.002558,0.002183
 
 };
 
@@ -33,13 +33,13 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     
     //Filtrage le signal avec un filtre passe-bas
     
-    uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
+    //uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
     //uint32_t Output[LONGUEUR_ECH]; //initialiser le buffer output
-    uint32_t i, compteur=0;
-    for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
-        Input[compteur]=Signal[i];   
-        compteur++;
-        }
+    //uint32_t i, compteur=0;
+    //for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
+    //    Input[compteur]=Signal[i];   
+    //    compteur++;
+    //    }
     
        
     arm_fir_instance_f32 S;
@@ -47,8 +47,8 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     uint32_t *inputF32;
     uint32_t *outputF32;
     
-    inputF32 = &Signal[0];
-    outputF32 = &Output[0];
+    inputF32 = Signal;
+    outputF32 = Output;
     
     uint32_t longueur = LONGUEUR_ECH;
     

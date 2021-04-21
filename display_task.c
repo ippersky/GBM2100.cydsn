@@ -28,9 +28,9 @@ uint32_t vecteurData2[] = {99513,98160,99413,98419,99319,98729,99145,99050,98949
 
 
 int16_t vecteurConverti[1000] = {};  
-int16_t vecteurAffichage[250] = {}; 
+int16_t vecteurAffichage[260] = {}; 
 size_t longueurData = 1000;  //sizeof(vecteurData)/sizeof(uint32_t); // 160
-size_t espacement = 4;      // longeurData/nbrePixelY ; 1000/264 = 3.79
+size_t espacement = 3;      // longeurData/nbrePixelY ; 1000/264 = 3.79
     
 
     // quand je mets en argument qqch pour le task, ca ne marche plus
@@ -102,8 +102,8 @@ void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData){
 }
 
 int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
-    int16_t min = vConverti[0];
-    for(int i =1; i < lData; i++){
+    int16_t min = vConverti[200]; // 200 enlève pente du filtre
+    for(int i =200; i < lData; i++){
         if(vConverti[i] < min){
             min = vConverti[i];
         }
@@ -112,8 +112,8 @@ int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
 }
 
 int16_t trouverMaximumVecteur(int16_t* vConverti, size_t lData){
-    int16_t max = vConverti[0];
-    for(int i =1; i < lData; i++){
+    int16_t max = vConverti[200];
+    for(int i =200; i < lData; i++){
         if(vConverti[i] > max){
             max = vConverti[i];
         }
@@ -127,7 +127,7 @@ void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData
     int16_t max = trouverMaximumVecteur(vConverti, lData);
     
     int j = 0;
-    for(int i=0; i < lData; i+=espacement){
+    for(int i=200; i < lData-21; i+=espacement){
         vAffichage[j] = (150*(vConverti[i]-min))/(max-min); // graphique : 150 pixels en y
         vAffichage[j] = (vAffichage[j]*-1)+150;             // INVERSION car (0,0) est en haut a gauche (pas en bas a gauche)
                                                             // les + grandes valeurs sont donc affichees plus bas sur l'ecran
