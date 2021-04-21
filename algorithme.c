@@ -12,34 +12,25 @@
 #include "algorithme.h"
 #include "variables.h"
 
-#define LONGUEUR_ECH 1000 // longueur totale des donnees
 #define BLOCK_SIZE 200 // nombre de donnees par seconde
 #define SECONDES 5 // nombre de secondes sur lesquelles on fait le traitement
 
 #define FILTER_TAP_NUM 50
 
-// 2 Hz avec matlab
+// Coefficients de calibration d'un filtre passe-bas 2 Hz avec matlab
 float32_t filter_taps[FILTER_TAP_NUM] = {
 0.002009,0.002183,0.002558,0.003148,0.003964,0.005011,0.006288,0.007788,0.009499,0.011401,0.013471,0.015679,0.017993,0.020373,0.022780,0.025171,0.027503,0.029733,0.031817,0.033715,0.035391,0.036810,0.037945,0.038773,0.039276,0.039445,0.039276,0.038773,0.037945,0.036810,0.035391,0.033715,0.031817,0.029733,0.027503,0.025171,0.022780,0.020373,0.017993,0.015679,0.013471,0.011401,0.009499,0.007788,0.006288,0.005011,0.003964,0.003148,0.002558,0.002183
 
 };
 
-
-float32_t firStateF32[LONGUEUR_ECH+FILTER_TAP_NUM-1];
+float32_t firStateF32[BUFFER_LENGTH+FILTER_TAP_NUM-1];
 
 /*************************************************************************/
 
-void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2){  // 
-    
-    //Filtrage le signal avec un filtre passe-bas
-    
-    //uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
-    //uint32_t Output[LONGUEUR_ECH]; //initialiser le buffer output
-    //uint32_t i, compteur=0;
-    //for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
-    //    Input[compteur]=Signal[i];   
-    //    compteur++;
-    //    }
+/* Cette fonction prend en parametres le signal non-filtré et le signal filtré. Elle filtre le signal
+ et place le signal filtré de le buffer Output.
+*/
+void filtre(uint32_t *Signal, uint32_t *Output){
     
        
     arm_fir_instance_f32 S;
@@ -50,7 +41,7 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     inputF32 = Signal;
     outputF32 = Output;
     
-    uint32_t longueur = LONGUEUR_ECH;
+    uint32_t longueur = BUFFER_LENGTH;
     
     arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
     arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
@@ -59,7 +50,7 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     
     
     UART_1_PutString("//////////////////////////////////////////////////////////////////");
-    for(j=0; j<LONGUEUR_ECH; j++){
+    for(j=0; j<BUFFER_LENGTH; j++){
         //printf("%s \n\r", Output[j]);
         char cOutput[6];
         itoa(Output[j], cOutput, 10);
@@ -75,66 +66,43 @@ void filtre(uint32_t *Signal, uint32_t *Output, uint16_t temps1, uint16_t temps2
     
 }
 
-// Cette fonction calcule la frequence cardiaque. Elle prend en parametre
-// le buffer rouge (ou infrarouge) et l'intervalle de temps qui nous interesse et retourne le BPM
+/* Cette fonction calcule la frequence cardiaque. Elle prend en parametre
+ le buffer rouge (ou infrarouge) filtré et l'intervalle de temps qui nous interesse et retourne le BPM
+*/
 float32_t HeartRate(uint32_t *Signal, uint16_t temps1, uint16_t temps2){
-    
-    
-    /*
-    //Filtrage le signal avec un filtre passe-bas
-    uint32_t Input[LONGUEUR_ECH]; // initialiser le vecteur input
-    uint32_t Output[LONGUEUR_ECH]; //initialiser le buffer output
-    uint32_t i, compteur=0;
-    for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
-    Input[compteur]=Signal[i];   
-    compteur++;
-    }
-    
-       
-    arm_fir_instance_f32 S;
-    
-    uint32_t *inputF32;
-    uint32_t *outputF32;
-    inputF32 = &Input[0];
-    outputF32 = &Output[0];
-    
-    uint32_t longueur = LONGUEUR_ECH;
-    
-    arm_fir_init_f32(&S, FILTER_TAP_NUM, (float32_t*)&filter_taps[0],&firStateF32[0],longueur);
-    arm_fir_f32(&S,(float32_t*)inputF32,(float32_t*)outputF32,longueur);
-    */
-
-    
-    // Calcul de la frequence cardiaque
+      
     
     uint16_t compteur = 0; // initialisation du nombre de maximums
     uint16_t i = 0;
-    for (i=0; i<LONGUEUR_ECH; i++)
+    
+    // On boucle sur toutes les valeurs du signal et on incremente le compteur
+    // lorsqu'un maximum est trouvé
+    for (i=temps1; i<temps2; i++)
     {
         if (Signal[i-1]<Signal[i] && Signal[i+1]<Signal[i]){
          compteur++;
         }
     }
     
+    // On met toutes les variables en float pour eviter les problemes lors du calcul
     float32_t secondes = SECONDES, minute = 60;
     float32_t bpm = (float32_t)compteur/secondes*minute;
     
     return bpm;
     
-    
-    
 }
 
 
-// Cette fonction calcule la composante AC du signal. Elle prend en 
-// parametre le signal rouge ou infrarouge ainsi que le temps1 et temps2, soient
-// le debut et la fin d'un echantillon de 1 seconde, et retourne la composante AC
+/* Cette fonction calcule la composante AC du signal. Elle prend en 
+ parametre le signal rouge ou infrarouge ainsi que le temps1 et temps2, soient
+ soit le debut et la fin d'un echantillon de 1 seconde, et retourne la composante AC
+*/
 float32_t AC(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
 
     uint32_t i, compteur = 0;
     uint32_t Input[BLOCK_SIZE]; // initialisation du vecteur Input
     
-    for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
+    for (i=temps1; i<temps2; i++){ // le buffer input doit contenir la partie du signal qui nous interesse
     Input[compteur]=Signal[i];   
     compteur++;
     }
@@ -156,20 +124,21 @@ float32_t AC(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
     return compoAC;
     
 }
-// Cette fonction calcule la composante DC du signal. Elle prend en 
-// parametre le signal rouge ou infrarouge ainsi que le temps1 et temps2, soient
-// le debut et la fin d'un echantillon de 1 seconde, et retourne la composante DC
+/* Cette fonction calcule la composante DC du signal. Elle prend en 
+ parametre le signal rouge ou infrarouge ainsi que le temps1 et temps2, soient
+ soit le debut et la fin d'un echantillon de 1 seconde, et retourne la composante DC
+*/
 float32_t DC(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
     
     uint32_t i, compteur = 0;
     uint32_t Input[BLOCK_SIZE];
     
-    for (i=temps1; i<temps2; i++){ // On veut que le buffer input contienne soit la premiere moitié ou la deuxième moitié du buffer signal
+    for (i=temps1; i<temps2; i++){ // le buffer input doit contenir la partie du signal qui nous interesse
     Input[compteur]=Signal[i];   
     compteur++;
     }    
     
-    // Calcul de la composante DC du signal
+    // Calcul de la composante DC du signal avec une moyenne
     
     uint32_t block_size = BLOCK_SIZE;
     float32_t compoDC;
@@ -180,10 +149,10 @@ float32_t DC(uint32_t *Signal, uint32_t temps1, uint32_t temps2){
     
 }
 
-// Cette fonction calcule la saturation sanguine en oxygene.
-// Elle prend en parametres les signaux rouge et infrarouge ainsi que le temps1 et le temps2,\
-// soient 0 ou 1000 pour traiter la premiere moitié du buffer ou 1000 et 2000 pour traiter
-// la deuxieme moitié du buffer. Elle retourne le SpO2 pour 5 secondes
+/* Cette fonction calcule la saturation sanguine en oxygene.
+ Elle prend en parametres les signaux rouge et infrarouge ainsi que le temps1 et le temps2,
+ soit l'intervalle de 5 secondes. Elle retourne le SpO2 pour 5 secondes
+*/
 float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint16_t temps1, uint16_t temps2){
     
     // Coefficients de calibration
@@ -195,8 +164,8 @@ float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint16_t temps1, uin
     // initialisation des buffers pour appeler les fonctions AC et DC
     float32_t AC660[SECONDES], DC660[SECONDES], AC880[SECONDES], DC880[SECONDES];
     
-    // On appelle les fonctions AC et DC pour les signaux rouges et infrarouges pour une periode
-    // de 5 secondes
+    // On appelle 5 fois les fonctions AC et DC pour les signaux rouges et infrarouges, ce qui correspond
+    // a une periode de 5 secondes
     uint32_t fech = BLOCK_SIZE;
     
     for(i=temps1/BLOCK_SIZE; i<temps2/BLOCK_SIZE; i++){
@@ -208,9 +177,9 @@ float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint16_t temps1, uin
     
     // initialisation des variables utilisees pour calculer la saturation
     float32_t R;
-    float32_t mAC660, mDC660, mAC880, mDC880;
+    float32_t mAC660, mDC660, mAC880, mDC880; 
     
-    // Calcul de la moyenne des composantes sur une periode de 5 secondes
+    // Calcul de la moyenne des composantes sur la periode de 5 secondes
     arm_mean_f32(&AC660[0],SECONDES,&mAC660);
     arm_mean_f32(&DC660[0],SECONDES,&mDC660);
     arm_mean_f32(&AC880[0],SECONDES,&mAC880);
@@ -223,6 +192,7 @@ float32_t calculSpO2(uint32_t *InputRed, uint32_t *InputIR, uint16_t temps1, uin
     float32_t SpO2=a*pow(R,2)+b*R+c;
     
     return SpO2;
+    
 }
 
 
