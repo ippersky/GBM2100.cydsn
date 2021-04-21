@@ -607,7 +607,7 @@ void Task_AffichageGraphique(void *data){
                                     
                     case MENU_TERTIAIRE_4:
                         if (optionMenuTertiaire == 1){
-                            vData = filteredRED;
+                            vData = filteredIR;
                             afficherMenuPrincipal(vData);
                             vTaskResume(xSample);
                             currentPage = MENU_PRINCIPAL;
