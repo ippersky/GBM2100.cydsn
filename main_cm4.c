@@ -109,13 +109,13 @@ void vSample_task(void *arg){
     
             for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
             {
-                get_accData ();
-                readFIFO(red, ir, indexBuffer);
+                get_accData ();                             // Regarde s'il y a du mouvement et si oui active l'interruption
+                readFIFO(red, ir, indexBuffer);             // Procède à la lecture des données
                 vTaskDelay(pdMS_TO_TICKS(3));
                    
             }
             if(indexBuffer == BUFFER_LENGTH){
-                indexBuffer = 0;
+                indexBuffer = 0;                            // Lorsque le buffer est plein, on reprend depuis le début
                 UART_1_PutString("////////////////////////////////////////////////////////////////////");
                 //xSemaphoreGive(active_task);
                 vTaskDelay(pdMS_TO_TICKS(500));

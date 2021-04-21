@@ -1,6 +1,6 @@
 // ======================================================================
 // GBM2100.v generated from TopDesign.cysch
-// 04/20/2021 at 13:30
+// 04/20/2021 at 22:57
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1432,7 +1432,6 @@ module top ;
           wire  Net_517;
           wire  Net_514;
           wire  Net_518;
-          wire  Net_512;
           wire  Net_510;
           wire  Net_507;
           wire  Net_508;
@@ -1442,7 +1441,6 @@ module top ;
           wire  Net_504;
           wire  Net_502;
           wire  Net_501;
-          wire  Net_500;
           wire  Net_24;
           wire  Net_17;
           wire  Net_19;
@@ -1468,6 +1466,7 @@ module top ;
           wire  Net_8;
           wire  Net_1;
           wire  Net_2;
+          wire  Net_500;
           wire  Net_700;
 
     SCB_SPI_PDL_v2_0_0 CY_EINK_SPIM (
@@ -1861,49 +1860,6 @@ module top ;
 		  .fb({tmpFB_0__Pin_1_net[0:0]}),
 		  .io({Net_510}),
 		  .siovref(tmpSIOVREF__Pin_1_net));
-
-
-	wire [0:0] tmpIO_0__Pin_Acc_INT_net;
-	electrical [0:0] tmpSIOVREF__Pin_Acc_INT_net;
-
-	cy_mxs40_gpio_v1_0
-		#(.id("11e17683-127f-423f-8dce-bf373d2e90f7"),
-		  .width(1),
-		  .sio_grp_cnt(0),
-		  .drive_mode("3"),
-		  .ibuf_enabled("1"),
-		  .init_dr_st("0"),
-		  .input_sync("0"),
-		  .intr_mode("1"),
-		  .io_voltage(""),
-		  .output_conn("0"),
-		  .oe_conn("0"),
-		  .output_sync("0"),
-		  .oe_sync("0"),
-		  .drive_strength("0"),
-		  .max_frequency("100"),
-		  .i2c_mode("0"),
-		  .output_current_cap("8"),
-		  .pin_aliases(""),
-		  .pin_mode("I"),
-		  .slew_rate("0"),
-		  .vtrip("0"),
-		  .use_annotation("0"),
-		  .hotswap_needed("0"))
-		Pin_Acc_INT
-		 (.oe({1'b1}),
-		  .y({1'b0}),
-		  .fb({Net_512}),
-		  .io({tmpIO_0__Pin_Acc_INT_net[0:0]}),
-		  .siovref(tmpSIOVREF__Pin_Acc_INT_net));
-
-
-
-	cy_mxs40_isr_v1_0
-		#(.deepsleep_required(0),
-		  .int_type(2'b10))
-		SysInt_AccINT
-		 (.int_signal(Net_512));
 
 
     SCB_UART_PDL_v2_0_5 UART_1 (

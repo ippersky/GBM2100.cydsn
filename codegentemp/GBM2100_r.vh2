@@ -1,5 +1,5 @@
 -- Project:   GBM2100
--- Generated: 04/20/2021 13:30:23
+-- Generated: 04/20/2021 22:57:17
 -- PSoC Creator  4.4
 
 ENTITY GBM2100 IS
@@ -20,7 +20,6 @@ ENTITY GBM2100 IS
         \I2C_MAX:scl(0)_PAD\ : INOUT std_ulogic;
         \I2C_MAX:sda(0)_PAD\ : INOUT std_ulogic;
         Pin_1(0)_PAD : INOUT std_ulogic;
-        Pin_Acc_INT(0)_PAD : IN std_ulogic;
         \UART_1:tx(0)_PAD\ : OUT std_ulogic;
         \UART_1:rx(0)_PAD\ : IN std_ulogic);
     ATTRIBUTE voltage_VBACKUP OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -82,13 +81,11 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
     SIGNAL Net_506 : bit;
     SIGNAL Net_507 : bit;
     SIGNAL Net_508 : bit;
-    SIGNAL Net_512 : bit;
     SIGNAL Net_519 : bit;
     SIGNAL Net_520 : bit;
     SIGNAL Net_700_ff11 : bit;
     ATTRIBUTE global_signal OF Net_700_ff11 : SIGNAL IS true;
     SIGNAL Pin_1(0)__PA : bit;
-    SIGNAL Pin_Acc_INT(0)__PA : bit;
     SIGNAL \CY_EINK_SPIM:Net_216\ : bit;
     SIGNAL \CY_EINK_SPIM:Net_488\ : bit;
     SIGNAL \CY_EINK_SPIM:Net_489\ : bit;
@@ -239,11 +236,9 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
     ATTRIBUTE Location OF \I2C_MAX:sda(0)\ : LABEL IS "P9[1]";
     ATTRIBUTE lib_model OF Pin_1(0) : LABEL IS "iocell29";
     ATTRIBUTE Location OF Pin_1(0) : LABEL IS "P9[2]";
-    ATTRIBUTE lib_model OF Pin_Acc_INT(0) : LABEL IS "iocell30";
-    ATTRIBUTE Location OF Pin_Acc_INT(0) : LABEL IS "P13[0]";
-    ATTRIBUTE lib_model OF \UART_1:tx(0)\ : LABEL IS "iocell31";
+    ATTRIBUTE lib_model OF \UART_1:tx(0)\ : LABEL IS "iocell30";
     ATTRIBUTE Location OF \UART_1:tx(0)\ : LABEL IS "P5[1]";
-    ATTRIBUTE lib_model OF \UART_1:rx(0)\ : LABEL IS "iocell32";
+    ATTRIBUTE lib_model OF \UART_1:rx(0)\ : LABEL IS "iocell31";
     ATTRIBUTE Location OF \UART_1:rx(0)\ : LABEL IS "P5[0]";
     ATTRIBUTE Location OF \CY_EINK_SPIM:SCB\ : LABEL IS "F(SCB,6)";
     ATTRIBUTE Location OF \CY_EINK_SPIM:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(47)]";
@@ -257,7 +252,6 @@ ARCHITECTURE __DEFAULT__ OF GBM2100 IS
     ATTRIBUTE Location OF \I2C_BMI:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(44)]";
     ATTRIBUTE Location OF \I2C_MAX:SCB\ : LABEL IS "F(SCB,2)";
     ATTRIBUTE Location OF \I2C_MAX:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(43)]";
-    ATTRIBUTE Location OF SysInt_AccINT : LABEL IS "[IntrContainer=(0)][IntrId=(122)]";
     ATTRIBUTE Location OF \UART_1:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(46)]";
     ATTRIBUTE Location OF \UART_1:SCB\ : LABEL IS "F(SCB,5)";
     ATTRIBUTE Location OF IOSS : LABEL IS "F(IOSS,0)";
@@ -2120,61 +2114,6 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Pin_Acc_INT:logicalport
-        GENERIC MAP(
-            cy_registers => "",
-            drive_mode => "011",
-            drive_strength => "0",
-            hotswap_needed => "0",
-            i2c_mode => "0",
-            ibuf_enabled => "1",
-            id => "11e17683-127f-423f-8dce-bf373d2e90f7",
-            init_dr_st => "0",
-            input_sync => "0",
-            intr_mode => "01",
-            io_voltage => "",
-            max_frequency => "100",
-            oe_conn => "0",
-            oe_sync => "0",
-            output_conn => "0",
-            output_current_cap => "8",
-            output_sync => "0",
-            pin_aliases => "",
-            pin_mode => "B",
-            sio_grp_cnt => 0,
-            slew_rate => "0",
-            use_annotation => "0",
-            vtrip => "00",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0);
-
-    Pin_Acc_INT(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "Pin_Acc_INT",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
-        PORT MAP(
-            pa_out => Pin_Acc_INT(0)__PA,
-            oe => open,
-            fb => Net_512,
-            pad_in => Pin_Acc_INT(0)_PAD,
-            in_clock => open,
-            in_clock_en => open,
-            in_reset => open,
-            out_clock => open,
-            out_clock_en => open,
-            out_reset => open);
-
     \UART_1:tx\:logicalport
         GENERIC MAP(
             cy_registers => "",
@@ -2490,15 +2429,6 @@ BEGIN
             int_type => "10")
         PORT MAP(
             interrupt => \I2C_MAX:intr_wire\,
-            clock => ClockBlock_PeriClk);
-
-    SysInt_AccINT:interrupt
-        GENERIC MAP(
-            cy_registers => "",
-            deepsleep_required => 0,
-            int_type => "10")
-        PORT MAP(
-            interrupt => Net_512,
             clock => ClockBlock_PeriClk);
 
     \UART_1:SCB_IRQ\:interrupt

@@ -2,7 +2,7 @@
 --	Conversion of GBM2100.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Apr 20 13:30:08 2021
+--	Tue Apr 20 22:57:05 2021
 --
 
 USE cypress.cypress.all;
@@ -245,9 +245,6 @@ TERMINAL \I2C_MAX:tmpSIOVREF__sda_net_0\ : bit;
 SIGNAL tmpFB_0__Pin_1_net_0 : bit;
 SIGNAL Net_510 : bit;
 TERMINAL tmpSIOVREF__Pin_1_net_0 : bit;
-SIGNAL Net_512 : bit;
-SIGNAL tmpIO_0__Pin_Acc_INT_net_0 : bit;
-TERMINAL tmpSIOVREF__Pin_Acc_INT_net_0 : bit;
 SIGNAL \UART_1:Net_847\ : bit;
 SIGNAL \UART_1:clock_wire\ : bit;
 SIGNAL \UART_1:Net_22\ : bit;
@@ -1242,43 +1239,6 @@ Pin_1:cy_mxs40_gpio_v1_0
 		io=>Net_510,
 		annotation=>(open),
 		siovref=>(tmpSIOVREF__Pin_1_net_0));
-Pin_Acc_INT:cy_mxs40_gpio_v1_0
-	GENERIC MAP(cy_registers=>"",
-		width=>1,
-		sio_grp_cnt=>0,
-		id=>"11e17683-127f-423f-8dce-bf373d2e90f7",
-		drive_mode=>"3",
-		ibuf_enabled=>"1",
-		init_dr_st=>"0",
-		input_sync=>"0",
-		intr_mode=>"1",
-		io_voltage=>"",
-		output_conn=>"0",
-		oe_conn=>"0",
-		output_sync=>"0",
-		oe_sync=>"0",
-		drive_strength=>"0",
-		max_frequency=>"100",
-		output_current_cap=>"8",
-		i2c_mode=>"0",
-		pin_aliases=>"",
-		pin_mode=>"I",
-		slew_rate=>"0",
-		vtrip=>"0",
-		use_annotation=>"0",
-		hotswap_needed=>"0")
-	PORT MAP(oe=>(one),
-		y=>(zero),
-		fb=>Net_512,
-		analog=>(open),
-		io=>(tmpIO_0__Pin_Acc_INT_net_0),
-		annotation=>(open),
-		siovref=>(tmpSIOVREF__Pin_Acc_INT_net_0));
-SysInt_AccINT:cy_mxs40_isr_v1_0
-	GENERIC MAP(cy_registers=>"",
-		deepsleep_required=>'0',
-		int_type=>"10")
-	PORT MAP(int_signal=>Net_512);
 \UART_1:SCBCLK\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"55a5741f-60af-4a2b-9f91-41785752579c/b68e5b9d-7828-482d-a282-930f990e3b3e",

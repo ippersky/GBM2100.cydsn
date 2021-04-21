@@ -12,15 +12,21 @@
 #include "MAX30102.h"
 #include "project.h"
 
-
-
+/*!
+ * @Résumé Cette fonction permet de configurer les
+ * différentes registres du capteur MAX30102.
+ *
+ * @param[in] None
+ *
+ * @return None
+ */
 void MAX30102_config()
 {
 CyDelay(100);    
     
-writeRegistre(REG_INTR_ENABLE_1, 0x40); //enable ...0xd0
+writeRegistre(REG_INTR_ENABLE_1, 0x40);         //New FIFO Data Ready : ON
         
-writeRegistre(REG_INTR_ENABLE_2, 0x00);
+writeRegistre(REG_INTR_ENABLE_2, 0x00); 
 
 writeRegistre(REG_FIFO_WR,0x00);
 
@@ -28,19 +34,29 @@ writeRegistre(REG_OVFLOW_COUNTER, 0x00);
 
 writeRegistre(REG_FIFO_RD,0x00);
         
-writeRegistre(REG_FIFO_CONFIG, 0x1f); //no smp averaging, fifo rollover on, fifo fill = 15 empty data sample;
+writeRegistre(REG_FIFO_CONFIG, 0x1f);          //No sample averaging ; FIFO_ROLLOVER : Enable ; 15 empty data in FIFO when interrupt is issued
         
-writeRegistre(REG_MODE_CONFIG, 0x03); //SPO2 Mode (Red and IR)
+writeRegistre(REG_MODE_CONFIG, 0x03);          //SPO2 Mode (Red and IR)
        
-writeRegistre(REG_SPO2_CONFIG, 0x6b); // 29ADC Range control=4096nA, Sample rate=200Hz, Pulse width =118microsec
+writeRegistre(REG_SPO2_CONFIG, 0x6b);          // LSB SIZE = 62.5 pA and FULL SCALE = 16384 nA ; Sample Rate = 200Hz ; Pulse width = 411 micosec and ADC resolution = 18 bits
 
-writeRegistre(REG_LED_AMP_1, 0xAF); //6.2 mA -- 7f = 25,4
+writeRegistre(REG_LED_AMP_1, 0xAF);            //35 mA
 
-writeRegistre(REG_LED_AMP_2, 0xAF); //6.2 mA -- 
-
+writeRegistre(REG_LED_AMP_2, 0xAF);            //35mA
 
 
 }    
+
+/*!
+ * @ Résumé Cette fonction permet de lire la valeur contenue
+ * dans un registre du MAX30102.
+ *
+ * @param[in] adresse  : adresse du registre à lire.
+ * 
+ *
+ * @return regValue : la valeur contenue dans le registre
+ * 
+ */
 uint8_t readRegistre (uint8_t adresse){
     cy_en_scb_i2c_status_t status;
     uint8_t regValue = 0;
@@ -60,6 +76,16 @@ uint8_t readRegistre (uint8_t adresse){
     return regValue;
 }
 
+/*!
+ * @ Résumé Cette fonction permet d'écrire une valeur dans
+ * un registre en particulier du capteur MAX30102
+ *
+ * @param[in] adresse  : adresse du registre dans lequel on écrit
+ * @param[in] data     : valeur à écrire dans le registre
+ *
+ * @return None
+ * 
+ */
 void writeRegistre(uint8_t adresse, uint8_t data){ 
     
     cy_en_scb_i2c_status_t status;
@@ -74,6 +100,18 @@ void writeRegistre(uint8_t adresse, uint8_t data){
     
 } 
 
+
+/*!
+ * @ Résumé Cette fonction permet de lire plusieurs bits 
+ * dans un même registre
+ *
+ * @param[in] baseAddress : Adresse du registre dans lequel les valeurs sont lues
+ * @param[in] buffer      : Tableau dans lequel les valeurs lues sont stockées
+ * @param[in] length      : Nombre de bits que l'on veut lire
+ *
+ * @return None
+ * 
+ */
 void readMultipleBytes(uint8_t baseAddress, uint8_t *buffer, uint8_t length)
 {
         I2C_MAX_MasterSendStart(ADRESSE_MAX,CY_SCB_I2C_WRITE_XFER,I2C_TIMEOUT); 
@@ -87,14 +125,28 @@ void readMultipleBytes(uint8_t baseAddress, uint8_t *buffer, uint8_t length)
         I2C_MAX_MasterSendStop(I2C_TIMEOUT); 
 }
 
+
+/*!
+ * @ Résumé Cette fonction permet de lire les données
+ * d'absorption de la LED rouge et infrarouge contenues dans
+ * le registre FIFO_DATA. Elle stock les 18 premiers bits lus
+ * dans le buffer rouge et les 18 prochains dans le buffer infrarouge
+ *
+ * @param[in] red_LEd  : Tableau dans lequel les valeurs d'absorption de rouge sont stockées
+ * @param[in] ir_LED   : Tableau dans lequel les valeurs d'absorption d'infrarouge sont stockées
+ * @param[in] compteur : Valeur qui permet d'incrémenter les cases des deux buffers.
+ *
+ * @return None
+ * 
+ */
 void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
     //ou remplacer par tableau
     uint8_t i2c_data [6];
         
-    readMultipleBytes(REG_FIFO_DATA,i2c_data,6);
-    red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);
-    ir_LED[compteur]=((0b00000011&i2c_data[3])<<16)+(i2c_data[4]<<8)+(i2c_data[5]);
-    //changement en uint32_t et enlever le cast en (float)
+    readMultipleBytes(REG_FIFO_DATA,i2c_data,6);                                        // Lecture de 6 bytes à la fois. 3 bytes pour le rouge et 3 byte pour l'infrarouge.
+    red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);    // Prise des 18 premiers bits pour le RED channel
+    ir_LED[compteur]=((0b00000011&i2c_data[3])<<16)+(i2c_data[4]<<8)+(i2c_data[5]);     // Prise des 18 prochains bits pour le IR channel
+    
     
     // vérification bonnes données
     char cRed[6];
@@ -106,6 +158,16 @@ void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
     
 }
 
+
+/*!
+ * @ Résumé Cette fonction permet de changer la valeur 
+ * d'intensité de la LED rouge
+ *
+ * @param[in] ledAmp_red  : Valeur d'intensité de le LED rouge
+ * 
+ * @return None
+ * 
+ */
 void changeLED_red (short int ledAmp_red)
 {
     
@@ -115,6 +177,15 @@ void changeLED_red (short int ledAmp_red)
 }
     
 
+/*!
+ * @ Résumé Cette fonction permet de changer la valeur 
+ * d'intensité de la LED infrarouge
+ *
+ * @param[in] ledAmp_IR  : Valeur d'intensité de le LED infrarouge
+ * 
+ * @return None
+ * 
+ */
 void changeLED_IR (short int ledAmp_IR)
 {
     

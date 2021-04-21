@@ -56,11 +56,5 @@
         .intrPriority = CapSense_ISR__INTC_CORTEXM4_PRIORITY
     };
 
-    /* SysInt_AccINT */
-    const cy_stc_sysint_t SysInt_AccINT_cfg = {
-        .intrSrc = (IRQn_Type)SysInt_AccINT__INTC_NUMBER,
-        .intrPriority = SysInt_AccINT__INTC_CORTEXM4_PRIORITY
-    };
-
 #endif /* ((__CORTEX_M == 4) && (CY_CORE_ID == 0)) */
 
