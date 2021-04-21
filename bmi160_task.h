@@ -16,14 +16,12 @@
 static struct bmi160_dev bmi160Sensor;
 union bmi160_int_status bmi160Status;
 
-//TaskHandle_t xTaskHandleMotion;
 
 
-static void bmi160Config ();
-static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
-static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
-static void bmi160Config ();
+int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
+int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
+void bmi160Config ();
 void get_accData ();
 void anyMotionInt_set();
 void anyMotion_Interrupt ();
-void Task_Motion(void* pvParameters);
+void Task_Motion();

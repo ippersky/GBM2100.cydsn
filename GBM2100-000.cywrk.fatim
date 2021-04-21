@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\MAX30102.c">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -104,42 +104,41 @@
 <v>GBM2100-000\CE223468_PSoC6_Interfacing_BMI160(I2C)_FreeRTOS.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GBM2100-000\GBM2100\TopDesign</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\Pins</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\Analog</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\DMA</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\Clocks</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\Interrupts</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\System</v>
-<v>GBM2100-000\GBM2100\GBM2100.cydwr\Directives</v>
-<v>GBM2100-000\GBM2100\CM0p (Core 0)</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM GCC Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM GCC Generic\cy8c6xx7_cm4_dual.ld</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM IAR Generic\cy8c6xx7_cm4_dual.icf</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\ARM MDK Generic\cy8c6xx7_cm4_dual.scat</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Bosch</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Bosch\bmi160.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Bosch\bmi160.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Bosch\bmi160_defs.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\bmi160_task.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\debug.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\FreeRTOSConfig.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\MAX30102.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\params.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Images</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Images\Cypress Logo Full Color_PNG_1bpp.c</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\New Folder01</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM GCC Generic\startup_psoc6_01_cm4.S</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM IAR Generic\startup_psoc6_01_cm4.s</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM MDK Generic</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\ARM MDK Generic\startup_psoc6_01_cm4.s</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\bmi160_task.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\main_cm4.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\MAX30102.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\system_psoc6_cm4.c</v>
+<v>GBM2100-000\GBM2100\Shared Files</v>
+<v>GBM2100-000\GBM2100\Shared Files\cy_ipc_config.c</v>
+<v>GBM2100-000\GBM2100\Shared Files\cy_ipc_config.h</v>
+<v>GBM2100-000\GBM2100\Shared Files\stdio_user.c</v>
+<v>GBM2100-000\GBM2100\Shared Files\stdio_user.h</v>
+<v>GBM2100-000\GBM2100\Generated_Source</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\cmsis</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\devices</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\device</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\efuse</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\flash</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\gpio</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\ipc</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\lvd</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\profile</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\prot</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\scb</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_common.c</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_common.h</v>
+<v>GBM2100-000\GBM2100\Generated_Source\PSoC6\pdl\drivers\peripheral\scb\cy_scb_ezi2c.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000">
@@ -306,7 +305,6 @@
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cyfitter_sysint_cfg.lst</v>
 <v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>GBM2100-000\GBM2100\CortexM0p\ARM_GCC_541\Debug\Listing Files\GUI_X.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -353,14 +351,11 @@
 <OpenDocs>
 <name v=".\TopDesign\TopDesign.cysch" />
 <name v=".\main_cm4.c" />
-<name v=".\MAX30102.c" />
 <name v=".\bmi160_task.c" />
 <name v=".\bmi160_task.h" />
-<name v=".\GBM2100.cydwr" />
-<name v=".\FreeRTOSConfig.h" />
-<name v=".\MAX30102.h" />
 <name v=".\Generated_Source\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c" />
 <name v=".\BMI160_driver-master\bmi160.c" />
+<name v=".\MAX30102.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -368,7 +363,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1490, 537" SelectedTabbedMdiWindow="3be42a83-9a35-43a9-abba-68dc8ad9c479"><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="725e3377-3cfb-4a0b-8532-d5ba1875f4ec" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\main_cm4.c" Guid="3a641043-da21-442b-8095-c94ffe11e52a" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\MAX30102.c" Guid="a1190250-d991-44ab-8f7c-609c99dd0b98" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\bmi160_task.c" Guid="ded51d8c-6539-4e09-b681-3a2d4424e2a4" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\bmi160_task.h" Guid="3be42a83-9a35-43a9-abba-68dc8ad9c479" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\GBM2100.cydwr" Guid="55518d38-6074-4922-8ce5-7c49c7555ad2" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\FreeRTOSConfig.h" Guid="7e2e5679-9203-400f-8674-88c5fdb4f255" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\MAX30102.h" Guid="aa6c2007-f8bf-4632-a6e2-440464b53806" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c" Guid="1cd5eb30-5950-4861-9e05-0c23bd3ac11f" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="45068785-0f1f-40a2-81ad-4631b648d04a" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\BMI160_driver-master\bmi160.c" Guid="70e43620-e813-435c-a809-25cb0932dc37" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="718, 527" SelectedTabbedMdiWindow="3b813960-f226-4825-b65a-4769bb29b89a"><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\TopDesign\TopDesign.cysch" Guid="725e3377-3cfb-4a0b-8532-d5ba1875f4ec" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\main_cm4.c" Guid="3a641043-da21-442b-8095-c94ffe11e52a" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\bmi160_task.c" Guid="ded51d8c-6539-4e09-b681-3a2d4424e2a4" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\bmi160_task.h" Guid="3be42a83-9a35-43a9-abba-68dc8ad9c479" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c" Guid="1cd5eb30-5950-4861-9e05-0c23bd3ac11f" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="45068785-0f1f-40a2-81ad-4631b648d04a" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\BMI160_driver-master\bmi160.c" Guid="70e43620-e813-435c-a809-25cb0932dc37" /><DocumentWindow Key="C:\Users\fatim\Desktop\Polytechnique\GBM2100.cydsn\MAX30102.c" Guid="3b813960-f226-4825-b65a-4769bb29b89a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

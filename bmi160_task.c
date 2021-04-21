@@ -19,6 +19,7 @@
 #include "semphr.h"
 
 
+
 /*!
  * @ Résumé Cette fonction permet de lire la valeur contenue
  * dans un registre du BMI160.
@@ -33,7 +34,7 @@
  * 
  */
 
-static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
+int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
     Cy_SCB_I2C_MasterSendStart(I2C_BMI_HW,dev_adresse,CY_SCB_I2C_WRITE_XFER,0,&I2C_BMI_context);
     Cy_SCB_I2C_MasterWriteByte(I2C_BMI_HW,reg_adresse,0,&I2C_BMI_context);
@@ -60,7 +61,7 @@ static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *dat
  * 
  */
 
-static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
+int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length){
     
     Cy_SCB_I2C_MasterSendStart(I2C_BMI_HW,dev_adresse,CY_SCB_I2C_WRITE_XFER,0,&I2C_BMI_context);
     Cy_SCB_I2C_MasterWriteByte(I2C_BMI_HW,reg_adresse,0,&I2C_BMI_context);
@@ -88,14 +89,14 @@ static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data
  * @return None
  * 
  */
-static void bmi160Config ()
+void bmi160Config ()
 {
-    vTaskDelay(100); //guess
+     //guess
     /*BMI160*/
 
     bmi160Sensor.read       = (bmi160_read_fptr_t)bmi160Read;
     bmi160Sensor.write      = (bmi160_write_fptr_t)bmi160Write;
-    bmi160Sensor.delay_ms   = (bmi160_delay_fptr_t)vTaskDelay;
+    bmi160Sensor.delay_ms   = (bmi160_delay_fptr_t)CyDelay;
     bmi160Sensor.id         = BMI160_I2C_ADDR; //I2C device address
     
     bmi160_init(&bmi160Sensor);// initialize the device
@@ -141,13 +142,13 @@ void get_accData ()
         {
             printf("Interruption!\r\n");
             bmi160Status.bit.anym=0;
-            vTaskDelay(pdMS_TO_TICKS(5000));
+            CyDelay(5000);
             
         }
         else
         {
         printf("x=%1.2f y=%1.2f z=%1.2f \r\n",gx,gy,gz);
-        vTaskDelay(200);
+        CyDelay(200);
         }
         
     }
@@ -206,9 +207,9 @@ void anyMotionInt_set()
 
  
     
-void Task_Motion(void* pvParameters)
+void Task_Motion()
 {
-    (void)pvParameters;
+    //(void)pvParameters;
     
 
     I2C_BMI_Start();
