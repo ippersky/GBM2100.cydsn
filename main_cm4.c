@@ -42,11 +42,13 @@ volatile SemaphoreHandle_t bouton_semph;
 volatile SemaphoreHandle_t active_task;
 
 
-/*************************************************************************/
-/*
- * 
- */
-
+/*******************************************************************************
+Fonction : void isr_bouton(void)
+Sommaire : Fonction de l'interrupt du bouton 2 (bouton mécanique)
+Donne un sémaphore si il y a interruption. 
+Parametres : None
+Return: None
+*******************************************************************************/
 void isr_bouton(void){
     
     xSemaphoreGiveFromISR(bouton_semph, NULL);
@@ -56,10 +58,16 @@ void isr_bouton(void){
 
 }
 
-/*
- * 
- */
 
+/*******************************************************************************
+Fonction : void isr_bouton(void)
+
+Sommaire : Fonction de la tâche du bouton 2. Reçoit sémaphore s'il y a interruption.
+Écrit dans la queue que le bouton 2 est touché. 
+
+Parametres : void *arg (pas utilisé)
+Return: None
+*******************************************************************************/
 void Task_Bouton2(void *arg){
     
     (void) arg;
@@ -68,15 +76,14 @@ void Task_Bouton2(void *arg){
     
     for(;;){
         
-        if(xSemaphoreTake(bouton_semph, portMAX_DELAY) == pdTRUE){
+        if(xSemaphoreTake(bouton_semph, portMAX_DELAY) == pdTRUE){ // reste bloqué indéfiniment si ne reçoit pas de semaphore
             
             currentTouch =  BUTTON2_TOUCHED;
             xQueueSend(touchDataQ, &currentTouch, ( TickType_t ) 0);
             currentTouch = NO_TOUCH;
             vTaskDelay(pdMS_TO_TICKS(100));
             
-            //vTaskDelay(pdMS_TO_TICKS(20));
-        }
+         }
 
     }
 }

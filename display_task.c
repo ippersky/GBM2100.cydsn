@@ -18,13 +18,14 @@ uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
 
 int16_t vecteurConverti[BUFFER_LENGTH] = {};  
 int16_t vecteurAffichage[260] = {}; 
-size_t longueurData = BUFFER_LENGTH;  //sizeof(vecteurData)/sizeof(uint32_t); // 160
-size_t indexDebut = 200;
-size_t espacement = 3;      // longeurData/nbrePixelY ; 1000/264 = 3.79
+size_t longueurData = BUFFER_LENGTH;  
+size_t indexDebut = 200; // Pour elever la grosse pente montante que fait le filtre
+                         // les données restantes du buffer d'acquisition seront
+                         // assez proches. Il n'aura pas de problème d'un minimum très loin du reste des valeurs. 
+size_t espacement = 3;      
 
 
-// 0 a 255
-uint8_t courantLEDrouge = 175;
+uint8_t courantLEDrouge = 175;  // 0 a 255
 uint8_t courantLEDir = 175;
 
 uint8_t flagAlarmeBPM = OFF;
@@ -34,8 +35,15 @@ float32_t borneMaxBPM = 130;
 float32_t borneMinBPM = 60;
 
 uint8_t currentCourbe = RED;
-//////////////////////////////////////////////////////////////////////
 
+
+/*******************************************************************************
+Fonction : void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle)
+Sommaire : Update l'écran eInk
+Parametres :  cy_eink_update_t updateMethod
+bool powerCycle
+Return: None  
+*******************************************************************************/
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle)
 {
     cy_eink_frame_t* pEmwinBuffer;
@@ -51,15 +59,13 @@ void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle)
 }
 
 
-void ClearScreen(void)
-{
-    GUI_SetColor(GUI_BLACK);
-    GUI_SetBkColor(GUI_WHITE);
-    GUI_Clear();
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-}
 
-
+/*******************************************************************************
+Fonction : void DisplayInit(void)
+Sommaire : Initialise GUI et écran EInk 
+Parametres : None
+Return: None  
+*******************************************************************************/
 void DisplayInit(void){
     
     /* Initialize emWin Graphics */
@@ -75,13 +81,34 @@ void DisplayInit(void){
     GUI_Clear();
 }
 
+/*******************************************************************************
+Fonction : void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData)
 
+Sommaire : Converti les données d'acquisition de uint32_t à int16_t, car la fonction
+d'affichage GUI_DrawGraph() utilise seulement des int16
+
+Parametres : int16_t* vConverti (vecteur où sont rangées les données converties en int16)
+uint32_t* vData (buffer de données d'acquisition)
+size_t lData (longueur du buffer de données d'acquisition) 
+
+Return: None  
+*******************************************************************************/
 void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData){
     for(int i =0; i < lData; i++){
         vConverti[i] = vData[i]/100;
     }
 }
 
+/*******************************************************************************
+Fonction : int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData)
+
+Sommaire : Trouve la valeur minimale du vecteur donné en paramètre
+
+Parametres : int16_t* vConverti (vecteur où sont rangées les données converties en int16)
+size_t lData (longueur du buffer de données d'acquisition) 
+
+Return: int min (la valeur minimale)
+*******************************************************************************/
 int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
     int16_t min = vConverti[indexDebut];    // Ne commence pas au début, à cause du problème mentionné plus haut
     for(int i = indexDebut; i < lData; i++){       
@@ -91,7 +118,16 @@ int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
     }
     return min;
 }
+/*******************************************************************************
+Fonction : int16_t trouverMaximumVecteur(int16_t* vConverti, size_t lData)
 
+Sommaire : Trouve la valeur maximale du vecteur donné en paramètre
+
+Parametres : int16_t* vConverti (vecteur où sont rangées les données converties en int16)
+size_t lData (longueur du buffer de données d'acquisition) 
+
+Return: int max (la valeur maximale)
+*******************************************************************************/
 int16_t trouverMaximumVecteur(int16_t* vConverti, size_t lData){
     int16_t max = vConverti[indexDebut];    // Ne commence pas au début, à cause du problème mentionné plus haut
     for(int i = indexDebut; i < lData; i++){
@@ -102,6 +138,20 @@ int16_t trouverMaximumVecteur(int16_t* vConverti, size_t lData){
     return max;
 }
 
+/*******************************************************************************
+Fonction : void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement)
+
+Sommaire : Fait des calculs avec les données du vecteur converti en int16 pour obtenir 
+des données finales qu'on peut afficher sur l'écran EInk
+
+Parametres : int16_t* vConverti (vecteur où sont rangées les données converties en int16)
+int16_t* vAffichage (vecteur où sont rangées les données prêtes à être affichées)
+size_t lData (longueur du buffer de données d'acquisition) 
+size_t espacement (bond à laquelle choisir des données à afficher, car il y a un nombre limité
+de pixels en y. On ne peut pas afficher tous les données de vConverti) 
+
+Return: None
+*******************************************************************************/
 void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData, size_t espacement){
     
     int16_t min = trouverMinimumVecteur(vConverti, lData);
@@ -124,43 +174,52 @@ void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData
 }
 
 
+/*******************************************************************************
+Fonction : void afficherMenuPrincipal(uint32_t * vData)
 
+Sommaire : Affiche le menu principal : appelle les fonctions pour convertir le 
+buffer de données pris en paramètre en données affichables sur l'écran, affiche 
+la courbe, appelle la fonction pour actualiser les parametres (BPM, SPO2, courbe 
+affichee)
+
+Parametres :  uint32_t * vData (Pointeur vers le buffer de donnée)
+
+Return: None
+*******************************************************************************/
 void afficherMenuPrincipal(uint32_t * vData){
     
-    // en argument : int16_t * vConverti, int16_t * vAffichage
-    //size_t longueurData = *ptrLongueurData;
-    
-    
-    //if(xSemaphoreTake == TRUE)
-    //int longueurAffichage = (longueurData-indexDebut)/espacement;
     GUI_Clear();
     
     convertirVecteurEnInt16(vecteurConverti, vData, longueurData);
     creerVecteurAffichage(vecteurConverti, vecteurAffichage, longueurData, espacement);
     GUI_DrawGraph(vecteurAffichage, VECTEUR_AFFICHAGE_LENGHT, 0, 0);
     
-    updateParametres(SPO2, BPM, currentCourbe);
-    
-    //UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
-    
-    //GiveSemaphore
-    //}
-   
+    updateParametres(SPO2, BPM, currentCourbe);   
 
 }
 
 
-//////////////////UPDATE PARAMETRES////////////////////////
+/*******************************************************************************
+Fonction : void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)
+
+Sommaire : Update les parametres : BPM, SPO2 et la courbe présentement affichée
+Si les flags pour les alarmes sont levés, affiche les messages d'alarme correspondant. 
+
+Parametres :  float32_t SPO2 (valeur du SPO2)
+float32_t BPM (valeur du BPM)
+uint8_t currentCourbe (la courbe presentement affichée)
+
+Return: None
+*******************************************************************************/
 void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // mettre en argument les variables de bornes et flagAlarme ??
 {
     char sSPO2[10];
     gcvtf(SPO2, 4, sSPO2);
-    //itoa(SPO2, sSPO2, 4);
+
     
     char sBPM[10];
     gcvtf(BPM, 4, sBPM);
-    //itoa(BPM, sBPM, 4);
+
     
     
     GUI_SetFont(GUI_FONT_16B_1);
@@ -170,8 +229,7 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // 
     GUI_SetFont(GUI_FONT_16B_1);
     GUI_DispStringAt("BPM : ", 125, 153);
     GUI_DispStringAt(sBPM, 168, 153);
-    //GUI_DispStringAt("batt/min", 205, 153); // necessaire?
-                                            // intensite lED a la place?
+
      
     if(currentCourbe == RED)
         GUI_DispStringAt("ROUGE", 205, 153);    
@@ -180,7 +238,7 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // 
     
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
-    if(flagAlarmeBPM == ON){        // on peut mettre ca avant le update
+    if(flagAlarmeBPM == ON){        
         uint8_t font = 16;
         GUI_SetFont(GUI_FONT_16_1);
         
@@ -245,7 +303,15 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // 
 
 
 
-//////////////////AFFICHER MENU SECONDAIRE-TERTIARE////////////////////////
+/*******************************************************************************
+Fonction : void afficherMenuSecondaire(uint8_t * ptrOptionPresent)
+
+Sommaire : Affiche le menu secondaire, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1. 
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+Return: None
+*******************************************************************************/
 void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -270,6 +336,12 @@ void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
     
 }
 
+/*******************************************************************************
+Fonction : void updateMenuSecondaire(uint8_t * ptrOptionPresent)
+Sommaire : Update l'emplacement du curseur selon l'option actuelle 
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+Return: None
+*******************************************************************************/
 void updateMenuSecondaire(uint8_t * ptrOptionPresent){
     
     uint8_t font = 20;
@@ -306,8 +378,15 @@ void updateMenuSecondaire(uint8_t * ptrOptionPresent){
 }
 
 
-/////////// fonctions affichage des menus tertiaires /////////
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire1(uint8_t * ptrOptionPresent)
 
+Sommaire : Affiche le menu tertiaire 1, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1.  
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire1(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -324,6 +403,15 @@ void afficherMenuTertiaire1(uint8_t * ptrOptionPresent){
         
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire2(uint8_t * ptrOptionPresent)
+
+Sommaire : Affiche le menu tertiaire 2, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1.  
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire2(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -340,7 +428,15 @@ void afficherMenuTertiaire2(uint8_t * ptrOptionPresent){
         
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire3(uint8_t * ptrOptionPresent)
 
+Sommaire : Affiche le menu tertiaire 3, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1.  
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire3(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -357,6 +453,13 @@ void afficherMenuTertiaire3(uint8_t * ptrOptionPresent){
         
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire4()
+Sommaire : Affiche le menu tertiaire 4. Indique la courbe présentement affichée (rouge ou infrarouge) 
+Parametres :  None (Ne prend rien en parametre, car la variable indiquant la courbe présentement
+affichée est une variable globale)
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire4(){
 
     uint8_t font = 20;
@@ -382,8 +485,12 @@ void afficherMenuTertiaire4(){
         
 }
 
-///////// fonction de update menus tertiaires ///////
-
+/*******************************************************************************
+Fonction : void updateMenuTertiaire(uint8_t * ptrOptionPresent
+Sommaire : Update l'emplacement du curseur selon l'option actuelle 
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+Return: None
+*******************************************************************************/
 void updateMenuTertiaire(uint8_t * ptrOptionPresent){
     
     uint8_t font = 20;
@@ -405,8 +512,17 @@ void updateMenuTertiaire(uint8_t * ptrOptionPresent){
     }
 }
 
-////////// fonctions affichage des menus quaternaires //////////
+/*******************************************************************************
+Fonction : void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire)
 
+Sommaire : Affiche le menu quaternaire 1 : modifier le courant d'un LED. Dépendemment de l'option choisi au menu tertiaire, 
+affiche le courant pour la LED rouge ou le courant pour la LED IR. 
+
+Parametres : uint8_t * ptrCourantLED (pointeur vers le courant du LED)
+uint8_t * ptrOptionTertiaire (pointeur vers l'option choisi au menu tertiaire)
+
+Return: None
+*******************************************************************************/
 void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
 
     uint8_t font = 20;
@@ -442,6 +558,17 @@ void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
 
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire)
+
+Sommaire : Affiche le menu quaternaire 2 : modifier une borne de l'alarme BPM. 
+Dépendemment de l'option choisi au menu tertiaire, affiche la borne maximale ou la borne minimale actuelle
+
+Parametres : float32_t * ptrBorneBPM (pointeur vers la valeur de la borne)
+uint8_t * ptrOptionTertiaire (pointeur vers l'option choisi au menu tertiaire)
+
+Return: None
+*******************************************************************************/
 void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
     
     uint8_t font = 20;
@@ -472,6 +599,19 @@ void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
     
 }
 
+
+/*******************************************************************************
+Fonction : void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire)
+
+Sommaire : Affiche le menu quaternaire 3 : activer ou désactiver une alarme.
+Dépendemment de l'option choisi au menu tertiaire, affiche l'état actuel de l'alarme BPM ou 
+de l'alarme accéléromètre.
+
+Parametres : uint8_t * ptrFlagAlarme (pointeur vers l'état de l'alarme)
+uint8_t * ptrOptionTertiaire (pointeur vers l'option choisi au menu tertiaire)
+
+Return: None
+*******************************************************************************/
 void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
     
     uint8_t font = 20;
@@ -505,22 +645,23 @@ void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
 
 
 
-////////////////////////// fonction du Task ////////////////////////////
-
+/*******************************************************************************
+Fonction : Task_Display(void *data)
+Sommaire : Fonction de la tâche d'affichage. Dépendamment de l'information 
+obtenue de la queue (quel bouton a été touché) et de la page de menu actuelle,
+effectue quelque chose. 
+Parametres : void *data  (pas utilisé dans la tâche)
+Return: None
+*******************************************************************************/
 void Task_AffichageGraphique(void *data){
    
-    //int32_t * vecteurData = (int32_t *)data;   
-    // si Task prend en argument le vecteur data original 
     
     DisplayInit();
-
 
     
     uint8_t optionMenuSecondaire = 0;
     uint8_t optionMenuTertiaire = 0;
-    //uint8_t optionMenuTertiare2 = 0;
-    //uint8_t optionMenuTertiare3 = 0;
-    //uint8_t optionMenuTertiare4 = 0;
+
     
     page_data_t currentPage = MENU_PRINCIPAL;
     
@@ -536,13 +677,13 @@ void Task_AffichageGraphique(void *data){
     
         rtosApiResult = xQueueReceive(touchDataQ, &touchData, portMAX_DELAY);
                 
-        if (rtosApiResult == pdTRUE)
+        if (rtosApiResult == pdTRUE) // si on reçoit quelque chose de la queue
         {
             vTaskSuspend(xSample);
             
             
     
-            if(touchData == BUTTON0_TOUCHED){   //aller a la prochaine page
+            if(touchData == BUTTON0_TOUCHED){   
                 switch(currentPage){
                     case MENU_PRINCIPAL:
                         afficherMenuSecondaire(&optionMenuSecondaire);
@@ -607,21 +748,6 @@ void Task_AffichageGraphique(void *data){
                         }
                                     
                     case MENU_TERTIAIRE_4:
-                        /*if (optionMenuTertiaire == 1){
-                            vData = filteredIR;
-                            afficherMenuPrincipal(vData);
-                            vTaskResume(xSample);
-                            currentPage = MENU_PRINCIPAL;
-                            break;
-                        }
-                        else if (optionMenuTertiaire == 2){
-                            vData = filteredIR;
-                            
-                            afficherMenuPrincipal(vData);
-                            vTaskResume(xSample);
-                            currentPage = MENU_PRINCIPAL;
-                            break;
-                        }*/
                         currentCourbe = RED;
                         vData = filteredRED;
                         afficherMenuTertiaire4();
@@ -642,7 +768,7 @@ void Task_AffichageGraphique(void *data){
                             courantLEDir = 0;
                         afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);
                         break;
-                    /////// Quat 2 //////
+                    /////// menu quat 2 //////
                     case MENU_QUAT_2_1:
                         borneMaxBPM -= 5;
                         afficherMenuQuat2(&borneMaxBPM, &optionMenuTertiaire);
@@ -651,7 +777,7 @@ void Task_AffichageGraphique(void *data){
                         borneMinBPM -= 5;
                         afficherMenuQuat2(&borneMinBPM, &optionMenuTertiaire);
                         break;
-                    /////// Quat 3 ///////
+                    /////// menu quat 3 ///////
                     case MENU_QUAT_3_1:
                         flagAlarmeAcclerometre = ON;
                         afficherMenuQuat3(&flagAlarmeAcclerometre, &optionMenuTertiaire);
@@ -668,21 +794,21 @@ void Task_AffichageGraphique(void *data){
             }
             
             
-            else if(touchData == BUTTON1_TOUCHED){   //deplacer le curseur
+            else if(touchData == BUTTON1_TOUCHED){   
                 
                 if (currentPage == MENU_SECONDAIRE)
                     updateMenuSecondaire(&optionMenuSecondaire);
                 else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3){
                     updateMenuTertiaire(&optionMenuTertiaire);
                 }
-                ////// menu tertiaire 4 (affichage courbe) //////
+                ////// menu tertiaire 4 /////
                 else if(currentPage == MENU_TERTIAIRE_4){
                     currentCourbe = IR;
                     vData = filteredIR;
                     afficherMenuTertiaire4();                
                 }
                 
-                ////// menus quat 1 //////
+                ////// menu quat 1 //////
                 
                 else if(currentPage == MENU_QUAT_1_1){
                     if(courantLEDrouge <= 255-25)
@@ -692,7 +818,7 @@ void Task_AffichageGraphique(void *data){
                     afficherMenuQuat1(&courantLEDrouge, &optionMenuTertiaire);
                 }
                 else if(currentPage == MENU_QUAT_1_2){
-                    if(courantLEDir <= 200-25)      //Max permis car sinon saturation
+                    if(courantLEDir <= 200-25)      //Max permis à 40 mA (200) car sinon saturation
                         courantLEDir += 25;
                     else
                         courantLEDir = 200;
@@ -723,7 +849,7 @@ void Task_AffichageGraphique(void *data){
             
             
             
-            else if(touchData == BUTTON2_TOUCHED){    // retourner en arriere
+            else if(touchData == BUTTON2_TOUCHED){   
                 
                 if(currentPage == MENU_PRINCIPAL){
                     afficherMenuPrincipal(vData);
@@ -739,7 +865,8 @@ void Task_AffichageGraphique(void *data){
                     afficherMenuSecondaire(&optionMenuSecondaire);
                     currentPage = MENU_SECONDAIRE;
                 }
-                                ////// menu tertiaire 4 (affichage courbe) //////
+                
+                ////// menu tertiaire 4 //////
                 else if(currentPage == MENU_TERTIAIRE_4){
                     afficherMenuPrincipal(vData);
                     currentPage = MENU_PRINCIPAL;
@@ -747,19 +874,17 @@ void Task_AffichageGraphique(void *data){
                 ////// menus quat 1 //////
                 else if(currentPage == MENU_QUAT_1_1){        
                     // appel fonction qui ecrit dans le registre LED rouge 
-                    // OU lever flag
                     changeLED_red(courantLEDrouge);
                     afficherMenuPrincipal(vData);
                     vTaskResume(xSample);
-                    currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
+                    currentPage = MENU_PRINCIPAL;   
                 }
                 else if(currentPage == MENU_QUAT_1_2){
                     // appel fonction qui ecrit dans le registre LED rouge 
-                    // OU lever flag
                     changeLED_IR(courantLEDir);
                     afficherMenuPrincipal(vData);
                     vTaskResume(xSample);
-                    currentPage = MENU_PRINCIPAL;   // ou retour vers menu tertiaire/ secondaire??
+                    currentPage = MENU_PRINCIPAL;   
                 }
                 
                 ///// Menu Quat 2 /////
@@ -781,8 +906,6 @@ void Task_AffichageGraphique(void *data){
 
         }
     
-
-    //GUI_Clear();
     
     }
 

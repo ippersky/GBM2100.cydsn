@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\variables.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\touch_task.h">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -102,9 +102,6 @@
 <v>GBM2100-000\GBM2100\Generated_Source\PSoC6</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\algorithme.h</v>
-<v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\arm_math.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\bmi160.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\bmi160_defs.h</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\bmi160_task.h</v>
@@ -129,6 +126,9 @@
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\bmi160.c</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\bmi160_task.c</v>
 <v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\display_task.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\main_cm4.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\MAX30102.c</v>
+<v>GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\stdio_user.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -377,6 +377,9 @@
 <name v=".\display_task.c" />
 <name v=".\display_task.h" />
 <name v=".\variables.h" />
+<name v=".\main_cm4.c" />
+<name v=".\touch_task.c" />
+<name v=".\touch_task.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -384,7 +387,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="559, 365" SelectedTabbedMdiWindow="a58569cc-bb8a-479c-a913-e3f6d35af377"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="8148ec6c-ea7e-4a5f-98bb-245aa8877baa" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.c" Guid="a58569cc-bb8a-479c-a913-e3f6d35af377" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.h" Guid="5039029b-7288-4415-b1a8-5d83a47efdde" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\variables.h" Guid="d8d93dda-a8b8-4eb8-9723-4a9ff15529c8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="720, 365" SelectedTabbedMdiWindow="0d0dcb6c-91a1-4072-aa28-87e369ba4d4c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="8148ec6c-ea7e-4a5f-98bb-245aa8877baa" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.c" Guid="a58569cc-bb8a-479c-a913-e3f6d35af377" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\display_task.h" Guid="5039029b-7288-4415-b1a8-5d83a47efdde" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\variables.h" Guid="d8d93dda-a8b8-4eb8-9723-4a9ff15529c8" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\main_cm4.c" Guid="02914819-d53e-474d-9882-a8dccffe2537" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\touch_task.c" Guid="0d0dcb6c-91a1-4072-aa28-87e369ba4d4c" /><DocumentWindow Key="C:\Users\mihbs\Documents\PSoC Creator\PROJET\GBM2100.cydsn\touch_task.h" Guid="3dc183ce-d1cf-4443-af1f-c1d85a431aef" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

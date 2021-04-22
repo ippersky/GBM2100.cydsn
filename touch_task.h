@@ -24,8 +24,7 @@
 #include "task.h"     
 #include "semphr.h"
     
-#include "display_task.h"   // pour avoir access aux fonctions d'affichage
-                            // utile pour debug 
+#include "display_task.h"   
 
 /* Data-type for touch data */
 typedef enum
@@ -33,7 +32,6 @@ typedef enum
     BUTTON0_TOUCHED     = 0x00u,
     BUTTON1_TOUCHED     = 0x01u,  
     BUTTON2_TOUCHED     = 0x02u, 
-    //SLIDER_FLICK_LEFT   = 0x02u,    //SLIDER_FLICK_RIGHT  = 0x03u,
     NO_TOUCH            = 0x03u
     
 }   touch_data_t; 
