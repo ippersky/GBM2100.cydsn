@@ -11,14 +11,17 @@
 */
 
 #include "display_task.h"
-#include "MAX30102.h"
+
 
 uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
+#define VECTEUR_AFFICHAGE_LENGHT    260  // car il y a 264 pixels en y 
 
-int16_t vecteurConverti[1000] = {};  
+int16_t vecteurConverti[BUFFER_LENGTH] = {};  
 int16_t vecteurAffichage[260] = {}; 
-size_t longueurData = 1000;  //sizeof(vecteurData)/sizeof(uint32_t); // 160
+size_t longueurData = BUFFER_LENGTH;  //sizeof(vecteurData)/sizeof(uint32_t); // 160
+size_t indexDebut = 200;
 size_t espacement = 3;      // longeurData/nbrePixelY ; 1000/264 = 3.79
+
 
 // 0 a 255
 uint8_t courantLEDrouge = 175;
@@ -30,7 +33,7 @@ uint8_t flagAlarmeAcclerometre = ON;
 float32_t borneMaxBPM = 130;
 float32_t borneMinBPM = 60;
 
-
+uint8_t currentCourbe = RED;
 //////////////////////////////////////////////////////////////////////
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle)
@@ -80,8 +83,8 @@ void convertirVecteurEnInt16(int16_t* vConverti, uint32_t* vData, size_t lData){
 }
 
 int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
-    int16_t min = vConverti[200]; // 200 enlève pente du filtre
-    for(int i =200; i < lData; i++){
+    int16_t min = vConverti[indexDebut];    // Ne commence pas au début, à cause du problème mentionné plus haut
+    for(int i = indexDebut; i < lData; i++){       
         if(vConverti[i] < min){
             min = vConverti[i];
         }
@@ -90,8 +93,8 @@ int16_t trouverMinimumVecteur(int16_t* vConverti, size_t lData){
 }
 
 int16_t trouverMaximumVecteur(int16_t* vConverti, size_t lData){
-    int16_t max = vConverti[200];
-    for(int i =200; i < lData; i++){
+    int16_t max = vConverti[indexDebut];    // Ne commence pas au début, à cause du problème mentionné plus haut
+    for(int i = indexDebut; i < lData; i++){
         if(vConverti[i] > max){
             max = vConverti[i];
         }
@@ -105,10 +108,17 @@ void creerVecteurAffichage(int16_t* vConverti, int16_t* vAffichage, size_t lData
     int16_t max = trouverMaximumVecteur(vConverti, lData);
     
     int j = 0;
-    for(int i=200; i < lData-21; i+=espacement){
-        vAffichage[j] = (150*(vConverti[i]-min))/(max-min); // graphique : 150 pixels en y
-        vAffichage[j] = (vAffichage[j]*-1)+150;             // INVERSION car (0,0) est en haut a gauche (pas en bas a gauche)
-                                                            // les + grandes valeurs sont donc affichees plus bas sur l'ecran
+    for(int i = indexDebut; i < lData-21; i+=espacement){   
+        // lData-21 : i va ainsi de 200 à 979. 
+        // 979 - 200 = 779.
+        // nbre de données dans vAffichage = 779/espacement = 779/3 = 260. Cela respecte donc la grandeur du vecteur d'affichage
+        
+        vAffichage[j] = (150*(vConverti[i]-min))/(max-min); // Courbe : 150 pixels en y
+        
+        // INVERSION car (0,0) est en haut a gauche (pas en bas a gauche)
+        vAffichage[j] = (vAffichage[j]*-1)+150; 
+        // Les + grandes valeurs sont maintenant affichees plus bas sur l'ecran
+                                                            
         j++;                                                       
     }
 }
@@ -120,18 +130,25 @@ void afficherMenuPrincipal(uint32_t * vData){
     // en argument : int16_t * vConverti, int16_t * vAffichage
     //size_t longueurData = *ptrLongueurData;
     
-    int longueurAffichage = longueurData/espacement;
+    
+    //if(xSemaphoreTake == TRUE)
+    //int longueurAffichage = (longueurData-indexDebut)/espacement;
     GUI_Clear();
     
     convertirVecteurEnInt16(vecteurConverti, vData, longueurData);
     creerVecteurAffichage(vecteurConverti, vecteurAffichage, longueurData, espacement);
-    GUI_DrawGraph(vecteurAffichage, longueurAffichage, 0, 0); 
-    UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    GUI_DrawGraph(vecteurAffichage, VECTEUR_AFFICHAGE_LENGHT, 0, 0);
     
-    updateParametres(SPO2, BPM);
+    updateParametres(SPO2, BPM, currentCourbe);
+    
+    //UpdateDisplay(CY_EINK_FULL_4STAGE, true);
+    
+    
+    //GiveSemaphore
+    //}
+   
 
 }
-
 
 
 //////////////////UPDATE PARAMETRES////////////////////////
@@ -156,6 +173,11 @@ void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les 
     //GUI_DispStringAt("batt/min", 205, 153); // necessaire?
                                             // intensite lED a la place?
      
+    if(currentCourbe == RED)
+        GUI_DispStringAt("ROUGE", 205, 153);    
+    else if (currentCourbe == IR)
+        GUI_DispStringAt("IR", 205, 153);    
+    
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
     if(flagAlarmeBPM == ON){        // on peut mettre ca avant le update
@@ -193,8 +215,7 @@ void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les 
             UpdateDisplay(CY_EINK_FULL_4STAGE, true);
         
         }
-        
-        
+               
     
     }
     
@@ -226,8 +247,7 @@ void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les 
 
 //////////////////AFFICHER MENU SECONDAIRE-TERTIARE////////////////////////
 void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
-    //GUI_DrawRect
-    //ClearScreen();
+
     uint8_t font = 20;
     GUI_Clear();
     GUI_SetFont(GUI_FONT_20_1);
@@ -337,19 +357,28 @@ void afficherMenuTertiaire3(uint8_t * ptrOptionPresent){
         
 }
 
-void afficherMenuTertiaire4(uint8_t * ptrOptionPresent){
+void afficherMenuTertiaire4(){
 
     uint8_t font = 20;
     GUI_Clear();
     GUI_SetFont(GUI_FONT_20_1);
+
+
+    GUI_DispStringAt("Presentement affichee :", 20, 10); 
+    if(currentCourbe == RED){
+        GUI_DispStringAt("ROUGE", 20, 10+font);
+    }
+    else if(currentCourbe == IR){
+        GUI_DispStringAt("IR", 20, 10+font);
+    }
     
-    GUI_DispStringAt("Afficher la courbe de :", 40, 10);    
-    GUI_DispStringAt("1. Absorption rouge", 40, 10+(2*font));
-    GUI_DispStringAt("2. Absorption infrarouge", 40, 10+(4*font));
-    GUI_FillRect(10, 10+(2*font), 30, 30+(2*font));
+    GUI_DispStringAt("Afficher courbe d'absorption :", 20, 10+(2*font)); 
+        
+    GUI_SetFont(GUI_FONT_20B_1);
+    GUI_DispStringAt("Rouge", 20, 10+(5*font)); 
+    GUI_DispStringAt("Infrarouge", 145, 10+(5*font));
     
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    *ptrOptionPresent = 1;
         
 }
 
@@ -385,41 +414,31 @@ void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
     GUI_SetFont(GUI_FONT_20_1);
     
     if(*ptrOptionTertiaire == 1){
-        GUI_DispStringAt("Courant LED rouge :", 40, 10);   
+        GUI_DispStringAt("Courant LED rouge :", 40, 10);  
+        GUI_DispStringAt("Bonds de 5 mA", 40, 10+(6*font));
+        GUI_DispStringAt("Intervalle : 0 a 51 mA", 40, 10+(7*font));
     }
     else if(*ptrOptionTertiaire == 2){
         GUI_DispStringAt("Courant LED infrarouge :", 40, 10); 
+        GUI_DispStringAt("Bonds de 5 mA", 40, 10+(6*font));
+        GUI_DispStringAt("Intervalle : 0 a 40 mA", 40, 10+(7*font));
     }
 
-    GUI_DispStringAt("Bonds de 5 mA", 40, 10+(6*font));
-    GUI_DispStringAt("Intervalle : 0 a 51 mA", 40, 10+(7*font)); // à changer ir pour 40mA
     
-    GUI_DispStringAt("-", 40, 10+(3*font));
-    GUI_DispStringAt("+", 140, 10+(3*font));
+    GUI_SetFont(GUI_FONT_32B_1);
+    GUI_DispStringAt("-", 40, 3+(3*font));
+    GUI_DispStringAt("+", 160, 5+(3*font));
     
-    //GUI_FillRect(10, 10+(6*font), 30, 30+(6*font));
-    
+
+    GUI_SetFont(GUI_FONT_20_1);
     uint8_t courantHEX = *ptrCourantLED;
     float courantDEC = ((float)courantHEX*51)/255;
     
-    //char sCourantHEX[5];
-    //itoa(courantHEX, sCourantHEX, 10);
-    //GUI_DispStringAt(sCourantHEX, 90, 10+(3*font));
-    
-    /*
     char sCourantDEC[10];
-    int decpt;
-    int sgn;
-    fcvtbuf(courantDEC, 1, &decpt, &sgn, sCourantDEC);
-    GUI_DispStringAt(sCourantDEC, 90, 10+(3*font));
-    */
-    
-    char sCourantDEC[10];
-    gcvt(courantDEC, 4, sCourantDEC);   // sprintf ?? Labo3 ??
+    gcvt(courantDEC, 4, sCourantDEC);  
     GUI_DispStringAt(sCourantDEC, 90, 10+(3*font));
     
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
 
 }
 
@@ -435,10 +454,15 @@ void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
     else if(*ptrOptionTertiaire == 2){
         GUI_DispStringAt("Borne minimale BPM :", 40, 10); 
     }
-
-    GUI_DispStringAt("-", 40, 10+(3*font));
-    GUI_DispStringAt("+", 140, 10+(3*font));
     
+    GUI_DispStringAt("Bonds de 5 BPM", 40, 10+(6*font));
+    GUI_DispStringAt("Intervalle : 25 a 250 BPM", 40, 10+(7*font));
+    
+    GUI_SetFont(GUI_FONT_32B_1);
+    GUI_DispStringAt("-", 40, 3+(3*font));
+    GUI_DispStringAt("+", 160, 5+(3*font));
+    
+    GUI_SetFont(GUI_FONT_20_1);
     float32_t borneBPM = *ptrBorneBPM;
     char sBorneBPM[10];
     gcvtf(borneBPM, 4, sBorneBPM);   
@@ -446,7 +470,6 @@ void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
     
     UpdateDisplay(CY_EINK_FULL_4STAGE, true);
     
-
 }
 
 void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
@@ -584,7 +607,7 @@ void Task_AffichageGraphique(void *data){
                         }
                                     
                     case MENU_TERTIAIRE_4:
-                        if (optionMenuTertiaire == 1){
+                        /*if (optionMenuTertiaire == 1){
                             vData = filteredIR;
                             afficherMenuPrincipal(vData);
                             vTaskResume(xSample);
@@ -598,8 +621,10 @@ void Task_AffichageGraphique(void *data){
                             vTaskResume(xSample);
                             currentPage = MENU_PRINCIPAL;
                             break;
-                        }
-                        
+                        }*/
+                        currentCourbe = RED;
+                        vData = filteredRED;
+                        afficherMenuTertiaire4();
                         break;
                     /////// menu quat 1 ///////
                         
@@ -616,6 +641,7 @@ void Task_AffichageGraphique(void *data){
                         else 
                             courantLEDir = 0;
                         afficherMenuQuat1(&courantLEDir, &optionMenuTertiaire);
+                        break;
                     /////// Quat 2 //////
                     case MENU_QUAT_2_1:
                         borneMaxBPM -= 5;
@@ -646,8 +672,14 @@ void Task_AffichageGraphique(void *data){
                 
                 if (currentPage == MENU_SECONDAIRE)
                     updateMenuSecondaire(&optionMenuSecondaire);
-                else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3 || currentPage == MENU_TERTIAIRE_4){
+                else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3){
                     updateMenuTertiaire(&optionMenuTertiaire);
+                }
+                ////// menu tertiaire 4 (affichage courbe) //////
+                else if(currentPage == MENU_TERTIAIRE_4){
+                    currentCourbe = IR;
+                    vData = filteredIR;
+                    afficherMenuTertiaire4();                
                 }
                 
                 ////// menus quat 1 //////
@@ -703,11 +735,15 @@ void Task_AffichageGraphique(void *data){
                     vTaskResume(xSample);
                     currentPage = MENU_PRINCIPAL;
                 }
-                else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3 || currentPage == MENU_TERTIAIRE_4){
+                else if(currentPage == MENU_TERTIAIRE_1 || currentPage == MENU_TERTIAIRE_2 || currentPage == MENU_TERTIAIRE_3){
                     afficherMenuSecondaire(&optionMenuSecondaire);
                     currentPage = MENU_SECONDAIRE;
                 }
-                
+                                ////// menu tertiaire 4 (affichage courbe) //////
+                else if(currentPage == MENU_TERTIAIRE_4){
+                    afficherMenuPrincipal(vData);
+                    currentPage = MENU_PRINCIPAL;
+                }
                 ////// menus quat 1 //////
                 else if(currentPage == MENU_QUAT_1_1){        
                     // appel fonction qui ecrit dans le registre LED rouge 

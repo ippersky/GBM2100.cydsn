@@ -31,17 +31,16 @@
 
 #include "variables.h"   
 #include "touch_task.h"     // pour avoir access a la queue et MACROs de touch_data_t
-    
+#include "MAX30102.h"
 
   
 extern uint8 imageBufferCache[CY_EINK_FRAME_SIZE];  // declaration dans affichage.c 
-//extern int16_t vecteurConverti[160];
-//extern int16_t vecteurAffichage[100];
 
 
 #define GET_SIZE(data)      sizeof(data)/sizeof(int32_t);
-//#define MENU_PRINCIPAL      0       // en hexa ??
-//#define MENU_SECONDAIRE     1 
+
+#define RED     0u
+#define IR      1u
 
 typedef enum
 {
@@ -66,8 +65,6 @@ char *gcvtf(float val, int precision, char *buf);
 
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle);
-void ClearScreen(void);
-void WaitforSwitchPressAndRelease(void);
 
 void DisplayInit(void);
 
@@ -79,18 +76,7 @@ void updateParametres(float32_t SPO2, float32_t BPM);
 //void afficherMenuPrincipal(void);
 
 
-void afficherMenuSecondaire(uint8_t * ptrOptionPresent);
-void updateMenuSecondaire(uint8_t * ptrOptionPresent);
-
-
-void afficherMenuTertiaire1(uint8_t * ptrOptionPresent);
-void afficherMenuTertiaire2(uint8_t * ptrOptionPresent);
-void afficherMenuTertiaire3(uint8_t * ptrOptionPresent);
-void afficherMenuTertiaire4(uint8_t * ptrOptionPresent);
-void updateMenuTertiaire(uint8_t * ptrOptionPresent);
 void afficherMenuPrincipal(uint32_t *vData);
-
-
 
 
 void Task_AffichageGraphique(void *data);
