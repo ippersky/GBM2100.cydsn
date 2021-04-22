@@ -43,17 +43,7 @@ volatile SemaphoreHandle_t active_task;
 
 
 /*************************************************************************/
-/*!
- * @ Résumé Cette fonction permet d'écrire une valeur 
- * dans un registre du BMI160.
- *
- * @param[in] dev_adresse  : adresse fixe du capteur
- * @param[in] reg_adresse  : adresse du registre dans lequel il faut écrire
- * @param[in] data         : tableau où les données contenant les valeurs à écrire
- * @param[in] length       : nombre de bits à écrire
- * 
- *
- * @return 0
+/*
  * 
  */
 
@@ -66,17 +56,7 @@ void isr_bouton(void){
 
 }
 
-/*!
- * @ Résumé Cette fonction permet d'écrire une valeur 
- * dans un registre du BMI160.
- *
- * @param[in] dev_adresse  : adresse fixe du capteur
- * @param[in] reg_adresse  : adresse du registre dans lequel il faut écrire
- * @param[in] data         : tableau où les données contenant les valeurs à écrire
- * @param[in] length       : nombre de bits à écrire
- * 
- *
- * @return 0
+/*
  * 
  */
 

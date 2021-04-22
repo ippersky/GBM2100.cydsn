@@ -140,7 +140,7 @@ void get_accData ()
         
          if(bmi160Status.bit.anym==1)
         {
-            printf("Interruption!\r\n");                                            // S'il y a eu une interruption, on met le flag a ON
+                                                       // S'il y a eu une interruption, on met le flag a ON
             bmi160Status.bit.anym=0;
             flagMOUVEMENT = ON;
             
@@ -188,9 +188,9 @@ void anyMotionInt_set()
     int_config.int_type_cfg.acc_any_motion_int.anymotion_x=BMI160_ENABLE;       // Enable le any motion interrupt sur x
     int_config.int_type_cfg.acc_any_motion_int.anymotion_y=BMI160_ENABLE;       // Enable le any motion interrupt sur y
     int_config.int_type_cfg.acc_any_motion_int.anymotion_z=BMI160_ENABLE;       // Enable le any motion interrupt sur 
-    int_config.int_type_cfg.acc_any_motion_int.anymotion_dur=3;                 // Any motion duration
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_dur=2;                 // Any motion duration
     
-    int_config.int_type_cfg.acc_any_motion_int.anymotion_thr=10;                // L'interruption va être générée si la valeur de deux accélérations consécutives dépassent thr
+    int_config.int_type_cfg.acc_any_motion_int.anymotion_thr=85;                // L'interruption va être générée si la valeur de deux accélérations consécutives dépassent thr
     
     resultat=bmi160_set_int_config(&int_config,&bmi160Sensor); // Set le any motion interrupt
     
