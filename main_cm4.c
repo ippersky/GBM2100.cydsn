@@ -9,15 +9,10 @@
 #include "LCDConf.h"
 #include <stdlib.h>
 #include "algorithme.h"
-
-//#include <stdio.h>  //?
-//#include <unistd.h> //?
-
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "task.h"     
 #include "semphr.h"
-
 #include "display_task.h"
 #include "touch_task.h"
 #include "MAX30102.h"
@@ -25,7 +20,6 @@
 #include "bmi160_task.h"
 #include "bmi160.h"
 #include "bmi160_defs.h"
-//#include "sample_task.h"
 
 
 /* Priorities of user tasks in this project */
@@ -38,34 +32,32 @@
 
 
 /* Stack sizes of user tasks in this project */
-#define DISPLAY_TASK_STACK_SIZE     (1024u)//1024 
+#define DISPLAY_TASK_STACK_SIZE     (1024u)
 #define TOUCH_TASK_STACK_SIZE       (configMINIMAL_STACK_SIZE)
 #define BOUTON_TASK_STACK_SIZE      (configMINIMAL_STACK_SIZE)
 
 
-
 /* Variables globales*/
-
 volatile SemaphoreHandle_t bouton_semph;
 volatile SemaphoreHandle_t active_task;
 
 
-
-
-
-
-
-// Image buffer cache //
-//uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
-
-
-
 /*************************************************************************/
+/*!
+ * @ Résumé Cette fonction permet d'écrire une valeur 
+ * dans un registre du BMI160.
+ *
+ * @param[in] dev_adresse  : adresse fixe du capteur
+ * @param[in] reg_adresse  : adresse du registre dans lequel il faut écrire
+ * @param[in] data         : tableau où les données contenant les valeurs à écrire
+ * @param[in] length       : nombre de bits à écrire
+ * 
+ *
+ * @return 0
+ * 
+ */
+
 void isr_bouton(void){
-    //touch_data_t currentTouch = BUTTON2_TOUCHED;
-    //xQueueSendFromISR(touchDataQ, &currentTouch, NULL);
-
-
     
     xSemaphoreGiveFromISR(bouton_semph, NULL);
     CyDelay(1000);      // more or less ??
@@ -74,6 +66,19 @@ void isr_bouton(void){
 
 }
 
+/*!
+ * @ Résumé Cette fonction permet d'écrire une valeur 
+ * dans un registre du BMI160.
+ *
+ * @param[in] dev_adresse  : adresse fixe du capteur
+ * @param[in] reg_adresse  : adresse du registre dans lequel il faut écrire
+ * @param[in] data         : tableau où les données contenant les valeurs à écrire
+ * @param[in] length       : nombre de bits à écrire
+ * 
+ *
+ * @return 0
+ * 
+ */
 
 void Task_Bouton2(void *arg){
     
@@ -95,118 +100,88 @@ void Task_Bouton2(void *arg){
 
     }
 }
-/*************************************************************************/
+
+/*!
+ * @ Résumé Cette tâche permet l'acquisition des données
+ * et la vérification de l'interruption.
+ *
+ * @param[in] : none
+ *
+ * @return none
+ * 
+ */
 void vSample_task(void *arg){
     
     (void) arg;
     for (;;){
-    
-        // Note : pourrait ajouter un message : acquisition en cours, veullez attendre 10 sec. Voici le graphique de l'acquisition précédente.
-        //                                      après 10 secondes, veuillez peser sur le boutons 2 pour voir le graphique de l'acquisition prise. 
-        //                                      ou reprendre une nouvelle acquisition. Ou juste mentionner dans le mode d'utilisation.
-        
-        //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
-    
-            for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
-            {
-                get_accData ();                             // Regarde s'il y a du mouvement et si oui active l'interruption
-                readFIFO(red, ir, indexBuffer);             // Procède à la lecture des données
-                vTaskDelay(pdMS_TO_TICKS(3));
-                   
-            }
-            if(indexBuffer == BUFFER_LENGTH){
-                indexBuffer = 0;                            // Lorsque le buffer est plein, on reprend depuis le début
-                UART_1_PutString("////////////////////////////////////////////////////////////////////");
-                //xSemaphoreGive(active_task);
-                vTaskDelay(pdMS_TO_TICKS(500));
-                //vTaskPrioritySet(vSample_task, TASK_FILTER_PRIORITY);
-                vTaskResume(xFiltering);
-                vTaskSuspend(xSample);
-            //} 
-            }
+           
+        for(indexBuffer=0; indexBuffer<BUFFER_LENGTH; indexBuffer++)
+        {
+            get_accData ();                             // Regarde s'il y a du mouvement et si oui active l'interruption
+            readFIFO(red, ir, indexBuffer);             // Procède à la lecture des données
+            vTaskDelay(pdMS_TO_TICKS(3));
+               
+        }
+        if(indexBuffer == BUFFER_LENGTH){
+            indexBuffer = 0;                            // Lorsque le buffer est plein, on reprend depuis le début
+            vTaskResume(xFiltering);
+            vTaskSuspend(xSample); 
+        }
     
     }
-            
-        
-    //}
-    
-    //}   
+
 }
 
-
-/*********************************************************************/
+/*!
+ * @ Résumé Cette tâche permet de filtre les signaux acquis.
+ *
+ * @param[in] : none
+ *
+ * @return none
+ * 
+ */
 
 void vFiltering_task(void *arg){
     (void) arg;
     for(;;){
  
-    //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
-        
-        
         filtre(red, filteredRED);
         filtre(ir, filteredIR);
         
-        //xSemaphoreGive(active_task);
-        vTaskDelay(pdMS_TO_TICKS(500));
-        
-        
         vTaskResume(xResults);
         vTaskSuspend(xFiltering);
-        
-    //}
     }
     
 }
 
-/************************************************************************/
+/*!
+ * @ Résumé Cette tâche calcule le BPM et le SpO2 
+ *
+ * @param[in] : none
+ * 
+ * @return none
+ * 
+ */
 
 void vResults(void *arg){
     (void) arg;
     for(;;){
-    //if(xSemaphoreTake(active_task, portMAX_DELAY) == pdTRUE){
     
         if(indexBuffer == 0){
             SPO2 = calculSpO2(red, ir, 0, BUFFER_LENGTH);
             BPM = HeartRate(filteredIR, 0, BUFFER_LENGTH);
-            char sSpo2[5];
-            itoa(SPO2, sSpo2, 10);
-            UART_1_PutString("spo2 \n\r");
-            UART_1_PutString(sSpo2);
-            char sBpm[5];
-            itoa(BPM, sBpm, 10);
-            UART_1_PutString("\n\r");
-            UART_1_PutString("bpm \n\r");
-            UART_1_PutString(sBpm);
-            UART_1_PutString("///////////////////////////////////////////////////////////////////////// \n\r");
         }
-        vTaskDelay(pdMS_TO_TICKS(500));
-        //vTaskResume(xSample);
-        vTaskSuspend(xResults);
-        //afficherMenuPrincipal(filteredRED);
-    }
         
-        /*
-        else{
-            spo2 = calculSpO2(red, ir, BUFFER_LENGTH/2, BUFFER_LENGTH);
-            bpm = HeartRate(filteredRED, BUFFER_LENGTH/2, BUFFER_LENGTH);
-            char sSpo2[5];
-            itoa(spo2, sSpo2, 10);
-            UART_1_PutString(sSpo2);
-        }
-        */
-    //}
-    //xSemaphoreGive(active_task);
+        vTaskSuspend(xResults);
+    }
+       
 }
 
-
-/*************************************************************************/
+/***************************************************************/
 
 int main(void)
 {
     bouton_semph = xSemaphoreCreateBinary();
-    //active_task = xSemaphoreCreateBinary();
-    //xSemaphoreGive(active_task);
-    
     
     __enable_irq(); /* Enable global interrupts. */
     
@@ -215,20 +190,9 @@ int main(void)
     MAX30102_config();
     UART_1_Start();
     Task_Motion();
-    
-    
-    /* Initialisation de CapSense */
-    
-    //CapSense_Start();
-    //CapSense_ScanAllWidgets();
-    
-    /* Initialisation des tasks */
-        /* Create the queues. See the respective data-types for details of queue
-       contents */
-    
+
     touchDataQ = xQueueCreate(10, sizeof(touch_data_t));
     
-        
     Cy_SysInt_Init(&Bouton_ISR_cfg, isr_bouton);
     NVIC_ClearPendingIRQ(Bouton_ISR_cfg.intrSrc);
     NVIC_EnableIRQ(Bouton_ISR_cfg.intrSrc);
@@ -236,13 +200,12 @@ int main(void)
          
     /* Create the user Tasks. See the respective Task definition for more
        details of these tasks */       
+    
     xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
 
     xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
     xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
-    
-    //xTaskCreate(vtraitement,"Traitement du signal",5000,NULL, TASK_DISPLAY_PRIORITY,NULL); //ERREUR ICI
     
     xTaskCreate(vSample_task, "Acquisition",1024,NULL, TASK_SAMPLE_PRIORITY,&xSample);
     
@@ -252,31 +215,14 @@ int main(void)
     
     vTaskSuspend(xFiltering);
     vTaskSuspend(xResults);
-    // vTaskSuspend(xSample) --> but : doit peser sur le bouton pour que le graphique s'actualise, besoin de tasksuspend?
-    
-    
-    
-    /* Initialize thread-safe debug message printing. See uart_debug.h header file
-       to enable / disable this feature */
-    //DebugPrintfInit();
     
     /* Start the RTOS scheduler. This function should never return */
     vTaskStartScheduler();
     
-    /* Should never get here! */ 
-    //DebugPrintf("Error!   : RTOS - scheduler crashed \r\n");
 
     /* Halt the CPU if scheduler exits */
     CY_ASSERT(0);
-    
-    
-    
-    
-    while(CapSense_IsBusy()); // ?? du CapSense Example
-    for(;;)
-    {
-        
-    }
+
 }
 
 /* [] END OF FILE */

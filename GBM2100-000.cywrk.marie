@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Header Files\display_task.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GBM2100-000\GBM2100\CM4 (Core 1)\Source Files\main_cm4.c">
 <ExpandedNodeIds>
 <v>GBM2100-000</v>
 <v>GBM2100-000\GBM2100</v>
@@ -297,19 +297,13 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\main_cm4.c" />
-<name v=".\display_task.c" />
-<name v=".\algorithme.c" />
-<name v=".\MAX30102.c" />
 <name v=".\MAX30102.h" />
-<name v=".\algorithme.h" />
-<name v=".\variables.c" />
 <name v=".\variables.h" />
 <name v=".\bmi160_task.h" />
-<name v=".\bmi160_task.c" />
 <name v=".\BMI160_driver-master\bmi160_defs.h" />
 <name v=".\Generated_Source\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c" />
 <name v=".\display_task.h" />
+<name v=".\main_cm4.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -317,7 +311,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1094, 391" SelectedTabbedMdiWindow="bb92e98f-3e8f-4279-a3b4-4be1dfd85d4a"><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\main_cm4.c" Guid="6e5fa880-16b0-44b1-aa3f-38eee9eec5dc" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\display_task.c" Guid="bb92e98f-3e8f-4279-a3b4-4be1dfd85d4a" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\algorithme.c" Guid="bb3fb41e-3ad3-4e96-b493-a03031e675a6" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.c" Guid="6bcc414b-2e23-4ec9-9bb5-763a78740ed9" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.h" Guid="661c6143-c2f2-4563-b3e3-eafb5a1ad252" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\algorithme.h" Guid="0b67dae0-f8c5-420f-89a8-5259cd1465a7" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\variables.c" Guid="8124417a-900a-4c31-9039-619fa831b4c9" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\variables.h" Guid="2d2057c2-caa2-40b1-be60-cec939124737" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\bmi160_task.h" Guid="ab16a47a-ccac-4167-bf44-b86cc2dc9421" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\bmi160_task.c" Guid="6bb6548c-3a1e-4b95-ad68-06cde85c9866" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\BMI160_driver-master\bmi160_defs.h" Guid="b5dce81d-0f4a-470d-8062-6946ed492bcb" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c" Guid="8093d030-dae1-4a92-a441-20aad21d1abb" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="85c485fa-e7be-4d10-a4f5-c37adeac9399" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\display_task.h" Guid="00d879ba-3635-49a8-928c-10e355321624" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="981, 391" SelectedTabbedMdiWindow="88b24747-e0be-4649-8ae8-d9beecdf65ec"><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\MAX30102.h" Guid="661c6143-c2f2-4563-b3e3-eafb5a1ad252" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\variables.h" Guid="2d2057c2-caa2-40b1-be60-cec939124737" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\bmi160_task.h" Guid="ab16a47a-ccac-4167-bf44-b86cc2dc9421" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\BMI160_driver-master\bmi160_defs.h" Guid="b5dce81d-0f4a-470d-8062-6946ed492bcb" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\Generated_Source\PSoC6\pdl\drivers\peripheral\syslib\cy_syslib.c" Guid="8093d030-dae1-4a92-a441-20aad21d1abb" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\display_task.h" Guid="00d879ba-3635-49a8-928c-10e355321624" /><DocumentWindow Key="C:\Users\marie\Documents\Polytechnique\Session 4 (hiver 2021)\GBM2100 Projets\GBM2100.cydsn\main_cm4.c" Guid="88b24747-e0be-4649-8ae8-d9beecdf65ec" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

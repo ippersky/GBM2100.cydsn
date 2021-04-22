@@ -16,7 +16,6 @@
 #define ADRESSE_MAX_RD 0x57
 
 // Registres des différentes composantes du capteur MAX30102
-
 #define REG_INTR_STAT_1 0x00
 #define REG_INTR_STAT_2 0x01
 #define REG_INTR_ENABLE_1 0x02
@@ -38,8 +37,6 @@
 #define REG_REVISION_ID 0xFE
 #define REG_PART_ID 0xFF
 #define I2C_TIMEOUT (100UL)
-
- 
 
 uint8_t readRegistre(uint8_t adresse);
 void writeRegistre(uint8_t data, uint8_t adresse);

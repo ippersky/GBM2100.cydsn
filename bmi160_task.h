@@ -16,8 +16,6 @@
 static struct bmi160_dev bmi160Sensor;
 union bmi160_int_status bmi160Status; 
 
-
-
 static int8_t bmi160Read(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
 static int8_t bmi160Write(uint8_t dev_adresse, uint8_t reg_adresse, uint8_t *data, uint16_t length);
 static void bmi160Config ();

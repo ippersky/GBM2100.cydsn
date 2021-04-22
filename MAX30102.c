@@ -34,7 +34,7 @@ writeRegistre(REG_OVFLOW_COUNTER, 0x00);
 
 writeRegistre(REG_FIFO_RD,0x00);
         
-writeRegistre(REG_FIFO_CONFIG, 0x00);          //No sample averaging ; FIFO_ROLLOVER : Enable ; 15 empty data in FIFO when interrupt is issued //1f
+writeRegistre(REG_FIFO_CONFIG, 0x00);          //No sample averaging ; FIFO_ROLLOVER : Enable ; 0 empty data in FIFO when interrupt is issued
         
 writeRegistre(REG_MODE_CONFIG, 0x03);          //SPO2 Mode (Red and IR)
        
@@ -140,22 +140,13 @@ void readMultipleBytes(uint8_t baseAddress, uint8_t *buffer, uint8_t length)
  * 
  */
 void readFIFO(uint32_t *red_LED, uint32_t *ir_LED, uint16_t compteur){
-    //ou remplacer par tableau
+    
     uint8_t i2c_data [6];
         
     readMultipleBytes(REG_FIFO_DATA,i2c_data,6);                                        // Lecture de 6 bytes à la fois. 3 bytes pour le rouge et 3 byte pour l'infrarouge.
     red_LED[compteur]=((0b00000011&i2c_data[0])<<16)+(i2c_data[1]<<8)+(i2c_data[2]);    // Prise des 18 premiers bits pour le RED channel
     ir_LED[compteur]=((0b00000011&i2c_data[3])<<16)+(i2c_data[4]<<8)+(i2c_data[5]);     // Prise des 18 prochains bits pour le IR channel
-    
-    
-    // vérification bonnes données
-    char cRed[6];
-    itoa(red_LED[compteur], cRed, 10);
-    UART_1_PutString(cRed);
-    UART_1_PutString("\n\r");
-    
-    
-    
+
 }
 
 

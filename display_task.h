@@ -27,7 +27,7 @@
 #include "queue.h"
 #include "task.h"     
 #include "semphr.h"
-//#include "params.h"
+
 
 #include "variables.h"   
 #include "touch_task.h"     // pour avoir access a la queue et MACROs de touch_data_t
