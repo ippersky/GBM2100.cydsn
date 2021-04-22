@@ -206,12 +206,7 @@ Return: None
 *******************************************************************************/
 void afficherMenuPrincipal(uint32_t * vData){
     
-    // en argument : int16_t * vConverti, int16_t * vAffichage
-    //size_t longueurData = *ptrLongueurData;
-    
-    
-    //if(xSemaphoreTake == TRUE)
-    //int longueurAffichage = (longueurData-indexDebut)/espacement;
+
     GUI_Clear();
     
     convertirVecteurEnInt16(vecteurConverti, vData, longueurData);
@@ -220,19 +215,25 @@ void afficherMenuPrincipal(uint32_t * vData){
     
     updateParametres(SPO2, BPM, currentCourbe);
     
-    //UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    
-    
-    //GiveSemaphore
-    //}
+
    
 
 }
 
 
+/*******************************************************************************
+Fonction : void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)
 
-//////////////////UPDATE PARAMETRES////////////////////////
-void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // mettre en argument les variables de bornes et flagAlarme ??
+Sommaire : Update les parametres : BPM, SPO2 et la courbe présentement affichée
+Si les flags pour les alarmes sont levés, affiche les messages d'alarme correspondant. 
+
+Parametres :  float32_t SPO2 (valeur du SPO2)
+float32_t BPM (valeur du BPM)
+uint8_t currentCourbe (la courbe presentement affichée)
+
+Return: None
+*******************************************************************************/
+void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe) 
 {
     char sSPO2[10];
     gcvtf(SPO2, 4, sSPO2);
@@ -316,8 +317,16 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // 
 
 
 
+/*******************************************************************************
+Fonction : void afficherMenuSecondaire(uint8_t * ptrOptionPresent)
 
-//////////////////AFFICHER MENU SECONDAIRE////////////////////////
+Sommaire : Affiche le menu secondaire, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1. 
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+
+Return: None
+*******************************************************************************/
 void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
     
     uint8_t font = 20;
@@ -342,6 +351,15 @@ void afficherMenuSecondaire(uint8_t * ptrOptionPresent){
     
 }
 
+/*******************************************************************************
+Fonction : void updateMenuSecondaire(uint8_t * ptrOptionPresent)
+
+Sommaire : Update l'emplacement du curseur selon l'option actuelle 
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+
+Return: None
+*******************************************************************************/
 void updateMenuSecondaire(uint8_t * ptrOptionPresent){
     
     uint8_t font = 20;
@@ -377,23 +395,16 @@ void updateMenuSecondaire(uint8_t * ptrOptionPresent){
 
 }
 
-
-/////////// fonctions affichage des menus tertiaires /////////
-
 /*******************************************************************************
-* Fonction : void afficherMenuTertiaire1(uint8_t * ptrOptionPresent)
-********************************************************************************
-* Sommaire : Affiche le menu tertiaire 1  
-* 
-*
-* Parametres
-*  None
-*
-* Return:
-*  None
-*
-*******************************************************************************/
+Fonction : void afficherMenuTertiaire1(uint8_t * ptrOptionPresent)
 
+Sommaire : Affiche le menu tertiaire 1, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1.  
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire1(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -410,6 +421,16 @@ void afficherMenuTertiaire1(uint8_t * ptrOptionPresent){
         
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire2(uint8_t * ptrOptionPresent)
+
+Sommaire : Affiche le menu tertiaire 2, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1.  
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire2(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -426,7 +447,16 @@ void afficherMenuTertiaire2(uint8_t * ptrOptionPresent){
         
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire3(uint8_t * ptrOptionPresent)
 
+Sommaire : Affiche le menu tertiaire 3, en plaçant le curseur à l'option 1 et en écrivant dans 
+le pointeur pris en parametre que l'option est 1.  
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+
+Return: None
+*******************************************************************************/
 void afficherMenuTertiaire3(uint8_t * ptrOptionPresent){
 
     uint8_t font = 20;
@@ -466,7 +496,17 @@ void afficherMenuTertiaire4(uint8_t * ptrOptionPresent){
         
 }
 
-void afficherMenuTertiaire4_v2(){  // prendre en arg uint8_t currentCourbe, si currentCourbe n'est pas variable globale
+/*******************************************************************************
+Fonction : void afficherMenuTertiaire4()
+
+Sommaire : Affiche le menu tertiaire 4. Indique la courbe présentement affichée (rouge ou infrarouge) 
+
+Parametres :  None (Ne prend rien en parametre, car la variable indiquant la courbe présentement
+affichée est une variable globale)
+
+Return: None
+*******************************************************************************/
+void afficherMenuTertiaire4_v2(){  
     uint8_t font = 20;
     GUI_Clear();
     GUI_SetFont(GUI_FONT_20_1);
@@ -489,8 +529,16 @@ void afficherMenuTertiaire4_v2(){  // prendre en arg uint8_t currentCourbe, si c
 
 
 
-///////// fonction de update menus tertiaires ///////
 
+/*******************************************************************************
+Fonction : void updateMenuTertiaire(uint8_t * ptrOptionPresent
+
+Sommaire : Update l'emplacement du curseur selon l'option actuelle 
+
+Parametres :  uint8_t * ptrOptionPresent (pointeur vers la variable contenant l'option actuelle)
+
+Return: None
+*******************************************************************************/
 void updateMenuTertiaire(uint8_t * ptrOptionPresent){
     
     uint8_t font = 20;
@@ -512,8 +560,18 @@ void updateMenuTertiaire(uint8_t * ptrOptionPresent){
     }
 }
 
-////////// fonctions affichage des menus quaternaires //////////
 
+/*******************************************************************************
+Fonction : void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire)
+
+Sommaire : Affiche le menu quaternaire 1 : modifier le courant d'un LED. Dépendemment de l'option choisi au menu tertiaire, 
+affiche le courant pour la LED rouge ou le courant pour la LED IR. 
+
+Parametres : uint8_t * ptrCourantLED (pointeur vers le courant du LED)
+uint8_t * ptrOptionTertiaire (pointeur vers l'option choisi au menu tertiaire)
+
+Return: None
+*******************************************************************************/
 void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
 
     uint8_t font = 20;
@@ -548,6 +606,17 @@ void afficherMenuQuat1(uint8_t * ptrCourantLED, uint8_t * ptrOptionTertiaire){
 
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire)
+
+Sommaire : Affiche le menu quaternaire 2 : modifier une borne de l'alarme BPM. 
+Dépendemment de l'option choisi au menu tertiaire, affiche la borne maximale ou la borne minimale actuelle
+
+Parametres : float32_t * ptrBorneBPM (pointeur vers la valeur de la borne)
+uint8_t * ptrOptionTertiaire (pointeur vers l'option choisi au menu tertiaire)
+
+Return: None
+*******************************************************************************/
 void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
     
     uint8_t font = 20;
@@ -579,6 +648,18 @@ void afficherMenuQuat2(float32_t * ptrBorneBPM, uint8_t * ptrOptionTertiaire){
 
 }
 
+/*******************************************************************************
+Fonction : void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire)
+
+Sommaire : Affiche le menu quaternaire 3 : activer ou désactiver une alarme.
+Dépendemment de l'option choisi au menu tertiaire, affiche l'état actuel de l'alarme BPM ou 
+de l'alarme accéléromètre.
+
+Parametres : uint8_t * ptrFlagAlarme (pointeur vers l'état de l'alarme)
+uint8_t * ptrOptionTertiaire (pointeur vers l'option choisi au menu tertiaire)
+
+Return: None
+*******************************************************************************/
 void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
     
     uint8_t font = 20;
@@ -611,15 +692,21 @@ void afficherMenuQuat3(uint8_t * ptrFlagAlarme, uint8_t * ptrOptionTertiaire){
 
 
 
-////////////////////////// fonction du Task ////////////////////////////
+/*******************************************************************************
+Fonction : Task_Display(void *data)
 
+Sommaire : Fonction de la tâche d'affichage. Dépendamment de l'information 
+obtenue de la queue (quel bouton a été touché) et de la page de menu actuelle,
+effectue quelque chose. 
+
+Parametres : void *data  (pas utilisé dans la tâche)
+
+Return: None
+*******************************************************************************/
 void Task_Display(void *data){
    
-    //int32_t * vecteurData = (int32_t *)data;   
-    // si Task prend en argument le vecteur data original 
-    
-    DisplayInit();
-
+   
+    DisplayInit(); 
 
     
     uint8_t optionMenuSecondaire = 0;
@@ -639,10 +726,10 @@ void Task_Display(void *data){
     for(;;){
     
         rtosApiResult = xQueueReceive(touchDataQ, &touchData, portMAX_DELAY);
-        if (rtosApiResult == pdTRUE)
+        if (rtosApiResult == pdTRUE) // si on reçoit quelque chose de la queue
         {
     
-            if(touchData == BUTTON0_TOUCHED){   //aller a la prochaine page
+            if(touchData == BUTTON0_TOUCHED){   
                 switch(currentPage){
                     case MENU_PRINCIPAL:
                         afficherMenuSecondaire(&optionMenuSecondaire);

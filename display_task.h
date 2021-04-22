@@ -27,7 +27,7 @@
 #include "queue.h"
 #include "task.h"     
 #include "semphr.h"
-//#include "params.h"
+
     
 #include "touch_task.h"     // pour avoir access a la queue et MACROs de touch_data_t
     
@@ -39,8 +39,6 @@ extern uint8 imageBufferCache[CY_EINK_FRAME_SIZE];  // declaration dans affichag
 
 
 #define GET_SIZE(data)      sizeof(data)/sizeof(int32_t);
-//#define MENU_PRINCIPAL      0       // en hexa ??
-//#define MENU_SECONDAIRE     1 
 
 typedef enum
 {
@@ -48,7 +46,7 @@ typedef enum
     MENU_SECONDAIRE     = 1u,  
     MENU_TERTIAIRE_1    = 2u, 
     MENU_TERTIAIRE_2    = 3u,
-    MENU_TERTIAIRE_3    = 4u,          //0x04u,
+    MENU_TERTIAIRE_3    = 4u,          
     MENU_TERTIAIRE_4    = 5u,  
     MENU_QUAT_1_1       = 6u,
     MENU_QUAT_1_2       = 7u,

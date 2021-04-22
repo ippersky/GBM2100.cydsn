@@ -99,90 +99,17 @@ volatile SemaphoreHandle_t bouton_semph;
 
 
 
-/*******************************************************************************
-* Function Name: void UpdateDisplay(void)
-********************************************************************************
-*
-* Summary: This function updates the display with the data in the display 
-*			buffer.  The function first transfers the content of the EmWin
-*			display buffer to the primary EInk display buffer.  Then it calls
-*			the Cy_EINK_ShowFrame function to update the display, and then
-*			it copies the EmWin display buffer to the Eink display cache buffer
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-* Side Effects:
-*  It takes about a second to refresh the display.  This is a blocking function
-*  and only returns after the display refresh
-*
-*******************************************************************************/
 
 
 /*******************************************************************************
-* Function Name: void ClearScreen(void)
-********************************************************************************
-*
-* Summary: This function clears the screen
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
+Fonction : void isr_bouton(void)
+
+Sommaire : Fonction de l'interrupt du bouton 2 (bouton mécanique)
+Donne un sémaphore si il y a interruption. 
+
+Parametres : None
+Return: None
 *******************************************************************************/
-
-
-
-/*******************************************************************************
-* Function Name: void WaitforSwitchPressAndRelease(void)
-********************************************************************************
-*
-* Summary: This implements a simple "Wait for button press and release"
-*			function.  It first waits for the button to be pressed and then
-*			waits for the button to be released.
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-* Side Effects:
-*  This is a blocking function and exits only on a button press and release
-*
-*******************************************************************************/
-/*
-void WaitforSwitchPressAndRelease(void)
-{
-    // Wait for SW2 to be pressed 
-    while(Status_SW2_Read() != 0);
-    
-    // Wait for SW2 to be released
-    while(Status_SW2_Read() == 0);
-}
-*/
-
-/*******************************************************************************
-* Function Name: int main(void)
-********************************************************************************
-*
-* Summary: À Remplir
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-*******************************************************************************/
-
-
-
 void isr_bouton(void){
     //touch_data_t currentTouch = BUTTON2_TOUCHED;
     //xQueueSendFromISR(touchDataQ, &currentTouch, NULL);
@@ -196,7 +123,15 @@ void isr_bouton(void){
 
 }
 
+/*******************************************************************************
+Fonction : void isr_bouton(void)
 
+Sommaire : Fonction de la tâche du bouton 2. Reçoit sémaphore s'il y a interruption.
+Écrit dans la queue que le bouton 2 est touché. 
+
+Parametres : void *arg (pas utilisé)
+Return: None
+*******************************************************************************/
 void Task_Bouton2(void *arg){
     
     touch_data_t currentTouch = NO_TOUCH;

@@ -14,68 +14,58 @@
 
 
 
-////////////////// du CapSense Example //////////////////////
 
-
+// initialisation de la queue pour envoyer information sur le bouton appuyé
 QueueHandle_t touchDataQ;
 
 
 
 
+/*******************************************************************************
+Fonction : void Task_Touch(void * arg) 
 
-void Task_Touch(void * arg)      // void ou void * arg ??        
+Sommaire : Fonction de la tâche du touch CapSense. Vérifie s'il y a un bouton 
+touché et écrit l'information du bouton touché dans une queue. 
+
+Parametres : void *data  (pas utilisé dans la tâche)
+
+Return: None
+*******************************************************************************/
+void Task_Touch(void * arg)       
 {
-    //cy_status capSenseApiResult;
-    
-    //capSenseApiResult = CapSense_Start();
+
     CapSense_Start();
-    /*
-    if (capSenseApiResult== CY_RET_SUCCESS)
-    {
-        GUI_Clear();
-        GUI_SetFont(GUI_FONT_20_1);
-        GUI_DispStringAt("CapSense init reussi", 10, 10);
-        UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    }
-    else
-    {
-        GUI_Clear();
-        GUI_SetFont(GUI_FONT_20_1);
-        GUI_DispStringAt("CapSense init pas reussi", 10, 10);
-        UpdateDisplay(CY_EINK_FULL_4STAGE, true);
-    }
+
+    CapSense_ScanAllWidgets(); 
     
-    */
-    CapSense_ScanAllWidgets();  // pas dans le code exemple 
+    touch_data_t currentTouch;  
     
-    touch_data_t currentTouch;  // à initialiser ailleurs? car interupt bouton 
-                                // a besoin de ça aussi...?
     static bool oldBTN0=false;
     static bool oldBTN1=false;
     
     for(;;)
     {
-        if(!CapSense_IsBusy()){       ////// du CapSense test 1
+        if(!CapSense_IsBusy()){      
             CapSense_ProcessAllWidgets();
             
             currentTouch = NO_TOUCH;
 
-            if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID)){
+            if(CapSense_IsWidgetActive(CapSense_BUTTON0_WDGT_ID)){ // si le bouton 0 est touché 
                 if(!oldBTN0)
                     currentTouch = BUTTON0_TOUCHED;                
-                oldBTN0 = true;
+                oldBTN0 = true; // empêcher que le bouton 0 soit lu 2 fois de suite
             }
             else 
-                oldBTN0 = false;
+                oldBTN0 = false; // arrivera si aucun bouton est touché ou si bouton 1 est touché
             
             
-            if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID)){
+            if(CapSense_IsWidgetActive(CapSense_BUTTON1_WDGT_ID)){ // si le bouton 1 est touché 
                 if(!oldBTN1)
                     currentTouch = BUTTON1_TOUCHED; 
-                oldBTN1 = true;
+                oldBTN1 = true; // empêcher que le bouton 1 soit lu 2 fois de suite
             }
             else
-                oldBTN1 = false;
+                oldBTN1 = false; // arrivera si aucun bouton est touché ou si bouton 0 est touché
             
             if (currentTouch != NO_TOUCH){
                 xQueueSend( touchDataQ, &currentTouch, ( TickType_t ) 0 );            
