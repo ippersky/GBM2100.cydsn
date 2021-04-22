@@ -119,11 +119,12 @@ void vSample_task(void *arg){
         {
             get_accData ();                             // Regarde s'il y a du mouvement et si oui active l'interruption
             readFIFO(red, ir, indexBuffer);             // Procède à la lecture des données
-            vTaskDelay(pdMS_TO_TICKS(3));
+            vTaskDelay(pdMS_TO_TICKS(5));
                
         }
         if(indexBuffer == BUFFER_LENGTH){
-            indexBuffer = 0;                            // Lorsque le buffer est plein, on reprend depuis le début
+            indexBuffer = 0;     // Lorsque le buffer est plein, on reprend depuis le début
+            //vTaskDelay(pdMS_TO_TICKS(500));
             vTaskResume(xFiltering);
             vTaskSuspend(xSample); 
         }

@@ -152,7 +152,7 @@ void afficherMenuPrincipal(uint32_t * vData){
 
 
 //////////////////UPDATE PARAMETRES////////////////////////
-void updateParametres(float32_t SPO2, float32_t BPM)  // mettre en argument les variables de bornes et flagAlarme ??
+void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe)  // mettre en argument les variables de bornes et flagAlarme ??
 {
     char sSPO2[10];
     gcvtf(SPO2, 4, sSPO2);
