@@ -653,7 +653,7 @@ effectue quelque chose.
 Parametres : void *data  (pas utilisé dans la tâche)
 Return: None
 *******************************************************************************/
-void Task_AffichageGraphique(void *data){
+void Task_Display(void *data){
    
     
     DisplayInit();

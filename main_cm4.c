@@ -111,7 +111,6 @@ void vSample_task(void *arg){
         }
         if(indexBuffer == BUFFER_LENGTH){
             indexBuffer = 0;     // Lorsque le buffer est plein, on reprend depuis le début
-            //vTaskDelay(pdMS_TO_TICKS(500));
             vTaskResume(xFiltering);
             vTaskSuspend(xSample); 
         }
@@ -191,7 +190,7 @@ int main(void)
     
     xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
 
-    xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
+    xTaskCreate(Task_Display, "Task Display", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
     xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
     

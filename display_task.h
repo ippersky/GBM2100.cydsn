@@ -76,7 +76,7 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe);
 void afficherMenuPrincipal(uint32_t *vData);
 
 
-void Task_AffichageGraphique(void *data);
+void Task_Display(void *data);
 
 
     
