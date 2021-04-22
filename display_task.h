@@ -70,8 +70,8 @@ char *gcvtf(float val, int precision, char *buf);
 
 
 void UpdateDisplay(cy_eink_update_t updateMethod, bool powerCycle);
-void ClearScreen(void);
-//void WaitforSwitchPressAndRelease(void);
+
+
 
 void DisplayInit(void);
 
@@ -83,11 +83,11 @@ void updateParametres(float32_t SPO2, float32_t BPM, uint8_t currentCourbe);
 //void afficherMenuPrincipal(void);
 
 
-void Task_AffichageGraphique(void *data);
+void Task_Display(void *data);
 
 
 ///// essaie ////
-void Task_Touch(void * arg);
+//void Task_Touch(void * arg);
     
 #endif
 

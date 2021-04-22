@@ -251,11 +251,11 @@ int main(void)
          
     /* Create the user Tasks. See the respective Task definition for more
        details of these tasks */       
-    xTaskCreate(Task_Touch, "Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
+    xTaskCreate(Task_Touch, "CapSense Touch Task", TOUCH_TASK_STACK_SIZE, NULL, TASK_TOUCH_PRIORITY, NULL);
 
-    xTaskCreate(Task_AffichageGraphique, "Task A", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
+    xTaskCreate(Task_Display, "Display Task", DISPLAY_TASK_STACK_SIZE, NULL, TASK_DISPLAY_PRIORITY, NULL);
     
-    xTaskCreate(Task_Bouton2, "Task Bouton 2", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
+    xTaskCreate(Task_Bouton2, "Bouton 2 Task", BOUTON_TASK_STACK_SIZE, NULL, TASK_BOUTON_PRIORITY, NULL);
     
     /* Initialize thread-safe debug message printing. See uart_debug.h header file
        to enable / disable this feature */
